@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "cg-ember",
+  "description": "CG Ember: shortcuts that help summer camp staff get set up with Claude, keep their own work notes, learn as they go, and share the skills they build.",
+  "owner": {
+    "name": "Matt Kaufman"
+  },
+  "plugins": [
+    {
+      "name": "cg-ember",
+      "description": "Shortcuts for summer camp staff using Claude: set me up, pick up, wrap up, share this skill, and explain it plainly.",
+      "author": {
+        "name": "Matt Kaufman"
+      },
+      "source": "./plugins/cg-ember",
+      "category": "productivity"
+    }
+  ]
+}
