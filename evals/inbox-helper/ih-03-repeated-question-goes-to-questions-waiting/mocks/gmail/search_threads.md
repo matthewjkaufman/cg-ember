@@ -32,7 +32,7 @@
       "dana@pinehollowcamp.example"
      ],
      "date": "2026-10-03T07:48:00-04:00",
-     "subject": "Two kids next summer",
+     "subject": "Two children next summer",
      "snippet": "Hello, both my daughters want to come next summer. Is there a sibling discount? Thanks, Be",
      "label_ids": [
       "INBOX",

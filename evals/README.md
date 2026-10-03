@@ -8,7 +8,7 @@ Run from the repo root (not `plugins/cg-ember`: the CLI only accepts an eval fol
 the target, so the target is the repo root and each case names the plugin itself):
 
 ```
-claude plugin eval . --tag suite --runs 1 --scaffold --allow-tools Write Edit --max-cost-usd 20
+claude plugin eval . --tag suite --runs 1 --scaffold --allow-tools Write Edit --judge-model sonnet --no-publish --trust-plugin --max-cost-usd 20
 ```
 
 - `--scaffold` seeds each run's "Personal Notes" folder (a folder on the computer) from

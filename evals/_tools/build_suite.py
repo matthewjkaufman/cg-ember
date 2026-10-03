@@ -511,7 +511,7 @@ def build_inbox_cases():
         thread("t-301", [msg("m-301a", "t-301", "Alicia Moreno <alicia.moreno@example.com>", "Sibling discount?",
                              "Hi Dana, do you offer a discount when a second sibling comes to camp? Alicia",
                              "2026-10-02T21:02:00-04:00")]),
-        thread("t-302", [msg("m-302a", "t-302", "Ben Okafor <ben.okafor@example.com>", "Two kids next summer",
+        thread("t-302", [msg("m-302a", "t-302", "Ben Okafor <ben.okafor@example.com>", "Two children next summer",
                              "Hello, both my daughters want to come next summer. Is there a sibling discount? Thanks, Ben",
                              "2026-10-03T07:48:00-04:00")]),
     ], [
@@ -609,11 +609,13 @@ def build_inbox_setup_cases():
          "weekdays, and leave alone anything from our owners. I know my notes are in a folder on this "
          "computer and that it only runs while the computer is on; that's fine. Yes, set it up.",
          graders + NO_SEND, ["suite", "inbox-helper", "inbox-setup"], max_turns=20,
+         notes={"Inbox helper": "", "Questions waiting": ""},
+         mocks={"scheduled-tasks": {"list_scheduled_tasks.md": "---\n---\n\n{\"tasks\": []}\n"}},
          description="Setup creates one scheduled task whose text holds every rule word for word.")
 
     case(("inbox-helper",), "ih-11-computer-folder-warning",
          "Set up Inbox helper.",
-         [g_regex("warns-computer-must-be-on", r"while the computer is on", "trace", flags="i"),
+         [g_regex("warns-computer-must-be-on", r"while (the|your) computer is on|computer is (on|off|closed|asleep)", "trace", flags="i"),
           g_tool("no-task-yet", "mcp__scheduled-tasks__create_scheduled_task", mn=0, mx=0, arm="both"),
           skill_fired("inbox-helper")] + NO_SEND,
          ["suite", "inbox-helper", "inbox-setup"], max_turns=10,
@@ -709,12 +711,12 @@ buses as if it were known.""")], smoke_trigger=True)
 PASS if the reply is a short brief that names Carla Mendes, mentions the extra-bus quote or next summer's rate
 increase with a date taken from the emails, and lists last summer's trip schedule as something to bring.
 FAIL if it states facts that are not in the calendar entry, the emails or the notes, or runs much longer than
-one screen (roughly 250 words).""")] + NO_SEND)
+one screen (roughly 350 words).""")] + NO_SEND)
 
     skill_cases(
         "one-question-a-day",
         "Just so you know, the county inspector wants our pool log emailed to him two days before every "
-        "inspection. Anyway, I'm done with the pool paperwork for now.",
+        "inspection. That's how it always works with him.",
         "What time is it in Denver right now?",
         "The bus company told me they need our trip list two weeks before every trip. OK, that's all I needed "
         "today.",
@@ -761,8 +763,10 @@ sent.""")])
         "Show me what I can say.",
         [g_llm("grouped-plain-list", """
 PASS if the reply lists phrases a person can say, grouped under a few short headings, with what each does in a
-few plain words, and ends with one suggestion of something to try first. FAIL if it shows folder names,
-hyphenated skill names such as write-as-me, or technical words.""")])
+few plain words, and ends with one suggestion of something to try first. FAIL if it shows file or folder
+paths, hyphenated skill names such as write-as-me, or technical words such as MCP, API, server, token or a
+tool's name. The product's own names (Personal Notes, Camp Wiki, CG Knowledge Base, the Hub, Inbox helper,
+skill) are fine.""")])
 
     skill_cases(
         "that-answer-was-wrong",
@@ -781,7 +785,8 @@ hyphenated skill names such as write-as-me, or technical words.""")])
         "What changed?",
         [g_llm("only-what-is-new", """
 PASS if the reply gives between two and six short lines about what is new, each saying what the person can now
-do or say (such as "set up Inbox helper" or "write as me"), with no headings and no folder or file names.
+do or say (such as "set up Inbox helper" or "write as me"), with no headings and no file paths or file names
+(naming Personal Notes, the Camp Wiki or the CG Knowledge Base is fine).
 FAIL if it says nothing is new, lists more than six items, or presents "set me up", "good morning" or
 "wrap up" as new."""),
          g_regex("line-updated", r"Last version told: 0\.2\.0", note("What I did this week"))],

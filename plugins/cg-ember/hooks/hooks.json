@@ -3,11 +3,11 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "^mcp__.+__(([A-Za-z0-9]+[_.-])*(send|reply|forward|respond|invite|post|publish)([_.-][A-Za-z0-9_.-]*)?|([A-Za-z0-9]+[_.-])*share[_.-](file|folder|document|doc|item|drive[_.-]item|with)([_.-][A-Za-z0-9_.-]*)?|[A-Za-z0-9_.-]*(Send|Reply|Forward|Respond|Invite|Publish|Post)([A-Z][A-Za-z0-9]*)?|([A-Za-z0-9]+[_.-])*(send|reply|forward|respond|invite|post|publish)[A-Z][A-Za-z0-9]*|[A-Za-z0-9_.-]*share(File|Folder|Document|Item)[A-Za-z0-9]*|[A-Za-z0-9_.-]*Share(File|Folder|Document|Item)[A-Za-z0-9]*|(create|send|publish|update|schedule)[A-Za-z0-9]*Post[A-Za-z0-9]*|[A-Za-z0-9_.-]*schedule[_.-]?(message|send)[A-Za-z0-9_.-]*|[A-Za-z0-9_.-]*scheduled[_.-]send[A-Za-z0-9_.-]*|([A-Za-z0-9]+[_.-])*(update|delete|patch|move|cancel)[_.-]event([_.-][A-Za-z0-9_.-]*)?|(update|delete|patch|move|cancel)[A-Za-z0-9]*Event[A-Za-z0-9]*)$",
+        "matcher": "^mcp__.+__(([A-Za-z0-9]+[_.-])*([sS][eE][nN][dD]|[rR][eE][pP][lL][yY]|[fF][oO][rR][wW][aA][rR][dD]|[rR][eE][sS][pP][oO][nN][dD]|[iI][nN][vV][iI][tT][eE]|[pP][oO][sS][tT]|[pP][uU][bB][lL][iI][sS][hH])([_.-][A-Za-z0-9_.-]*)?|([A-Za-z0-9]+[_.-])*share[_.-](file|folder|document|doc|item|drive[_.-]item|with)([_.-][A-Za-z0-9_.-]*)?|[A-Za-z0-9_.-]*(Send|Reply|Forward|Respond|Invite|Publish)([A-Z][A-Za-z0-9]*)?|([A-Za-z0-9]+[_.-])*(send|reply|forward|respond|invite|post|publish)[A-Z][A-Za-z0-9]*|([A-Za-z0-9]+[_.-])*([sS][eE][nN][dD]|[rR][eE][pP][lL][yY]|[fF][oO][rR][wW][aA][rR][dD]|[pP][oO][sS][tT])([eE][mM][aA][iI][lL]|[mM][aA][iI][lL]|[mM][eE][sS][sS][aA][gG][eE]|[mM][eE][sS][sS][aA][gG][eE][sS]|[aA][lL][lL]|[dD][rR][aA][fF][tT]|[nN][oO][wW])([_.-][A-Za-z0-9_.-]*)?|[A-Za-z0-9_.-]*share(File|Folder|Document|Item)[A-Za-z0-9]*|[A-Za-z0-9_.-]*Share(File|Folder|Document|Item)[A-Za-z0-9]*|(create|send|publish|update|schedule)[A-Za-z0-9]*Post[A-Za-z0-9]*|[A-Za-z0-9_.-]*schedule[_.-]?(message|send)[A-Za-z0-9_.-]*|[A-Za-z0-9_.-]*scheduled[_.-]send[A-Za-z0-9_.-]*|([A-Za-z0-9]+[_.-])*(update|delete|patch|move|cancel)[_.-]event([_.-][A-Za-z0-9_.-]*)?|(update|delete|patch|move|cancel)[A-Za-z0-9]*Event[A-Za-z0-9]*)$",
         "hooks": [
           {
             "type": "command",
-            "command": "echo 'CG Ember never sends, replies, forwards, posts, shares, invites or changes an existing calendar event. Do not try another way. Write it as a draft where the person sends things from (an email reply is a new draft in that thread), and tell them in one sentence where the draft is.' >&2; exit 2",
+            "command": "echo 'Nothing is wrong. CG Ember never sends, replies, forwards, posts, shares, invites or changes an existing calendar event. Do not try another way. Write it as a draft where the person sends things from (an email reply is a new draft in that thread), and tell them in one sentence where the draft is.' >&2; exit 2",
             "timeout": 10
           }
         ]
@@ -17,7 +17,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "grep -Eq '\"(attendees|attendeeEmails|addedAttendees|guests|invitees)\"[[:space:]]*:[[:space:]]*(\\[[[:space:]]*[^]\"[:space:]]|\\[[[:space:]]*\"[^\"])' && { echo 'CG Ember never adds an event with guests, because that emails every guest. Create it with no guests, or write out the event details so the person can add it themselves.' >&2; exit 2; } || exit 0",
+            "command": "grep -Eq '\"(attendees|attendeeEmails|addedAttendees|guests|invitees)\"[[:space:]]*:[[:space:]]*(\\[[[:space:]]*[^]\"[:space:]]|\\[[[:space:]]*\"[^\"])' && { echo 'Nothing is wrong. CG Ember never adds an event with guests, because that emails every guest. Create it with no guests, or write out the event details so the person can add it themselves.' >&2; exit 2; } || exit 0",
             "timeout": 10
           }
         ]

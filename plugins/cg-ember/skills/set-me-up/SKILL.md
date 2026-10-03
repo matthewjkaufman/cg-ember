@@ -60,13 +60,18 @@ Check each one by trying something harmless: look up one recent email thread, li
 calendar events, search their files for one document. Read nothing out. If all three work,
 say so in one sentence and go to Step 2.
 
-**If any are missing, ask two things first, one at a time.**
+**If any are missing, ask two things first, one at a time.** If some already work, say
+which in one sentence first, and name only the missing ones in the questions below.
 
-The first question, word for word:
+The first question, word for word, with the missing ones named:
 
 > Before we connect your work email: has your company said it's OK to connect Claude to
 > your work accounts? If you're at a workshop, the person running it can tell you now. If
 > you don't know yet, we'll skip this part and come back to it.
+
+(When email already works, start it "Before we connect your files and calendar:", or
+whichever are missing. Never call something missing that you just found working.) Skip the
+second question when their email already works; you know what it is.
 
 If the answer is anything but yes, skip this step, do Steps 2, 3 and 5 with what works,
 and say these steps are waiting. Never push them past it.

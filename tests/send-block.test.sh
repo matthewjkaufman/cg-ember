@@ -21,7 +21,8 @@ EVENT_CMD="$(py -c 'import json,sys;print(json.load(open(sys.argv[1]))["hooks"][
 pass=0; fail=0
 ok() { pass=$((pass+1)); }
 bad() { fail=$((fail+1)); echo "WRONG $1"; }
-# JavaScript regex is what the app uses; node when present, else Python's re (same for these constructs).
+# The app uses JavaScript regular expressions; Python's re agrees on every construct used here
+# (Trevor confirmed with a real hook run, 2026-10-03).
 matches() { py -c 'import re,sys;sys.exit(0 if re.search(sys.argv[1],sys.argv[2]) else 1)' "$1" "$2"; }
 
 BLOCK=(
@@ -42,6 +43,9 @@ BLOCK=(
   # dashes, dots and camel case (Andy, 2026-10-03)
   mcp__x__send-email mcp__x__gmail-send mcp__x__reply-to-message mcp__x__messages.send
   mcp__slack__postMessage mcp__slack__chat_postMessage mcp__x__share-file mcp__x__update-event
+  # letter case and run-together names (Trevor, 2026-10-03)
+  mcp__x__GMAIL_SEND_EMAIL mcp__x__Send_Email mcp__x__sendemail mcp__x__sendmail mcp__x__replyall
+  mcp__x__chat_postmessage mcp__x__SLACK_SEND_MESSAGE mcp__x__OUTLOOK_REPLY_EMAIL
 )
 PASS_NAMES=(
   # measured
@@ -57,6 +61,8 @@ PASS_NAMES=(
   mcp__b7bd6534__advanced_search mcp__b7bd6534__get_file_content mcp__b7bd6534__get_download_url
   mcp__b7bd6534__get_upload_url mcp__b7bd6534__list_filesystem_by_path mcp__b7bd6534__whoami
   mcp__x__list-posts mcp__x__get-thread mcp__x__create-draft
+  mcp__bfa060d9__getBestTimeToPostByNetwork mcp__bfa060d9__getAnalyticsDataByMetrics mcp__x__getPostAnalytics
+  mcp__x__GMAIL_LIST_DRAFTS mcp__x__GMAIL_FETCH_EMAILS mcp__x__get_sender mcp__x__sender_info mcp__x__repost_count
   mcp__cg-hub__hub_hello mcp__cg-hub__share_skill mcp__cg-hub__hub_save_my_page
   mcp__cg-hub__hub_suggest_page mcp__cg-hub__hub_log_problem
   mcp__scheduled-tasks__create_scheduled_task mcp__scheduled-tasks__update_scheduled_task
@@ -67,7 +73,7 @@ PASS_NAMES=(
 )
 
 for n in "${BLOCK[@]}"; do matches "$SEND_RE" "$n" && ok || bad "should refuse: $n"; done
-# share_skill and create_scheduled_task are the plugin's own tools; check the expected ones pass.
+# share_skill is the Hub's tool and create_scheduled_task the app's; both must stay usable.
 for n in "${PASS_NAMES[@]}"; do
   if matches "$SEND_RE" "$n"; then bad "should pass: $n"; else ok; fi
 done
@@ -94,7 +100,7 @@ r() { echo "$1" | bash -c "$EVENT_CMD" >/dev/null 2>&1; echo $?; }
 [ "$(r "$in_text")" = 0 ] && ok || bad "the word attendees inside a description should pass"
 
 # Red control: the same check against a matcher with "reply" removed must miss the reply tool.
-broken="${SEND_RE//reply|/}"; broken="${broken//Reply|/}"
+broken="${SEND_RE//reply|/}"; broken="${broken//Reply|/}"; broken="${broken//\[rR\]\[eE\]\[pP\]\[lL\]\[yY\]|/}"
 if [ "$broken" = "$SEND_RE" ]; then bad "red control did not change the matcher"
 elif matches "$broken" mcp__c29f0049__reply; then bad "red control: broken matcher still caught reply"
 else ok; fi
