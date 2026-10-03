@@ -114,8 +114,12 @@ camps can sign in to, your name is shown as the person who made the skill.
   Claude Code on Windows runs them in Git Bash); Windows PowerShell cannot parse them, so
   there they would not block. The written rule in every skill is the control that holds
   either way. Run `bash tests/send-block.test.sh` after any change to it.
-- Test questions: `claude plugin eval plugins/cg-ember --eval-dir evals --runs 1
-  --max-cost-usd 10`. The suites live outside the plugin folder so they do not install.
+- Test questions live in `evals/` (see `evals/README.md`). From the repository root:
+  `claude plugin eval . --tag suite --runs 1 --scaffold --allow-tools Write Edit
+  --max-cost-usd 10`. The `control` case is left out of that run on purpose; it must fail.
+- The send block also refuses a few tools that only make drafts (for example a
+  `draft_reply` or `createReply` on some email connections), because their names look like
+  sending. That is deliberate: those drafts then appear in the conversation instead.
 - Nothing in this repository may name the company that owns it, a camp, or the person who
   made a skill. Run `grep -rliE "camp[g]roup" .` before every push; it must print nothing.
 - American spelling, no dashes joining two thoughts, "child" or "camper" and never the

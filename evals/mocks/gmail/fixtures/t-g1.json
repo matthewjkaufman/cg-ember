@@ -1,0 +1,38 @@
+{
+ "id": "t-g1",
+ "viewUrl": "https://mail.google.com/mail/u/0/#inbox/t-g1",
+ "messages": [
+  {
+   "id": "m-g1a",
+   "threadId": "t-g1",
+   "sender": "Carla Mendes <carla.mendes@fernwoodcoach.example>",
+   "to_recipients": [
+    "dana@pinehollowcamp.example"
+   ],
+   "date": "2026-09-22T10:05:00-04:00",
+   "subject": "Extra bus for trip days",
+   "snippet": "Hi Dana, I'm working on the quote for the extra bus on trip days and will have it to you s",
+   "plaintext_body": "Hi Dana, I'm working on the quote for the extra bus on trip days and will have it to you soon. Carla Mendes, Account Manager, Fernwood Coach Lines",
+   "label_ids": [
+    "INBOX",
+    "UNREAD"
+   ]
+  },
+  {
+   "id": "m-g1b",
+   "threadId": "t-g1",
+   "sender": "Carla Mendes <carla.mendes@fernwoodcoach.example>",
+   "to_recipients": [
+    "dana@pinehollowcamp.example"
+   ],
+   "date": "2026-10-01T15:40:00-04:00",
+   "subject": "Re: Extra bus for trip days",
+   "snippet": "Hi Dana, a heads-up before Monday: our rates for next summer are going up about 6 percent.",
+   "plaintext_body": "Hi Dana, a heads-up before Monday: our rates for next summer are going up about 6 percent. Could you bring last summer's trip schedule to our meeting so we can plan the extra bus? Carla Mendes, Account Manager, Fernwood Coach Lines",
+   "label_ids": [
+    "INBOX",
+    "UNREAD"
+   ]
+  }
+ ]
+}

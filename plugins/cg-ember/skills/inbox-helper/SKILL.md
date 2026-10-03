@@ -103,7 +103,8 @@ the drafts, and say so.
 
 The pick-up skill asks one waiting question a day. When the person asks for them all:
 
-1. Read **Questions waiting**. Ask the questions one at a time, the most-asked first.
+1. Read **Questions waiting** and **My answers**. Skip any question My answers already
+   covers. Ask the rest one at a time, the most-asked first.
 2. Save each answer, in their words, on the **My answers** page, with today's date and the
    question it answers. Check it against camp-background section 3 first.
 3. Offer once to draft replies now to the emails that asked it (the page lists their

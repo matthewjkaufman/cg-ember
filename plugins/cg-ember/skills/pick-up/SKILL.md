@@ -61,8 +61,8 @@ the Hub is not connected, skip this in silence.
 At most one of these, in this order, and only the first that applies:
 
 1. **The plugin was updated.** If the "Last version told" line at the bottom of What I did
-   this week is older than this plugin's version, or missing, do what the whats-new skill
-   says, in two or three lines.
+   this week is older than this plugin's version (the number in the first "## " heading of the whats-new skill's reference/changes.md, which is the newest), or missing, do what the whats-new skill
+   says, in two or three lines. If it is not older, say nothing about versions.
 2. **A new week.** If this is the first pick-up since the week changed and the "Last weekly
    note" line is not this week, write **What I learned about you this week**: the
    preferences and camp facts you saved quietly last week, one line each, in plain words.
@@ -87,7 +87,8 @@ On a first day, with nothing to hand over, the question is just "What's today?"
 
 ## Step 6: one waiting question from Inbox helper
 
-If the **Questions waiting** page in their Personal Notes holds a question, and the "Last
+Skip any waiting question that **My answers** already covers. If the **Questions
+waiting** page in their Personal Notes still holds a question, and the "Last
 daily question" line does not say today, ask the most-asked one, after Step 5 and only
 once they have answered it (never before they have said what today is):
 

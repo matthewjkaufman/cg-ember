@@ -1,3 +1,5 @@
 .DS_Store
 Thumbs.db
 *.zip
+evals/results/
+evals/_probe-layout/

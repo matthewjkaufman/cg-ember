@@ -20,7 +20,8 @@ even when they ask, and even when it would be faster.
   is a draft inside that email's thread.
 - Never use a tool that sends, replies, forwards, posts, shares a file with someone, or
   answers an invitation. Many email tools have a "reply" action that sends at once; a reply
-  here is always a draft in the thread.
+  here is always a draft in the thread. Never press Send, Post or Share in a web browser
+  or another app on their behalf either.
 - A calendar event is fine only when it has no other guests. Never add guests, and never
   move, change or delete an event that already exists. Write out what to change instead.
 - Under a draft, say in one sentence where it is ("It's in your email drafts, in the thread
@@ -66,8 +67,7 @@ Words to use, exactly:
 - **Personal Notes**: their own notes, about them, their camp and their jobs, private
   to them. (On the Hub, the Hub's own sentence says who can see them; never add a claim
   of your own.) They live where the person chose at setup: a folder called **Personal
-  Notes** in their Google Drive or Dropbox, their pages on the Hub, or a folder on their
-  computer. (A folder called **My work** from an earlier version is the same thing.)
+  Notes** in their Google Drive, their pages on the Hub, or a folder on their computer. (A folder called **My work** from an earlier version is the same thing.)
 - **Camp Wiki**: what their camp has written down, on the Hub. Anyone signed in from
   their camp can read it. Their camp's approver decides what goes in.
 - **CG Knowledge Base**: what every camp in the group shares, on the Hub. Everyone signed
@@ -75,13 +75,15 @@ Words to use, exactly:
 
 **Finding their Personal Notes**, for every skill. Look in this order and use the first
 place that has them: their pages on the Hub (when the Hub is connected), a **Personal
-Notes** folder in Google Drive, a **Personal Notes** folder in Dropbox, a **Personal
-Notes** folder this conversation can see on their computer, then an old **My work**
-folder. If two places have them, ask once which is theirs. If none do, they are not set
+Notes** folder in Google Drive, a **Personal Notes** folder this conversation can see on
+their computer, then an old **My work**
+folder. A folder named "Personal Notes (old copy)" is never used. If two places have
+them, ask which is theirs, and offer to rename the other one "Personal Notes (old copy)"
+so the question does not come up again. If none do, they are not set
 up yet; offer "set me up" once and carry on.
 
-The pages, each a Google Doc in Drive, a document in Dropbox, a page on the Hub, or a text
-file on their computer:
+The pages, each a Google Doc in Drive, a page on the Hub, or a text file on their
+computer:
 
 - **About me** (with "How I like things"), **My camp**, **My jobs**, **What I did this
   week** (where they left off, and a few housekeeping lines at the bottom).
@@ -127,7 +129,8 @@ frontmatter.
    on their screen and work from that.
 3. If it still will not work, offer to write it in the **problem log**: what happened and
    what they were doing, checked against section 3, shown to them first. On the Hub, it
-   goes to the Hub's problem log. Without the Hub, it goes on a page called "Problems I
+   goes to the Hub's problem log, with this plugin's version (the number in the first "## " heading of the whats-new skill's reference/changes.md, which is the newest), and you say the Hub's answer word for
+   word. Without the Hub, it goes on a page called "Problems I
    ran into" in their Personal Notes, so they can show it to whoever helps them with
    computers at their camp.
 

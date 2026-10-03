@@ -137,9 +137,10 @@ folder), say so in one sentence and go to Step 4, unless they asked to move them
 
 **Moving their notes** (for example from a folder on this computer to their Google Drive,
 when Inbox helper or they ask): make the same pages in the new place, copying each one
-exactly, open each to check it reads right, then say the old folder can stay or they can
-delete it themselves. Claude never deletes it. From then on the new place is used,
-because it is found first.
+exactly, and open each to check it reads right. Then ask once whether to rename the old
+folder to "Personal Notes (old copy)", so there is only one set in use; on a yes, rename
+it. Claude never deletes it; they can do that themselves later. A folder named "(old
+copy)" is never read or written again.
 
 **Otherwise, ask where they should live**, one question:
 
@@ -181,7 +182,7 @@ words. Keep each short.
 - **My jobs**: each repeated job on its own line, with how often.
 - **What I did this week**: a heading "Where I left off" with "Just set up" under it, a
   heading "This week" with today's date and "Set up Claude", and at the bottom the line
-  "Last version told:" followed by this plugin's version.
+  "Last version told:" followed by this plugin's version (the number in the first "## " heading of the whats-new skill's reference/changes.md, which is the newest).
 
 Open each one after making it to check it is there and reads right. Never put a camper's
 or a family's details in any of these, even if they mention one.

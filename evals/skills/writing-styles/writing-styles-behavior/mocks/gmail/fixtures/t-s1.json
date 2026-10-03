@@ -1,0 +1,21 @@
+{
+ "id": "t-s1",
+ "viewUrl": "https://mail.google.com/mail/u/0/#inbox/t-s1",
+ "messages": [
+  {
+   "id": "m-s1",
+   "threadId": "t-s1",
+   "sender": "Dana Whitfield <dana@pinehollowcamp.example>",
+   "to_recipients": [
+    "laura.keller@example.com"
+   ],
+   "date": "2026-09-21T16:00:00-04:00",
+   "subject": "Re: First day",
+   "snippet": "Hi Laura, the first day is June 28 and buses run as usual. Campers just need a water bottl",
+   "plaintext_body": "Hi Laura, the first day is June 28 and buses run as usual. Campers just need a water bottle and a snack. Thanks! Dana",
+   "label_ids": [
+    "SENT"
+   ]
+  }
+ ]
+}

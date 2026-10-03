@@ -1,0 +1,344 @@
+{
+ "tools": [
+  {
+   "name": "search_threads",
+   "description": "Lists email threads from the authenticated user's Gmail account, filtered by a Gmail query string. Returns thread ids and, for each, related messages with subject, snippet, sender, recipients and date. Full bodies are not returned; use get_thread for those.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Optional Gmail search query, for example 'in:inbox newer_than:1d'."
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Optional. Maximum threads to return, default 20, max 50."
+     },
+     "pageToken": {
+      "type": "string",
+      "description": "Optional page token."
+     },
+     "includeTrash": {
+      "type": "boolean",
+      "description": "Optional. Include threads in trash."
+     },
+     "view": {
+      "type": "string",
+      "enum": [
+       "THREAD_VIEW_UNSPECIFIED",
+       "THREAD_VIEW_METADATA_ONLY",
+       "THREAD_VIEW_MINIMAL"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "get_thread",
+   "description": "Retrieves one email thread with its messages. Drafts in the thread are omitted; use list_drafts to see drafts.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "threadId"
+    ],
+    "properties": {
+     "threadId": {
+      "type": "string",
+      "description": "Required. The thread id."
+     },
+     "messageFormat": {
+      "type": "string",
+      "enum": [
+       "MESSAGE_FORMAT_UNSPECIFIED",
+       "MINIMAL",
+       "FULL_CONTENT",
+       "METADATA_ONLY",
+       "PLAIN_TEXT",
+       "RAW"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "get_message",
+   "description": "Retrieves one email message by its message id. Does not return drafts.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "messageId"
+    ],
+    "properties": {
+     "messageId": {
+      "type": "string",
+      "description": "Required. The message id."
+     },
+     "messageFormat": {
+      "type": "string",
+      "enum": [
+       "MESSAGE_FORMAT_UNSPECIFIED",
+       "MINIMAL",
+       "FULL_CONTENT",
+       "METADATA_ONLY",
+       "PLAIN_TEXT",
+       "RAW"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "list_drafts",
+   "description": "Lists draft emails, with id, thread_id and recipients. An empty object {} means there are no drafts.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string"
+     },
+     "pageSize": {
+      "type": "integer"
+     },
+     "pageToken": {
+      "type": "string"
+     },
+     "view": {
+      "type": "string",
+      "enum": [
+       "DRAFT_VIEW_UNSPECIFIED",
+       "DRAFT_VIEW_METADATA_ONLY",
+       "DRAFT_VIEW_FULL"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "create_draft",
+   "description": "Creates a new draft email. If the draft is a reply to an existing message, pass that message's id in replyToMessageId. Returns the draft id, threadId and viewUrl.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "to": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "cc": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "bcc": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "subject": {
+      "type": "string"
+     },
+     "body": {
+      "type": "string",
+      "description": "Plain text body. Do not use Markdown."
+     },
+     "htmlBody": {
+      "type": "string"
+     },
+     "replyToMessageId": {
+      "type": "string",
+      "description": "Optional. The id of the message this draft replies to."
+     },
+     "attachments": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     }
+    }
+   }
+  },
+  {
+   "name": "update_draft",
+   "description": "Updates an existing draft email. Fields given overwrite the draft's fields.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "draftId"
+    ],
+    "properties": {
+     "draftId": {
+      "type": "string"
+     },
+     "to": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "cc": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "bcc": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "subject": {
+      "type": "string"
+     },
+     "body": {
+      "type": "string"
+     },
+     "htmlBody": {
+      "type": "string"
+     },
+     "attachments": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     }
+    }
+   }
+  },
+  {
+   "name": "send_message",
+   "description": "Sends a new email message immediately. To send an existing draft, provide draftId. To thread it, provide replyThreadId or replyToMessageId.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "to": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "cc": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "bcc": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "subject": {
+      "type": "string"
+     },
+     "body": {
+      "type": "string"
+     },
+     "htmlBody": {
+      "type": "string"
+     },
+     "draftId": {
+      "type": "string"
+     },
+     "replyThreadId": {
+      "type": "string"
+     },
+     "replyToMessageId": {
+      "type": "string"
+     },
+     "attachments": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     }
+    }
+   }
+  },
+  {
+   "name": "reply",
+   "description": "Replies to a specific email message (sends it). Supports reply-all via replyAll.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "messageId"
+    ],
+    "properties": {
+     "messageId": {
+      "type": "string"
+     },
+     "body": {
+      "type": "string"
+     },
+     "htmlBody": {
+      "type": "string"
+     },
+     "replyAll": {
+      "type": "boolean"
+     },
+     "to": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "cc": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "bcc": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     }
+    }
+   }
+  },
+  {
+   "name": "forward",
+   "description": "Forwards a specific email message (sends it), with optional comments in forwardText.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "messageId"
+    ],
+    "properties": {
+     "messageId": {
+      "type": "string"
+     },
+     "to": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "cc": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "bcc": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "forwardText": {
+      "type": "string"
+     },
+     "htmlBody": {
+      "type": "string"
+     }
+    }
+   }
+  }
+ ]
+}

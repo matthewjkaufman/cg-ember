@@ -1,0 +1,22 @@
+{
+ "id": "t-g3",
+ "viewUrl": "https://mail.google.com/mail/u/0/#inbox/t-g3",
+ "messages": [
+  {
+   "id": "m-g3a",
+   "threadId": "t-g3",
+   "sender": "Camp Supply Weekly <no-reply@campsupplyweekly.example>",
+   "to_recipients": [
+    "dana@pinehollowcamp.example"
+   ],
+   "date": "2026-10-02T06:00:00-04:00",
+   "subject": "This week's deals",
+   "snippet": "Save 20 percent on lanyards and craft kits this week only.",
+   "plaintext_body": "Save 20 percent on lanyards and craft kits this week only.",
+   "label_ids": [
+    "INBOX",
+    "CATEGORY_PROMOTIONS"
+   ]
+  }
+ ]
+}

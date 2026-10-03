@@ -77,6 +77,7 @@ write the line as in Step 4:
 
 ## When the pick-up skill runs this
 
-Pick-up runs this once, right after an update. Keep it inside pick-up's reply: the lines
+Pick-up runs this once, right after an update. If nothing is newer than their line, say
+nothing at all; the "Nothing new" sentence above is only for when they ask. Keep it inside pick-up's reply: the lines
 only, after the "where you left off" sentence, with no greeting of its own. Update the
 line the same way, so it is said once and never again.

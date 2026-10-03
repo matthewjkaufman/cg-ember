@@ -92,7 +92,9 @@ skill."
 
 This offer uses the one question a day that several skills share (the one-question-a-day
 skill lists them, and this offer comes last). Offer only if the "Last daily question" line
-is not today, and write today's date there when you offer. Never in the middle of work, and anything other than a clear yes is a no.
+is not today and the **Questions waiting** page holds nothing still unanswered (that
+question comes first, and the pick-up or one-question-a-day skill asks it), and write
+today's date there when you offer. Never in the middle of work, and anything other than a clear yes is a no.
 
 ## What never goes into the notes
 

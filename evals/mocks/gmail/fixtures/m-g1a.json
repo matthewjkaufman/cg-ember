@@ -1,0 +1,16 @@
+{
+ "id": "m-g1a",
+ "threadId": "t-g1",
+ "sender": "Carla Mendes <carla.mendes@fernwoodcoach.example>",
+ "to_recipients": [
+  "dana@pinehollowcamp.example"
+ ],
+ "date": "2026-09-22T10:05:00-04:00",
+ "subject": "Extra bus for trip days",
+ "snippet": "Hi Dana, I'm working on the quote for the extra bus on trip days and will have it to you s",
+ "plaintext_body": "Hi Dana, I'm working on the quote for the extra bus on trip days and will have it to you soon. Carla Mendes, Account Manager, Fernwood Coach Lines",
+ "label_ids": [
+  "INBOX",
+  "UNREAD"
+ ]
+}

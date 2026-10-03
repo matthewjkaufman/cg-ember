@@ -1,0 +1,26 @@
+---
+---
+
+{
+ "threads": [
+  {
+   "id": "t-601",
+   "messages": [
+    {
+     "id": "m-601a",
+     "sender": "Megan Brennan <megan.brennan@example.com>",
+     "to_recipients": [
+      "dana@pinehollowcamp.example"
+     ],
+     "date": "2026-10-02T20:40:00-04:00",
+     "subject": "Theo Brennan - inhaler before swim",
+     "snippet": "Hi Dana, Theo will need his inhaler before swim every day this summer. The nurse has the f",
+     "label_ids": [
+      "INBOX",
+      "UNREAD"
+     ]
+    }
+   ]
+  }
+ ]
+}

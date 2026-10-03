@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: ih-08-thread-already-answered-is-skipped
+context:
+  scaffold_script: scaffold.sh

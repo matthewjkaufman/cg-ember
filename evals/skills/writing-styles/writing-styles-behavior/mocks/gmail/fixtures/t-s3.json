@@ -1,0 +1,21 @@
+{
+ "id": "t-s3",
+ "viewUrl": "https://mail.google.com/mail/u/0/#inbox/t-s3",
+ "messages": [
+  {
+   "id": "m-s3",
+   "threadId": "t-s3",
+   "sender": "Dana Whitfield <dana@pinehollowcamp.example>",
+   "to_recipients": [
+    "efua.osei@example.com"
+   ],
+   "date": "2026-09-23T16:00:00-04:00",
+   "subject": "Re: Lunch",
+   "snippet": "Hi Efua, hot lunch is included and there's always a vegetarian choice. Send a snack in the",
+   "plaintext_body": "Hi Efua, hot lunch is included and there's always a vegetarian choice. Send a snack in the backpack. Thanks! Dana",
+   "label_ids": [
+    "SENT"
+   ]
+  }
+ ]
+}

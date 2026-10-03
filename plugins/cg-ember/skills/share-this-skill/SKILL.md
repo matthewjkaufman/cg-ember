@@ -115,10 +115,9 @@ typing the contents out and never by re-reading the original files over those ch
 - `about`: `what_it_does`, `who_would_use_it`, `camper_or_family_information` and
   `note_for_matt` in their words; `sends_or_changes_anything` in yours, starting "Claude's
   reading of the skill:"; and `connections_it_needs`, a plain list, also yours.
-- `sharer`: their name, camp email address and camp. Use About me and My camp in their My
-  work notes if those say it; otherwise ask.
-- `made_on`: `cowork`, `chat` or `claude-code`. `plugin_version`: this plugin's version if
-  you can see it, otherwise `null`. `created_at`: now, with the time zone.
+- `sharer`: their name, camp email address and camp. Use About me and My camp in their Personal
+  Notes if those say it; otherwise ask.
+- `made_on`: `cowork`, `chat` or `claude-code`. `plugin_version`: this plugin's version (the number in the first "## " heading of the whats-new skill's reference/changes.md, which is the newest), otherwise `null`. `created_at`: now, with the time zone.
 
 Then read the package back with code and check it: the file count, the total size, that
 SKILL.md is there, that its `name:` line matches, that every `sha256` matches its
@@ -175,7 +174,7 @@ If it went through the upload page, the next morning cannot check for his answer
 instead:
 
 > It's waiting for review. Once the Hub is connected here, I'll tell you the decision
-> the morning after it's made.
+> the next time you say "good morning" after it's made.
 
 Their own copy keeps working while they wait. If Matt approves it, the shared version
 arrives with this plugin, and they can then remove their own copy under **Customize**,

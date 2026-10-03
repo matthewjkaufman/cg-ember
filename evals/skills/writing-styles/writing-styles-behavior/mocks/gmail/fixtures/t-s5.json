@@ -1,0 +1,21 @@
+{
+ "id": "t-s5",
+ "viewUrl": "https://mail.google.com/mail/u/0/#inbox/t-s5",
+ "messages": [
+  {
+   "id": "m-s5",
+   "threadId": "t-s5",
+   "sender": "Dana Whitfield <dana@pinehollowcamp.example>",
+   "to_recipients": [
+    "nora.quinn@example.com"
+   ],
+   "date": "2026-09-25T16:00:00-04:00",
+   "subject": "Re: Tour",
+   "snippet": "Hi Nora, we'd love to show you around. Fall tours are Saturdays at 10. I'll hold this Satu",
+   "plaintext_body": "Hi Nora, we'd love to show you around. Fall tours are Saturdays at 10. I'll hold this Saturday for you. Thanks! Dana",
+   "label_ids": [
+    "SENT"
+   ]
+  }
+ ]
+}

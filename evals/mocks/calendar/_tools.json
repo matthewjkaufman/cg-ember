@@ -1,0 +1,217 @@
+{
+ "tools": [
+  {
+   "name": "list_events",
+   "description": "Returns events on the given calendar matching all specified constraints.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "calendarId": {
+      "type": "string"
+     },
+     "startTime": {
+      "type": "string"
+     },
+     "endTime": {
+      "type": "string"
+     },
+     "fullText": {
+      "type": "string"
+     },
+     "orderBy": {
+      "type": "string"
+     },
+     "pageSize": {
+      "type": "integer"
+     },
+     "pageToken": {
+      "type": "string"
+     },
+     "timeZone": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  {
+   "name": "get_event",
+   "description": "Returns a single event on the given calendar.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "eventId"
+    ],
+    "properties": {
+     "eventId": {
+      "type": "string"
+     },
+     "calendarId": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  {
+   "name": "create_event",
+   "description": "Creates an event on the given calendar.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "summary",
+     "startTime",
+     "endTime"
+    ],
+    "properties": {
+     "summary": {
+      "type": "string"
+     },
+     "startTime": {
+      "type": "string"
+     },
+     "endTime": {
+      "type": "string"
+     },
+     "description": {
+      "type": "string"
+     },
+     "location": {
+      "type": "string"
+     },
+     "calendarId": {
+      "type": "string"
+     },
+     "attendees": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     },
+     "attendeeEmails": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "timeZone": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  {
+   "name": "update_event",
+   "description": "Updates an event on the given calendar.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "eventId"
+    ],
+    "properties": {
+     "eventId": {
+      "type": "string"
+     },
+     "calendarId": {
+      "type": "string"
+     },
+     "summary": {
+      "type": "string"
+     },
+     "startTime": {
+      "type": "string"
+     },
+     "endTime": {
+      "type": "string"
+     },
+     "description": {
+      "type": "string"
+     },
+     "location": {
+      "type": "string"
+     },
+     "addedAttendees": {
+      "type": "array",
+      "items": {
+       "type": "object"
+      }
+     },
+     "removedAttendeeEmails": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "notificationLevel": {
+      "type": "string",
+      "enum": [
+       "NOTIFICATION_LEVEL_UNSPECIFIED",
+       "NONE",
+       "EXTERNAL_ONLY",
+       "ALL"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "delete_event",
+   "description": "Deletes an event on the given calendar.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "eventId"
+    ],
+    "properties": {
+     "eventId": {
+      "type": "string"
+     },
+     "calendarId": {
+      "type": "string"
+     },
+     "notificationLevel": {
+      "type": "string",
+      "enum": [
+       "NOTIFICATION_LEVEL_UNSPECIFIED",
+       "NONE",
+       "EXTERNAL_ONLY",
+       "ALL"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "respond_to_event",
+   "description": "Responds to an event on a calendar.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "eventId",
+     "responseStatus"
+    ],
+    "properties": {
+     "eventId": {
+      "type": "string"
+     },
+     "calendarId": {
+      "type": "string"
+     },
+     "responseStatus": {
+      "type": "string"
+     },
+     "responseComment": {
+      "type": "string"
+     },
+     "notificationLevel": {
+      "type": "string",
+      "enum": [
+       "NOTIFICATION_LEVEL_UNSPECIFIED",
+       "NONE",
+       "EXTERNAL_ONLY",
+       "ALL"
+      ]
+     }
+    }
+   }
+  }
+ ]
+}

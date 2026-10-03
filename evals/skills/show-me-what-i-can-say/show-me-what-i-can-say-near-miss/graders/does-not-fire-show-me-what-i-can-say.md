@@ -1,0 +1,8 @@
+---
+type: tool_used
+tool: Skill
+input_match: '"skill"\s*:\s*"(?:cg-ember:)?show\-me\-what\-i\-can\-say"'
+min: 0
+max: 0
+arm: both
+---

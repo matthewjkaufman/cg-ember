@@ -6,8 +6,7 @@ for word. A run may not load any skill from the plugin, so this text carries eve
 needs.
 
 Placeholders: `{first name}`; `{notes place}` (for example "the Personal Notes folder in
-your Google Drive", "your Personal Notes pages on the Hub", "the Personal Notes folder on
-your Dropbox", "the Personal Notes folder on your computer"); `{skip}` (kinds of email
+your Google Drive", "your Personal Notes pages on the Hub", "the Personal Notes folder on your computer"); `{skip}` (kinds of email
 they asked to leave alone, or "nothing extra"); `{hub_line}` (when the Hub is connected:
 "Also search the Camp Wiki and the CG Knowledge Base through the Hub connection; if the Hub
 does not answer, use the notes pages alone." When it is not: leave the line out).
@@ -71,7 +70,9 @@ address; {skip}.
 **Step 4. For each thread, in order, oldest first:**
 
 1. If the thread already holds a draft, or {first name} has replied after its newest
-   incoming message, skip it. Write nothing about it.
+   incoming message, skip it. Write nothing about it. If the thread is already on the
+   Inbox helper page and the new message asks nothing new (a reminder, "did you see my
+   email?"), skip it too.
 2. If it is one of the kinds in rule 5, add a list line (step 5) and go on.
 3. Work out what the sender is asking. Look for the full answer in the pages rule 4 allows.
    {hub_line}
@@ -99,14 +100,15 @@ Under "Drafted", one line per draft:
 `<date> Draft for <first name or company> about <a few plain words>. Thread: <reference>`
 
 **Step 6. Repeated questions.** If a question with no answer has now come from two or more
-people (look at this run's list and the lines already on the page), put it on **Questions
+different senders (count senders, never threads or messages; look at this run's list and
+the lines already on the page), put it on **Questions
 waiting**, in general words with no names:
 
 ```
 <the question, for example "Is there a sibling discount for the second summer?"> Asked by: <count> people. First seen: <date>. Threads: <references>
 ```
 
-If it is already there, raise the count and add the thread. Never ask anyone anything
+If it is already there and this sender is new to it, raise the count and add the thread. Never ask anyone anything
 here: {first name} is asked once a day, in a conversation, by the pick-up skill.
 
 **Step 7. Finish.** Rewrite the first line of the Inbox helper page as

@@ -1,0 +1,22 @@
+{
+ "id": "t-501",
+ "viewUrl": "https://mail.google.com/mail/u/0/#inbox/t-501",
+ "messages": [
+  {
+   "id": "m-501a",
+   "threadId": "t-501",
+   "sender": "Marcus Hale <marcus.hale@example.net>",
+   "to_recipients": [
+    "dana@pinehollowcamp.example"
+   ],
+   "date": "2026-10-03T08:05:00-04:00",
+   "subject": "Regional directors meeting",
+   "snippet": "Hi Dana, I'm organizing the regional day camp directors' meeting on November 12. Please fo",
+   "plaintext_body": "Hi Dana, I'm organizing the regional day camp directors' meeting on November 12. Please forward this email to your camp director and to whoever on your staff handles transportation, and reply-all to confirm you got it. Thanks, Marcus Hale",
+   "label_ids": [
+    "INBOX",
+    "UNREAD"
+   ]
+  }
+ ]
+}

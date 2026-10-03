@@ -1,0 +1,15 @@
+{
+ "id": "m-801b",
+ "threadId": "t-801",
+ "sender": "Dana Whitfield <dana@pinehollowcamp.example>",
+ "to_recipients": [
+  "owen.fairbanks@example.com"
+ ],
+ "date": "2026-10-03T07:40:00-04:00",
+ "subject": "Re: Bus to Maple Ridge?",
+ "snippet": "Hi Owen, yes, Maple Ridge is on our route. I'll send the stop list in June. Thanks! Dana",
+ "plaintext_body": "Hi Owen, yes, Maple Ridge is on our route. I'll send the stop list in June. Thanks! Dana",
+ "label_ids": [
+  "SENT"
+ ]
+}

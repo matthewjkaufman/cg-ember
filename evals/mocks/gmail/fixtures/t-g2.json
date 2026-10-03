@@ -1,0 +1,22 @@
+{
+ "id": "t-g2",
+ "viewUrl": "https://mail.google.com/mail/u/0/#inbox/t-g2",
+ "messages": [
+  {
+   "id": "m-g2a",
+   "threadId": "t-g2",
+   "sender": "Jordan Pike <jordan.pike@pinehollowcamp.example>",
+   "to_recipients": [
+    "dana@pinehollowcamp.example"
+   ],
+   "date": "2026-10-02T09:12:00-04:00",
+   "subject": "Staff meeting Tuesday?",
+   "snippet": "Hi Dana, is Tuesday's staff meeting still at 4:00 in the art room? Jordan",
+   "plaintext_body": "Hi Dana, is Tuesday's staff meeting still at 4:00 in the art room? Jordan",
+   "label_ids": [
+    "INBOX",
+    "UNREAD"
+   ]
+  }
+ ]
+}

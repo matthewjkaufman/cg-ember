@@ -7,7 +7,8 @@
 #   bash tests/send-block.test.sh
 #
 # Tool names marked "measured" were copied from a live Claude desktop tool list on 2026-10-03
-# (Gmail, Google Calendar, Google Drive, Dropbox, Egnyte, Metricool connectors). The others are
+# (Gmail, Google Calendar, Google Drive, Dropbox, Egnyte, Metricool connectors; Egnyte has no
+# send-shaped tool, so its names appear only in the pass list). The others are
 # shapes we expect from Slack, Microsoft 365 and other connections, unmeasured.
 set -u
 here="$(cd "$(dirname "$0")/.." && pwd)"
@@ -38,6 +39,9 @@ BLOCK=(
   mcp__outlook__replyAll mcp__outlook__sendMail mcp__ms365__createReplyAndSend
   mcp__calendar__cancel_event mcp__calendar__patch_event mcp__teams__send_chat_message
   mcp__drive__share_folder mcp__x__invite_user mcp__x__publish_page
+  # dashes, dots and camel case (Andy, 2026-10-03)
+  mcp__x__send-email mcp__x__gmail-send mcp__x__reply-to-message mcp__x__messages.send
+  mcp__slack__postMessage mcp__slack__chat_postMessage mcp__x__share-file mcp__x__update-event
 )
 PASS_NAMES=(
   # measured
@@ -50,6 +54,9 @@ PASS_NAMES=(
   mcp__24039824__update_file mcp__24039824__get_file_permissions
   mcp__1de42c91__create_shared_link mcp__1de42c91__list_shared_links mcp__1de42c91__create_file
   mcp__bfa060d9__getScheduledPosts mcp__bfa060d9__getBrandSettings
+  mcp__b7bd6534__advanced_search mcp__b7bd6534__get_file_content mcp__b7bd6534__get_download_url
+  mcp__b7bd6534__get_upload_url mcp__b7bd6534__list_filesystem_by_path mcp__b7bd6534__whoami
+  mcp__x__list-posts mcp__x__get-thread mcp__x__create-draft
   mcp__cg-hub__hub_hello mcp__cg-hub__share_skill mcp__cg-hub__hub_save_my_page
   mcp__cg-hub__hub_suggest_page mcp__cg-hub__hub_log_problem
   mcp__scheduled-tasks__create_scheduled_task mcp__scheduled-tasks__update_scheduled_task

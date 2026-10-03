@@ -1,0 +1,83 @@
+{
+ "tools": [
+  {
+   "name": "create_scheduled_task",
+   "description": "Create a scheduled task that runs automatically on a recurring schedule (cronExpression, local time) or once (fireAt). Each run starts fresh, so the prompt must be self-contained.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "taskId",
+     "prompt",
+     "description"
+    ],
+    "properties": {
+     "taskId": {
+      "type": "string"
+     },
+     "title": {
+      "type": "string"
+     },
+     "prompt": {
+      "type": "string"
+     },
+     "description": {
+      "type": "string"
+     },
+     "cronExpression": {
+      "type": "string"
+     },
+     "fireAt": {
+      "type": "string"
+     },
+     "notifyOnCompletion": {
+      "type": "boolean"
+     }
+    }
+   }
+  },
+  {
+   "name": "list_scheduled_tasks",
+   "description": "List all scheduled tasks with their current state.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {}
+   }
+  },
+  {
+   "name": "update_scheduled_task",
+   "description": "Update an existing scheduled task by its exact taskId.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "taskId"
+    ],
+    "properties": {
+     "taskId": {
+      "type": "string"
+     },
+     "title": {
+      "type": "string"
+     },
+     "prompt": {
+      "type": "string"
+     },
+     "description": {
+      "type": "string"
+     },
+     "cronExpression": {
+      "type": "string"
+     },
+     "fireAt": {
+      "type": "string"
+     },
+     "enabled": {
+      "type": "boolean"
+     },
+     "notifyOnCompletion": {
+      "type": "boolean"
+     }
+    }
+   }
+  }
+ ]
+}

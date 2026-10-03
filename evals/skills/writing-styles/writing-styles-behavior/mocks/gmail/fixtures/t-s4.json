@@ -1,0 +1,21 @@
+{
+ "id": "t-s4",
+ "viewUrl": "https://mail.google.com/mail/u/0/#inbox/t-s4",
+ "messages": [
+  {
+   "id": "m-s4",
+   "threadId": "t-s4",
+   "sender": "Dana Whitfield <dana@pinehollowcamp.example>",
+   "to_recipients": [
+    "raj.patel@example.com"
+   ],
+   "date": "2026-09-24T16:00:00-04:00",
+   "subject": "Re: Pickup",
+   "snippet": "Hi Raj, early pickup is until 3:15 at the front office. Just let the counselor know in the",
+   "plaintext_body": "Hi Raj, early pickup is until 3:15 at the front office. Just let the counselor know in the morning. Thanks! Dana",
+   "label_ids": [
+    "SENT"
+   ]
+  }
+ ]
+}

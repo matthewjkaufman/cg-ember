@@ -1,0 +1,15 @@
+{
+ "id": "m-s2",
+ "threadId": "t-s2",
+ "sender": "Dana Whitfield <dana@pinehollowcamp.example>",
+ "to_recipients": [
+  "tom.novak@example.com"
+ ],
+ "date": "2026-09-22T16:00:00-04:00",
+ "subject": "Re: Swim lessons",
+ "snippet": "Hi Tom, yes, every camper swims every day. We group them by level on the first morning. Th",
+ "plaintext_body": "Hi Tom, yes, every camper swims every day. We group them by level on the first morning. Thanks! Dana",
+ "label_ids": [
+  "SENT"
+ ]
+}

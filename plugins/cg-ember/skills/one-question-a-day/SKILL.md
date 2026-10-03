@@ -70,7 +70,8 @@ A day, not a conversation. Several skills share this one question, in this order
 
 **Read before asking.** At the bottom of **What I did this week** in their Personal Notes
 is a line reading "Last daily question:" with a date. If it says today, do not ask. If the
-**Questions waiting** page holds a question, ask that one instead of your own, the way the
+**Questions waiting** page holds a question that **My answers** does not already cover,
+ask that one instead of your own, the way the
 Inbox helper skill's "Answer the waiting questions" says (one question, the most-asked;
 save the answer on **My answers**; offer to draft the replies that were waiting for it).
 Your own question waits for another day.

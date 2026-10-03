@@ -3,7 +3,7 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "^mcp__.+__(([A-Za-z0-9]+_)*(send|reply|forward|respond|invite|post|publish)(_[A-Za-z0-9_]*)?|([A-Za-z0-9]+_)*share_(file|folder|document|doc|item|drive_item|with)(_[A-Za-z0-9_]*)?|[A-Za-z0-9_]*(Send|Reply|Forward|Respond|Invite|Publish)([A-Z][A-Za-z0-9]*)?|(send|reply|forward|respond|invite|publish)[A-Z][A-Za-z0-9]*|share(File|Folder|Document|Item)[A-Za-z0-9]*|[A-Za-z0-9]*Share(File|Folder|Document|Item)[A-Za-z0-9]*|(create|send|publish|update|schedule)[A-Za-z0-9]*Post[A-Za-z0-9]*|[A-Za-z0-9_]*(schedule_message|schedule_send|scheduled_send)[A-Za-z0-9_]*|([A-Za-z0-9]+_)*(update|delete|patch|move|cancel)_event(_[A-Za-z0-9_]*)?|(update|delete|patch|move|cancel)[A-Za-z0-9]*Event[A-Za-z0-9]*)$",
+        "matcher": "^mcp__.+__(([A-Za-z0-9]+[_.-])*(send|reply|forward|respond|invite|post|publish)([_.-][A-Za-z0-9_.-]*)?|([A-Za-z0-9]+[_.-])*share[_.-](file|folder|document|doc|item|drive[_.-]item|with)([_.-][A-Za-z0-9_.-]*)?|[A-Za-z0-9_.-]*(Send|Reply|Forward|Respond|Invite|Publish|Post)([A-Z][A-Za-z0-9]*)?|([A-Za-z0-9]+[_.-])*(send|reply|forward|respond|invite|post|publish)[A-Z][A-Za-z0-9]*|[A-Za-z0-9_.-]*share(File|Folder|Document|Item)[A-Za-z0-9]*|[A-Za-z0-9_.-]*Share(File|Folder|Document|Item)[A-Za-z0-9]*|(create|send|publish|update|schedule)[A-Za-z0-9]*Post[A-Za-z0-9]*|[A-Za-z0-9_.-]*schedule[_.-]?(message|send)[A-Za-z0-9_.-]*|[A-Za-z0-9_.-]*scheduled[_.-]send[A-Za-z0-9_.-]*|([A-Za-z0-9]+[_.-])*(update|delete|patch|move|cancel)[_.-]event([_.-][A-Za-z0-9_.-]*)?|(update|delete|patch|move|cancel)[A-Za-z0-9]*Event[A-Za-z0-9]*)$",
         "hooks": [
           {
             "type": "command",
@@ -13,7 +13,7 @@
         ]
       },
       {
-        "matcher": "^mcp__.+__(([A-Za-z0-9]+_)*(create|insert|quick_add)_event(_[A-Za-z0-9_]*)?|(create|insert)[A-Za-z0-9]*Event[A-Za-z0-9]*)$",
+        "matcher": "^mcp__.+__(([A-Za-z0-9]+[_.-])*(create|insert|quick[_.-]add)[_.-]event([_.-][A-Za-z0-9_.-]*)?|(create|insert)[A-Za-z0-9]*Event[A-Za-z0-9]*)$",
         "hooks": [
           {
             "type": "command",

@@ -1,0 +1,16 @@
+{
+ "id": "m-302a",
+ "threadId": "t-302",
+ "sender": "Ben Okafor <ben.okafor@example.com>",
+ "to_recipients": [
+  "dana@pinehollowcamp.example"
+ ],
+ "date": "2026-10-03T07:48:00-04:00",
+ "subject": "Two kids next summer",
+ "snippet": "Hello, both my daughters want to come next summer. Is there a sibling discount? Thanks, Be",
+ "plaintext_body": "Hello, both my daughters want to come next summer. Is there a sibling discount? Thanks, Ben",
+ "label_ids": [
+  "INBOX",
+  "UNREAD"
+ ]
+}
