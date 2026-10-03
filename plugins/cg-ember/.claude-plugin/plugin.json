@@ -1,7 +1,7 @@
 {
   "name": "cg-ember",
-  "description": "Shortcuts for summer camp staff using Claude. Set me up walks a person through their connections and notes folder. Pick up and wrap up keep a short set of work notes in their own Google Drive. Share this skill sends a skill they built for review. Explain it plainly teaches anything, in plain words.",
-  "version": "0.1.0",
+  "description": "Shortcuts for summer camp staff using Claude: set me up, pick up and wrap up with Personal Notes, look things up in your notes and wikis, write as me, Inbox helper drafts replies, meeting prep, and sharing skills. It drafts and never sends.",
+  "version": "0.2.0",
   "author": {
     "name": "Matt Kaufman"
   }

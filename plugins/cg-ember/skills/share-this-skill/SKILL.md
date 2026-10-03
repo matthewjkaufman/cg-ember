@@ -3,7 +3,7 @@ name: share-this-skill
 description: "Share this skill. Package a skill a camp staff member built and send it to Matt for review, so that if he approves it every camp using this plugin gets it. Use when someone says 'share this skill', 'share my skill', 'send this to Matt', 'can other camps use this', 'everyone should have this', 'submit my skill', or 'I made a new version of a skill'."
 metadata:
   cg-ember-name: "share-this-skill"
-  cg-ember-version: "1"
+  cg-ember-version: "2"
 ---
 
 # Share this skill
@@ -44,9 +44,9 @@ Check with code, and fix what you can with their yes:
 
 - **The name.** Lowercase letters, numbers and single hyphens, no hyphen at the start or
   end, 64 characters at most, never containing "claude" or "anthropic", and the same as
-  the `name:` line at the top of SKILL.md. It cannot be `set-me-up`, `pick-up`, `wrap-up`,
-  `share-this-skill` or `explain-it-plainly`, unless it is an improved copy of that same
-  skill (see the last check below).
+  the `name:` line at the top of SKILL.md. It cannot be the name of any skill that came
+  with this plugin (look at the skill folders of the copy installed here), unless it is an
+  improved copy of that same skill (see the last check below).
 - **The files.** SKILL.md at the top. At most 20 files and 2 MB in all. No two file names
   that differ only in capital letters, no file with the same name as a folder, no name
   starting with a dot or ending in a dot or a space, and none of the names Windows reserves
@@ -63,7 +63,7 @@ Check with code, and fix what you can with their yes:
   before it can go to everyone.
 - **A changed copy of a shared skill.** If the top of SKILL.md has `metadata` with
   `cg-ember-name` and `cg-ember-version`, this is a changed copy of a skill already shared,
-  including CG Ember's own five. That name goes in `update_of`, and the new version is the
+  including the skills that came with this plugin. That name goes in `update_of`, and the new version is the
   next whole number after `cg-ember-version`. A personal copy was renamed ("my-wrap-up")
   and its description narrowed to that name, so **put the original back in the package**,
   with code: the folder's `name`, the `name:` line inside SKILL.md, and the description in
@@ -75,7 +75,7 @@ Check with code, and fix what you can with their yes:
 ## Step 3: ask about it
 
 Read the skill and work out two things yourself: whether it sends or changes anything
-without asking first, and which connections it needs (Gmail, Google Drive, Google
+without asking first, and which connections it needs (their email, their files, their
 Calendar, others). They usually cannot know these.
 
 Then ask them four questions, two per message. Under each, offer your own guess from
@@ -94,7 +94,7 @@ and ask: "Is anything wrong?"
 > I'll send your skill that drafts reference-check emails to Matt. He reviews every shared
 > skill. If he approves it, other camps get the instructions with no name or camp on them.
 > On the Hub, which only people at camps in the group can sign in to, your name is shown as
-> the person who made it, so they can thank you. Shall I send it? If you'd rather wait,
+> the person who made it, so they can thank you. Want me to send it? If you'd rather wait,
 > that's completely fine.
 
 Say what the skill does in their words, not its hyphenated name. Anything other than a
@@ -137,8 +137,10 @@ only and under 200 KB. Send it. Then:
 - **It arrived**: say the Hub's own sentence, word for word.
 - **The Hub refused it**: its answer is a plain sentence. Say it word for word, and stop.
   Do not try the upload page; it would refuse the same way.
-- **The connection would not let them in**: say they cannot get into the Hub yet, and
-  either use the upload page below or suggest they ask Matt to add their camp's email.
+- **The connection would not let them in**: say plainly that the Hub only lets in people
+  from camps on its list, and their camp's email may not be on it yet. Save the file as
+  the upload route below says, tell them where it is, and offer to put what happened in
+  the problem log, as camp-background section 6 says.
 - **No answer, or something broke**: say it did not go, that it is not their fault, and use
   the upload page below.
 
@@ -147,19 +149,22 @@ only and under 200 KB. Send it. Then:
 `share-reference-check-emails-2026-10-20.json`). Tell them the file's exact name and where
 it was saved, in words ("in your Downloads folder"), never as a path with slashes. Then, one step at a time:
 
-1. Open a web browser and go to **cg.ramaquois.com/skills/share**. Offer to make that a
-   link they can click, if this conversation can show links.
+1. Give them the share page as a link they can click, and make clicking it the step
+   ("Click this link: Share a skill"). Only if this conversation cannot show links, show
+   the address, **cg.ramaquois.com/skills/share**, and ask them to type it into their web
+   browser's address bar.
 2. Sign in with your work Google account. If your camp email is not Google, choose the
    option to get a six-digit code sent to your camp email, and type it in.
-3. Put the file on the page: drag it from where it was saved, or click the page's button
-   to choose it.
+3. Click the page's button that chooses a file, then click **Downloads** on the left (or
+   wherever you said it was saved), and pick the file.
 4. Tell me what the page says.
 
 Only when they say the page confirmed it, say it reached Matt. If the page shows a
-problem, read back what it says and stop. If they cannot sign in, suggest they ask Matt to
-add their camp's email. **If the page will not open at all**, the Hub may not be open yet:
-say their file is saved and safe, tell them where it is, and that Matt will let them know
-when the page is ready.
+problem, read back what it says and stop. If they cannot sign in, say their camp's email
+may not be on the Hub's list yet, and offer the problem log, as camp-background section 6
+says. **If the page will not open at all**, the Hub may not be open yet:
+say their file is saved and safe, tell them where it is, and suggest trying the page again
+in a few days.
 
 ## Step 7: after
 
@@ -169,7 +174,8 @@ next; add nothing.
 If it went through the upload page, the next morning cannot check for his answer, so
 instead:
 
-> It's with Matt, and he'll let you know what he decides.
+> It's waiting for review. Once the Hub is connected here, I'll tell you the decision
+> the morning after it's made.
 
 Their own copy keeps working while they wait. If Matt approves it, the shared version
 arrives with this plugin, and they can then remove their own copy under **Customize**,

@@ -1,17 +1,20 @@
 ---
 name: set-me-up
-description: "Set me up. Walk a camp staff member, one step at a time, through connecting Gmail, Google Drive and Google Calendar, what Claude asks before doing, and their own My work notes folder. Use when someone says 'set me up', 'get me set up', 'what do I do next', 'I just installed this', 'connect my email', 'connect my Drive', or 'finish my setup'. Also use it when somebody wants their own version of a skill: 'change this skill', 'make my own copy', 'can I edit this'."
+description: "Set me up. Walk a camp staff member, one step at a time, through connecting their email, files and calendar, choosing where their Personal Notes live, and connecting the other apps they use. Use when someone says 'set me up', 'get me set up', 'I just installed this', 'connect my email', 'connect my apps', or 'finish my setup'. Also for 'make my own copy' of a skill."
 metadata:
   cg-ember-name: "set-me-up"
-  cg-ember-version: "1"
+  cg-ember-version: "2"
 ---
 
 # Set me up
 
 Somebody who works at a summer camp has just installed this plugin, usually from a
 printed checklist that ended at "install the plugin." This skill takes over from there.
-By the end they have Gmail, Google Drive and Google Calendar connected, know what Claude
-asks before doing, and have a notes folder of their own.
+By the end, their email, files and calendar are connected, they know Claude only ever
+drafts, their Personal Notes exist in a place they chose, and the other apps they use
+every day are connected or listed.
+
+Read the camp-background skill too, for the ground rules.
 
 **If they asked to change a skill or make their own copy of one**, skip the setup and go
 straight to "Making your own copy of a skill" at the end.
@@ -31,7 +34,10 @@ a patient colleague sitting beside them would.
   - **skill**: a written page of instructions Claude follows for one job, like the
     laminated instructions taped inside the arts and crafts cabinet.
   - **connector**: a connection between Claude and another program you already use, like
-    Gmail. It is like giving a new counselor a key to one building, not the whole camp.
+    your email. It is like giving a new counselor a key to one building, not the whole
+    camp.
+- Name a connection by what it is for: your email, your files, your calendar. Google
+  (Gmail, Google Drive, Google Calendar) is the usual example; use the names they use.
 - Never say any of these: MCP, OAuth, server, API, token, repository, JSON, frontmatter,
   endpoint, sync, markdown, sidebar, tab. Never name the tools you are using.
 - Put the step that applies to them first, never inside parentheses.
@@ -41,76 +47,75 @@ a patient colleague sitting beside them would.
 
 Open with one sentence that says how long this takes and how it works:
 
-> Let's finish getting you set up. It takes about fifteen minutes, one step at a time, and
+> Let's finish getting you set up. It takes about twenty minutes, one step at a time, and
 > you tell me when each step is done.
 
 **This skill picks up where they left off.** Before giving any step, check what is already
 done, by trying it, and skip anything that already works. Somebody who ran this yesterday
 and stopped halfway should not repeat a single step.
 
-## Step 1: connect Gmail, Google Drive and Google Calendar
+## Step 1: connect your email, files and calendar
 
 Check each one by trying something harmless: look up one recent email thread, list today's
-calendar events, search Drive for a file. Read nothing out. If all three work, say so in
-one sentence and go to Step 2.
+calendar events, search their files for one document. Read nothing out. If all three work,
+say so in one sentence and go to Step 2.
 
 **If any are missing, ask two things first, one at a time.**
 
 The first question, word for word:
 
 > Before we connect your work email: has your company said it's OK to connect Claude to
-> your work Google account? If you're at a workshop, the person running it can tell you
-> now. If you don't know yet, we'll skip this part and come back to it.
+> your work accounts? If you're at a workshop, the person running it can tell you now. If
+> you don't know yet, we'll skip this part and come back to it.
 
-If the answer is anything but yes, skip this step and Step 3 (the notes folder needs
-Google Drive), do Steps 2, 4 and 5, and say these steps are waiting. Never push them past
-it.
+If the answer is anything but yes, skip this step, do Steps 2, 3 and 5 with what works,
+and say these steps are waiting. Never push them past it.
 
 The second question:
 
-> When you read your camp email, does it look like Gmail?
+> When you open your work email, is it Gmail or Outlook? Your address can end in your
+> camp's name and still be Gmail.
 
-If no, their camp email is probably not Google. Ask whether they use Google Drive for
-camp anyway. If they do, connect only Drive and Calendar, and in step 4 below say "Sign
-in with the Google account your camp uses for Drive" instead. If they do not, say plainly that
-the notes folder in this version needs Google Drive, skip Step 3, and suggest they ask
-Matt.
+**If it is Gmail**, connect Gmail, Google Drive and Google Calendar, using the steps
+below. **If it is something else**, look in Claude's list of connectors for it, connect
+what is there the same way, and say plainly which parts are not available yet. Ask whether
+they keep camp files in Google Drive anyway; if they do, connect that too.
 
-**Then, for each one that is missing**, walk them through it:
+**For each one that is missing**, walk them through it:
 
 1. First, click the word **Cowork** on the left of the window. Then click **Customize**.
    (In plain Claude chat, there is no Cowork; just click **Customize**.)
 2. Click **Connectors**.
-3. Find **Gmail** (or Google Drive, or Google Calendar) and click **Connect**.
-4. A Google window opens. Sign in with your **work** Google account, the one your camp
-   email is on, not a personal one.
+3. Find the one you need (for example **Gmail**) and click **Connect**.
+4. A sign-in window opens. Sign in with your **work** account, the one your camp email is
+   on, not a personal one.
 5. Click **Allow** (it may say **Continue**).
 6. When you're done, come back to this conversation. It is in the list on the left.
 
-**Say this before they reach the Google screen**, because its wording alarms people:
+**Say this before they reach the sign-in screen**, because its wording alarms people:
 
-> Google's screen lists everything Claude could ever do, like sending email or deleting
-> files. Claude asks you first before it sends, shares, moves or deletes anything, and you
-> can say no. In a minute I'll show you how to keep it that way.
+> The next screen lists everything Claude could ever do, like sending email or deleting
+> files. Every camp sees the same list. These skills never send anything and never delete
+> your email or files. They write drafts and leave them in your drafts folder.
 
 **If they see "Access blocked: your institution's admin needs to review Claude"**, that is
-their camp's Google settings, not something they did. Say so, and say that whoever manages
-Google accounts at their camp can mark Claude as trusted in a few minutes. Keep going with
-the steps that do work. Say this in the conversation only; the next session finds out
-again by trying.
+their camp's account settings, not something they did. Say so, and say that whoever
+manages email accounts at their camp can mark Claude as trusted in a few minutes. Keep
+going with the steps that do work. Say this in the conversation only; the next session
+finds out again by trying.
 
 **If a connector is missing from the list**, or the Connect button does nothing, ask what
 they see and describe it back. Do not guess at a fix.
 
-## Step 2: what Claude asks before doing
+## Step 2: what Claude does, and never does
 
 Say this once, in about these words, then move on. No quiz.
 
-> Once Google is connected, Claude reads your email, calendar and files only when a job
-> needs them. Before it sends
-> an email, or shares, moves or deletes a file, it asks you first. When a box pops up
-> asking permission, read it. If it says send, share, move or delete, choose the option
-> that allows it just this once. For anything else, always allowing it is fine.
+> Claude reads your email, calendar and files only when a job needs them. It never sends
+> anything. Emails, messages and invitations all come out as drafts, and they wait in
+> your drafts until you look at them. When a box asks to read something or make a draft,
+> it's fine to click Always allow. If one ever asks to send or delete, click Deny and
+> tell me.
 
 Then the one rule that matters most:
 
@@ -118,21 +123,44 @@ Then the one rule that matters most:
 > unless your company's AI Use Policy says that kind of work is allowed. If you're not
 > sure, don't.
 
-If they ask where the AI Use Policy is, say to ask whoever gave them this plugin, or Matt.
+If they ask where the AI Use Policy is, say it comes from their company, and whoever gave
+them this plugin at their camp will know where it is kept.
 
-## Step 3: their My work notes folder
+## Step 3: your Personal Notes
 
-This is a small folder in their own Google Drive that Claude reads at the start of a day
-and updates when they finish something, so they never start cold. It is private to them
-unless they share it.
+**Personal Notes** are a few short pages about them, their camp and their jobs. Claude
+reads them at the start of a day and updates them when they finish something, so they
+never start cold. They are private to them.
 
-Look for a folder called **My work** holding Docs called About me, My camp, My jobs and
-What I did this week. **If it is there**, say so in one sentence and move on. If a My work
-folder exists but holds other things, it is theirs from before: leave it alone, and make
-the notes folder as **My work notes** instead.
+**If they already have them** (found as camp-background says, including an old **My work**
+folder), say so in one sentence and go to Step 4, unless they asked to move them.
 
-**If it is not there**, ask these three questions, one at a time, and wait for each answer.
-Under each question, offer an example so they can answer quickly.
+**Moving their notes** (for example from a folder on this computer to their Google Drive,
+when Inbox helper or they ask): make the same pages in the new place, copying each one
+exactly, open each to check it reads right, then say the old folder can stay or they can
+delete it themselves. Claude never deletes it. From then on the new place is used,
+because it is found first.
+
+**Otherwise, ask where they should live**, one question:
+
+> Where should your notes live? Your Google Drive is the easiest, and it works even when
+> your computer is off. Or I can keep them in a folder on this computer.
+
+Offer **Google Drive** first when their files connection is Google Drive. Offer **the Hub**
+too, but only when the Hub is connected here: say that it is the group's website, and
+make no claim of your own about who can see the pages there. The first time you save a
+page on the Hub, it answers with its own sentence about who can see them; say that
+sentence to them word for word. Offer **a folder on this computer** last, with this warning, word for
+word:
+
+> That works, with one catch. Inbox helper, which drafts replies for you during the day,
+> can only reach a folder on this computer while the computer is on and this app is open.
+
+If they ask about Dropbox, OneDrive or anywhere else, say plainly that this version cannot
+keep notes there yet, because it needs to rewrite the pages, and offer the others.
+
+Then ask these three questions, one at a time, and wait for each answer. Under each
+question, offer an example so they can answer quickly.
 
 1. "What is your name, and what do you do at your camp?" (For example: "Jordan, I'm the
    assistant director and I run staff hiring.")
@@ -142,37 +170,55 @@ Under each question, offer an example so they can answer quickly.
 3. "Name two or three jobs you do over and over, and how often." (For example: "Reference
    check emails, every day in spring. Bunk sheets, twice a summer.")
 
-Then make, in their Google Drive, the folder holding four **Google Docs** (real Google
-Docs, not uploaded files). Use their own words. Keep each short.
+Then make the **Personal Notes** pages in the place they chose: in Google Drive, a folder
+called Personal Notes holding real Google Docs (not uploaded files); on the Hub, their own
+pages; on this computer, a folder called Personal Notes holding text files. Use their own
+words. Keep each short.
 
 - **About me**: their name, their job, and a heading "How I like things" with nothing
   under it yet.
-- **My camp**: what they said about their camp.
+- **My camp**: what they said about their camp, with today's date.
 - **My jobs**: each repeated job on its own line, with how often.
-- **What I did this week**: a heading "Where I left off" with "Just set up" under it, and a
-  heading "This week" with today's date and "Set up Claude."
+- **What I did this week**: a heading "Where I left off" with "Just set up" under it, a
+  heading "This week" with today's date and "Set up Claude", and at the bottom the line
+  "Last version told:" followed by this plugin's version.
 
 Open each one after making it to check it is there and reads right. Never put a camper's
 or a family's details in any of these, even if they mention one.
 
 Then say, in one or two sentences:
 
-> Your notes are in a folder called My work in your Google Drive (say My work notes if
-> that is the one you made). Tomorrow, say "good
-> morning" and I'll pick up where you left off. When you finish something, say "wrap up"
-> and I'll update them.
+> Your Personal Notes are ready, in your Google Drive. Tomorrow, say "good morning" and
+> I'll pick up where you left off. When you finish something, say "wrap up" and I'll
+> update them.
 
-Never put their notes anywhere other than their Google Drive.
+(Name the place they actually chose.)
 
-## Step 4: the Hub, in one sentence
+## Step 4: connect the other apps you use
 
-> One more thing to know about: the Hub is the website where camps in the group share the
-> skills they build. When you make a skill other camps could use, say "share this skill"
-> and I'll walk you through it.
+Ask one question:
+
+> What other programs do you use for camp every week? For example: CampMinder, Slack,
+> Microsoft 365, Dropbox, Canva, Zoom, or your accounting software.
+
+Then, one app at a time: look for it in **Customize**, then **Connectors**. If it is
+there, walk them through connecting it the same way as Step 1, with the same reminder
+that Claude only drafts. If it is not, say so in one sentence and move to the next. When
+they are done, add a line to **My camp**: "Connected: ..." and "Not connected yet: ..." so
+later conversations know what Claude can reach.
+
+If they would rather do this another day, skip it; "set me up" picks it up later.
+
+## Step 5: the Hub, in one sentence
+
+> One more thing to know about: the Hub is the website where camps in the group share what
+> they know and the skills they build. When it's connected, I can look things up in your
+> Camp Wiki (your camp's own pages) and the CG Knowledge Base (the pages every camp
+> shares).
 
 Nothing to do here today.
 
-## Step 5: changing a skill means making your own copy
+## Step 6: changing a skill means making your own copy
 
 Say this once, in about these words:
 
@@ -180,19 +226,18 @@ Say this once, in about these words:
 > its own skills, so a change made inside one of them would disappear. If you want one to
 > work differently, ask me to "make my own copy" of it, and change the copy.
 
-## Step 6: finish
+## Step 7: finish
 
 One or two sentences. Say only what actually happened, name anything still waiting, and
 give one thing to try next. For example, when everything worked:
 
-> You're set up. Gmail, Drive and Calendar are connected and your notes folder is ready.
-> Try asking me to do one of the jobs you listed, and we'll see whether it should become a
-> skill.
+> You're set up. Your email, files and calendar are connected and your Personal Notes are
+> ready. Say "show me what I can say" any time to see what else I can do.
 
-Or, when Google was skipped:
+Or, when the email step was skipped:
 
 > That's as far as we can go today. Once your company says it's OK to connect your work
-> Google account, say "set me up" again and we'll finish in five minutes.
+> accounts, say "set me up" again and we'll finish in five minutes.
 
 Do not give them a list of everything the plugin can do.
 

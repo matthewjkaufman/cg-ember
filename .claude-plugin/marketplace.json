@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "cg-ember",
-      "description": "Shortcuts for summer camp staff using Claude: set me up, pick up, wrap up, share this skill, and explain it plainly.",
+      "description": "Shortcuts for summer camp staff using Claude: setup, Personal Notes, looking things up, writing in your own voice, Inbox helper, meeting prep, and sharing skills. It drafts and never sends.",
       "author": {
         "name": "Matt Kaufman"
       },

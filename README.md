@@ -6,21 +6,67 @@ follows for one job.
 
 It works in Claude Cowork and in Claude chat, on any paid Claude plan.
 
+**It never sends anything.** Emails, messages and invitations come out as drafts, waiting
+in your drafts. You read them and you press send.
+
 ## What it does
 
 Say these in your own words. You do not need the exact phrase.
 
 | Say | What happens |
 |---|---|
-| "Set me up" | Claude walks you through connecting Gmail, Google Drive and Google Calendar, what Claude asks you before it acts, and your own notes folder. It asks first whether your camp is okay with connecting, and waits if you are not sure. One step at a time, about fifteen minutes. |
-| "Good morning" | Claude reads your notes and tells you where you left off. For the rest of that conversation, it also saves your place as you go. |
+| **Getting started** | |
+| "Set me up" | Claude connects your email, files and calendar, and makes your Personal Notes. It asks first whether your camp is okay with connecting. About twenty minutes, one step at a time. |
+| "Show me what I can say" | Claude lists what you can ask for and suggests one to try first. |
+| "What's new" | Claude tells you what changed since the last update. |
+| "Explain that" | Claude explains a word, or what it just did, in plain words. |
+| **Every day** | |
+| "Good morning" | Claude tells you where you left off. |
 | "Wrap up" | Claude saves your place and what you did today. |
-| "Share this skill" | Claude packages a skill you built and sends it to Matt to review, but only after you say yes. If he approves it, every camp using CG Ember gets it. |
-| "Explain that" | Claude explains a word, what it just did, or how to ask for something better, in plain words. |
+| "Prep me for my meeting" | Claude gives you a one-screen brief before you walk in. |
+| "Set up Inbox helper" | Claude drafts replies for you during the day. See below. |
+| **Writing** | |
+| "Write as me" | Claude drafts a message in your own voice, in your drafts. |
+| "Build my writing styles" | Claude learns how you write, from a few emails you already sent. |
+| "Is this clear?" | Claude reads your writing as the person receiving it would. |
+| **Your camp's questions** | |
+| "Look it up" | Ask anything about your camp. Claude answers from what is written down, says where it came from, and never guesses. |
+| "That answer was wrong" | Claude fixes it in your Personal Notes and tells whoever looks after that wiki page. |
+| **Sharing** | |
+| "Share this skill" | Claude shares a skill you built for review, only after you say yes. See the end of this page. |
 
-Your notes live in a folder called **My work** in your own Google Drive: About me, My
-camp, My jobs, and What I did this week. They are private to you unless you share them.
-Claude keeps campers' and families' private details out of them.
+Claude may also ask you one quick question a day about how your camp works. Never more
+than one.
+
+## Where answers come from
+
+Claude looks in three places, in this order:
+
+1. **Personal Notes** are yours and private. They live in your Google Drive, on the Hub,
+   or in a folder on your computer, wherever you choose at setup. (An older **My work**
+   folder still works.)
+2. **Camp Wiki** is what your camp has written down. It lives on the Hub.
+3. **CG Knowledge Base** is what every camp in the group shares. It lives on the Hub too.
+
+The **Hub** is the website where camps in the group keep these. The Camp Wiki and CG
+Knowledge Base work once your camp is on the Hub. Until then, Claude uses your Personal
+Notes and your files.
+
+Nothing moves from your notes to a wiki unless you say yes, and the wiki's approver
+decides. Claude keeps campers' and families' private details out of all three.
+
+## Inbox helper
+
+Say **"set up Inbox helper"** and, every few hours, Claude reads your new email.
+
+- When your notes and wikis fully answer an email, it writes a reply and leaves it in your
+  drafts.
+- It lists the rest for you and writes nothing to anyone.
+- Once a day, it asks you about a question people keep asking, so the next one gets a
+  draft.
+
+It never sends. If your notes are in a folder on your computer, it only runs while the
+computer is on.
 
 ## Installing it
 
@@ -44,11 +90,8 @@ updates never touch it.
 ## Built a skill other camps could use?
 
 Say **"share this skill."** Matt reviews every shared skill by hand. Other camps get the
-instructions with no name or camp on them.
-
-The Hub is the website where camps in the group share the skills they build. Only people
-at those camps can sign in to it. There, your name is shown as the person who made the
-skill.
+instructions with no name or camp on them. On the Hub, which only people at the group's
+camps can sign in to, your name is shown as the person who made the skill.
 
 ---
 
@@ -57,12 +100,22 @@ skill.
 - Layout: `.claude-plugin/marketplace.json` lists one plugin, `plugins/cg-ember/`, whose
   skills are one folder each under `plugins/cg-ember/skills/<name>/SKILL.md`.
 - Every skill uses the shared SKILL.md format (a `name` and `description` at the top, plain
-  instructions below), so the same files can be packaged for OpenAI Codex later.
+  instructions below), so the same files can be packaged for OpenAI Codex later. Keep each
+  description under 400 characters and all of them together under 6,500.
 - Approved shared skills are committed here by the Hub, which also raises the patch number
   of `version` in `plugins/cg-ember/.claude-plugin/plugin.json`. The Hub never changes the
-  five skills above, the manifests other than that number, or this readme.
+  skills that ship with the plugin (every folder it did not publish is reserved), the
+  manifests other than that number, or this readme.
 - The connection to the Hub (`plugins/cg-ember/.mcp.json`) is added in the first version
-  after the Hub's connection answers with sign-in working.
+  after the Hub's connection answers with sign-in working. Until then every Hub step in
+  the skills stays silent.
+- `plugins/cg-ember/hooks/hooks.json` refuses send-shaped tools on any connection, and
+  calendar events with guests. Its commands are POSIX shell (Cowork runs them on Linux,
+  Claude Code on Windows runs them in Git Bash); Windows PowerShell cannot parse them, so
+  there they would not block. The written rule in every skill is the control that holds
+  either way. Run `bash tests/send-block.test.sh` after any change to it.
+- Test questions: `claude plugin eval plugins/cg-ember --eval-dir evals --runs 1
+  --max-cost-usd 10`. The suites live outside the plugin folder so they do not install.
 - Nothing in this repository may name the company that owns it, a camp, or the person who
   made a skill. Run `grep -rliE "camp[g]roup" .` before every push; it must print nothing.
 - American spelling, no dashes joining two thoughts, "child" or "camper" and never the

@@ -1,9 +1,9 @@
 ---
 name: wrap-up
-description: "Wrap up. Save a camp staff member's place in their own My work notes folder, add what they did today, and learn anything new about them, their camp or their jobs, so tomorrow starts where today stopped. Use when someone says 'wrap up', 'I'm done', 'that's it for today', 'done for now', 'let's stop here', 'save my place', 'see you tomorrow', 'I'm heading out', or 'make this a skill'."
+description: "Wrap up. Save a camp staff member's place in their Personal Notes, add what they did today, and learn anything new about them, their camp or their jobs, so tomorrow starts where today stopped. Use when someone says 'wrap up', 'I'm done', 'that's it for today', 'done for now', 'let's stop here', 'save my place', 'see you tomorrow', 'I'm heading out', or 'make this a skill'."
 metadata:
   cg-ember-name: "wrap-up"
-  cg-ember-version: "1"
+  cg-ember-version: "2"
 ---
 
 # Wrap up
@@ -24,14 +24,15 @@ piles lines onto the bottom.
 
 ## Where the notes are
 
-Four Google Docs in a folder called **My work** (or **My work notes**, if they already had a
-My work folder of their own) in their Google Drive: About me, My camp, My jobs, What I did
-this week. Read each one before changing it, and change only the part
-that changed. Writing from memory without reading first destroys what was there.
+Read the camp-background skill too: it says where their Personal Notes live and which
+pages they hold. This skill writes About me, My camp, My jobs and What I did this week.
+Read each one before changing it, and change only the part that changed. Writing from
+memory without reading first destroys what was there. Never write the Inbox helper or
+Questions waiting pages.
 
-If there is no My work folder, offer once to set it up ("say 'set me up'"), and do not
-make the folder on your own. If Google Drive is not connected, say once that their notes
-could not be saved today, so next time they should tell you where they got to. Never say
+If they have no Personal Notes, offer once to set them up ("say 'set me up'"), and do not
+make them on your own. If their notes cannot be reached, say once that their notes could
+not be saved today, so next time they should tell you where they got to. Never say
 "saved" about anything that was not, and never save their notes anywhere else.
 
 ## Step 1: save their place
@@ -42,11 +43,12 @@ In **What I did this week**, rewrite the "Where I left off" section at the top:
 Where I left off (Thursday, October 22)
 What I was doing: the staff hiring email to returning counselors.
 What is left: the paragraph about housing.
-Where it is: Gmail drafts, subject "Coming back for 2027?"
-Offered a skill: never
+Where it is: your email drafts, subject "Coming back for 2027?"
 ```
 
-Carry the "Offered a skill" line forward every time, changed only by Step 4.
+The housekeeping lines at the bottom of the page ("Last daily question", "Last version
+told", "Last weekly note") are carried forward exactly as they are. An "Offered a skill"
+line from an earlier version is removed.
 
 "What I was doing" is the main piece of work, not the last small question they asked on
 the way. Write places in words, never as a web address or a path.
@@ -65,12 +67,15 @@ If today taught you something lasting, put it where it belongs, quietly:
 - **About me, under "How I like things"**: a preference they stated or a correction they
   gave twice ("keep emails to three sentences", "sign off with just my first name"), with
   the date. When a newer one replaces an older one, remove the older one.
-- **My camp**: a fact about their camp they told you ("our season starts June 27"). If it
-  replaces an older fact, replace it.
+- **My camp**: a fact about their camp they told you ("our season starts June 27"), with
+  the date. If it replaces an older fact, replace it.
+
+The dates are how the weekly note (in the pick-up skill) finds what was learned that week,
+so never leave one off.
 - **My jobs**: a job they did today that they also do regularly, with how often. If a job
   there now has a skill that does it, say so on its line.
 
-## Step 4: offer a skill, at most once a day
+## Step 4: offer a skill, within the one question a day
 
 If **My jobs** shows a job they have now done with you two or three times the same way,
 offer once, at the end:
@@ -85,8 +90,9 @@ set-me-up skill say (the name rules, the ZIP made with code, the exact file name
 the clicks). Mention once that if it would help other camps, they can say "share this
 skill."
 
-Offer only if the "Offered a skill" line is not today, and write today's date there when you
-offer. Never in the middle of work, and anything other than a clear yes is a no.
+This offer uses the one question a day that several skills share (the one-question-a-day
+skill lists them, and this offer comes last). Offer only if the "Last daily question" line
+is not today, and write today's date there when you offer. Never in the middle of work, and anything other than a clear yes is a no.
 
 ## What never goes into the notes
 

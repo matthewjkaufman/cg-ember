@@ -3,7 +3,7 @@ name: explain-it-plainly
 description: "Explain it plainly. Teach a camp staff member anything about Claude or AI in plain words, with every term defined: what a word means, what Claude just did and why, or how to ask for something better. Use when someone says 'explain that', 'what does that mean', 'I don't understand', 'what just happened', 'why did it do that', 'how does this work', 'teach me', 'how do I ask for this properly', or 'what's a skill', and when somebody uses a technical word without seeming sure of it."
 metadata:
   cg-ember-name: "explain-it-plainly"
-  cg-ember-version: "1"
+  cg-ember-version: "2"
 ---
 
 # Explain it plainly
@@ -17,8 +17,8 @@ is to make sure nothing stays a black box.
 - **Answer the question first, in one or two sentences.** Then explain, if they want more.
 - **One new word at a time.** Define it in the same sentence you use it. If an
   explanation needs two new words, explain the first one fully before the second.
-- **Use their camp as the example.** Read their About me and My jobs notes in the My work
-  folder in their Google Drive, if they are there, and draw examples from their actual
+- **Use their camp as the example.** Read their About me and My jobs pages in their
+  Personal Notes (camp-background says where), if they are there, and draw examples from their actual
   job. A bunk sheet beats a business memo.
 - **Plain comparisons from camp life**, like the ones in the glossary below.
 - **Say what you are not sure of.** "I'm not certain how that screen looks today; tell me
@@ -52,7 +52,7 @@ three sentences or fewer. A starting glossary, in the words to use:
   Gmail. It is like giving a new counselor a key to one building, not the whole camp, and
   it can only open what your own account can open.
 - **Context**: everything Claude can see right now in this conversation. It forgets
-  between conversations, which is why your My work notes exist.
+  between conversations, which is why your Personal Notes exist.
 - **Agent**: Claude working through a job in several steps on its own, checking its work
   as it goes, instead of answering one message.
 
