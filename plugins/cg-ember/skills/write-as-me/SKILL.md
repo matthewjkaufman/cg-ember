@@ -14,6 +14,8 @@ summary, a reference for someone who worked for them.
 
 Read the camp-background skill too, for the ground rules.
 
+Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says.
+
 ## Who is reading decides whether this is the right skill
 
 Ask yourself one question before drafting: **who is reading this, and who is speaking?**

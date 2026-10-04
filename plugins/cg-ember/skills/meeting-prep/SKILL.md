@@ -14,6 +14,8 @@ that tells them what they need, so they are not scrolling through email in the h
 Read the camp-background skill too, for the ground rules. This skill only reads. It
 contacts nobody, sends nothing, and never answers, moves or changes the event.
 
+Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says.
+
 ## Step 1: find the meeting
 
 - **They named it** ("my 2:00", "the meeting with the bus company"): find that one on

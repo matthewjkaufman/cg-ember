@@ -2,6 +2,13 @@
 
 Newest at the top. Lines in each version are in order of importance.
 
+## 0.3.0
+
+- CG Ember now works in the ChatGPT app as well as in Claude. Your Personal Notes work the
+  same in either one.
+- Every skill now says plainly that it drafts and never sends.
+- If you use ChatGPT, say "set me up" once to approve CG Ember's safety check.
+
 ## 0.2.0
 
 - Your notes are now called Personal Notes. If you had a My work folder, nothing moved;

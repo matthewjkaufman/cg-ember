@@ -1,6 +1,6 @@
 ---
 name: show-me-what-i-can-say
-description: "Show me what I can say. List, in plain words, the things a camp staff member can ask Claude to do with this plugin, grouped by when they would use them, and suggest one to try first. Use when someone says 'what can I say', 'what can you do', 'show me what I can say', 'help', 'what does this plugin do', or 'what are my options'."
+description: "Show me what I can say. List, in plain words, the things a camp staff member can ask for with this plugin, grouped by when they would use them, and suggest one to try first. Use when someone says 'what can I say', 'what can you do', 'show me what I can say', 'help', 'what does this plugin do', or 'what are my options'."
 metadata:
   cg-ember-name: "show-me-what-i-can-say"
   cg-ember-version: "1"
@@ -12,6 +12,8 @@ Somebody who works at a summer camp wants to know what they can ask for. Give th
 phrases, short and grouped, so they can find the one they need at a glance.
 
 Read the camp-background skill too, for the ground rules.
+
+Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says.
 
 ## Before you write the list
 
@@ -50,7 +52,7 @@ underneath. Say each phrase the way a person would say it out loud.
 - **"Build my writing styles"**: learns how you write each kind of message.
 - **"Is this clear?"** or **"will they understand this?"**: reads it as the person
   receiving it would.
-- **"Explain that"**: anything about Claude, in plain words.
+- **"Explain that"**: anything about AI, or about me, in plain words.
 
 **Camp knowledge**
 

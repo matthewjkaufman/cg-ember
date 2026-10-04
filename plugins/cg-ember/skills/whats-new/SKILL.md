@@ -13,6 +13,8 @@ they can do now that they could not before, in a few lines, and stop.
 
 Read the camp-background skill too, for the ground rules.
 
+Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says.
+
 ## Step 1: read the changes
 
 Read **reference/changes.md** in this skill's own folder. Each version has a heading with

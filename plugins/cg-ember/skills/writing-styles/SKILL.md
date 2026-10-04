@@ -14,6 +14,8 @@ write-as-me skill reads that page before every draft.
 
 Read the camp-background skill too, for the ground rules.
 
+Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says.
+
 ## Step 1: which kinds of message
 
 Ask, in one message:

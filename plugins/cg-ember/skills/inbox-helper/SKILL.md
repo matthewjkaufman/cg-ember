@@ -17,13 +17,15 @@ answer goes into Personal Notes, so the next email asking it gets a draft.
 Read the camp-background skill too, for the ground rules. Rule 1 there (nothing is ever
 sent) is the heart of this skill.
 
+Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says.
+
 Five things people ask for, each below: set it up, run it now, change it, stop it, answer
 the waiting questions.
 
 ## How to talk
 
 Short messages, one step at a time, plain words. The word to define once, the first time
-it comes up: a **scheduled task** is a job Claude runs by itself at the times you pick.
+it comes up: a **scheduled task** is a job I run by myself at the times you pick.
 Never say the name of a tool, a cron, or a file path.
 
 ## Set it up
@@ -73,14 +75,15 @@ first name, where their notes are, what to leave alone, and the Hub line when th
 connected here. Keep every rule word for word.
 
 - **If you can create a scheduled task**, create one titled **Inbox helper** with that
-  text and the schedule they chose (every three hours from 7 AM to 7 PM on weekdays is
-  `0 7-19/3 * * 1-5`). Then check it exists by listing scheduled tasks and finding it by
-  name. Only then say it is set up.
-- **If you cannot**, show them the filled-in text in one block, and walk them through it
-  one step at a time: click **Scheduled** on the left, then **New task**, name it Inbox
-  helper, paste the text, and pick the times. Before those clicks, as its own first step:
-  "Click the small copy button at the top right of the gray box above." Ask them to say
-  when it is saved.
+  text and the schedule they chose, written as the screens page, section D, says. Then
+  check it exists by listing scheduled tasks and finding it by name. Only then say it is
+  set up.
+- **If you cannot**, show them the filled-in text in one block, and walk them through the
+  clicks in section D of the screens page, naming it Inbox helper. Before those clicks, as
+  its own first step: "Click the small copy button at the top right of the gray box
+  above." Ask them to say when it is saved.
+- Section D also says where the task runs and any limit on how often. If it changes what
+  they chose, say so in one sentence before you make it.
 
 Then say, in one sentence, where things will appear:
 
@@ -119,8 +122,8 @@ They can skip any question. "I don't know" leaves it waiting.
 
 List the scheduled tasks and find **Inbox helper**. If there is more than one, ask which.
 Ask what to change, then update that same task (its times, or its text refilled from the
-template). Never make a second one. If you cannot change tasks from here, give the clicks:
-**Scheduled**, open Inbox helper, change it, save.
+template). Never make a second one. If you cannot change tasks from here, give the clicks
+in section D of the screens page.
 
 ## Stop it
 

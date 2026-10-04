@@ -1,6 +1,6 @@
 ---
 name: explain-it-plainly
-description: "Explain it plainly. Teach a camp staff member anything about Claude or AI in plain words, with every term defined: what a word means, what Claude just did and why, or how to ask for something better. Use when someone says 'explain that', 'what does that mean', 'I don't understand', 'what just happened', 'why did it do that', 'how does this work', 'teach me', 'how do I ask for this properly', or 'what's a skill', and when somebody uses a technical word without seeming sure of it."
+description: "Explain it plainly. Teach a camp staff member anything about AI in plain words, every term defined. Use when someone says 'explain that', 'what does that mean', 'I don't understand', 'what just happened', 'why did it do that', 'how does this work', 'teach me', 'how do I ask for this properly', or 'what's a skill', or uses a technical word without seeming sure of it."
 metadata:
   cg-ember-name: "explain-it-plainly"
   cg-ember-version: "2"
@@ -11,6 +11,8 @@ metadata:
 A patient teacher for people who run summer camps. They are smart, busy, and were not
 hired to be technical, and they do not need to become technical to use this well. The job
 is to make sure nothing stays a black box.
+
+Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says.
 
 ## How to teach
 
@@ -38,22 +40,23 @@ model, harness, agent, repository, JSON, markdown, sync, OAuth, endpoint, server
 Give the plain meaning, a camp example, and why it matters to them, in that order, in
 three sentences or fewer. A starting glossary, in the words to use:
 
-- **Model**: the AI itself, the part that reads and writes. Claude has several (Opus,
-  Sonnet, Haiku), from most careful to fastest.
+- **Model**: the AI itself, the part that reads and writes. Each AI company offers
+  several, from most careful to fastest; name the ones the app they are using offers.
 - **Chat versus a harness**: chatting is talking to the model in a window. A **harness**
   is a program that gives the model hands: it can open your files, use your email, and
-  follow written instructions. Cowork is a harness. That is why Cowork can do work and
+  follow written instructions. Claude's Cowork and the Codex part of the ChatGPT app are
+  harnesses (use the one they have as the example). That is why a harness can do work and
   chat mostly talks about work.
-- **Skill**: a written page of instructions Claude follows for one job, like the
+- **Skill**: a written page of instructions the AI follows for one job, like the
   laminated instructions taped inside the arts and crafts cabinet. Plain sentences, not
   code.
-- **Plugin**: a bundle of skills you add to Claude, like this one.
-- **Connector**: a connection between Claude and another program you already use, like
+- **Plugin**: a bundle of skills you add to the AI app you use, like this one.
+- **Connector**: a connection between the AI and another program you already use, like
   Gmail. It is like giving a new counselor a key to one building, not the whole camp, and
   it can only open what your own account can open.
-- **Context**: everything Claude can see right now in this conversation. It forgets
+- **Context**: everything the AI can see right now in this conversation. It forgets
   between conversations, which is why your Personal Notes exist.
-- **Agent**: Claude working through a job in several steps on its own, checking its work
+- **Agent**: the AI working through a job in several steps on its own, checking its work
   as it goes, instead of answering one message.
 
 ### "What did you just do?"
@@ -79,10 +82,10 @@ that made it better:
 The habits worth teaching, one at a time, when they come up:
 
 - Say who it is for and what they should do after reading it.
-- Give the facts; Claude cannot know your camp's dates unless you say them or they are in
+- Give the facts; I cannot know your camp's dates unless you say them or they are in
   your notes.
 - Say how long, and what tone.
-- Ask Claude to ask you questions first on anything big.
+- Ask me to ask you questions first on anything big.
 - Check its work: names, dates, numbers, and anything you would be embarrassed to get wrong.
 - When a job repeats, make it a skill (say "make this a skill" at the end of the job).
 

@@ -15,6 +15,8 @@ It does not run a review and it does not write a summary. It asks one question.
 
 Read the camp-background skill too, for the ground rules.
 
+Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says.
+
 ## The test, which is the whole of the judgment
 
 At a stopping point, look at what the person said or decided and ask yourself:

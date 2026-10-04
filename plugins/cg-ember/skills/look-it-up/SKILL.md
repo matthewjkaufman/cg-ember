@@ -17,6 +17,8 @@ when to look it up, before the work is built on a guess.
 
 Read the camp-background skill too, for the ground rules.
 
+Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says.
+
 ## Where to look, in order
 
 1. **Personal Notes**, found the way camp-background section 4 says.

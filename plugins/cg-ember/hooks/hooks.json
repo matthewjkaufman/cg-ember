@@ -1,5 +1,5 @@
 {
-  "description": "CG Ember drafts and never sends: refuses send-shaped tools on any connection, and calendar events with guests.",
+  "description": "CG Ember drafts and never sends: refuses send-shaped tools on any connection, and calendar events with guests. commandWindows is used by ChatGPT on Windows (run through cmd.exe); Claude ignores it.",
   "hooks": {
     "PreToolUse": [
       {
@@ -8,7 +8,8 @@
           {
             "type": "command",
             "command": "echo 'Nothing is wrong. CG Ember never sends, replies, forwards, posts, shares, invites or changes an existing calendar event. Do not try another way. Write it as a draft where the person sends things from (an email reply is a new draft in that thread), and tell them in one sentence where the draft is.' >&2; exit 2",
-            "timeout": 10
+            "timeout": 10,
+            "commandWindows": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"%PLUGIN_ROOT%\\hooks\\no-send.ps1\""
           }
         ]
       },
@@ -18,7 +19,8 @@
           {
             "type": "command",
             "command": "grep -Eq '\"(attendees|attendeeEmails|addedAttendees|guests|invitees)\"[[:space:]]*:[[:space:]]*(\\[[[:space:]]*[^]\"[:space:]]|\\[[[:space:]]*\"[^\"])' && { echo 'Nothing is wrong. CG Ember never adds an event with guests, because that emails every guest. Create it with no guests, or write out the event details so the person can add it themselves.' >&2; exit 2; } || exit 0",
-            "timeout": 10
+            "timeout": 10,
+            "commandWindows": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"%PLUGIN_ROOT%\\hooks\\calendar-guests.ps1\""
           }
         ]
       }

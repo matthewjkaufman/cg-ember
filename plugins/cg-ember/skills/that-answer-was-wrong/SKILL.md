@@ -13,6 +13,8 @@ Fix it where it came from, so neither they nor anyone else gets it again.
 
 Read the camp-background skill too, for the ground rules.
 
+Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says.
+
 ## Step 1: which answer, and where it came from
 
 The answer is usually the last one in this conversation. If it is not clear which answer
@@ -24,7 +26,7 @@ so look at what was said:
 - **Their Personal Notes**: go to Step 2.
 - **A Camp Wiki or CG Knowledge Base page**: go to Step 3.
 - **One of their own files** (an email, a document): go to Step 4.
-- **No source**, because it came from Claude and not from anything of theirs: say so in
+- **No source**, because it came from you and not from anything of theirs: say so in
   one sentence, ask what the right answer is, and offer to keep it in "My answers" as in
   Step 4.
 

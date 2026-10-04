@@ -46,6 +46,11 @@ BLOCK=(
   # letter case and run-together names (Trevor, 2026-10-03)
   mcp__x__GMAIL_SEND_EMAIL mcp__x__Send_Email mcp__x__sendemail mcp__x__sendmail mcp__x__replyall
   mcp__x__chat_postmessage mcp__x__SLACK_SEND_MESSAGE mcp__x__OUTLOOK_REPLY_EMAIL
+  # ChatGPT shapes, unmeasured: Codex runs ChatGPT's own connections through a server named
+  # codex_apps (codex-rs source, 2026-10-04); the tool names after it are guesses until a
+  # real ChatGPT tool list is copied in.
+  mcp__codex_apps__gmail_send_email mcp__codex_apps__gmail_reply_to_email
+  mcp__codex_apps__outlook_email_send_message mcp__codex_apps__gmail_forward_email
 )
 PASS_NAMES=(
   # measured
