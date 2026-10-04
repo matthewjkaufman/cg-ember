@@ -58,17 +58,24 @@ import sys,os; f=os.path.join(sys.argv[1],"skills","camp-background","reference"
 open(f,"w",encoding="utf-8").write(s.replace("## G. ","## Removing "))'
 if [ "${OS:-}" = "Windows_NT" ]; then
   control windows-send-lets-through '
-import sys,os; f=os.path.join(sys.argv[1],"hooks","no-send.ps1")
-open(f,"w",encoding="utf-8").write("exit 0\n")'
+import sys,os,json; f=os.path.join(sys.argv[1],"hooks","hooks.json"); d=json.load(open(f,encoding="utf-8"))
+h=d["hooks"]["PreToolUse"][0]["hooks"][0]; h["commandWindows"]=h["commandWindows"].replace("exit /b 2","exit /b 0"); json.dump(d,open(f,"w",encoding="utf-8"))'
+  control windows-calendar-fails-open '
+import sys,os,json; f=os.path.join(sys.argv[1],"hooks","hooks.json"); d=json.load(open(f,encoding="utf-8"))
+h=d["hooks"]["PreToolUse"][1]["hooks"][0]; h["commandWindows"]=h["commandWindows"].split(" || ")[0]; json.dump(d,open(f,"w",encoding="utf-8"))'
+  control windows-wrong-root-variable '
+import sys,os,json; f=os.path.join(sys.argv[1],"hooks","hooks.json"); d=json.load(open(f,encoding="utf-8"))
+h=d["hooks"]["PreToolUse"][1]["hooks"][0]; h["commandWindows"]=h["commandWindows"].replace("%PLUGIN_ROOT%","%NOPE%"); json.dump(d,open(f,"w",encoding="utf-8"))'
   control windows-guests-pattern-broken '
 import sys,os; f=os.path.join(sys.argv[1],"hooks","calendar-guests.ps1"); s=open(f,encoding="utf-8").read()
 open(f,"w",encoding="utf-8").write(s.replace("attendees|",""))'
 else
-  echo "SKIPPED 2 Windows red controls (not on Windows)"
+  echo "SKIPPED 4 Windows red controls (not on Windows)"; skips=4
 fi
 
 echo "== safety check fingerprint (hooks/hooks.json)"
 py -c 'import hashlib,sys;print(hashlib.sha256(open(sys.argv[1],"rb").read()).hexdigest()[:16])' "$P/hooks/hooks.json"
 
-[ "$fail" -eq 0 ] && echo "all ChatGPT checks passed" || echo "ChatGPT checks FAILED"
+skips="${skips:-0}"
+[ "$fail" -eq 0 ] && echo "all ChatGPT checks passed ($skips red controls skipped; see any SKIPPED lines above)" || echo "ChatGPT checks FAILED"
 [ "$fail" -eq 0 ]

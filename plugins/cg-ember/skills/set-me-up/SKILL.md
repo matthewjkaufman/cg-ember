@@ -11,7 +11,7 @@ metadata:
 Somebody who works at a summer camp has just installed this plugin, usually from a
 printed checklist that ended at "install the plugin." This skill takes over from there.
 By the end, their email, files and calendar are connected, they know you only ever
-drafts, their Personal Notes exist in a place they chose, and the other apps they use
+draft, their Personal Notes exist in a place they chose, and the other apps they use
 every day are connected or listed.
 
 Read the camp-background skill too, for the ground rules.
@@ -121,7 +121,7 @@ Then the safety check, as the screens page, section C, says.
 ## Step 3: your Personal Notes
 
 **Personal Notes** are a few short pages about them, their camp and their jobs. You
-read them at the start of a day and updates them when they finish something, so they
+read them at the start of a day and update them when they finish something, so they
 never start cold. They are private to them.
 
 **If they already have them** (found as camp-background says, including an old **My work**

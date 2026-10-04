@@ -35,13 +35,15 @@ ALLOWED = [
     "This plugin works in Claude (in Cowork or in Claude chat) and in the ChatGPT app.",
     "`reference/screens-claude.md` in this skill's folder if you are Claude, or",
     "follow written instructions. Claude's Cowork and the Codex part of the ChatGPT app are",
-    "- CG Ember now works in the ChatGPT app as well as in Claude.",
+    "- You can now use CG Ember in the ChatGPT app as well as in Claude.",
 ]
 HOOK_TOP = {"description", "hooks"}
 HOOK_GROUP = {"matcher", "hooks"}
+# Every field Codex's command handler reads (codex-rs/config/src/hook_config.rs,
+# HookHandlerConfig::Command, read 2026-10-04); Claude reads type, command and timeout.
 HOOK_HANDLER = {"type", "command", "commandWindows", "timeout", "async", "statusMessage",
                 "additionalContextLimit"}
-NOT_IN_RUST = [r"(?=", r"(?!", r"(?<=", r"(?<!"]
+NOT_IN_RUST = [r"(?=", r"(?!", r"(?<=", r"(?<!", r"(?>", r"(?P=", r"\Z", r"\G", "*+", "++", "?+"]
 
 WITH_GUEST = '{"tool_name":"mcp__37427ece__create_event","tool_input":{"summary":"Bus meeting","attendees":[{"email":"a@example.com"}]}}'
 WITH_EMAILS = '{"tool_input":{"summary":"x","attendeeEmails": ["a@example.com"]}}'
@@ -78,12 +80,16 @@ def main(plugin):
                 bad("hooks.json: a check has no commandWindows, so it would not run on Windows in ChatGPT")
 
     # 3: the Windows commands, run the way Codex runs them.
-    if os.name == "nt" and len(groups) == 2:
-        env = dict(os.environ, PLUGIN_ROOT=os.path.abspath(plugin))
+    if os.name == "nt" and len(groups) != 2:
+        bad(f"hooks.json has {len(groups)} checks, expected 2, so the Windows cases cannot run")
+    elif os.name == "nt":
+        # Codex sets both names (codex-rs/hooks/src/engine/discovery.rs); start from neither.
+        base_env = {k: v for k, v in os.environ.items() if k not in ("PLUGIN_ROOT", "CLAUDE_PLUGIN_ROOT")}
+        env = dict(base_env, PLUGIN_ROOT=os.path.abspath(plugin), CLAUDE_PLUGIN_ROOT=os.path.abspath(plugin))
 
-        def run(cmd, stdin):
-            p = subprocess.run('cmd.exe /C "' + cmd + '"', input=stdin.encode(),
-                               capture_output=True, env=env, timeout=60)
+        def run(cmd, stdin, e=None):
+            p = subprocess.run('cmd.exe /C "' + cmd + '"', input=stdin.encode("utf-8"),
+                               capture_output=True, env=e or env, timeout=60)
             return p.returncode, p.stderr.decode(errors="ignore")
 
         send_cmd = groups[0]["hooks"][0].get("commandWindows", "")
@@ -101,8 +107,12 @@ def main(plugin):
                 bad(f"Windows calendar check, {name}: exit {code}, expected {want}")
             if want == 2 and "never adds an event with guests" not in err:
                 bad(f"Windows calendar check, {name}: the reason is missing")
+        # Fails closed: when its script cannot run, the calendar check refuses.
+        code, err = run(event_cmd, NO_GUEST, base_env)
+        if code != 2 or "never adds an event with guests" not in err:
+            bad(f"Windows calendar check with its script unreachable: exit {code}, expected 2 (it fails open)")
     else:
-        skipped.append("6 Windows command cases (not on Windows)")
+        skipped.append("7 Windows command cases (not on Windows)")
 
     # 4 to 7: the skills.
     skills = sorted(glob.glob(os.path.join(plugin, "skills", "*", "SKILL.md")))
@@ -143,7 +153,7 @@ def main(plugin):
         print("WRONG " + p)
     for s in skipped:
         print("SKIPPED " + s)
-    print(f"{len(problems)} wrong, {len(skills)} skills, descriptions {total} characters")
+    print(f"{len(problems)} wrong, {len(skipped)} skipped groups, {len(skills)} skills, descriptions {total} characters")
     return 1 if problems else 0
 
 

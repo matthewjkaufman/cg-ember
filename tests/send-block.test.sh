@@ -21,8 +21,9 @@ EVENT_CMD="$(py -c 'import json,sys;print(json.load(open(sys.argv[1]))["hooks"][
 pass=0; fail=0
 ok() { pass=$((pass+1)); }
 bad() { fail=$((fail+1)); echo "WRONG $1"; }
-# The app uses JavaScript regular expressions; Python's re agrees on every construct used here
-# (Trevor confirmed with a real hook run, 2026-10-03).
+# Claude uses JavaScript regular expressions and ChatGPT uses Rust's regex crate; Python's re agrees
+# with both on every construct used here (Trevor confirmed Claude with a real hook run, 2026-10-03;
+# tests/chatgpt_checks.py refuses constructs Rust lacks).
 matches() { py -c 'import re,sys;sys.exit(0 if re.search(sys.argv[1],sys.argv[2]) else 1)' "$1" "$2"; }
 
 BLOCK=(
