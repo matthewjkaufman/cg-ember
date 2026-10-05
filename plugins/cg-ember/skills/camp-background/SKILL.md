@@ -179,6 +179,9 @@ frontmatter.
    word. Without the Hub, it goes on a page called "Problems I
    ran into" in their Personal Notes, so they can show it to whoever helps them with
    computers at their camp.
+   Never quote their Personal Notes, or the name of any of their pages, in a problem report:
+   the people who read the problem log cannot open Personal Notes, and should not learn
+   what is in them this way.
 
 Never tell them to contact a particular person for help.
 
