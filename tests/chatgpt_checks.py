@@ -147,8 +147,27 @@ def main(plugin):
         code, err = run(draft_cmd, D_TRUE, base_env)
         if code != 2 or "only makes a scheduled post as a draft" not in err:
             bad(f"Windows draft check with its script unreachable: exit {code}, expected 2 (it fails open)")
+        # Every other way the draft check can fail must also end in a refusal, because a hook
+        # exit other than 2 lets the tool call through (Claude Code hooks page, 2026-10-07).
+        for name, case in [("empty input", ""), ("input that is not JSON", "not json {")]:
+            code, err = run(draft_cmd, case)
+            if code != 2:
+                bad(f"Windows draft check, {name}: exit {code}, expected 2")
+        import tempfile
+        with tempfile.TemporaryDirectory() as t:
+            code, err = run(draft_cmd, D_TRUE, dict(env, PATH=t))
+            if code != 2 or "only makes a scheduled post as a draft" not in err:
+                bad(f"Windows draft check with no PowerShell: exit {code}, expected 2 (it fails open)")
+            os.makedirs(os.path.join(t, "hooks"))
+            for name, body in [("a script that crashes", 'throw "boom"'),
+                               ("a script that cannot be read", "if ("),
+                               ("a script that exits with another number", "exit 7")]:
+                open(os.path.join(t, "hooks", "scheduled-post-draft.ps1"), "w").write(body)
+                code, err = run(draft_cmd, D_TRUE, dict(env, PLUGIN_ROOT=t, CLAUDE_PLUGIN_ROOT=t))
+                if code != 2 or "only makes a scheduled post as a draft" not in err:
+                    bad(f"Windows draft check with {name}: exit {code}, expected 2 (it fails open)")
     else:
-        skipped.append("19 Windows command cases (not on Windows)")
+        skipped.append("25 Windows command cases (not on Windows)")
 
     # 4 to 7: the skills.
     skills = sorted(glob.glob(os.path.join(plugin, "skills", "*", "SKILL.md")))

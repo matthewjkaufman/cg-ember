@@ -153,6 +153,13 @@ camps can sign in to, your name is shown as the person who made the skill.
   `hooks/scheduled-post-draft.ps1`, refusing whenever the script cannot run. Claude ignores
   that field. The written rule in every skill is the control that holds
   either way. Run `bash tests/send-block.test.sh` after any change to it.
+- A guard check that hangs past its time limit lets the action through, so the checks are
+  kept small and fast. Any exit other than 2 also lets it through, so every way a check can
+  fail (no interpreter, a crash, unreadable input) ends in exit 2, and both test scripts
+  prove each one. The draft check's time limit stays at 30 seconds, for PowerShell's start.
+- The three patterns were compiled with Rust's regex crate 1.x (1.13.1) at default
+  settings on 2026-10-07 (rustc 1.99.0), and all three compile; a lookahead control was
+  refused.
 - Test questions live in `evals/` (see `evals/README.md`). From the repository root:
   `claude plugin eval . --tag suite --runs 1 --scaffold --allow-tools Write Edit
   --judge-model sonnet --max-cost-usd 15`. The `control` case is left out of that run on purpose; it must fail.

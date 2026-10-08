@@ -180,6 +180,20 @@ else bad "draft red control: the broken check still refused draft false"; fi
 # No Python at all must refuse, never allow.
 [ "$(echo "$d_true" | env PATH=/nonexistent /bin/bash -c "$DRAFT_CMD" >/dev/null 2>&1; echo $?)" = 2 ] \
   && ok || bad "draft check without Python should refuse"
+# Every other failure must also end in exit 2: a hook exit other than 2 lets the tool call through.
+for c in "" "not json {"; do
+  [ "$(dr "$c" "$DRAFT_CMD")" = 2 ] && ok || bad "draft check should refuse input: '$c'"
+done
+stub="$(mktemp -d)"
+printf '#!/bin/sh
+exit 1
+' > "$stub/python3"; chmod +x "$stub/python3"
+[ "$(echo "$d_true" | env PATH="$stub" /bin/bash -c "$DRAFT_CMD" >/dev/null 2>&1; echo $?)" = 2 ]   && ok || bad "draft check with a Python that crashes should refuse"
+printf '#!/bin/sh
+kill -9 $$
+' > "$stub/python3"
+[ "$(echo "$d_true" | env PATH="$stub" /bin/bash -c "$DRAFT_CMD" >/dev/null 2>&1; echo $?)" = 2 ]   && ok || bad "draft check with a Python that is killed should refuse"
+rm -rf "$stub"
 
 # ChatGPT reads these patterns with Rust's regex engine: no lookaround, no backreferences.
 case "$SEND_RE" in *'(?'*) bad "send pattern uses (? which Rust's regex engine may refuse";; *) ok;; esac
