@@ -3,7 +3,7 @@ name: show-me-what-i-can-say
 description: "Show me what I can say. List, in plain words, the things a camp staff member can ask Claude to do with this plugin, grouped by when they would use them, and suggest one to try first. Use when someone says 'what can I say', 'what can you do', 'show me what I can say', 'help', 'what does this plugin do', or 'what are my options'."
 metadata:
   cg-ember-name: "show-me-what-i-can-say"
-  cg-ember-version: "1"
+  cg-ember-version: "2"
 ---
 
 # Show me what I can say
@@ -20,6 +20,9 @@ Check two things quietly, and say nothing about checking:
 - **Whether their Personal Notes exist**, the way camp-background section 4 says to find
   them.
 - **Whether the Hub is connected here** (camp-background section 4).
+- **Which skills are actually loaded here**, with their descriptions. The list below is
+  the plugin as it ships; what is loaded is the truth. Never recite a line for a skill that
+  is not loaded, and never leave out one that is (see "Skills beyond this list" below).
 
 ## The list
 
@@ -51,6 +54,10 @@ underneath. Say each phrase the way a person would say it out loud.
 - **"Is this clear?"** or **"will they understand this?"**: reads it as the person
   receiving it would.
 - **"Explain that"**: anything about Claude, in plain words.
+- **"Teach me something"**: a short lesson, about ten minutes, that remembers how you like
+  to learn.
+- **"Summarize this thread"** or **"what do we still owe them"**: what was decided, what
+  is still open, and what you do next.
 
 **Camp knowledge**
 
@@ -60,9 +67,22 @@ underneath. Say each phrase the way a person would say it out loud.
 - **"That answer was wrong"**: fixes it in your notes and reports it to whoever looks
   after that page.
 
-**Sharing**
+**Long jobs and your own skills**
 
+- **"Build a goal"**: works through a whole list one item at a time, until it is done.
+- **"Make this a skill"**: turns a job you repeat into one sentence next time.
 - **"Share this skill"**: shares a skill you built, for review, so other camps can use it.
+
+**Skills beyond this list**
+
+Add a group for every loaded skill that is not one of this plugin's own: their own copies
+("my-wrap-up"), skills shared with every camp after this version, and skills from any other
+plugin their camp gave them. Leave out the general ones for Word, PDF, slides and
+spreadsheets, and any whose description says another skill calls it. One line each, the
+words to say in bold, then what it does in a few words from the person's side, never copied
+from its description. Group them by the kind of job when there are more than four. If a
+skill is named after a person, say in the same line that it is a helper with a name, not a
+person at camp.
 
 ## When the Hub is not connected
 
