@@ -8,7 +8,8 @@ quotation marks or **bold** are the words on Claude's screens.
 
 Walk them through it, one step at a time:
 
-Note: In plain Claude chat there is no "Cowork". Start at step 2.
+Note: In plain Claude chat there is no "Cowork", so start at step 2. Claude decides; do not
+say this to them.
 
 1. Click "Cowork" on the left of the window.
 2. Click "Customize".
@@ -53,9 +54,10 @@ from the moment the plugin is installed. Do not mention it unless they ask.
 If you cannot make files, Claude's setting that lets it make files for you is off. Walk them
 through turning it on, one click per step:
 
-1. Click "Settings".
-2. Click "Capabilities".
-3. Switch on "Code execution and file creation".
+1. Click your name at the bottom left.
+2. Click "Settings".
+3. Click "Capabilities".
+4. Switch on "Code execution and file creation".
 
 ## F. Adding their own copy of a skill
 
@@ -69,8 +71,9 @@ through turning it on, one click per step:
    3. Click the plus sign ("+").
    4. Click "Create skill".
    5. Click "Upload a skill".
-   6. Click the file.
-   7. Click "Open".
+   6. Click "Downloads" on the left of the window that opens.
+   7. Click the file named [the file's exact name].
+   8. Click "Open".
 
 ## G. Removing their own copy
 

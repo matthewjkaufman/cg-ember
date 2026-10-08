@@ -60,12 +60,12 @@ written down, so it is a rule somebody chose and can change, not a mood.
 "teach me something."
 
 Start by taking it off their plate: the app offers several versions of the AI, called
-models, and the one already picked is fine for nearly everything. They trade speed against depth. A slower, deeper one is for
-work that is genuinely long or hard; on an ordinary job it mostly buys a slower answer to
-the same question.
+models, and the one already picked is fine for nearly everything. They trade speed against
+depth. A slower, deeper one is for work that is genuinely long or hard; on an ordinary job
+it mostly buys a slower answer to the same question.
 
-If they want to change it, the choice sits near the box where they type. Offer to find it
-with them on their screen rather than describing where to look. If they ask exactly what
+If they want to change it, the choice sits near the box where they type. Ask what they see
+near the typing box, and work from that. If they ask exactly what
 each one is best at, say you are not certain of the current details rather than describing
 them from memory.
 

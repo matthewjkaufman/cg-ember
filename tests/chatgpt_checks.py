@@ -60,6 +60,9 @@ D_FALSE = '{"tool_input":{"info":"{\\"text\\":\\"Hi\\",\\"draft\\":false}"}}'
 D_STRING = '{"tool_input":{"info":"{\\"text\\":\\"Hi\\",\\"draft\\":\\"true\\"}"}}'
 D_CASE = '{"tool_input":{"info":"{\\"text\\":\\"Hi\\",\\"Draft\\":true}"}}'
 D_BROKEN = '{"tool_input":{"info":"{draft: true"}}'
+# An array is not a post, even one holding a draft; PowerShell 7 would unroll it (Andy, 2026-10-07).
+D_ARRAY_TEXT = '{"tool_input":{"info":"[{\\"draft\\":true}]"}}'
+D_ARRAY = '{"tool_input":{"info":[{"draft":true}]}}'
 D_NOINFO = '{"tool_input":{"text":"Hi","draft":true}}'
 D_INTEXT = '{"tool_input":{"info":"{\\"text\\":\\"say \\\\\\"draft\\\\\\": true here\\"}"}}'
 D_NESTED = '{"tool_input":{"info":"{\\"text\\":\\"Hi\\",\\"extra\\":{\\"draft\\":true}}"}}'
@@ -133,7 +136,9 @@ def main(plugin):
                                  ("info that is not JSON", D_BROKEN, 2),
                                  ("no info at all", D_NOINFO, 2),
                                  ("the word draft inside the text", D_INTEXT, 2),
-                                 ("draft true one level down", D_NESTED, 2)]:
+                                 ("draft true one level down", D_NESTED, 2),
+                                 ("an array holding a draft, as text", D_ARRAY_TEXT, 2),
+                                 ("an array holding a draft", D_ARRAY, 2)]:
             code, err = run(draft_cmd, case)
             if code != want:
                 bad(f"Windows draft check, {name}: exit {code}, expected {want}")
@@ -143,7 +148,7 @@ def main(plugin):
         if code != 2 or "only makes a scheduled post as a draft" not in err:
             bad(f"Windows draft check with its script unreachable: exit {code}, expected 2 (it fails open)")
     else:
-        skipped.append("17 Windows command cases (not on Windows)")
+        skipped.append("19 Windows command cases (not on Windows)")
 
     # 4 to 7: the skills.
     skills = sorted(glob.glob(os.path.join(plugin, "skills", "*", "SKILL.md")))

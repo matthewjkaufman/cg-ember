@@ -6,13 +6,14 @@ Newest at the top. Lines in each version are in order of importance.
 
 - You can now use CG Ember in the ChatGPT app as well as in Claude. Your Personal Notes
   work the same in either one.
-- Using ChatGPT? Say "set me up" once to approve CG Ember's safety check.
+- Using ChatGPT? Say "set me up" once, and I'll show you the one box to click so I can
+  never send anything.
 - Say "teach me something" for a short lesson, about ten minutes. I'll remember how you like
   to learn, on a page in your Personal Notes.
-- Say "build a goal" and I'll work through a whole list one item at a time, a stack of
-  applications, say, until it's done, with a checklist you can see.
-- Say "summarize this thread" or "what do we still owe them" for what was decided, what's
-  still open, and what you do next.
+- Say "build a goal" and I'll go through a long list with you, like a stack of
+  applications, one at a time, ticking each off on a checklist.
+- Say "summarize this thread" (a long back-and-forth of emails) or "what do we still owe
+  them" for what was decided, what's still open, and what you do next.
 - At the end of setup, I now do one real job from your own week with you.
 - "Is this clear?" can also say what parents will ask about a message before it goes.
 - "Share this skill" can now write a skill with you from a job you do over and over.

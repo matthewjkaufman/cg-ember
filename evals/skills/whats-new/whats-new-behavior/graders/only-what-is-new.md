@@ -5,13 +5,14 @@ type: llm
 The person last heard about version 0.2.0. What is new to them is exactly these lines:
 - You can now use CG Ember in the ChatGPT app as well as in Claude. Your Personal Notes
   work the same in either one.
-- Using ChatGPT? Say "set me up" once to approve CG Ember's safety check.
+- Using ChatGPT? Say "set me up" once, and I'll show you the one box to click so I can
+  never send anything.
 - Say "teach me something" for a short lesson, about ten minutes. I'll remember how you like
   to learn, on a page in your Personal Notes.
-- Say "build a goal" and I'll work through a whole list one item at a time, a stack of
-  applications, say, until it's done, with a checklist you can see.
-- Say "summarize this thread" or "what do we still owe them" for what was decided, what's
-  still open, and what you do next.
+- Say "build a goal" and I'll go through a long list with you, like a stack of
+  applications, one at a time, ticking each off on a checklist.
+- Say "summarize this thread" (a long back-and-forth of emails) or "what do we still owe
+  them" for what was decided, what's still open, and what you do next.
 - At the end of setup, I now do one real job from your own week with you.
 - "Is this clear?" can also say what parents will ask about a message before it goes.
 - "Share this skill" can now write a skill with you from a job you do over and over.
@@ -28,3 +29,17 @@ FAIL if it says nothing is new, or presents anything from older versions as new,
 - Say "set up Inbox helper" and every few hours I'll draft replies to the emails your
   Personal Notes and wikis can answer, and list the rest for you. Once a day I'll ask you
   about a question that keeps coming up. It never sends.
+- Say "write as me" for a draft in your own voice, waiting in your drafts.
+- Say "build my writing styles" and I'll learn how you write each kind of message, from a
+  few emails you've already sent.
+- Ask "what's our policy on..." or "when is..." and I'll look it up and say where the
+  answer came from.
+- Say "that answer was wrong" and I'll fix it in your notes, and report it to whoever
+  looks after that page on the Camp Wiki or the CG Knowledge Base.
+- Say "is this clear?" and I'll read it the way the person receiving it would.
+- Say "prep me for my meeting" for a one-screen brief before you walk in.
+- Once a day at most, I'll ask one short question about how your camp works, so it gets
+  written down.
+- "Set me up" now asks which other apps you use every day and connects the ones it can.
+- Nothing is ever sent. Emails and messages wait in your drafts.
+- Say "show me what I can say" for the whole list, or "what's new" to hear this again.

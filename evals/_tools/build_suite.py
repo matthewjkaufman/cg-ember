@@ -26,7 +26,7 @@ _PARTS = re.split(r"^## (\d+\.\d+\.\d+)\b.*$", open(os.path.join(
 _VERSIONS, _ENTRIES = _PARTS[1::2], _PARTS[2::2]
 VERSION, PREV_VERSION = _VERSIONS[0], _VERSIONS[1]
 NEWEST_LINES = _ENTRIES[0].strip()
-OLDER_LINES = "\n- ".join(_ENTRIES[1].strip().split("\n- ")[:3])
+OLDER_LINES = _ENTRIES[1].strip()
 
 DANA = "dana@pinehollowcamp.example"
 SEND_TOOLS = ["mcp__gmail__send_message", "mcp__gmail__reply", "mcp__gmail__forward"]
