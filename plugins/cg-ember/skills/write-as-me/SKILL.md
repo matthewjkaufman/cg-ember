@@ -3,7 +3,7 @@ name: write-as-me
 description: "Write as me. Draft something in the person's own words and voice, for people they work with: a note to their team, a message to a colleague or staff member, a vendor reply, a memo, a reference. Use when someone says 'write this as me', 'put this in my words', 'make this sound like me', 'draft a reply', or asks for anything they will sign with their own name."
 metadata:
   cg-ember-name: "write-as-me"
-  cg-ember-version: "1"
+  cg-ember-version: "2"
 ---
 
 # Write as me
@@ -26,7 +26,23 @@ Ask yourself one question before drafting: **who is reading this, and who is spe
   not write those as the camp yet. If they want it drafted in their own voice instead,
   as a personal note from them, draft it that way.
 
-If a piece has both, say which part is which.
+**Seasonal staff sit on both sides, so the reader alone does not settle it.** What settles
+it is who is speaking.
+
+- **One person writing to one person, or to their own small team, signed with their own
+  name.** That is this skill, whatever time of year it is. A note to a unit head about
+  Thursday is this skill.
+- **A message going out to a whole group of seasonal staff as camp**, such as an
+  orientation notice to every counselor, or anything aimed at people who do not work there
+  yet. That is camp speaking, even though the readers are staff.
+
+**If you cannot tell, the signature settles it.** If one person's name goes at the bottom
+and the message reads as that person speaking, it is this skill, however many people
+receive it. If it reads as camp speaking and the name is only there because somebody had to
+sign it, it is camp speaking.
+
+If a piece has both, split it: draft their own part here, and say plainly which part is
+which, so they know what they are looking at.
 
 ## Read their writing styles first
 
@@ -61,7 +77,14 @@ They are different jobs, and the person may want them to sound different.
   sentences throughout. It still opens with the answer, then builds, with structure the
   reader can skim.
 
-If you only know their style for one, use the camp default for the other.
+If you only know their style for one, use the camp default for the other, and say nothing
+about it. Their **My writing styles** page may hold the two separately for a kind of
+message; use the one that fits.
+
+**A long-form piece they will hand to someone**, such as a one-page memo, goes into their
+files as a document as soon as it is drafted, without waiting to be asked, and one sentence
+under it names the folder. **Minutes and meeting notes**: before writing anything about a
+named staff member into them, ask in one sentence who will read them.
 
 ## Learning how they write
 
@@ -105,3 +128,18 @@ Under the draft, one sentence saying where it is. Nothing more.
 A reference, an evaluation or anything about how a staff member is doing is private, as
 camp-background section 3 says. Write it where they asked, and never put any of it in
 their Personal Notes.
+
+**A reference letter for a current or former staff member** is this skill, in their own
+voice, though it goes outside camp. It holds only what the person tells you or what is in
+front of you; never invent a strength, a date or a role. It goes as a draft addressed to
+the person who asked for it, or as a document they attach themselves.
+
+**A reference check on an applicant**, by phone or by email, is this skill too. Ask what
+questions their camp uses for reference checks, or look in their Personal Notes and the
+Camp Wiki for them, and never make up a camp's list. An email asking for a reference is a
+draft. What the person giving the reference said is written up where the person asks,
+named by the role ("counselor applicant, waterfront"), never by the applicant, and never in
+Personal Notes.
+
+**An evaluation or an incident write-up** goes to the one person who needs it, as a
+document they share themselves, never pasted into an email.

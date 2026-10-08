@@ -3,7 +3,7 @@ name: writing-styles
 description: "Build my writing styles. Learn how the person writes each kind of message, from a few of their sent emails, so drafts sound like them. Use when someone says 'build my writing styles', 'learn how I write', 'update my writing style', 'make drafts sound more like me', or 'you don't sound like me'."
 metadata:
   cg-ember-name: "writing-styles"
-  cg-ember-version: "1"
+  cg-ember-version: "2"
 ---
 
 # Writing styles
@@ -31,7 +31,13 @@ For each kind, one at a time, ask before reading anything:
 > Can I read about five emails you've sent recently that are replies to parents? I'll
 > keep only a description of how you write, never what you said or who it was to.
 
-Anything other than a clear yes is a no for that kind. Move to the next kind.
+Anything other than a clear yes is a no for that kind. Move to the next kind. Their yes
+covers their own words only. The families and staff in their mailbox never agreed to
+anything, which is why only style is kept.
+
+Never read their sent email to learn their style without this question, even to find how
+they sign off. Until they say yes, their sign-off comes from "How I like things" in About
+me, or from the write-as-me skill's camp default.
 
 ## Step 3: read, within the yes
 
@@ -58,6 +64,11 @@ Write a short style for that kind, about eight lines:
 - **Habits**: anything they do often, like thanking people first or numbering steps.
 - **Words they never use**: ones they name when they see the style, or ones they clearly
   avoid where most people would use them.
+
+**Short form and long form are kept separately** when the emails show both. A quick reply
+and a two-page update from the same person often sound different, so a kind may have a
+"Short" and a "Long" part. If the emails only show one, keep that one and leave the other
+out; the write-as-me skill uses its camp default for it.
 
 **Store style, never content.** No sentence copied from an email. No names of anyone they
 wrote to. No detail about any family, camper or staff member. If an example line would
