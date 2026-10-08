@@ -34,7 +34,8 @@ it is who is speaking.
   Thursday is this skill.
 - **A message going out to a whole group of seasonal staff as camp**, such as an
   orientation notice to every counselor, or anything aimed at people who do not work there
-  yet. That is camp speaking, even though the readers are staff.
+  yet. That is camp speaking, even though the readers are staff, and it gets the same answer
+  as a broadcast to families.
 
 **If you cannot tell, the signature settles it.** If one person's name goes at the bottom
 and the message reads as that person speaking, it is this skill, however many people
