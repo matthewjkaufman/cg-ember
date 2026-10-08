@@ -76,6 +76,8 @@ address; nothing extra.
    - in Dana's style for that kind of message, from My writing styles (if there
      is none, plain, warm and short, signed with Dana's first name);
    - as short as the answer allows, with only facts from those pages;
+   - with none of the words the "Our brand" section of My camp (or the Camp Wiki's brand
+     guide) says camp avoids, when there is one;
    - checked before saving against seven questions: Would the reader know what this is
      telling them, in one sentence? Is there a sentence that would make them stop? Does it
      raise a question it never answers? Does it assume something they would not know? If

@@ -1,6 +1,6 @@
 ---
 name: look-it-up
-description: "Look it up. Answer a question about how camp works from what has been written down, never from a guess. Use when someone asks what the policy is, who owns something, when something happens, what was done last year, how many of something there are, or what a camp term means, and whenever a request depends on a camp fact nobody has stated."
+description: "Look it up. Answer a question about how camp works from what is written down, never a guess. Use when someone asks what the policy is, who owns something, when something happens, what was done last year, how many of something there are, or what a camp term means, and whenever a request depends on an unstated camp fact."
 metadata:
   cg-ember-name: "look-it-up"
   cg-ember-version: "2"

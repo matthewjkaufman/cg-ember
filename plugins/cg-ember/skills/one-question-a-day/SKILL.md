@@ -1,6 +1,6 @@
 ---
 name: one-question-a-day
-description: "One question a day. Ask one short question about something the person just said about how camp works, so it does not stay in one person's head. Use when work reaches a stopping point, when somebody explains a camp rule, a deadline, what a vendor or inspector wants, or how something is always done. At most one question a day, about camp, never about the wiki."
+description: "One question a day. Ask one short question about something the person just said about how camp works, so it is not kept in one head. Use when work reaches a stopping point, or somebody explains a camp rule, a deadline, what a vendor or inspector wants, or how something is always done. At most one a day, never about the wiki."
 metadata:
   cg-ember-name: "one-question-a-day"
   cg-ember-version: "1"

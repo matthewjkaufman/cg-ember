@@ -1,6 +1,6 @@
 ---
 name: check-its-clear
-description: "Check it's clear. Read something as the person receiving it would, and say whether they will understand it. Use when someone says 'check it's clear', 'is this clear', 'will they understand this', 'how will this land', 'does this make sense', or 'read this before I send it', and on anything for a parent, a new staff member or a vendor."
+description: "Check it's clear. Read something as the person receiving it would, and say whether they will understand it. Use when someone says 'is this clear', 'will they understand this', 'how will this land', 'does this make sense', or 'read this before I send it', and on anything for a parent, new staff or a vendor."
 metadata:
   cg-ember-name: "check-its-clear"
   cg-ember-version: "2"
@@ -55,6 +55,9 @@ Read the whole thing once, straight through, as that reader. Then answer these.
    Say which word to use instead.
 7. **Is too much being asked at once?** More than about three things, and people do the
    first one and stop.
+
+If My camp has an **Our brand** section, or the Camp Wiki has a brand guide, name any word
+the message uses that the guide says camp avoids, as "just wondering."
 
 If the message carries a camper's or a family's private details to someone whose job does
 not need them, say that first, as camp-background section 3 says.

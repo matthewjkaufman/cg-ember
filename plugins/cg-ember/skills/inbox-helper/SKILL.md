@@ -1,6 +1,6 @@
 ---
 name: inbox-helper
-description: "Inbox helper. Every few hours, draft replies to the emails your Personal Notes and wikis can fully answer, list the rest, and collect questions people keep asking. It never sends. Also sums up a long thread. Use when someone says 'set up Inbox helper', 'check my inbox now', 'stop Inbox helper', 'summarize this thread', or 'what do we still owe them'."
+description: "Inbox helper. Every few hours, draft replies to emails your Personal Notes and wikis fully answer, list the rest, and collect questions people keep asking. Never sends. Also sums up a long thread. Use when someone says 'set up Inbox helper', 'check my inbox now', 'stop Inbox helper', 'summarize this thread', or 'what do we still owe them'."
 metadata:
   cg-ember-name: "inbox-helper"
   cg-ember-version: "2"

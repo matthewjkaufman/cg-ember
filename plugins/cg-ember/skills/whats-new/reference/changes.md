@@ -2,6 +2,12 @@
 
 Newest at the top. Lines in each version are in order of importance.
 
+## 0.3.1
+
+- Say "build our brand guide" and I'll write down your camp's logo, colors, fonts, photo
+  rules and words with you, one question at a time. Then everything I make for camp uses
+  them, and I never guess a color or a font.
+
 ## 0.3.0
 
 - New here? Say "get started" and Ainsley, the guide, walks you through connecting your

@@ -34,6 +34,7 @@ Say these in your own words. You do not need the exact phrase.
 | "Write as me" | It drafts a message in your own voice, in your drafts. |
 | "Build my writing styles" | It learns how you write, from a few emails you already sent. |
 | "Is this clear?" | It reads your writing as the person receiving it would, and can say what parents will ask. |
+| "Build our brand guide" | It writes down your camp's logo files, colors, fonts, photo rules and words with you, one question at a time, so everything it makes for camp looks and sounds the same. It never guesses a color or a font. |
 | **Your camp's questions** | |
 | "Look it up" | Ask anything about your camp. It answers from what is written down, says where it came from, and never guesses. |
 | "That answer was wrong" | It fixes it in your Personal Notes and tells whoever looks after that wiki page. |

@@ -1,6 +1,6 @@
 ---
 name: show-me-what-i-can-say
-description: "Show me what I can say. List, in plain words, the things a camp staff member can ask for with this plugin, grouped by when they would use them, and suggest one to try first. Use when someone says 'what can I say', 'what can you do', 'show me what I can say', 'help', 'what does this plugin do', or 'what are my options'."
+description: "Show me what I can say. List in plain words, grouped by when they'd use them, what a camp staff member can ask for, and suggest one to try first. Use when someone says 'what can I say', 'what can you do', 'show me what I can say', 'help', 'what does this plugin do', or 'what are my options'."
 metadata:
   cg-ember-name: "show-me-what-i-can-say"
   cg-ember-version: "2"
@@ -57,6 +57,8 @@ underneath. Say each phrase the way a person would say it out loud.
 - **"Build my writing styles"**: learns how you write each kind of message.
 - **"Is this clear?"** or **"will they understand this?"**: reads it as the person
   receiving it would.
+- **"Build our brand guide"**: writes down your camp's logo, colors, fonts and words, so
+  everything branded matches.
 - **"Explain that"**: anything about AI, or about me, in plain words.
 - **"Teach me something"**: a short lesson, about ten minutes, that remembers how you like
   to learn.

@@ -1,6 +1,6 @@
 ---
 name: whats-new
-description: "What's new. Tell a camp staff member, in a few plain lines, only what changed in this plugin since the last version they heard about, and what to say to use it. Use when someone says 'what's new', 'what changed', 'anything new', or 'what's different since the update'. The pick-up skill also runs it once after an update."
+description: "What's new. Tell a camp staff member, in a few plain lines, only what changed since the last version they heard about, and what to say to use it. Use when someone says 'what's new', 'what changed', 'anything new', or 'what's different since the update'. Pick-up also runs it once after an update."
 metadata:
   cg-ember-name: "whats-new"
   cg-ember-version: "1"

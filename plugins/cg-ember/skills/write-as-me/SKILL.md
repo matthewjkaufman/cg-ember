@@ -1,6 +1,6 @@
 ---
 name: write-as-me
-description: "Write as me. Draft something in the person's own words and voice, for people they work with: a note to their team, a message to a colleague or staff member, a vendor reply, a memo, a reference. Use when someone says 'write this as me', 'put this in my words', 'make this sound like me', 'draft a reply', or asks for anything they will sign with their own name."
+description: "Write as me. Draft something in the person's own words and voice for people they work with: their team, a colleague, a staff member, a vendor. Use when someone says 'write this as me', 'put this in my words', 'make this sound like me', 'draft a reply', or asks for anything they will sign with their own name."
 metadata:
   cg-ember-name: "write-as-me"
   cg-ember-version: "2"
@@ -55,6 +55,8 @@ Look in their Personal Notes, found the way camp-background section 4 says, for:
   you are drafting.
 - **About me**, under "How I like things": preferences they have given, such as how they
   sign off.
+- **Our brand** on My camp, or the Camp Wiki's brand guide: its words, and for anything
+  branded its colors and fonts; never fill in what it marks Not known yet.
 
 If there is no style for this kind of message, use the camp default below and say nothing
 about it. If they would like drafts to sound more like them, they can say "build my

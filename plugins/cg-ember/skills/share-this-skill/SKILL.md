@@ -1,6 +1,6 @@
 ---
 name: share-this-skill
-description: "Share this skill. Package a skill a camp staff member built, or write one with them from a job they repeat, and send it to Matt for review, so that if he approves it every camp using this plugin gets it. Use when someone says 'share this skill', 'send this to Matt', 'can other camps use this', 'submit my skill', or 'other camps should have a skill for this'."
+description: "Share this skill. Package a skill someone built, or write one with them from a job they repeat, and send it to Matt for review, so every camp gets it if he approves. Use when someone says 'share this skill', 'send this to Matt', 'can other camps use this', 'submit my skill', or 'other camps should have a skill for this'."
 metadata:
   cg-ember-name: "share-this-skill"
   cg-ember-version: "3"
