@@ -1,6 +1,6 @@
 ---
 name: meeting-prep
-description: "Prep me for my meeting. Read the calendar entry, recent email with the people in it, the files it links, and the person's notes, then write a one-screen brief: who, what is open, what to decide, what to bring. Use when someone says 'prep me for my meeting', 'get me ready for my 2:00', 'what do I need to know before I meet with...', or 'brief me on my next call'."
+description: "Prep me for my meeting. Read the calendar entry, related email, files and notes, and write a one-screen brief. Use when someone says 'prep me for my meeting', 'get me ready for my 2:00', 'what do I need to know before I meet with...', or 'brief me on my next call'."
 metadata:
   cg-ember-name: "meeting-prep"
   cg-ember-version: "1"

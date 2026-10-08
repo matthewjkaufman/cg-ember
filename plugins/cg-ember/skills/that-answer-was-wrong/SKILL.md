@@ -1,6 +1,6 @@
 ---
 name: that-answer-was-wrong
-description: "That answer was wrong. Fix a wrong or out-of-date answer where it came from: in the person's Personal Notes at once, or by reporting it to whoever looks after that Camp Wiki or CG Knowledge Base page, and keep the right answer so it is not repeated. Use when someone says 'that's wrong', 'that answer was wrong', 'that's out of date', 'that's not right anymore', or 'fix that'."
+description: "That answer was wrong. Fix a wrong or out-of-date answer where it came from: in Personal Notes at once, or by reporting it to whoever looks after that wiki page. Use when someone says 'that's wrong', 'that answer was wrong', 'that's out of date', 'that's not right anymore', or 'fix that'."
 metadata:
   cg-ember-name: "that-answer-was-wrong"
   cg-ember-version: "1"

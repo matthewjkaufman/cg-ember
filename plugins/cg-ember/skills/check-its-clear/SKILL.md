@@ -1,6 +1,6 @@
 ---
 name: check-its-clear
-description: "Check it's clear. Read something as the person receiving it and say whether they will understand it and know what to do, plus an optional pass for families. Use when someone says 'check it's clear', 'is this clear', 'will they understand this', 'how will this land', 'does this make sense', or 'read this before I send it', and on anything for a parent, a new staff member or a vendor."
+description: "Check it's clear. Read something as the person receiving it would, and say whether they will understand it. Use when someone says 'check it's clear', 'is this clear', 'will they understand this', 'how will this land', 'does this make sense', or 'read this before I send it', and on anything for a parent, a new staff member or a vendor."
 metadata:
   cg-ember-name: "check-its-clear"
   cg-ember-version: "2"

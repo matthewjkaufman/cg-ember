@@ -767,6 +767,16 @@ PASS if the reply introduces Ainsley by name, gives only one step or one questio
 (no email, file or calendar) before asking. FAIL if it gives several setup steps in one message, mentions a
 video or shows a link to one, or uses technical words such as MCP, OAuth, API, server or JSON.""")])
 
+    # Which skill wins when the two setup skills' words are close (Andy, A4, 2026-10-07).
+    case(("skills", "get-started"), "get-started-wins-over-set-me-up",
+         "I just got access to this. Help me get started.",
+         [skill_fired("get-started"), skill_fired("set-me-up", never=True)],
+         ["suite", "trigger"], max_turns=6)
+    case(("skills", "set-me-up"), "set-me-up-wins-over-get-started",
+         "I just installed this. Get me set up.",
+         [skill_fired("set-me-up"), skill_fired("get-started", never=True)],
+         ["suite", "trigger"], max_turns=6)
+
     skill_cases(
         "share-this-skill",
         "I made a skill for writing bus letters and I think every camp should have it. Share this skill.",

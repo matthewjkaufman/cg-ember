@@ -52,7 +52,7 @@ huge file uses more of the allowance than a short note.
 
 A **plugin** is a bundle of skills and rules you add to the app. This one is made for
 people who run summer camps, and it is why the app here never sends anything and knows to
-look in their notes. When it updates, the new version arrives on its own.
+look in their notes. When the plugin is updated, the app brings in the new version.
 
 ## 6. Skill
 
@@ -79,7 +79,8 @@ best in a new conversation.
 
 A **wiki** is a set of pages a group of people can add to and correct over time. They have
 three layers: their Personal Notes, their Camp Wiki and the CG Knowledge Base (Part 5 of the
-skill explains them). Every answer that comes from a wiki says which page it came from, so
+skill explains them). Name the Camp Wiki and the CG Knowledge Base only when the Hub is
+connected here; otherwise say those two arrive once their camp is on the Hub. Every answer that comes from a wiki says which page it came from, so
 they can check it.
 
 ## 9. Prompt
@@ -100,8 +101,8 @@ for, what they want and what would make it right. Show this pair:
 
 A **goal** is a whole list of work handed over at once, with what "done" looks like for
 each item, for example "check every one of these forty applications for a missing
-reference". The AI works through it one item at a time and ticks each off. They type "build
-a goal" to make one.
+reference". The AI works through it one item at a time and checks each one off. They
+type "build a goal" to make one.
 
 ## 11. Loop
 

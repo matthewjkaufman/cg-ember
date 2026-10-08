@@ -1,6 +1,6 @@
 ---
 name: explain-it-plainly
-description: "Explain it plainly. Teach a camp staff member anything about AI in plain words, every term defined, and give short lessons that remember how they like to learn. Use when someone says 'explain that', 'what does that mean', 'I don't understand', 'what just happened', 'why did it do that', 'how do I ask for this', or 'teach me something', or uses a technical word without seeming sure of it."
+description: "Explain it plainly. Explain AI in plain words, every term defined, and give short lessons. Use when someone says 'explain that', 'what does that mean', 'I don't understand', 'what just happened', 'why did it do that', 'how do I ask for this', or 'teach me something', or uses a technical word without seeming sure of it."
 metadata:
   cg-ember-name: "explain-it-plainly"
   cg-ember-version: "3"

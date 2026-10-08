@@ -1,6 +1,6 @@
 ---
 name: camp-background
-description: "The ground rules for any work at a summer camp: what never gets sent, how camper and family information is handled, where answers come from (Personal Notes, Camp Wiki, CG Knowledge Base), and what to do when stuck. Use it on any camp task, including email, campers, families, staff, the office, enrollment or the summer season. When in doubt on a camp task, use it."
+description: "The ground rules for any work at a summer camp: what never gets sent, how camper and family information is handled, where answers come from, and what to do when stuck. Use it on any camp task, including email, campers, families, staff, the office, enrollment or the summer season. When in doubt on a camp task, use it."
 metadata:
   cg-ember-name: "camp-background"
   cg-ember-version: "1"

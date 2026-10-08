@@ -1,6 +1,6 @@
 ---
 name: set-me-up
-description: "Set me up. Walk a camp staff member, one step at a time, through connecting their email, files and calendar, choosing where their Personal Notes live, and connecting the other apps they use. Use when someone says 'set me up', 'get me set up', 'I just installed this', 'connect my email', 'connect my apps', or 'finish my setup'. Also for 'make my own copy' of a skill."
+description: "Set me up. Walk someone, one step at a time, through connecting their email, files, calendar and other apps, and choosing where their Personal Notes live. Use when someone says 'set me up', 'get me set up', 'I just installed this', 'connect my email', 'connect my apps', or 'finish my setup'. Also for 'make my own copy' of a skill."
 metadata:
   cg-ember-name: "set-me-up"
   cg-ember-version: "3"

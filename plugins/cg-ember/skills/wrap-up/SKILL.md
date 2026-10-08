@@ -1,6 +1,6 @@
 ---
 name: wrap-up
-description: "Wrap up. Save a camp staff member's place in their Personal Notes, add what they did today, and learn anything new about them, their camp or their jobs, so tomorrow starts where today stopped. Use when someone says 'wrap up', 'I'm done', 'that's it for today', 'done for now', 'let's stop here', 'save my place', 'see you tomorrow', 'I'm heading out', or 'make this a skill'."
+description: "Wrap up. Save their place and what they did today in their Personal Notes, with anything new learned about them or their camp. Use when someone says 'wrap up', 'I'm done', 'that's it for today', 'done for now', 'let's stop here', 'save my place', 'see you tomorrow', 'I'm heading out', or 'make this a skill'."
 metadata:
   cg-ember-name: "wrap-up"
   cg-ember-version: "2"

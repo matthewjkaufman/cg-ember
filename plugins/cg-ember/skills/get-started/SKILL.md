@@ -1,6 +1,6 @@
 ---
 name: get-started
-description: "Get started. Ainsley, the guide, walks someone new through their first sitting or two: connecting their accounts and apps, what this plugin changes, the eleven words worth knowing, the three layers of notes and wikis, and one small first build. Use when someone says 'get started', 'help me get started', 'walk me through everything', 'onboard me', or 'I just got access'."
+description: "Get started. Ainsley, the guide, walks someone new through connecting their apps, the words worth knowing, filling in their notes and wikis, and one first build. Use when someone says 'get started', 'help me get started', 'walk me through everything', 'onboard me', or 'I just got access'."
 metadata:
   cg-ember-name: "get-started"
   cg-ember-version: "1"
@@ -88,9 +88,15 @@ first:" and the address. Nothing else changes.
 They may stop after any part. Keep their place on one housekeeping line at the bottom of
 **What I did this week** in their Personal Notes (found the way camp-background section 4
 says): "Getting started:" followed by the parts done, for example "Getting started: 1, 2, 3".
-Read the page before writing it, and change only that line. Before Part 5 there may be no
-Personal Notes yet; then check each part by trying it, as set-me-up does, and write the line
-once the pages exist.
+Read the page before writing it, and change only that line. Part 4 put off for later is
+written as "4 later", for example "Getting started: 1, 2, 3, 4 later, 5".
+
+Someone new has no Personal Notes until Part 5, so nothing can hold their place before then.
+If their notes already exist, write the line from Part 1 on. If not, write it the moment
+set-me-up Step 3 makes the pages in Part 5, with every part done so far. If they stop before
+Part 5 with no notes, say plainly that next time the short parts before it run again, and
+that anything already connected is skipped, because set-me-up checks each connection by
+trying it.
 
 At the start, read that line. If parts are done, say in one sentence which part is next and
 go there. If all six are done, say so and offer "teach me something" instead.
@@ -113,7 +119,10 @@ video slots for those three:
 >
 > Video slot, not made yet: "Connecting your calendar"
 
-Then **run set-me-up Step 4** (the other apps they use).
+Then **run set-me-up Step 4** (the other apps they use), with one change: do not write its
+"Connected" and "Not connected yet" lines into **My camp** now, because someone new has no
+**My camp** page yet. Keep the two lists in this conversation. In Part 5, once the pages
+exist, show the two lines and add them to **My camp** on a yes.
 
 > Video slot, not made yet: "Connecting another app"
 
@@ -126,8 +135,9 @@ camp's office website. Ask once:
 - **Yes, and it is installed:** check it answers, by asking it something harmless the way
   its own setup skill says. If it asks them to sign in, walk them through the sign-in one
   step at a time as it says.
-- **Yes, not installed yet:** your camp director, or whoever gave you this plugin, tells you
-  how to add it and sign in. Carry on here; it can be added any day.
+- **Yes, not installed yet:** say, in about these words: "The person who set up AI at your
+  camp tells you how to add it. If that's you, the camp plugin's own setup page says how."
+  Carry on here; it can be added any day.
 - **No, or not sure:** carry on.
 
 > Video slot, not made yet: "Your camp's own plugin"
@@ -158,7 +168,8 @@ Two to four sentences, in her words, then stop. The facts to carry:
   swap the model and the app and keep the plugin and the notes.
 
 Give one before-and-after from their own camp if Part 1 told you anything about it; if not,
-use this one:
+use this one. Name the Camp Wiki in it only when the Hub is connected here; otherwise say
+"your notes" alone.
 
 > Ask a blank app when the buses leave on the first day, and it either guesses or says it
 > can't know. Ask here, and it looks in your notes and your Camp Wiki and tells you which
@@ -204,7 +215,8 @@ taught. Use each one exactly as the file defines it.
 Leave out the Camp Wiki and the CG Knowledge Base sentences when the Hub is not connected
 here, and say instead that those two arrive once their camp is on the Hub.
 
-**If they have no Personal Notes yet, run set-me-up Step 3** now, then come back.
+**If they have no Personal Notes yet, run set-me-up Step 3** now, then come back. Write the
+"Getting started:" line straight away, and show and save the two app lists held from Part 1.
 
 **Then build them out with leading questions**, one at a time, waiting for each answer.
 These sit inside a setup they asked for, so they do not count against the one question a
