@@ -123,17 +123,34 @@ camps can sign in to, your name is shown as the person who made the skill.
 - The send block also refuses a few tools that only make drafts (for example a
   `draft_reply` or `createReply` on some email connections), because their names look like
   sending. That is deliberate: those drafts then appear in the conversation instead.
-- Three tool names are let through, exactly as written and nothing else: `send_feedback`,
-  which files a note inside the person's own work system and reaches nobody outside it, and
-  `createScheduledPost` and `createScheduledPostForReview`, which put a post in the queue of
-  the person's own scheduling tool, where they can read, change or cancel it before it goes
-  out. Another letter case, anything longer or with a word in front (`send_feedback_email`,
-  `gmail_send_feedback`, `createScheduledPostNow`), any tool that posts or publishes at once,
-  and changing or sending a post already in the queue are still refused. The pattern is
-  built by `tests/send_matcher.py` (`python tests/send_matcher.py --write`), because ChatGPT
-  reads it with a pattern engine that cannot skip a name, so each exception is spelled out
-  letter by letter. Add a name there only when it sends nothing beyond the person's own
-  tool, and add it to both lists in `tests/send-block.test.sh`.
+- Two tool names get past the send pattern, exactly as written and nothing else, on any
+  connection (each connection's tools carry its own random id in front, so the rule is the
+  tool's name alone).
+  - `send_feedback` files a note in the person's own work system. That system also emails
+    the person who looks after it there, so it is not a private note; it goes to their own
+    camp's system only, never to a family or anyone outside it.
+  - `createScheduledPost` is checked again by the third hook in `hooks.json`, which refuses
+    it unless the post is a draft: its `info` value, read as JSON, must hold `draft` set to
+    true (the true value, not the word in quotes). Without that, the post publishes on its
+    own at the scheduled time (measured from the tool's own description, 2026-10-07). The
+    check needs Python; with no Python it refuses.
+  - Still refused: `createScheduledPostForReview` (it emails the reviewers), another letter
+    case, anything longer or with a word in front (`send_feedback_email`,
+    `gmail_send_feedback`, `createScheduledPostNow`), any tool that posts or publishes at
+    once, and changing or sending a post already in the queue.
+
+  The pattern is built by `tests/send_matcher.py` (`python tests/send_matcher.py --write`),
+  because ChatGPT reads it with a pattern engine that cannot skip a name, so each exception
+  is spelled out letter by letter, and the post words are spelled out in both letter cases
+  rather than with a case-blind switch, which the two apps' engines treat differently. Add a
+  name there only when it sends nothing beyond the person's own camp, and add it to both
+  lists in `tests/send-block.test.sh`.
+- **Installed beside another plugin.** A camp may give its staff its own plugin as well as
+  this one. Where both have a skill for the same words, Claude picks one, and either may
+  answer. Known overlaps with one camp's own plugin, 2026-10-07: "build a goal" (both have a
+  goal builder), "good morning" (pick-up), "wrap up" and "I'm done" (wrap-up), "get me set
+  up" (set-me-up against a first-run skill), and "what can you do" (show-me-what-i-can-say
+  against the same first-run skill). Settle these with that camp before both are installed.
 - Nothing in this repository may name the company that owns it, a camp, or the person who
   made a skill. Run `grep -rliE "camp[g]roup" .` before every push; it must print nothing.
 - American spelling, no dashes joining two thoughts, "child" or "camper" and never the

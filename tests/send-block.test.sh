@@ -10,7 +10,8 @@
 # (Gmail, Google Calendar, Google Drive, Dropbox, Egnyte, Metricool connectors; Egnyte has no
 # send-shaped tool, so its names appear only in the pass list). The others are
 # shapes we expect from Slack, Microsoft 365 and other connections, unmeasured. The send_feedback
-# and queued-post exceptions (2026-10-07) are explained in the readme, "For the maintainer".
+# exception and the draft-only scheduled post (2026-10-07) are explained in the readme, "For the
+# maintainer".
 set -u
 here="$(cd "$(dirname "$0")/.." && pwd)"
 H="$here/plugins/cg-ember/hooks/hooks.json"
@@ -19,6 +20,8 @@ SEND_RE="$(py -c 'import json,sys;print(json.load(open(sys.argv[1]))["hooks"]["P
 EVENT_RE="$(py -c 'import json,sys;print(json.load(open(sys.argv[1]))["hooks"]["PreToolUse"][1]["matcher"])' "$H")"
 SEND_CMD="$(py -c 'import json,sys;print(json.load(open(sys.argv[1]))["hooks"]["PreToolUse"][0]["hooks"][0]["command"])' "$H")"
 EVENT_CMD="$(py -c 'import json,sys;print(json.load(open(sys.argv[1]))["hooks"]["PreToolUse"][1]["hooks"][0]["command"])' "$H")"
+DRAFT_RE="$(py -c 'import json,sys;print(json.load(open(sys.argv[1]))["hooks"]["PreToolUse"][2]["matcher"])' "$H")"
+DRAFT_CMD="$(py -c 'import json,sys;print(json.load(open(sys.argv[1]))["hooks"]["PreToolUse"][2]["hooks"][0]["command"])' "$H")"
 pass=0; fail=0
 ok() { pass=$((pass+1)); }
 bad() { fail=$((fail+1)); echo "WRONG $1"; }
@@ -32,6 +35,8 @@ BLOCK=(
   mcp__37427ece__respond_to_event mcp__37427ece__update_event mcp__37427ece__delete_event
   mcp__24039824__share_file
   mcp__bfa060d9__sendScheduledPostForReview mcp__bfa060d9__updateScheduledPost
+  # emails its reviewers (measured from the tool's own description, 2026-10-07)
+  mcp__bfa060d9__createScheduledPostForReview
   # expected shapes, unmeasured
   mcp__claude_ai_Gmail__send_draft mcp__claude_ai_Gmail__reply_all mcp__gmail__gmail_send_email
   mcp__slack__slack_send_message mcp__slack__chat_post_message mcp__slack__post_message
@@ -58,6 +63,9 @@ BLOCK=(
   mcp__x__create_scheduled_post mcp__x__create_scheduled_post_for_review
   mcp__x__createScheduledPostForReviewNow
   mcp__x__createSchedulePost mcp__x__createScheduledPostForRevie
+  # letter cases 0.2.0 let through (Andy, 2026-10-07)
+  mcp__x__createscheduledpost mcp__x__CreateScheduledPost mcp__x__SchedulePost mcp__x__CreatePost
+  mcp__x__PostTweet mcp__x__schedulepost mcp__x__PUBLISHPOST mcp__x__CreateScheduledPostForReview
 )
 PASS_NAMES=(
   # measured
@@ -80,8 +88,10 @@ PASS_NAMES=(
   mcp__scheduled-tasks__create_scheduled_task mcp__scheduled-tasks__update_scheduled_task
   # files a note inside the person's own office system and sends nothing outside (measured 2026-10-07)
   mcp__0917fdf5__send_feedback
-  # make a queued post, or one held for review, in the person's own scheduling tool (measured 2026-10-07)
-  mcp__bfa060d9__createScheduledPost mcp__bfa060d9__createScheduledPostForReview
+  # passes this pattern only to meet the draft-only check below (measured 2026-10-07)
+  mcp__bfa060d9__createScheduledPost
+  # names with "post" inside that do not post
+  mcp__x__getPostalCode mcp__x__compost_report mcp__x__Postcode_lookup
   # tools that are not connections must never match
   Bash Write Edit Read Task Agent Skill mcp__workspace__bash
   # near misses
@@ -129,10 +139,42 @@ built="$(py "$here/tests/send_matcher.py")"
 base="$(py "$here/tests/send_matcher.py" --base)"
 if [ "$base" = "$SEND_RE" ]; then bad "exception red control: base pattern is the same as the shipped one"
 else
-  for n in mcp__0917fdf5__send_feedback mcp__bfa060d9__createScheduledPost mcp__bfa060d9__createScheduledPostForReview; do
+  for n in mcp__0917fdf5__send_feedback mcp__bfa060d9__createScheduledPost; do
     matches "$base" "$n" && ok || bad "exception red control: the 0.2.0 pattern let $n through"
   done
 fi
+# The scheduled-post check: only createScheduledPost, and only when its "info" (a JSON string)
+# says draft is true. Measured 2026-10-07: without draft it publishes on its own at the time.
+for n in mcp__bfa060d9__createScheduledPost mcp__x__createScheduledPost; do
+  matches "$DRAFT_RE" "$n" && ok || bad "draft check should catch: $n"
+done
+for n in mcp__x__createScheduledPostForReview mcp__x__createscheduledpost mcp__x__xcreateScheduledPost; do
+  matches "$DRAFT_RE" "$n" && bad "draft check should not catch: $n" || ok
+done
+dr() { echo "$1" | bash -c "$2" >/dev/null 2>&1; echo $?; }
+d_true='{"tool_name":"mcp__bfa060d9__createScheduledPost","tool_input":{"info":"{\"text\":\"Open house Saturday\",\"draft\":true,\"autoPublish\":true}"}}'
+d_false='{"tool_input":{"info":"{\"text\":\"Hi\",\"draft\":false}"}}'
+d_missing='{"tool_input":{"info":"{\"text\":\"Hi\"}"}}'
+d_string='{"tool_input":{"info":"{\"text\":\"Hi\",\"draft\":\"true\"}"}}'
+d_broken='{"tool_input":{"info":"{draft: true"}}'
+d_noinfo='{"tool_input":{"text":"Hi","draft":true}}'
+d_intext='{"tool_input":{"info":"{\"text\":\"say \\\"draft\\\": true here\"}"}}'
+d_nested='{"tool_input":{"info":"{\"text\":\"Hi\",\"extra\":{\"draft\":true}}"}}'
+[ "$(dr "$d_true" "$DRAFT_CMD")" = 0 ] && ok || bad "draft check should allow draft true"
+for c in d_false d_missing d_string d_broken d_noinfo d_intext d_nested; do
+  [ "$(dr "${!c}" "$DRAFT_CMD")" = 2 ] && ok || bad "draft check should refuse: $c"
+done
+out="$(echo "$d_false" | bash -c "$DRAFT_CMD" 2>&1 >/dev/null)"
+echo "$out" | grep -q "draft" && ok || bad "draft check refusal has no reason: $out"
+# Red control: a check that never looks at draft must let the false case through.
+broken_d="${DRAFT_CMD//d.get(\"draft\") is True/True}"
+if [ "$broken_d" = "$DRAFT_CMD" ]; then bad "draft red control did not change the check"
+elif [ "$(dr "$d_false" "$broken_d")" = 0 ]; then ok
+else bad "draft red control: the broken check still refused draft false"; fi
+# No Python at all must refuse, never allow.
+[ "$(echo "$d_true" | env PATH=/nonexistent /bin/bash -c "$DRAFT_CMD" >/dev/null 2>&1; echo $?)" = 2 ] \
+  && ok || bad "draft check without Python should refuse"
+
 # ChatGPT reads these patterns with Rust's regex engine: no lookaround, no backreferences.
 case "$SEND_RE" in *'(?'*) bad "send pattern uses (? which Rust's regex engine may refuse";; *) ok;; esac
 

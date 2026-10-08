@@ -4,8 +4,9 @@
     python tests/send_matcher.py --write    write it into hooks.json
     python tests/send_matcher.py --base     print the pattern before the exceptions
 
-BASE is the 0.2.0 pattern, unchanged. EXCEPTIONS are whole tool names that send nothing
-beyond the person's own tool (the readme, "For the maintainer", says why each one is safe).
+BASE is the 0.2.0 pattern, unchanged. EXCEPTIONS are the whole tool names this pattern does
+not catch (the readme, "For the maintainer", says why). send_feedback passes on its name;
+createScheduledPost goes on to the draft-only hook, the third entry in hooks.json.
 The pattern cannot simply skip a name, because ChatGPT reads these patterns with Rust's
 regex engine, which has no lookahead. So each exception is carved out by rewriting the one
 part of BASE that caught it, spelling out "anything except this word" letter by letter.
@@ -34,7 +35,7 @@ BASE = (
 )
 
 # The exceptions, exactly. Nothing longer, prefixed, or in another letter case passes.
-EXCEPTIONS = ['send_feedback', 'createScheduledPost', 'createScheduledPostForReview']
+EXCEPTIONS = ['send_feedback', 'createScheduledPost']  # the second only as a draft; see build()
 
 ALNUM = [chr(c) for c in range(ord('A'), ord('Z') + 1)] + \
         [chr(c) for c in range(ord('a'), ord('z') + 1)] + [chr(c) for c in range(ord('0'), ord('9') + 1)]
@@ -66,6 +67,17 @@ def cls(chars):
     return '[' + ''.join(out) + tail + ']'
 
 
+def ci(w):
+    """w in any letter case: "post" becomes [pP][oO][sS][tT]."""
+    return ''.join('[' + c.upper() + c.lower() + ']' if c.isalpha() else c for c in w)
+
+
+def ci_not_exact(w):
+    """w in any letter case except exactly as written."""
+    return '(' + '|'.join(w[:i] + '[' + w[i].swapcase() + ']' + ci(w[i + 1:])
+                          for i in range(len(w)) if w[i].isalpha()) + ')'
+
+
 def not_word(w, alphabet, allow_empty=True):
     """Every string over alphabet except w (and except '' when allow_empty is False)."""
     a = cls(alphabet)
@@ -94,15 +106,25 @@ def build():
         + r"|send([.-][A-Za-z0-9_.-]*|_" + not_word('feedback', ALNUM_SEP) + ")?"
     )
     s = s.replace(head, r"^mcp__.+__(" + send_parts + r"|([A-Za-z0-9]+[_.-])*(", 1)
-    # 2. createScheduledPost and createScheduledPostForReview. BASE caught them as
-    #    "create", anything, "Post", anything. Keep that for every middle except "Scheduled",
-    #    and after "createScheduledPost" refuse anything except nothing or "ForReview".
+    # 2. createScheduledPost. BASE caught it as "create", anything, "Post", anything. That part
+    #    is now spelled out in both letter cases (0.2.0 let "CreatePost", "SchedulePost" and
+    #    "createscheduledpost" through), and the one name "createScheduledPost" is carved out.
+    #    It is not let through on its name alone: the second hook in hooks.json refuses it
+    #    unless the post is a draft. "createScheduledPostForReview" emails reviewers, so it
+    #    stays refused like any other longer name.
     post = r"(create|send|publish|update|schedule)[A-Za-z0-9]*Post[A-Za-z0-9]*"
     assert s.count(post) == 1
-    s = s.replace(post,
-                  r"(send|publish|update|schedule)[A-Za-z0-9]*Post[A-Za-z0-9]*"
-                  + "|create" + not_word('Scheduled', ALNUM) + r"Post[A-Za-z0-9]*"
-                  + "|createScheduledPost" + not_word('ForReview', ALNUM, allow_empty=False))
+    A, P = '[A-Za-z0-9]*', ci('post')
+    other = '(' + '|'.join(ci(v) for v in ('send', 'publish', 'update', 'schedule')) + ')'
+    s = s.replace(post, '|'.join([
+        other + A + P + A,
+        ci_not_exact('create') + A + P + A,
+        'create' + not_word('Scheduled', ALNUM) + P + A,
+        'createScheduled' + ci_not_exact('Post') + A,
+        'createScheduledPost[A-Za-z0-9]+',
+        # A name that starts with the verb "Post" and a capital, such as "PostTweet".
+        r'([A-Za-z0-9]+[_.-])*[pP][oO][sS][tT][A-Z][A-Za-z0-9]*',
+    ]))
     return s
 
 
