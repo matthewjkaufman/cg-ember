@@ -2,6 +2,19 @@
 
 Newest at the top. Lines in each version are in order of importance.
 
+## 0.3.0
+
+- Say "teach me something" for a short lesson, about ten minutes. I'll remember how you like
+  to learn, on a page in your Personal Notes.
+- Say "build a goal" and I'll work through a whole list one item at a time, a stack of
+  applications, say, until it's done, with a checklist you can see.
+- Say "summarize this thread" or "what do we still owe them" for what was decided, what's
+  still open, and what you do next.
+- At the end of setup, I now do one real job from your own week with you.
+- "Is this clear?" can also say what parents will ask about a message before it goes.
+- "Share this skill" can now write a skill with you from a job you do over and over.
+- "Show me what I can say" now lists every skill you actually have, your own copies too.
+
 ## 0.2.0
 
 - Your notes are now called Personal Notes. If you had a My work folder, nothing moved;

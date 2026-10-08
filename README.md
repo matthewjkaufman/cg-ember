@@ -20,20 +20,23 @@ Say these in your own words. You do not need the exact phrase.
 | "Show me what I can say" | Claude lists what you can ask for and suggests one to try first. |
 | "What's new" | Claude tells you what changed since the last update. |
 | "Explain that" | Claude explains a word, or what it just did, in plain words. |
+| "Teach me something" | A short lesson, about ten minutes. Claude remembers how you like to learn. |
 | **Every day** | |
 | "Good morning" | Claude tells you where you left off. |
 | "Wrap up" | Claude saves your place and what you did today. |
 | "Prep me for my meeting" | Claude gives you a one-screen brief before you walk in. |
 | "Set up Inbox helper" | Claude drafts replies for you during the day. See below. |
+| "Summarize this thread" | What was decided, what is still open, and what you do next. |
+| "Build a goal" | Claude works through a whole list, one item at a time, until it is done. |
 | **Writing** | |
 | "Write as me" | Claude drafts a message in your own voice, in your drafts. |
 | "Build my writing styles" | Claude learns how you write, from a few emails you already sent. |
-| "Is this clear?" | Claude reads your writing as the person receiving it would. |
+| "Is this clear?" | Claude reads your writing as the person receiving it would, and can say what parents will ask. |
 | **Your camp's questions** | |
 | "Look it up" | Ask anything about your camp. Claude answers from what is written down, says where it came from, and never guesses. |
 | "That answer was wrong" | Claude fixes it in your Personal Notes and tells whoever looks after that wiki page. |
 | **Sharing** | |
-| "Share this skill" | Claude shares a skill you built for review, only after you say yes. See the end of this page. |
+| "Share this skill" | Claude shares a skill you built for review, only after you say yes, and can help you write one first. See the end of this page. |
 
 Claude may also ask you one quick question a day about how your camp works. Never more
 than one.

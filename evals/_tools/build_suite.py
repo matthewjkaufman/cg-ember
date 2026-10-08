@@ -148,7 +148,7 @@ October 1: counselor welcome-back letter, half done.
 September 30: answered bus questions from three families.
 
 Last daily question: September 30, 2026
-Last version told: 0.2.0
+Last version told: 0.3.0
 Last weekly note: September 28, 2026
 """,
     "Inbox helper": """Last run: Friday, October 2, 2026, 7:00 PM, 0 drafted, 0 not drafted
@@ -789,9 +789,9 @@ do or say (such as "set up Inbox helper" or "write as me"), with no headings and
 (naming Personal Notes, the Camp Wiki or the CG Knowledge Base is fine).
 FAIL if it says nothing is new, lists more than six items, or presents "set me up", "good morning" or
 "wrap up" as new."""),
-         g_regex("line-updated", r"Last version told: 0\.2\.0", note("What I did this week"))],
+         g_regex("line-updated", r"Last version told: 0\.3\.0", note("What I did this week"))],
         behavior_notes={"What I did this week": BASE_NOTES["What I did this week"].replace(
-            "Last version told: 0.2.0", "Last version told: 0.1.0")})
+            "Last version told: 0.3.0", "Last version told: 0.2.0")})
 
     skill_cases(
         "wrap-up",

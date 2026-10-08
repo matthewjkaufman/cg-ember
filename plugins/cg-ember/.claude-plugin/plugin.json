@@ -1,7 +1,7 @@
 {
   "name": "cg-ember",
-  "description": "Shortcuts for summer camp staff using Claude: set me up, pick up and wrap up with Personal Notes, look things up in your notes and wikis, write as me, Inbox helper drafts replies, meeting prep, and sharing skills. It drafts and never sends.",
-  "version": "0.2.0",
+  "description": "Shortcuts for summer camp staff using Claude: set me up, pick up and wrap up with Personal Notes, look things up in your notes and wikis, short lessons, goals for long lists, write as me, Inbox helper drafts replies, meeting prep, and sharing skills. It drafts and never sends.",
+  "version": "0.3.0",
   "author": {
     "name": "Matt Kaufman"
   }
