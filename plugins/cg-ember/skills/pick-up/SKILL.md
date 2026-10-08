@@ -13,6 +13,8 @@ the thread in a few seconds, then get out of the way.
 
 Read the camp-background skill too, for the ground rules and for where Personal Notes live.
 
+Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says.
+
 ## How to talk
 
 They are not technical and did not ask for a report. One or two sentences. Never list

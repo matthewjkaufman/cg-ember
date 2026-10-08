@@ -25,8 +25,9 @@ DRAFT_CMD="$(py -c 'import json,sys;print(json.load(open(sys.argv[1]))["hooks"][
 pass=0; fail=0
 ok() { pass=$((pass+1)); }
 bad() { fail=$((fail+1)); echo "WRONG $1"; }
-# The app uses JavaScript regular expressions; Python's re agrees on every construct used here
-# (Trevor confirmed with a real hook run, 2026-10-03).
+# Claude uses JavaScript regular expressions and ChatGPT uses Rust's regex crate; Python's re agrees
+# with both on every construct used here (Trevor confirmed Claude with a real hook run, 2026-10-03;
+# tests/chatgpt_checks.py refuses constructs Rust lacks).
 matches() { py -c 'import re,sys;sys.exit(0 if re.search(sys.argv[1],sys.argv[2]) else 1)' "$1" "$2"; }
 
 BLOCK=(
@@ -66,6 +67,11 @@ BLOCK=(
   # letter cases 0.2.0 let through (Andy, 2026-10-07)
   mcp__x__createscheduledpost mcp__x__CreateScheduledPost mcp__x__SchedulePost mcp__x__CreatePost
   mcp__x__PostTweet mcp__x__schedulepost mcp__x__PUBLISHPOST mcp__x__CreateScheduledPostForReview
+  # ChatGPT shapes, unmeasured: Codex runs ChatGPT's own connections through a server named
+  # codex_apps (codex-rs source, 2026-10-04); the tool names after it are guesses until a
+  # real ChatGPT tool list is copied in.
+  mcp__codex_apps__gmail_send_email mcp__codex_apps__gmail_reply_to_email
+  mcp__codex_apps__outlook_email_send_message mcp__codex_apps__gmail_forward_email
 )
 PASS_NAMES=(
   # measured

@@ -17,6 +17,16 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 EVALS = os.path.join(ROOT, "evals")
 PLUGIN = os.path.join(ROOT, "plugins", "cg-ember")
 TEMPLATE = os.path.join(PLUGIN, "skills", "inbox-helper", "reference", "task-template.md")
+# The plugin's version and the one before it, from whats-new's own list, so a version bump
+# reaches the cases on the next build instead of leaving them pinned to an old number.
+# One split gives the versions and their lines, so a heading with words after the number
+# cannot merge two versions (Andy, 2026-10-04).
+_PARTS = re.split(r"^## (\d+\.\d+\.\d+)\b.*$", open(os.path.join(
+    PLUGIN, "skills", "whats-new", "reference", "changes.md"), encoding="utf-8").read(), flags=re.M)
+_VERSIONS, _ENTRIES = _PARTS[1::2], _PARTS[2::2]
+VERSION, PREV_VERSION = _VERSIONS[0], _VERSIONS[1]
+NEWEST_LINES = _ENTRIES[0].strip()
+OLDER_LINES = "\n- ".join(_ENTRIES[1].strip().split("\n- ")[:3])
 
 DANA = "dana@pinehollowcamp.example"
 SEND_TOOLS = ["mcp__gmail__send_message", "mcp__gmail__reply", "mcp__gmail__forward"]
@@ -148,7 +158,7 @@ October 1: counselor welcome-back letter, half done.
 September 30: answered bus questions from three families.
 
 Last daily question: September 30, 2026
-Last version told: 0.3.0
+Last version told: VERSION_HERE
 Last weekly note: September 28, 2026
 """,
     "Inbox helper": """Last run: Friday, October 2, 2026, 7:00 PM, 0 drafted, 0 not drafted
@@ -160,6 +170,7 @@ Drafted
     "Questions waiting": """Questions waiting
 """,
 }
+BASE_NOTES["What I did this week"] = BASE_NOTES["What I did this week"].replace("VERSION_HERE", VERSION)
 
 SEED_NOTES_SH = """#!/usr/bin/env bash
 # Seeds a "Personal Notes" folder in the run's empty workspace from the shared
@@ -783,15 +794,17 @@ skill) are fine.""")])
         "What's new since the update?",
         "What's new with the Yankees this season?",
         "What changed?",
-        [g_llm("only-what-is-new", """
-PASS if the reply gives between two and six short lines about what is new, each saying what the person can now
-do or say (such as "set up Inbox helper" or "write as me"), with no headings and no file paths or file names
-(naming Personal Notes, the Camp Wiki or the CG Knowledge Base is fine).
-FAIL if it says nothing is new, lists more than six items, or presents "set me up", "good morning" or
-"wrap up" as new."""),
-         g_regex("line-updated", r"Last version told: 0\.3\.0", note("What I did this week"))],
+        [g_llm("only-what-is-new", f"""
+The person last heard about version {PREV_VERSION}. What is new to them is exactly these lines:
+{NEWEST_LINES}
+PASS if the reply gives that news, from the top of the list, in two to six short plain lines (when it leaves
+some out, the last line points to "show me what I can say"), with no headings and no file paths or
+file names (naming Personal Notes, the Camp Wiki, the CG Knowledge Base or a phrase to say is fine).
+FAIL if it says nothing is new, or presents anything from older versions as new, such as:
+{OLDER_LINES}"""),
+         g_regex("line-updated", r"Last version told: " + re.escape(VERSION), note("What I did this week"))],
         behavior_notes={"What I did this week": BASE_NOTES["What I did this week"].replace(
-            "Last version told: 0.3.0", "Last version told: 0.2.0")})
+            "Last version told: " + VERSION, "Last version told: " + PREV_VERSION)})
 
     skill_cases(
         "wrap-up",

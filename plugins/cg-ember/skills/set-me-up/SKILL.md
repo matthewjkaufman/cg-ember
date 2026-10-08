@@ -10,11 +10,13 @@ metadata:
 
 Somebody who works at a summer camp has just installed this plugin, usually from a
 printed checklist that ended at "install the plugin." This skill takes over from there.
-By the end, their email, files and calendar are connected, they know Claude only ever
-drafts, their Personal Notes exist in a place they chose, and the other apps they use
+By the end, their email, files and calendar are connected, they know you only ever
+draft, their Personal Notes exist in a place they chose, and the other apps they use
 every day are connected or listed.
 
 Read the camp-background skill too, for the ground rules.
+
+Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says.
 
 **If they asked to change a skill or make their own copy of one**, skip the setup and go
 straight to "Making your own copy of a skill" at the end.
@@ -30,10 +32,10 @@ a patient colleague sitting beside them would.
   "camper", never the slang word for a child.
 - Define a word the first time you use it, in the same sentence, and use one new word per
   message at most. The words they will meet on screen, and how to say them:
-  - **plugin**: a bundle of skills you add to Claude. They just added one.
-  - **skill**: a written page of instructions Claude follows for one job, like the
+  - **plugin**: a bundle of skills you add to this app. They just added one.
+  - **skill**: a written page of instructions I follow for one job, like the
     laminated instructions taped inside the arts and crafts cabinet.
-  - **connector**: a connection between Claude and another program you already use, like
+  - **connector**: a connection between me and another program you already use, like
     your email. It is like giving a new counselor a key to one building, not the whole
     camp.
 - Name a connection by what it is for: your email, your files, your calendar. Google
@@ -65,7 +67,7 @@ which in one sentence first, and name only the missing ones in the questions bel
 
 The first question, word for word, with the missing ones named:
 
-> Before we connect your work email: has your company said it's OK to connect Claude to
+> Before we connect your work email: has your company said it's OK to connect me to
 > your work accounts? If you're at a workshop, the person running it can tell you now. If
 > you don't know yet, we'll skip this part and come back to it.
 
@@ -82,61 +84,44 @@ The second question:
 > camp's name and still be Gmail.
 
 **If it is Gmail**, connect Gmail, Google Drive and Google Calendar, using the steps
-below. **If it is something else**, look in Claude's list of connectors for it, connect
+below. **If it is something else**, look for it as the screens page, section B, says, connect
 what is there the same way, and say plainly which parts are not available yet. Ask whether
 they keep camp files in Google Drive anyway; if they do, connect that too.
 
-**For each one that is missing**, walk them through it:
-
-Note: In plain Claude chat there is no "Cowork". Start at step 2.
-
-1. Click "Cowork" on the left of the window.
-2. Click "Customize".
-3. Click "Connectors".
-4. Find the one you need, for example "Gmail".
-5. Click "Connect".
-6. Sign in with your **work** account in the sign-in window, not a personal one.
-7. Click "Allow". If the button says "Continue", click "Continue".
-8. Come back to this conversation, in the list on the left.
-
-**Say this before they reach the sign-in screen**, because its wording alarms people:
-
-> The next screen lists everything Claude could ever do, like sending email or deleting
-> files. Every camp sees the same list. These skills never send anything and never delete
-> your email or files. They write drafts and leave them in your drafts folder.
-
-**If they see "Access blocked: your institution's admin needs to review Claude"**, that is
-their camp's account settings, not something they did. Say so, and say that whoever
-manages email accounts at their camp can mark Claude as trusted in a few minutes. Keep
-going with the steps that do work. Say this in the conversation only; the next session
-finds out again by trying.
+**For each one that is missing**, walk them through it as the screens page, section A, says,
+including what to say before the sign-in screen.
 
 **If a connector is missing from the list**, or the Connect button does nothing, ask what
 they see and describe it back. Do not guess at a fix.
 
-## Step 2: what Claude does, and never does
+## Step 2: what you do, and never do
 
 Say this once, in about these words, then move on. No quiz.
 
-> Claude reads your email, calendar and files only when a job needs them. It never sends
+> I read your email, calendar and files only when a job needs them. I never send
 > anything. Emails, messages and invitations all come out as drafts, and they wait in
 > your drafts until you look at them. When a box asks to read something or make a draft,
 > it's fine to click Always allow. If one ever asks to send or delete, click Deny and
 > tell me.
 
+In ChatGPT, its boxes use other words, so say "allow it" in place of "click Always allow"
+and "don't allow it" in place of "click Deny".
+
 Then the one rule that matters most:
 
-> Never paste a camper's medical information, or a family's private details, into Claude
+> Never paste a camper's medical information, or a family's private details, here
 > unless your company's AI Use Policy says that kind of work is allowed. If you're not
 > sure, don't.
 
 If they ask where the AI Use Policy is, say it comes from their company, and whoever gave
 them this plugin at their camp will know where it is kept.
 
+Then the safety check, as the screens page, section C, says.
+
 ## Step 3: your Personal Notes
 
-**Personal Notes** are a few short pages about them, their camp and their jobs. Claude
-reads them at the start of a day and updates them when they finish something, so they
+**Personal Notes** are a few short pages about them, their camp and their jobs. You
+read them at the start of a day and update them when they finish something, so they
 never start cold. They are private to them.
 
 **If they already have them** (found as camp-background says, including an old **My work**
@@ -146,7 +131,7 @@ folder), say so in one sentence and go to Step 4, unless they asked to move them
 when Inbox helper or they ask): make the same pages in the new place, copying each one
 exactly, and open each to check it reads right. Then ask once whether to rename the old
 folder to "Personal Notes (old copy)", so there is only one set in use; on a yes, rename
-it. Claude never deletes it; they can do that themselves later. A folder named "(old
+it. You never delete it; they can do that themselves later. A folder named "(old
 copy)" is never read or written again.
 
 **Otherwise, ask where they should live**, one question:
@@ -188,7 +173,7 @@ words. Keep each short.
 - **My camp**: what they said about their camp, with today's date.
 - **My jobs**: each repeated job on its own line, with how often.
 - **What I did this week**: a heading "Where I left off" with "Just set up" under it, a
-  heading "This week" with today's date and "Set up Claude", and at the bottom the line
+  heading "This week" with today's date and "Set up CG Ember", and at the bottom the line
   "Last version told:" followed by this plugin's version (the number in the first "## " heading of the whats-new skill's reference/changes.md, which is the newest).
 
 Open each one after making it to check it is there and reads right. Never put a camper's
@@ -209,11 +194,11 @@ Ask one question:
 > What other programs do you use for camp every week? For example: CampMinder, Slack,
 > Microsoft 365, Dropbox, Canva, Zoom, or your accounting software.
 
-Then, one app at a time: look for it in **Customize**, then **Connectors**. If it is
+Then, one app at a time: look for it as the screens page, section B, says. If it is
 there, walk them through connecting it the same way as Step 1, with the same reminder
-that Claude only drafts. If it is not, say so in one sentence and move to the next. When
+that you only draft. If it is not, say so in one sentence and move to the next. When
 they are done, add a line to **My camp**: "Connected: ..." and "Not connected yet: ..." so
-later conversations know what Claude can reach.
+later conversations know what you can reach.
 
 If they would rather do this another day, skip it; "set me up" picks it up later.
 
@@ -237,7 +222,7 @@ Say this once, in about these words:
 ## Step 7: one real result today
 
 Before the finish, get them one real result from their own work, so the first thing they
-see Claude do is their job and not a demonstration. Skip this if they said they are short
+see me do is their job and not a demonstration. Skip this if they said they are short
 on time, or if Step 1 was skipped and nothing is connected; then go to Step 8.
 
 Ask one open question, and do not offer a list of categories:
@@ -298,22 +283,11 @@ version of one, do not edit the original. Make them a copy.
    it only answers to the new name ("Use only when the person says 'my wrap up'"), so it
    never competes with the original. Keep any `metadata` lines from the original exactly
    as they are; they record which shared skill it came from.
-5. Make a ZIP file with code: one folder named exactly the new name, holding SKILL.md and
-   any other files the original had. If you cannot make files, Claude's setting that lets
-   it make files for you is off. Walk them through turning it on, one click per step:
-   1. Click "Settings".
-   2. Click "Capabilities".
-   3. Switch on "Code execution and file creation".
-6. Tell them the file's exact name and where it was saved, in words ("in your Downloads
-   folder"), never as a path with slashes. Then walk them through adding it, one click per
-   step:
-   1. Click "Customize".
-   2. Click "Skills".
-   3. Click the plus sign ("+").
-   4. Click "Create skill".
-   5. Click "Upload a skill".
-   6. Click the file.
-   7. Click "Open".
+5. Save the copy the way this app needs, as the screens page, section F, says: one folder
+   named exactly the new name, holding SKILL.md and any other files the original had. If
+   you cannot make files, follow section E of the screens page first.
+6. Walk them through adding it, one step at a time, as section F says. Say where a file
+   was saved in words ("in your Downloads folder"), never as a path with slashes.
 7. Tell them to call it by its new name.
 
 If they later want everyone to have their improvement, they can say "share this skill."

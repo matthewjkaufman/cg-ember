@@ -30,6 +30,8 @@ Read each one before changing it, and change only the part that changed. Writing
 memory without reading first destroys what was there. Never write the Inbox helper or
 Questions waiting pages.
 
+Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says.
+
 If they have no Personal Notes, offer once to set them up ("say 'set me up'"), and do not
 make them on your own. If their notes cannot be reached, say once that their notes could
 not be saved today, so next time they should tell you where they got to. Never say
@@ -86,8 +88,7 @@ offer once, at the end:
 On a yes, write the skill with them: what starts the job, each step, where each step
 happens, how they decide at any fork, what goes wrong. Then save it and walk them through
 adding it exactly as steps 3, 5, 6 and 7 of "Making your own copy of a skill" in the
-set-me-up skill say (the name rules, the ZIP made with code, the exact file name and where it is, and
-the clicks). Mention once that if it would help other camps, they can say "share this
+set-me-up skill say (the name rules, saving it the way this app needs, where it is, and the clicks). Mention once that if it would help other camps, they can say "share this
 skill."
 
 This offer uses the one question a day that several skills share (the one-question-a-day
@@ -106,7 +107,7 @@ today's date there when you offer. Never in the middle of work, and anything oth
   the person ("a reference for one returning counselor").
 - How long something took them, or what they "still have not done." "What is left" is a
   fact, not a review.
-- Passwords, account numbers, or anything their company's AI Use Policy keeps out of Claude.
+- Passwords, account numbers, or anything their company's AI Use Policy keeps out of AI apps.
 
 ## Step 5: close, only when they are leaving
 

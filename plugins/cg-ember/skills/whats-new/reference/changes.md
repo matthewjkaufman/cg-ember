@@ -4,6 +4,9 @@ Newest at the top. Lines in each version are in order of importance.
 
 ## 0.3.0
 
+- You can now use CG Ember in the ChatGPT app as well as in Claude. Your Personal Notes
+  work the same in either one.
+- Using ChatGPT? Say "set me up" once to approve CG Ember's safety check.
 - Say "teach me something" for a short lesson, about ten minutes. I'll remember how you like
   to learn, on a page in your Personal Notes.
 - Say "build a goal" and I'll work through a whole list one item at a time, a stack of

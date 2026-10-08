@@ -1,6 +1,6 @@
 ---
 name: goal-builder
-description: "Build a goal. Write a /goal with someone for a job Claude keeps working on until it is finished, such as a whole list done one item at a time. Use when someone says 'build a goal', 'help me with /goal', 'work through this whole list', or 'keep going until it is done'."
+description: "Build a goal. Write a /goal with someone for a job that keeps being worked on until it is finished, such as a whole list done one item at a time. Use when someone says 'build a goal', 'help me with /goal', 'work through this whole list', or 'keep going until it is done'."
 metadata:
   cg-ember-name: "goal-builder"
   cg-ember-version: "1"
@@ -10,9 +10,9 @@ metadata:
 
 Some jobs are one step done many times: go through forty staff applications and check each
 for a reference, sort every reply to an open house invitation, check every camper on a list
-against a form. Typing `/goal` and then a finish line tells Claude to keep working, turn
+against a form. Typing `/goal` and then a finish line tells you to keep working, turn
 after turn, until the finish line is reached, without the person having to say "keep
-going" each time. After every turn, a second, smaller Claude reads the conversation and
+going" each time. After every turn, a second, smaller AI reads the conversation and
 decides whether the job is finished.
 
 That only works if the goal says three things plainly: what one item done looks like, how
@@ -23,10 +23,12 @@ it is done, or never stops. This skill writes the goal with the person, by askin
 Read the camp-background skill too, for the ground rules. Those rules are the floor, and
 nothing written here moves them.
 
+Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says.
+
 ## Three facts about /goal that shape everything here
 
 - **The checker cannot look at anything.** It cannot open a file, a folder or an inbox. It
-  only reads what Claude has written in the conversation. So the goal makes Claude write a
+  only reads what you have written in the conversation. So the goal makes you write a
   progress line with numbers at the end of every turn, and states the finish line in the
   words of that progress line. A finish line the checker cannot read on screen is one it
   will never see met.
@@ -51,7 +53,7 @@ skills share. The person asked for this.
 
 ## Is this a goal at all?
 
-A goal is for a job with a list and a finish line that Claude can reach in this
+A goal is for a job with a list and a finish line that you can reach in this
 conversation. Check that first, from what they say:
 
 - **Something that should repeat every few hours or every week**, with nobody there, is

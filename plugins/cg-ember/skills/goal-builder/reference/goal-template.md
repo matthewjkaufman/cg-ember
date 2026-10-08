@@ -1,10 +1,10 @@
 # The goal line: what the person pastes after /goal
 
 This is the text the goal-builder skill fills in. The person sends it as one message,
-starting with `/goal `. From then on Claude keeps working, turn after turn, and after every
-turn a separate, smaller Claude reads the conversation and decides whether the finish line
+starting with `/goal `. From then on the AI keeps working, turn after turn, and after every
+turn a separate, smaller AI reads the conversation and decides whether the finish line
 has been reached. That checker cannot open a file, a folder or an inbox. It only sees what
-Claude has written on screen. So the goal makes Claude write its progress, with proof,
+the AI has written on screen. So the goal makes the AI write its progress, with proof,
 every turn, in the same shape, and the finish line is stated in those same words.
 
 Rules for filling it in:

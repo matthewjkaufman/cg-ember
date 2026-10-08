@@ -12,7 +12,7 @@ are only ever added at the end.
 
 For somebody who has never used anything like this. The lesson that makes the rest safe.
 
-**What it is.** Claude is a program that has read an enormous amount of writing and learned
+**What it is.** The AI they are talking to is a program that has read an enormous amount of writing and learned
 to continue a piece of text the way a careful writer would. When they type a request, it
 writes the most fitting continuation. It is not looking things up in a mind; it is writing
 what would most plausibly come next.
@@ -24,7 +24,7 @@ habit below, which takes about five seconds.
 
 **Why camp facts come from what is written down.** The skills in this plugin are told to go
 and look: their Personal Notes, their Camp Wiki and the CG Knowledge Base when the Hub is
-connected, and their own files. When Claude says "your notes say" or "the Camp Wiki says",
+connected, and their own files. When it says "your notes say" or "the Camp Wiki says",
 that is something it read a moment ago, and it can be checked. When it says something with
 nothing behind it, it is writing what sounds right.
 
@@ -37,7 +37,7 @@ nurse or an inspector gets read by the person before it goes, every time.
 
 ### 1. What a harness is
 
-**The model** is Claude itself, the part that reads what somebody typed and writes back.
+**The model** is the AI itself, the part that reads what somebody typed and writes back.
 **The harness** is everything built around it: the programs it can reach, the files it can
 open, the instructions it has been given, and what it keeps between conversations.
 
@@ -47,20 +47,20 @@ turns "this is broken" into "this is not connected yet," and those have differen
 
 ### 2. An agent
 
-An agent is Claude doing a job on its own for a stretch of time, using the programs it can
+An agent is the AI doing a job on its own for a stretch of time, using the programs it can
 reach, without somebody typing each step. A skill gives it written instructions for one job,
 which somebody wrote on purpose and can change later.
 
 Why it matters: it explains why a skill always does a job the same way. The behavior is
 written down, so it is a rule somebody chose and can change, not a mood.
 
-### 3. Opus, Sonnet and Haiku, and why they can ignore all three
+### 3. Choosing a model, and why they can ignore the choice
 
 **Teach this one only if they ask.** Never lead with it, and never pick it when somebody says
 "teach me something."
 
-Start by taking it off their plate: those are versions of Claude, and the one already picked
-is fine for nearly everything. They trade speed against depth. A slower, deeper one is for
+Start by taking it off their plate: the app offers several versions of the AI, called
+models, and the one already picked is fine for nearly everything. They trade speed against depth. A slower, deeper one is for
 work that is genuinely long or hard; on an ordinary job it mostly buys a slower answer to
 the same question.
 
@@ -105,7 +105,7 @@ Why it matters: it is the one thing that shows up without anybody opening anythi
 is a reason to come back tomorrow.
 
 How it works: they type "set up Inbox helper," answer two short questions (how often, and
-what to leave alone), and it becomes a **scheduled task**, a job Claude runs by itself at the
+what to leave alone), and it becomes a **scheduled task**, a job I run by myself at the
 times they pick. Stopping it is one sentence too.
 
 **Try it now.** Offer to set it up with them, or to run one check now while they watch.
@@ -121,7 +121,7 @@ showing once, on screen.
 
 ### 7. Attaching a file or a photo
 
-They can hand Claude a document or a photo, and it reads what is in it.
+They can hand me a document or a photo, and I read what is in it.
 
 Why it matters: most camp work starts from something already written down, a form, a
 spreadsheet, a flyer, a photo of a page. Handing the thing over is faster and more accurate
@@ -137,7 +137,7 @@ or a total inside it.
 
 ### 8. What your connections can see and do
 
-A **connector** is a connection between Claude and a program they already use, like their
+A **connector** is a connection between the AI and a program they already use, like their
 email. It only opens what their own account can open.
 
 Why it matters: knowing what it can reach turns "can you find out..." from a hopeful guess
@@ -148,9 +148,9 @@ into a real question, and saves asking for something it cannot reach.
 
 **Try it now.** Ask one question their email or calendar can answer, one they already know.
 
-### 9. Projects, a place Claude remembers
+### 9. Projects, a place I remember
 
-A project is a named space for one ongoing thing, where Claude keeps the background so
+A project is a named space for one ongoing thing, where I keep the background so
 nobody has to explain it again.
 
 Why it matters: for a job they come back to for weeks, the bus routes, a hiring round, an
@@ -168,7 +168,7 @@ When they work out how their camp really does something, it can be written down 
 instead of living only in their head.
 
 Where it goes: first their Personal Notes, which are private to them. When the Hub is
-connected, Claude may offer, at most once a day, to suggest it for their Camp Wiki, the
+connected, I may offer, at most once a day, to suggest it for their Camp Wiki, the
 pages everyone at their camp can read. They decide, and the person at their camp who looks
 after those pages decides whether it goes in.
 
@@ -185,19 +185,19 @@ How, in about five seconds: ask "where did that come from?" A good answer names 
 file. A weak one repeats the claim with more confidence, and that is the signal to slow
 down. Read anything going outside camp before it goes.
 
-**Try it now.** Take something Claude just wrote, ask where each fact in it came from, and see
+**Try it now.** Take something I just wrote, ask where each fact in it came from, and see
 which ones it can point to.
 
-### 12. Teaching Claude how your own writing sounds
+### 12. Teaching me how your own writing sounds
 
-For messages they sign with their own name, Claude can learn their voice, so drafts come
+For messages they sign with their own name, I can learn their voice, so drafts come
 back already sounding like them.
 
 Why it matters: a draft that sounds like them takes seconds to send. One that sounds like a
 stranger takes a full rewrite.
 
-How it works: they type "build my writing styles." Claude asks before reading a few emails
-they sent, and keeps only a description of how they write, never what they said or who it
+How it works: they type "build my writing styles." I ask before reading a few emails
+they sent, and keep only a description of how they write, never what they said or who it
 went to. Corrections they make twice are kept too.
 
 **Try it now.** Have them describe their own style in a sentence, then ask for a short note
@@ -209,7 +209,7 @@ A skill is a written page of instructions for a job that comes up again and agai
 ordinary sentences, not code. If they explain the same job three times, that is the signal.
 
 How it works: at the end of a job they have done the same way a few times, they type "make
-this a skill." Claude writes it up with them, makes it a file, and walks them through adding
+this a skill." I write it up with them, make it a file, and walk them through adding
 it. To change a skill that came with the plugin, they ask for "my own copy" of it, because
 an update replaces the plugin's own skills. If it would help other camps, "share this skill"
 sends it for review.
@@ -219,11 +219,11 @@ Why it matters: the person who knows how a job is done at their camp is the pers
 ### 14. A long list, done on its own: goals
 
 Some jobs are one step done many times: forty applications to check, every reply to an
-invitation to sort. Typing `/goal` and a finish line tells Claude to keep working through the
+invitation to sort. Typing `/goal` and a finish line tells me to keep working through the
 list, round after round, without being told "keep going."
 
-How it works: they type "build a goal." Claude asks what one item done looks like and where
-it should stop and hand back, tries the first two or three items with them, then hands over
+How it works: they type "build a goal." I ask what one item done looks like and where
+it should stop and hand back, try the first two or three items with them, then hand over
 the goal to paste.
 
 **Try it now.** If they have a list waiting, start one with them.

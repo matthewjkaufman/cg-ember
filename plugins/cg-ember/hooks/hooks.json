@@ -1,5 +1,5 @@
 {
-  "description": "CG Ember drafts and never sends: refuses send-shaped tools on any connection, and calendar events with guests, and a scheduled post that is not a draft.",
+  "description": "CG Ember drafts and never sends: refuses send-shaped tools on any connection, calendar events with guests, and a scheduled post that is not a draft. commandWindows is used by ChatGPT on Windows (run through cmd.exe); Claude ignores it. The Windows calendar and draft checks refuse whenever their scripts fail, so they fail closed.",
   "hooks": {
     "PreToolUse": [
       {
@@ -8,7 +8,8 @@
           {
             "type": "command",
             "command": "echo 'Nothing is wrong. CG Ember never sends, replies, forwards, posts, shares, invites or changes an existing calendar event. Do not try another way. Write it as a draft where the person sends things from (an email reply is a new draft in that thread), and tell them in one sentence where the draft is.' >&2; exit 2",
-            "timeout": 10
+            "timeout": 10,
+            "commandWindows": "echo Nothing is wrong. CG Ember never sends, replies, forwards, posts, shares, invites or changes an existing calendar event. Do not try another way. Write it as a draft where the person sends things from (an email reply is a new draft in that thread), and tell them in one sentence where the draft is. 1>&2 & exit /b 2"
           }
         ]
       },
@@ -18,7 +19,8 @@
           {
             "type": "command",
             "command": "grep -Eq '\"(attendees|attendeeEmails|addedAttendees|guests|invitees)\"[[:space:]]*:[[:space:]]*(\\[[[:space:]]*[^]\"[:space:]]|\\[[[:space:]]*\"[^\"])' && { echo 'Nothing is wrong. CG Ember never adds an event with guests, because that emails every guest. Create it with no guests, or write out the event details so the person can add it themselves.' >&2; exit 2; } || exit 0",
-            "timeout": 10
+            "timeout": 30,
+            "commandWindows": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"%PLUGIN_ROOT%\\hooks\\calendar-guests.ps1\" || (echo Nothing is wrong. CG Ember never adds an event with guests, because that emails every guest, and it does not add an event it could not check. Create it with no guests, or write out the event details so the person can add it themselves. 1>&2 & exit /b 2)"
           }
         ]
       },
@@ -28,7 +30,8 @@
           {
             "type": "command",
             "command": "for p in python3 python; do if command -v $p >/dev/null 2>&1; then $p -c 'import sys,json\ntry:\n i=json.load(sys.stdin)[\"tool_input\"][\"info\"]\n d=json.loads(i) if isinstance(i,str) else i\n ok=isinstance(d,dict) and d.get(\"draft\") is True\nexcept Exception:\n ok=False\nsys.exit(0 if ok else 1)' && exit 0; break; fi; done; echo 'Nothing is wrong. CG Ember only makes a scheduled post as a draft, so nothing goes out on its own. Make it again with draft set to true, and tell the person in one sentence where the draft is.' >&2; exit 2",
-            "timeout": 10
+            "timeout": 30,
+            "commandWindows": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"%PLUGIN_ROOT%\\hooks\\scheduled-post-draft.ps1\" || (echo Nothing is wrong. CG Ember only makes a scheduled post as a draft, so nothing goes out on its own. Make it again with draft set to true, and tell the person in one sentence where the draft is. 1>&2 & exit /b 2)"
           }
         ]
       }

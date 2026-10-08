@@ -9,9 +9,11 @@ metadata:
 # Share this skill
 
 Somebody built a skill that does a job well, and wants other camps to have it. A **skill**
-is a written page of instructions Claude follows for one job. This skill packages theirs,
+is a written page of instructions I follow for one job. This skill packages theirs,
 asks them a few plain questions about it, and sends it to Matt. Matt reviews every shared
 skill by hand. If he approves it, every camp using this plugin gets it.
+
+Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says.
 
 ## How to talk
 
@@ -123,20 +125,19 @@ typing the contents out and never by re-reading the original files over those ch
   `sha256` (lowercase hex of the file's bytes as packaged, after Step 2's changes, before
   any base64).
 - `about`: `what_it_does`, `who_would_use_it`, `camper_or_family_information` and
-  `note_for_matt` in their words; `sends_or_changes_anything` in yours, starting "Claude's
-  reading of the skill:"; and `connections_it_needs`, a plain list, also yours.
+  `note_for_matt` in their words; `sends_or_changes_anything` in yours, starting "The
+  AI's reading of the skill:"; and `connections_it_needs`, a plain list, also yours.
 - `sharer`: their name, camp email address and camp. Use About me and My camp in their Personal
   Notes if those say it; otherwise ask.
-- `made_on`: `cowork`, `chat` or `claude-code`. `plugin_version`: this plugin's version (the number in the first "## " heading of the whats-new skill's reference/changes.md, which is the newest), otherwise `null`. `created_at`: now, with the time zone.
+- `made_on`: the value section H of the screens page gives (camp-background section 8). `plugin_version`: this plugin's version (the number in the first "## " heading of the whats-new skill's reference/changes.md, which is the newest), otherwise `null`. `created_at`: now, with the time zone.
 
 Then read the package back with code and check it: the file count, the total size, that
 SKILL.md is there, that its `name:` line matches, that every `sha256` matches its
 packaged content, and, when `update_of` is set, that the skill's `name` equals it. Only
 then go on.
 
-If you cannot make files at all, Claude's setting that lets it make files for you is off.
-Walk them through turning it on: **Settings**, then **Capabilities**, then switch on **Code
-execution and file creation**.
+If you cannot make files at all, follow section E of the screens page (camp-background
+section 8).
 
 ## Step 6: send it
 
@@ -202,8 +203,8 @@ instead:
 > the next time you say "good morning" after it's made.
 
 Their own copy keeps working while they wait. If Matt approves it, the shared version
-arrives with this plugin, and they can then remove their own copy under **Customize**,
-**Skills**, so there are not two.
+arrives with this plugin, and they can then remove their own copy, as section G of the
+screens page says, so there are not two.
 
 ## Writing a skill from a job
 

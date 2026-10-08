@@ -18,6 +18,8 @@ know what to do next? When the answer is no, say so plainly.
 
 Read the camp-background skill too, for the ground rules.
 
+Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says.
+
 ## Who you read as
 
 Read as the actual recipient, whoever that is. A parent on a phone between two other
