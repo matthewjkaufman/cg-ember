@@ -3,7 +3,7 @@ name: set-me-up
 description: "Set me up. Walk a camp staff member, one step at a time, through connecting their email, files and calendar, choosing where their Personal Notes live, and connecting the other apps they use. Use when someone says 'set me up', 'get me set up', 'I just installed this', 'connect my email', 'connect my apps', or 'finish my setup'. Also for 'make my own copy' of a skill."
 metadata:
   cg-ember-name: "set-me-up"
-  cg-ember-version: "2"
+  cg-ember-version: "3"
 ---
 
 # Set me up
@@ -232,7 +232,41 @@ Say this once, in about these words:
 > its own skills, so a change made inside one of them would disappear. If you want one to
 > work differently, ask me to "make my own copy" of it, and change the copy.
 
-## Step 7: finish
+## Step 7: one real result today
+
+Before the finish, get them one real result from their own work, so the first thing they
+see Claude do is their job and not a demonstration. Skip this if they said they are short
+on time, or if Step 1 was skipped and nothing is connected; then go to Step 8.
+
+Ask one open question, and do not offer a list of categories:
+
+> What's something you did last week that took longer than it should have?
+
+If this is their first week, ask instead what they were handed to do today. If they cannot
+think of anything, offer three from what they told you about their job in Step 3, such as:
+
+- **At the front desk for the summer**: what to tell a parent who asks for their child's
+  counselor, and what to write down after the call; the words for a sign.
+- **Paperwork, insurance, transportation or the grounds**: every renewal date from a folder
+  of certificates in one list; the cover note for a certificate of insurance request.
+- **Reviewing what goes to families**: reading a message before it goes and marking what
+  will bring a phone call; summing up a long email thread.
+- **Staff and training**: a job description for a new role; this year's version of last
+  year's orientation session.
+
+Then do it now, start to finish. Do not explain how you would do it.
+
+- Say what you are doing in one plain sentence per step, so it never looks like nothing is
+  happening.
+- Ask before anything leaves camp. A draft stays a draft, as camp-background section 1 says.
+- When a drafting skill needs facts first, ask them one at a time today, even where that
+  skill would ask them together.
+
+When it is done, say what you made and where it is, and open it to check before you say
+so. A first result they are told about and cannot find is the one that decides whether they
+come back. If it could not be saved, say that instead.
+
+## Step 8: finish
 
 One or two sentences. Say only what actually happened, name anything still waiting, and
 give one thing to try next. For example, when everything worked:
