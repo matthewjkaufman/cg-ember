@@ -10,7 +10,7 @@ writes the printable Excel workbook.
 draft  fills every open period it can, fixed periods first, and writes schedule.json.
 check  reports any area booked by more groups than it holds in one period (the one rule
        that is always on), then any rule the director asked for that is not met, then
-       the open periods. Given a workbook, it reads the Master sheet back from the file.
+       the open periods. draft runs the same check and exits with its code. Given a workbook, it reads the Master sheet back from the file.
 build  checks first and refuses to write a workbook with a double booking. After writing,
        it opens the file again and checks what is actually in it, Master sheet and area
        sheets both, and deletes the file if anything disagrees.
@@ -29,6 +29,8 @@ The setup file (JSON). Only "groups", "days", "periods", "areas" and "activities
    "rules": {...}}
 An area holds one group at a time unless "holds" says a number or "any" (the director
 marked it shareable). An activity's "groups" list, when present, limits who may do it.
+An activity fixed for every group (lunch) is not drafted anywhere else; one fixed for some
+groups stays open to the rest. "also_elsewhere": true drafts it in other periods anyway.
 
 "rules" holds only what the director asked for. Nothing in it is on by default:
   "fixed": [{"groups": "all" or [...], "days": "all" or [...], "period": "Period 4",
@@ -154,28 +156,51 @@ def expand(spec, names):
 # The check
 # --------------------------------------------------------------------------
 
-def check(s, grid):
-    """Returns (hard, rule_misses, open_slots, filled, total). hard holds every double
-    booking and every name the setup does not know; rule_misses only rules she asked for."""
-    areas, acts = validate_setup(s)
-    rules = s.get("rules") or {}
-    hard, misses, opens = [], [], []
+def canonical(s, grid):
+    """Rewrites the grid with the setup's own spelling of every group, day and period, so a
+    name written a little differently is still checked and never reads as an open period.
+    Returns (grid, problems); a name the setup does not know, or one written two ways for
+    the same period, is a problem."""
+    acts = {norm(a["name"]): a for a in s["activities"]}
     gnames = {norm(g): g for g in s["groups"]}
     dnames = {norm(d): d for d in s["days"]}
     pnames = {norm(p): p for p in s["periods"]}
+    out = {g: {d: {} for d in s["days"]} for g in s["groups"]}
+    problems = []
+    if not isinstance(grid, dict):
+        return out, ["The schedule is not laid out as groups, days and periods."]
     for g, days in grid.items():
         if norm(g) not in gnames:
-            hard.append(f"The schedule has a group called {g!r} that is not in the setup.")
+            problems.append(f"The schedule has a group called {g!r} that is not in the setup.")
             continue
-        for d, periods in days.items():
+        for d, periods in (days or {}).items():
             if norm(d) not in dnames:
-                hard.append(f"{g} has a day called {d!r} that is not in the setup.")
+                problems.append(f"{g} has a day called {d!r} that is not in the setup.")
                 continue
-            for p, act in periods.items():
+            for p, act in (periods or {}).items():
                 if norm(p) not in pnames:
-                    hard.append(f"{g}, {d} has a period called {p!r} that is not in the setup.")
-                elif norm(act or "") not in OPEN_VALUES and norm(act) not in acts:
-                    hard.append(f"{g}, {d}, {p}: {act!r} is not in the activities list, so its area is unknown.")
+                    problems.append(f"{g}, {d} has a period called {p!r} that is not in the setup.")
+                    continue
+                G, D, P = gnames[norm(g)], dnames[norm(d)], pnames[norm(p)]
+                if P in out[G][D]:
+                    problems.append(f"{G}, {D}, {P} is written twice in the schedule.")
+                    continue
+                act = "" if act is None else str(act)
+                if norm(act) not in OPEN_VALUES and norm(act) not in acts:
+                    problems.append(f"{G}, {D}, {P}: {act!r} is not in the activities list, so its area is unknown.")
+                out[G][D][P] = act
+    return out, problems
+
+
+def check(s, grid):
+    """Returns (hard, rule_misses, open_slots, filled, total). hard holds every double
+    booking and every name the setup does not know; rule_misses only rules the director
+    asked for."""
+    areas, acts = validate_setup(s)
+    rules = s.get("rules") or {}
+    misses, opens = [], []
+    pnames = {norm(p): p for p in s["periods"]}
+    grid, hard = canonical(s, grid)
 
     def cell(g, d, p):
         v = (((grid.get(g) or {}).get(d) or {}).get(p) or "")
@@ -243,6 +268,21 @@ def check(s, grid):
     return hard, misses, opens, filled, total
 
 
+def shortfall(s):
+    """A plain line when there are more groups than room in a period, counting every area
+    an activity can use; empty when room is not the reason periods stay open."""
+    areas, acts = validate_setup(s)
+    used = {norm(a["area"]) for a in acts.values()}
+    caps = [areas[k][1] for k in used]
+    if any(c is None for c in caps):
+        return ""
+    room, n = sum(caps), len(s["groups"])
+    if n <= room:
+        return ""
+    return (f"Cannot fit: there are {n} groups but room for only {room} at once across all your areas, "
+            f"so at least {n - room} groups stay open in every period until an area holds more.")
+
+
 def report(s, grid, out=sys.stdout):
     hard, misses, opens, filled, total = check(s, grid)
     doubles = [h for h in hard if h.startswith("Double booked")]
@@ -260,6 +300,9 @@ def report(s, grid, out=sys.stdout):
         else:
             out.write("Every rule you asked for is met.\n")
     out.write(f"{filled} of {total} periods filled, {len(opens)} open.\n")
+    short = shortfall(s)
+    if opens and short:
+        out.write(short + "\n")
     for g, d, p in opens[:40]:
         out.write(f"  Open: {g}, {d}, {p}\n")
     if len(opens) > 40:
@@ -275,7 +318,12 @@ def draft(s, seed=None, attempts=60):
     areas, acts = validate_setup(s)
     rules = s.get("rules") or {}
     rng = random.Random(seed)
-    fixed_only = {norm(f["activity"]) for f in rules.get("fixed", [])}
+    # An activity fixed for every group (lunch for everyone) is not used anywhere else. One
+    # fixed for only some groups stays open to the others. "also_elsewhere": true on an
+    # activity keeps it in the draft either way.
+    every = {norm(g) for g in s["groups"]}
+    fixed_only = {norm(f["activity"]) for f in rules.get("fixed", [])
+                  if f.get("groups") in (None, "all", "*") or {norm(g) for g in f["groups"]} >= every}
     fill_with = [a for k, a in acts.items() if k not in fixed_only or a.get("also_elsewhere")]
     need = {norm(k): v for k, v in (rules.get("times_per_cycle") or {}).items()}
     most = {norm(k): v for k, v in (rules.get("most_at_once") or {}).items()}
@@ -345,8 +393,8 @@ def draft(s, seed=None, attempts=60):
 
 
 def can_take(s, grid, g, d, p, a, areas, rules, ignore=None):
-    """Whether group g may do activity a at (d, p) under the hard rule and the rules she
-    asked for. ignore is a group whose current activity at (d, p) is about to move."""
+    """Whether group g may do activity a at (d, p) under the hard rule and the rules the
+    director asked for. ignore is a group whose current activity at (d, p) is about to move."""
     k = norm(a["name"])
     if a.get("groups") is not None and norm(g) not in {norm(x) for x in a["groups"]}:
         return False
@@ -441,8 +489,18 @@ def sheet_title(name, taken):
     return t
 
 
+def as_text(wb):
+    """Stores every text cell as text, so a name like "=SUM(A1)" is never read as a formula."""
+    for ws in wb.worksheets:
+        for row in ws.iter_rows():
+            for c in row:
+                if isinstance(c.value, str) and c.value:
+                    c.data_type = "s"
+
+
 def build(s, grid, path):
     hard, _, _, _, _ = check(s, grid)
+    grid, _ = canonical(s, grid)
     if hard:
         sys.stdout.write("Refused: the schedule has problems, so no workbook was written.\n")
         report(s, grid)
@@ -580,16 +638,23 @@ def build(s, grid, path):
     ck["A2"] = json.dumps(setup)
     ck.sheet_state = "hidden"
 
+    as_text(wb)
     tmp = path + ".tmp.xlsx"
-    wb.save(tmp)
-    problems = verify_workbook(tmp, s, grid)
-    if problems:
-        os.remove(tmp)
-        sys.stdout.write("Refused: the written workbook did not match the schedule, so it was deleted:\n")
-        for p in problems:
-            sys.stdout.write("  " + p + "\n")
-        return 1
-    os.replace(tmp, path)
+    try:
+        wb.save(tmp)
+        try:
+            problems = verify_workbook(tmp, s, grid)
+        except BadInput as e:
+            problems = [str(e)]
+        if problems:
+            sys.stdout.write("Refused: the written workbook did not match the schedule, so it was deleted:\n")
+            for p in problems:
+                sys.stdout.write("  " + p + "\n")
+            return 1
+        os.replace(tmp, path)
+    finally:
+        if os.path.exists(tmp):
+            os.remove(tmp)
     sys.stdout.write(f"Wrote {os.path.basename(path)}: Master, {len(s['groups'])} group sheets, "
                      f"{len(areas)} area sheets and Setup. Re-read from the file: no area is booked "
                      f"by more groups than it holds.\n")
@@ -632,6 +697,20 @@ def read_workbook(path):
     ws = wb[MASTER]
     np_ = len(s["periods"])
     grid = {}
+    for di, d in enumerate(s["days"]):
+        if norm(ws.cell(row=2, column=2 + di * np_).value or "") != norm(d):
+            raise BadInput(f"The day labels on the Master sheet were changed (expected {d!r} above its periods), "
+                           "so it cannot be checked. Put the day names back, or tell me the new ones.")
+        for pi, p in enumerate(s["periods"]):
+            if norm(ws.cell(row=3, column=2 + di * np_ + pi).value or "") != norm(p):
+                raise BadInput(f"The period labels on the Master sheet were changed (expected {p!r} under {d}), "
+                               "so it cannot be checked. Put the period names back, or tell me the new ones.")
+    known = {norm(g) for g in s["groups"]}
+    for r in range(4, ws.max_row + 1):
+        label = ws.cell(row=r, column=1).value
+        if label not in (None, "") and norm(label) not in known:
+            raise BadInput(f"The Master sheet has a row for {label!r}, which is not one of the groups, so it "
+                           "cannot be checked. Tell me about the new group, or take the row out.")
     rows = {norm(ws.cell(row=r, column=1).value or ""): r for r in range(4, ws.max_row + 1)}
     for g in s["groups"]:
         r = rows.get(norm(g))
@@ -680,6 +759,7 @@ def verify_workbook(path, s, grid):
 
 
 def table(s, grid, out=sys.stdout):
+    grid, _ = canonical(s, grid)
     for d in s["days"]:
         out.write(f"\n{d}\n\n| Group | " + " | ".join(s["periods"]) + " |\n")
         out.write("|---" * (len(s["periods"]) + 1) + "|\n")
@@ -717,8 +797,7 @@ def main(argv):
             with open(argv[2], "w", encoding="utf-8") as f:
                 json.dump(s, f, indent=1)
             sys.stdout.write(f"Draft written to {os.path.basename(argv[2])}.\n")
-            report(s, s["grid"])
-            return 0
+            return report(s, s["grid"])
         if cmd == "check":
             return report(s, grid)
         if cmd == "table":

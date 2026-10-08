@@ -1,6 +1,6 @@
 ---
 name: pick-up
-description: "Pick up where I left off. Read their Personal Notes and hand them the thread in a sentence or two. Use when someone says 'good morning', 'I'm back', 'where did I leave off', 'what was I doing', 'catch me up', or 'what did we do yesterday', or opens by referring to work in progress."
+description: "Pick up where I left off. Read their Personal Notes and hand them the thread in a sentence or two. Use when someone says 'good morning', 'I'm back', 'where did I leave off', 'pick up where we left off', 'what was I doing', 'catch me up', or 'what did we do yesterday', or opens by referring to work in progress."
 metadata:
   cg-ember-name: "pick-up"
   cg-ember-version: "2"

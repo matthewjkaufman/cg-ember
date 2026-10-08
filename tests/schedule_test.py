@@ -111,7 +111,6 @@ def main():
 
     # Red control 1: a double booking in the schedule file is caught, and build refuses.
     bad = json.loads(json.dumps(s))
-    first, second = bad["grid"]["Group 1"]["Day 2"]["Period 1"], None
     bad["grid"]["Group 1"]["Day 2"]["Period 1"] = "Gaga"
     bad["grid"]["Group 2"]["Day 2"]["Period 1"] = "Gaga"
     badf = os.path.join(t, "bad.json")
@@ -172,6 +171,89 @@ def main():
 
     code, out = run("table", sched)
     ok(code == 0 and out.count("| Group 18 |") == 5, "the paste-in table has one row per group for each of 5 days")
+
+    def dump(obj, name):
+        f = os.path.join(t, name)
+        json.dump(obj, open(f, "w", encoding="utf-8"))
+        return f
+
+    # Andy 2: a fixed period that overfills an area makes draft itself exit with the check's code.
+    tight = json.loads(json.dumps(SETUP))
+    tight["rules"]["fixed"] = [{"groups": "all", "days": "all", "period": "Period 4", "activity": "Gaga"}]
+    code, out = run("draft", dump(tight, "tight.json"), os.path.join(t, "tight-out.json"), "--seed", "1")
+    ok(code == 1 and "Double booked: Gaga pit, Day 1, Period 4" in out,
+       "red control: draft exits 1 when its own fixed periods double book an area")
+    small = json.loads(json.dumps(SETUP))
+    small.pop("rules")
+    small["areas"] = [{"name": a["name"], "holds": 1} for a in SETUP["areas"]]
+    code, out = run("draft", dump(small, "small.json"), os.path.join(t, "small-out.json"), "--seed", "1")
+    ok(code == 0 and "Cannot fit: there are 18 groups but room for only 12" in out,
+       "more groups than room gives a plain cannot-fit line")
+    code, out = run("draft", setup, os.path.join(t, "again.json"), "--seed", "7")
+    ok("Cannot fit" not in out, "control: no cannot-fit line when there is room")
+
+    # Andy 3: a loosely spelled group or period is checked, never read as open.
+    loose = json.loads(json.dumps(s))
+    g1 = loose["grid"].pop("Group 1")
+    g1["day 2"] = g1.pop("Day 2")
+    g1["day 2"]["period 1 "] = "Gaga"
+    del g1["day 2"]["Period 1"]
+    loose["grid"]["group 1"] = g1
+    loose["grid"]["Group 2"]["Day 2"]["Period 1"] = "Gaga"
+    code, out = run("check", dump(loose, "loose.json"))
+    ok(code == 1 and "Double booked: Gaga pit, Day 2, Period 1: Group 1, Group 2" in out,
+       "red control: a double booking written with loose spelling is still caught")
+    stray = json.loads(json.dumps(s))
+    stray["grid"]["Group 19"] = stray["grid"]["Group 1"]
+    code, out = run("check", dump(stray, "stray.json"))
+    ok(code == 1 and "group called 'Group 19' that is not in the setup" in out, "an unknown group is caught")
+
+    # Andy 4: a workbook whose labels or group rows changed is refused, in plain words.
+    wb = load_workbook(book)
+    wb["Master"].cell(row=2, column=2).value = "Monday"
+    relabeled = os.path.join(t, "relabeled.xlsx")
+    wb.save(relabeled)
+    code, out = run("check", relabeled)
+    ok(code == 2 and "day labels on the Master sheet were changed" in out, "red control: changed day labels are refused")
+    wb = load_workbook(book)
+    wb["Master"].cell(row=3, column=3).value = "Snack"
+    periods = os.path.join(t, "periods.xlsx")
+    wb.save(periods)
+    code, out = run("check", periods)
+    ok(code == 2 and "period labels on the Master sheet were changed" in out, "red control: changed period labels are refused")
+    wb = load_workbook(book)
+    wb["Master"].cell(row=4 + 18, column=1).value = "Group 19"
+    extra = os.path.join(t, "extra.xlsx")
+    wb.save(extra)
+    code, out = run("check", extra)
+    ok(code == 2 and "row for 'Group 19'" in out, "red control: an added group row is refused")
+
+    # Andy 5 and Trevor 4: a name that looks like a formula is stored as text.
+    formula = json.loads(json.dumps(plain))
+    formula["groups"] = ["=SUM(A1)"] + GROUPS[1:]
+    formula["title"] = "=1+1"
+    fs = os.path.join(t, "formula-schedule.json")
+    code, out = run("draft", dump(formula, "formula.json"), fs, "--seed", "2")
+    fbook = os.path.join(t, "formula.xlsx")
+    code, out = run("build", fs, fbook)
+    ok(code == 0, "a group named like a formula still builds")
+    wb = load_workbook(fbook) if os.path.exists(fbook) else None
+    cells = [wb["Master"].cell(row=4, column=1), wb["Master"]["A1"]] if wb else []
+    ok(bool(cells) and all(c.data_type == "s" for c in cells) and cells[0].value == "=SUM(A1)",
+       "red control: '=SUM(A1)' and the title are stored as text, never as a formula")
+    code, out = run("check", fbook)
+    ok(code == 0, "the workbook with a formula-like name checks clean")
+    ok(not [f for f in os.listdir(t) if f.endswith(".tmp.xlsx")], "no temporary workbook is left behind")
+
+    # An activity limited to some groups: giving it to another group is reported.
+    lim = json.loads(json.dumps(s))
+    lim["grid"]["Group 1"]["Day 1"]["Period 1"] = "Archery"
+    for g in GROUPS[1:]:
+        if lim["grid"][g]["Day 1"]["Period 1"] == "Archery":
+            lim["grid"][g]["Day 1"]["Period 1"] = ""
+    code, out = run("check", dump(lim, "limited.json"))
+    ok("Group 1 has Archery on Day 1, Period 1, but Archery is only for" in out,
+       "red control: an activity given to a group it is not for is reported")
 
     print(f"{len(fails)} wrong")
     return 1 if fails else 0

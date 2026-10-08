@@ -43,9 +43,14 @@ puts the wrong blue on four hundred shirts.
 - The questions here do not count against the one question a day that several skills
   share. The person asked for this.
 
-## Step 1: is there one already?
+## Step 1: say why, then see whether there is one already
 
-Look first, and say nothing about looking:
+Open with one sentence that says why this is worth doing:
+
+> Once this is written down, every flyer and email I help with will use your exact colors
+> and words.
+
+Then look, and say nothing about looking:
 
 - the **Our brand** section of the **My camp** page in their Personal Notes, found the way
   camp-background section 4 says;
@@ -63,7 +68,9 @@ Ask each of these on its own, and move on after anything other than a clear yes.
    the one they point to. Take the codes and font names exactly as written there.
 2. **Your website.** "Can I read a few pages of your camp's public website, to pick up the
    colors, fonts and words you already use? I'll read only your home page and the pages you
-   name." On a yes, read only those pages. A color code or font name counts only when it
+   name. The exact color codes usually sit in the site's style files, which are part of the
+   same public website; may I read those too?" On a yes, read only those pages, and the
+   style files only if they said yes to them. A color code or font name counts only when it
    is written in the page's own text or code, and a website often carries leftovers from
    the company that built it, so read back each one you found and ask which are really the
    camp's.
@@ -74,6 +81,11 @@ Ask each of these on its own, and move on after anything other than a clear yes.
    situation. Keep words and tone, never a sentence about a family, and never a name.
 
 Say in one sentence what you read and what you found, before asking about the gaps.
+
+**Reading colors back.** Never show a bare list of codes. Name each color in plain words,
+say where it appeared, and put the code after, one at a time: "A dark navy blue on your
+buttons (#1F4E79). Is it yours?" Do not try to show a colored square; a chat cannot draw
+one reliably.
 
 ## Step 3: fill the gaps, one question at a time
 
@@ -125,10 +137,20 @@ guide", exactly as they approved it, checked against camp-background section 3, 
 Hub's answer word for word. Then offer once to keep a copy in their Personal Notes as well,
 so their own drafts use it while the approver decides.
 
+**When the two copies disagree**, the Camp Wiki copy wins once the approver has put it in,
+because the camp approved it. Until then, the Personal Notes copy is used. When you notice
+they differ, say so in one sentence and offer once to bring the Personal Notes copy in line
+with the wiki.
+
 **When the Hub is not connected**, or they would rather keep it to themselves, save it on
 their **My camp** page in their Personal Notes, under a heading **Our brand** with today's
 date. Read the page first and change only that section. If they have no Personal Notes yet,
-offer "set me up" once, and leave the guide here in the conversation.
+ask once:
+
+> Want me to set up your Personal Notes first?
+
+On a yes, run the set-me-up skill's Personal Notes step, then save it. Otherwise leave the
+guide here in the conversation.
 
 If they ask for a copy to share with a designer or a printer, make it a document in their
 files and say which folder in one sentence. Never share it with anyone yourself.
