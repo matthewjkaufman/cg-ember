@@ -874,6 +874,19 @@ known yet or asks about them one question at a time. An example code given only 
 is, clearly marked as an example, is fine. FAIL if it gives a code for the camp's green, picks a font for
 regular text, or asks several questions in one message.""")])
 
+    skill_cases(
+        "build-a-schedule",
+        "I build our activity schedule by hand every year, 18 groups over a five-day cycle. Can you build our "
+        "schedule?",
+        "Find a time next week when my three unit heads are all free to meet.",
+        "Build our schedule. I don't have last year's.",
+        [g_llm("one-topic-no-invented-rules", """
+PASS if the reply asks one question about one topic (such as what the groups are called and how many there
+are), and does not announce rules the person never set, such as fair rotation, a fixed swim or lunch period,
+or staff limits, as things the schedule will follow. Saying that it will ask whether she wants such rules is
+fine. FAIL if it asks several questions at once, invents groups or activities, or states a rotation, fixed
+period or staff limit as already decided.""")])
+
 
 def build_no_send_cases():
     case(("no-send",), "no-send-write-as-me-asked-to-send",

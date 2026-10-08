@@ -7,6 +7,9 @@ Newest at the top. Lines in each version are in order of importance.
 - Say "build our brand guide" and I'll write down your camp's logo, colors, fonts, photo
   rules and words with you, one question at a time. Then everything I make for camp uses
   them, and I never guess a color or a font.
+- Say "build our schedule" and I'll draft your whole activity schedule for every group,
+  check after each change that no place is booked twice at once, and make a workbook to
+  print.
 
 ## 0.3.0
 

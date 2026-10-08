@@ -76,6 +76,8 @@ underneath. Say each phrase the way a person would say it out loud.
 **Long jobs and your own skills**
 
 - **"Build a goal"**: works through a whole list one item at a time, until it is done.
+- **"Build our schedule"**: drafts the activity schedule for every group over the cycle,
+  re-checks it after each change, and makes a workbook to print.
 - **"Make this a skill"**: saves a job you repeat, so next time you just ask for it by
   name.
 - **"Share this skill"**: shares a skill you built, for review, so other camps can use it.

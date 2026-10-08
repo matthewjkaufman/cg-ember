@@ -6,6 +6,9 @@ The person last heard about version 0.3.0. What is new to them is exactly these 
 - Say "build our brand guide" and I'll write down your camp's logo, colors, fonts, photo
   rules and words with you, one question at a time. Then everything I make for camp uses
   them, and I never guess a color or a font.
+- Say "build our schedule" and I'll draft your whole activity schedule for every group,
+  check after each change that no place is booked twice at once, and make a workbook to
+  print.
 PASS if the reply gives that news, from the top of the list, in two to six short plain lines (when it leaves
 some out, the last line points to "show me what I can say"), with no headings and no file paths or
 file names (naming Personal Notes, the Camp Wiki, the CG Knowledge Base or a phrase to say is fine).

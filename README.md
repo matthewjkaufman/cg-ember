@@ -30,6 +30,7 @@ Say these in your own words. You do not need the exact phrase.
 | "Set up Inbox helper" | It drafts replies for you during the day. See below. |
 | "Summarize this thread" | What was decided, what is still open, and what you do next. |
 | "Build a goal" | It works through a whole list, one item at a time, until it is done. |
+| "Build our schedule" | It drafts your whole activity schedule for every group over the cycle, checks after every change you make that no area is booked twice at once, and makes a workbook ready to print. |
 | **Writing** | |
 | "Write as me" | It drafts a message in your own voice, in your drafts. |
 | "Build my writing styles" | It learns how you write, from a few emails you already sent. |
@@ -133,6 +134,9 @@ camps can sign in to, your name is shown as the person who made the skill.
   letter, and camp-background section 8 says which to read. Keep each description under
   400 characters and all of them together under 6,500 (ChatGPT trims the skill list past
   8,000).
+- Run `python tests/schedule_test.py` after any change to the build-a-schedule skill's
+  `scripts/schedule.py`. It drafts an invented 18-group, five-day cycle, builds the
+  workbook, and plants double bookings that must be caught. It needs openpyxl.
 - Run `bash tests/chatgpt.test.sh` after any change. It checks both apps can read the
   hooks file, the Windows safety checks, the never-send sentence in every skill, that no
   skill names Claude outside its screens page, and the description limits, and it proves
