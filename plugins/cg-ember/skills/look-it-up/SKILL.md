@@ -3,7 +3,7 @@ name: look-it-up
 description: "Look it up. Answer a question about how camp works from what has been written down, never from a guess. Use when someone asks what the policy is, who owns something, when something happens, what was done last year, how many of something there are, or what a camp term means, and whenever a request depends on a camp fact nobody has stated."
 metadata:
   cg-ember-name: "look-it-up"
-  cg-ember-version: "1"
+  cg-ember-version: "2"
 ---
 
 # Look it up
@@ -72,8 +72,10 @@ sounding invention as a fact.** A confidently wrong camp answer gets repeated fo
 
 ## Numbers
 
-- **Say the count next to the rate.** "It's forty percent, but that's two out of five, so
-  I wouldn't hang a decision on it."
+- **Say the count next to the rate, every time.** A percentage on a handful of children is
+  the easiest way to mislead somebody. If the number is small, lead with the count and say
+  the percentage is not worth leaning on: "It's forty percent, but that's two out of five,
+  so I wouldn't hang a decision on it."
 - **Say which group the number covers.** A rate without its group gets read as the wrong
   number.
 - **Two things moving together is not one causing the other.** Say which you mean.
@@ -82,7 +84,18 @@ sounding invention as a fact.** A confidently wrong camp answer gets repeated fo
 spreadsheet explains how it counted ("campers registered since September 1"), check that
 against what camp has written down. If nothing backs it, give the number, say how the
 program counted, and say camp's own notes do not confirm that, in the same breath. A zero
-needs one more sentence: whether it means none, or only none yet.
+needs one more sentence: whether it means none, or only none yet. A count that is true for
+the wrong reason never reaches a person as "nobody has one":
+
+> The program found nobody on the Maple Ridge bus with an EpiPen recorded, but it only
+> counts campers already placed on a bus, and nobody is placed yet. So I can't answer this
+> until the bus lists are made.
+
+**A program may keep only today's numbers.** "What was it on this date last year" cannot
+be answered from a program that does not keep history, and asking it one year at a time
+does not change that. Say so plainly, give this year's number, and say last year's number
+on this date is not kept anywhere you can reach. If it is in their files (an export, a
+report from last year), look there.
 
 ## Offering to share an answer with the whole camp
 
