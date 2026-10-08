@@ -9,7 +9,8 @@
 # Tool names marked "measured" were copied from a live Claude desktop tool list on 2026-10-03
 # (Gmail, Google Calendar, Google Drive, Dropbox, Egnyte, Metricool connectors; Egnyte has no
 # send-shaped tool, so its names appear only in the pass list). The others are
-# shapes we expect from Slack, Microsoft 365 and other connections, unmeasured.
+# shapes we expect from Slack, Microsoft 365 and other connections, unmeasured. The send_feedback
+# and queued-post exceptions (2026-10-07) are explained in the readme, "For the maintainer".
 set -u
 here="$(cd "$(dirname "$0")/.." && pwd)"
 H="$here/plugins/cg-ember/hooks/hooks.json"
@@ -30,7 +31,6 @@ BLOCK=(
   mcp__c29f0049__send_message mcp__c29f0049__reply mcp__c29f0049__forward
   mcp__37427ece__respond_to_event mcp__37427ece__update_event mcp__37427ece__delete_event
   mcp__24039824__share_file
-  mcp__bfa060d9__createScheduledPost mcp__bfa060d9__createScheduledPostForReview
   mcp__bfa060d9__sendScheduledPostForReview mcp__bfa060d9__updateScheduledPost
   # expected shapes, unmeasured
   mcp__claude_ai_Gmail__send_draft mcp__claude_ai_Gmail__reply_all mcp__gmail__gmail_send_email
@@ -46,6 +46,12 @@ BLOCK=(
   # letter case and run-together names (Trevor, 2026-10-03)
   mcp__x__GMAIL_SEND_EMAIL mcp__x__Send_Email mcp__x__sendemail mcp__x__sendmail mcp__x__replyall
   mcp__x__chat_postmessage mcp__x__SLACK_SEND_MESSAGE mcp__x__OUTLOOK_REPLY_EMAIL
+  # the two exceptions are exact names; anything longer or prefixed still counts as sending (2026-10-07)
+  mcp__x__send_feedback_email mcp__x__sendFeedbackEmail mcp__x__send_feedback_to_parents
+  mcp__x__gmail_send_feedback mcp__x__send_note mcp__x__sendNote mcp__x__send_message_feedback
+  mcp__x__createScheduledPostNow mcp__x__createScheduledPostAndPublish mcp__x__createPost
+  mcp__x__publishScheduledPost mcp__x__create_post mcp__x__publish_post mcp__x__post_now
+  mcp__x__schedule_post mcp__slack__schedule_message
 )
 PASS_NAMES=(
   # measured
@@ -66,6 +72,13 @@ PASS_NAMES=(
   mcp__cg-hub__hub_hello mcp__cg-hub__share_skill mcp__cg-hub__hub_save_my_page
   mcp__cg-hub__hub_suggest_page mcp__cg-hub__hub_log_problem
   mcp__scheduled-tasks__create_scheduled_task mcp__scheduled-tasks__update_scheduled_task
+  # files a note inside the person's own office system and sends nothing outside (measured 2026-10-07)
+  mcp__0917fdf5__send_feedback
+  # make a queued post, or one held for review, in the person's own scheduling tool (measured 2026-10-07)
+  mcp__bfa060d9__createScheduledPost mcp__bfa060d9__createScheduledPostForReview
+  # the same two exceptions in other spellings (unmeasured)
+  mcp__x__sendFeedback mcp__x__SEND_FEEDBACK mcp__x__send-feedback
+  mcp__x__create_scheduled_post mcp__x__create_scheduled_post_for_review
   # tools that are not connections must never match
   Bash Write Edit Read Task Agent Skill mcp__workspace__bash
   # near misses
@@ -104,6 +117,16 @@ broken="${SEND_RE//reply|/}"; broken="${broken//Reply|/}"; broken="${broken//\[r
 if [ "$broken" = "$SEND_RE" ]; then bad "red control did not change the matcher"
 elif matches "$broken" mcp__c29f0049__reply; then bad "red control: broken matcher still caught reply"
 else ok; fi
+
+# Red control for the exceptions: with the exception removed, the same matcher must refuse
+# send_feedback and createScheduledPost again, so the pass list above can fail.
+no_exc="$(py -c 'import re,sys;print(re.sub(r"^\^\(\?!.*?\)\$\)","^",sys.argv[1],count=1))' "$SEND_RE")"
+if [ "$no_exc" = "$SEND_RE" ]; then bad "exception red control did not change the matcher"
+else
+  for n in mcp__0917fdf5__send_feedback mcp__bfa060d9__createScheduledPost mcp__bfa060d9__createScheduledPostForReview; do
+    matches "$no_exc" "$n" && ok || bad "exception red control: matcher without the exception let $n through"
+  done
+fi
 
 echo "$pass passed, $fail wrong"
 [ "$fail" -eq 0 ]
