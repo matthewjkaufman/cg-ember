@@ -1,9 +1,9 @@
 ---
 name: check-its-clear
-description: "Check it's clear. Read something as the person receiving it and say whether they will understand it and know what to do. Use when someone says 'is this clear', 'will they understand this', 'how will this land', 'does this make sense', 'read this before I send it', or 'check it's clear', and on anything written for a parent, a new staff member, a vendor, or anyone without the background."
+description: "Check it's clear. Read something as the person receiving it and say whether they will understand it and know what to do, plus an optional pass for what families will ask. Use when someone says 'is this clear', 'will they understand this', 'read this before I send it', 'what will parents ask about this', or 'is this ready to go', and on anything for a parent, a new staff member or a vendor."
 metadata:
   cg-ember-name: "check-its-clear"
-  cg-ember-version: "1"
+  cg-ember-version: "2"
 ---
 
 # Check it's clear
@@ -48,9 +48,9 @@ Read the whole thing once, straight through, as that reader. Then answer these.
    when it is going to anyone who does not.
 5. **Would I know I had done it right?** If it asks somebody to do something, say whether
    they would know when they were finished.
-6. **Is anything here scary or technical?** Words like submit, error, invalid, blocked,
-   not permitted and required field read as broken or as being told off. Say which word
-   to use instead.
+6. **Is anything here scary or technical?** Words like execute, submit, purge, error,
+   invalid, blocked, not permitted and required field read as broken or as being told off.
+   Say which word to use instead.
 7. **Is too much being asked at once?** More than about three things, and people do the
    first one and stop.
 
@@ -73,6 +73,29 @@ Label every concern one of two ways:
 Anything you would like added that nobody asked for is "just wondering" by default. This
 check is about confusion. What belongs in the message is the writer's call.
 
+## The families pass, when a message goes to families
+
+Run this as well when the message goes to families (a broadcast, a newsletter, an
+announcement, a reply to a parent), or when they ask "what will parents ask about this" or
+"is this ready to go". Skip it otherwise. It looks for the thing that brings forty phone
+calls to the office on Monday morning.
+
+1. **What will a parent do after reading this?** If the honest answer is "call the office
+   to ask what it means," say so and say which sentence causes it.
+2. **What will parents ask that this never answers?** List the questions, most likely
+   first, and say for each whether the message answers it.
+3. **Is there a group this lands badly on?** A message for everyone often reads wrong to
+   one part of it: families who already complained about this, families whose child is not
+   affected, families who just had something canceled. Name the group.
+4. **Does anything need doing before this goes out?** If it says appointments are
+   rescheduled, somebody has to reschedule them, and those families may deserve their own
+   note first. This catch is the most useful part of the pass.
+5. **Do the dates agree with themselves?** "Monday the 14th" has to be a Monday. Check each
+   date against a calendar with code or a calendar you can see, and never from memory.
+
+Give it as a short list, most important first, after the verdict. Each item is still
+labeled "would stop me" or "just wondering."
+
 ## How to say it
 
 First person, honestly. "I do not know what that means." "I would read this twice and
@@ -90,7 +113,8 @@ Keep the whole review short: the verdict, then each concern with its label and i
 Some text is easy to skim past while reviewing. Give these the same full pass:
 
 - **A message saying something cannot be done.** It should say what is ready, what
-  happens next, and whose job the next part is.
+  happens next, and whose job the next part is, and never use the words blocked, not
+  permitted or error.
 - **A question a form or a program asks somebody.** If a person does not understand a
   question, they answer yes to make it go away, and the yes means nothing.
 - **First instructions**, which arrive at the exact moment somebody understands least.
