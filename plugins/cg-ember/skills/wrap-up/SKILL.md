@@ -3,7 +3,7 @@ name: wrap-up
 description: "Wrap up. Save their place and what they did today in their Personal Notes, with anything new learned about them or their camp. Use when someone says 'wrap up', 'I'm done', 'that's it for today', 'done for now', 'let's stop here', 'save my place', 'see you tomorrow', 'I'm heading out', or 'make this a skill'."
 metadata:
   cg-ember-name: "wrap-up"
-  cg-ember-version: "2"
+  cg-ember-version: "3"
 ---
 
 # Wrap up
@@ -85,10 +85,12 @@ offer once, at the end:
 > You've done the reference emails with me three times now, the same way each time. Want
 > me to turn that into a skill, so next time it's one sentence?
 
-On a yes, write the skill with them: what starts the job, each step, where each step
-happens, how they decide at any fork, what goes wrong. Then save it and walk them through
-adding it exactly as steps 3, 5, 6 and 7 of "Making your own copy of a skill" in the
-set-me-up skill say (the name rules, saving it the way this app needs, where it is, and the clicks). Mention once that if it would help other camps, they can say "share this
+On a yes, write the skill with them exactly as "Writing a skill from a job" in the
+share-this-skill skill says: open with "Explain it to me the way you would to a first-year
+counselor on day one," walk the job back step by step, keep out what never goes in, write
+it, and read it back in plain words. Then save it and walk them through adding it exactly as
+steps 3, 5, 6 and 7 of "Making your own copy of a skill" in the set-me-up skill say (the
+name rules, saving it the way this app needs, where it is, and the clicks). Mention once that if it would help other camps, they can say "share this
 skill."
 
 This offer uses the one question a day that several skills share (the one-question-a-day

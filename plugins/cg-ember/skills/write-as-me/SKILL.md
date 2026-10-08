@@ -3,7 +3,7 @@ name: write-as-me
 description: "Write as me. Draft something in the person's own words and voice for people they work with: their team, a colleague, a staff member, a vendor. Use when someone says 'write this as me', 'put this in my words', 'make this sound like me', 'draft a reply', or asks for anything they will sign with their own name."
 metadata:
   cg-ember-name: "write-as-me"
-  cg-ember-version: "2"
+  cg-ember-version: "3"
 ---
 
 # Write as me
@@ -127,6 +127,24 @@ Drafts only, as camp-background section 1 says.
   they ask.
 
 Under the draft, one sentence saying where it is. Nothing more.
+
+## What stays out of an email
+
+An email gets forwarded, so this is stricter than what is fine inside their own mailbox
+(camp-background section 3):
+
+- **A camper's last name or a parent's name** only goes to that family itself, or to camp
+  staff who already work with that family. For anyone else, the camper's first name and
+  group are enough.
+- **A medical detail, an allergy, a medication or a note about a child's behavior** only
+  goes to someone whose job needs it.
+- **An evaluation or an incident write-up** about a staff member is never pasted into an
+  email (see below).
+- **A guess presented as a fact.** If you do not know the date, the price or what was
+  decided, leave a gap for them to fill.
+
+If what they asked for needs one of these, say so in one sentence before the draft and
+leave it out until they tell you who is reading it.
 
 ## References and other staff details
 

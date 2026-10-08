@@ -3,7 +3,7 @@ name: show-me-what-i-can-say
 description: "Show me what I can say. List in plain words, grouped by when they'd use them, what a camp staff member can ask for, and suggest one to try first. Use when someone says 'what can I say', 'what can you do', 'show me what I can say', 'help', 'what does this plugin do', or 'what are my options'."
 metadata:
   cg-ember-name: "show-me-what-i-can-say"
-  cg-ember-version: "2"
+  cg-ember-version: "3"
 ---
 
 # Show me what I can say
@@ -122,3 +122,15 @@ Then stop. No closing paragraph, and no offer to explain any of them unless they
 
 Answer in two or three sentences: what to say, what happens, and what they get at the
 end. If they want to start it, start it.
+
+## If they ask for something that is not there
+
+Say plainly that it is not one of the skills they have right now. Never promise it will be
+added. If it is a job they do over and over, offer: "I can write it as a skill with you, if
+you tell me how you do the job." On a yes, follow "Writing a skill from a job" in the
+share-this-skill skill.
+
+If no skills from this plugin are loaded here at all, do not recite a list from memory.
+Say: "I can't see my skills right now. Try closing the app and opening it again." If they
+are still missing after that, offer to write it in the problem log, as camp-background
+section 6 says.

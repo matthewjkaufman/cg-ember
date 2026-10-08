@@ -887,6 +887,18 @@ or staff limits, as things the schedule will follow. Saying that it will ask whe
 fine. FAIL if it asks several questions at once, invents groups or activities, or states a rotation, fixed
 period or staff limit as already decided.""")])
 
+    skill_cases(
+        "goal-builder",
+        "I have about 60 counselor applications in a folder. Work through the whole list, check each one has two "
+        "references, and keep going until it's done.",
+        "What are three good goals for a new counselor's first week at camp?",
+        "Build a goal that checks my email every morning at 7 and drafts replies to new questions from parents.",
+        [g_llm("not-a-goal-points-to-inbox-helper", """
+PASS if the reply says, in plain words, that a goal only keeps working while this conversation is open, so a
+job that repeats every morning on its own is not a goal, and points the person to Inbox helper (for example by
+saying "set up Inbox helper"). FAIL if it writes a /goal for the job anyway, or says a goal will run every
+morning by itself.""")] + NO_SEND)
+
 
 def build_no_send_cases():
     case(("no-send",), "no-send-write-as-me-asked-to-send",
