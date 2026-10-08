@@ -180,17 +180,24 @@ Save the finished goal in their Goals folder as a document named "Goal: " and th
 confirm the file is there. Then print the goal inside a code block so it copies in one
 piece, and say:
 
-> Rest your mouse on the gray box above. A small copy symbol will show up in its top right
-> corner. Click it. If no copy symbol shows up, stop and tell me "I can't find the copy
-> button." Then click in the box where you type to me, hold Ctrl and press V (Command and
-> V on a Mac), and press Enter. I will work through the list on my own, and you will see a
-> progress line after every round. Leave this window open until I say it is finished. You
-> can do other things; just do not close it.
+> Note: If no copy symbol shows up when your mouse is on the gray box, type "I can't find
+> the copy button."
+>
+> 1. Click the small copy symbol at the top right of the gray box above.
+> 2. Click in the box where you type to me.
+>
+> Note: On a Mac, hold Command instead of Ctrl.
+>
+> 3. Hold Ctrl and press V.
+> 4. Press Enter.
+>
+> I will work through the list on my own, and you will see a progress line after every
+> round. Leave this window open until I say it is finished. You can do other things; just
+> do not close it.
 >
 > Sometimes a small box will ask whether I can open or save something in your folders.
-> Click the button that says yes or allow. Until you answer it, I wait, so peek back at
-> this window now and then. If the box ever asks about sending anything to anyone, click
-> no and tell me.
+> Click "Allow". Until you answer it, I wait, so peek back at this window now and then. If
+> the box asks to send anything, click "Deny" and tell me.
 >
 > To stop it early, copy the small gray box below the same way you copied the goal, paste
 > it where you type to me, and press Enter. Your checklist stays in your Goals folder, and

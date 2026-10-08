@@ -156,17 +156,32 @@ only and under 200 KB. Send it. Then:
 **Through the upload page**, in every other case. Save the package as one file named
 `share-<skill-name>-<date>.json` (for example
 `share-reference-check-emails-2026-10-20.json`). Tell them the file's exact name and where
-it was saved, in words ("in your Downloads folder"), never as a path with slashes. Then, one step at a time:
+it was saved, in words ("in your Downloads folder"), never as a path with slashes.
 
-1. Give them the share page as a link they can click, and make clicking it the step
-   ("Click this link: Share a skill"). Only if this conversation cannot show links, show
-   the address, **cg.ramaquois.com/skills/share**, and ask them to type it into their web
-   browser's address bar.
+If this conversation cannot show a link, do not give them an address to type. Say this, then
+write what happened in the problem log, as camp-background section 6 says, and stop:
+
+> I can't show you a button to click here. I'll save the file and add a line to the problem
+> log, so it gets shared later.
+
+Otherwise, give these steps one at a time. Step 1's link opens
+https://cg.ramaquois.com/skills/share, shown only as the words "Share a skill".
+
+1. Click this link: Share a skill.
 2. Sign in with your work Google account. If your camp email is not Google, choose the
    option to get a six-digit code sent to your camp email, and type it in.
-3. Click the page's button that chooses a file, then click **Downloads** on the left (or
-   wherever you said it was saved), and pick the file.
-4. Tell me what the page says.
+
+Note: The next button's words depend on your web browser. Chrome and Edge show "Choose
+File". Firefox shows "Browse...".
+
+3. Click "Choose File" or "Browse..." under "The file Claude saved".
+4. Click "Downloads" on the left.
+5. Click the file whose name starts with "share-".
+6. Click "Open".
+7. Click "Send This Skill".
+8. Tell me what the page says.
+
+Use the folder you named if the file was saved somewhere other than Downloads.
 
 Only when they say the page confirmed it, say it reached Matt. If the page shows a
 problem, read back what it says and stop. If they cannot sign in, say their camp's email

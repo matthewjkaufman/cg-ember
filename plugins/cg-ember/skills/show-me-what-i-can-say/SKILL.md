@@ -44,8 +44,8 @@ underneath. Say each phrase the way a person would say it out loud.
 - **"Prep me for my meeting"**: a one-screen brief before you walk in.
 - **"Set up Inbox helper"**: every few hours, drafts replies to emails your notes can
   answer and lists the rest. It never sends.
-- Nothing to say for **one question a day**: once a day at most, I ask one short question
-  about how your camp works, so it is written down.
+- **One question a day**: you don't ask for this. Once a day at most, I ask you one short
+  question about how your camp works.
 
 **Writing**
 
@@ -70,7 +70,8 @@ underneath. Say each phrase the way a person would say it out loud.
 **Long jobs and your own skills**
 
 - **"Build a goal"**: works through a whole list one item at a time, until it is done.
-- **"Make this a skill"**: turns a job you repeat into one sentence next time.
+- **"Make this a skill"**: saves a job you repeat, so next time you just ask for it by
+  name.
 - **"Share this skill"**: shares a skill you built, for review, so other camps can use it.
 
 **Skills beyond this list**

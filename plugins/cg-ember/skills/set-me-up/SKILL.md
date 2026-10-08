@@ -88,14 +88,16 @@ they keep camp files in Google Drive anyway; if they do, connect that too.
 
 **For each one that is missing**, walk them through it:
 
-1. First, click the word **Cowork** on the left of the window. Then click **Customize**.
-   (In plain Claude chat, there is no Cowork; just click **Customize**.)
-2. Click **Connectors**.
-3. Find the one you need (for example **Gmail**) and click **Connect**.
-4. A sign-in window opens. Sign in with your **work** account, the one your camp email is
-   on, not a personal one.
-5. Click **Allow** (it may say **Continue**).
-6. When you're done, come back to this conversation. It is in the list on the left.
+Note: In plain Claude chat there is no "Cowork". Start at step 2.
+
+1. Click "Cowork" on the left of the window.
+2. Click "Customize".
+3. Click "Connectors".
+4. Find the one you need, for example "Gmail".
+5. Click "Connect".
+6. Sign in with your **work** account in the sign-in window, not a personal one.
+7. Click "Allow". If the button says "Continue", click "Continue".
+8. Come back to this conversation, in the list on the left.
 
 **Say this before they reach the sign-in screen**, because its wording alarms people:
 
@@ -298,12 +300,20 @@ version of one, do not edit the original. Make them a copy.
    as they are; they record which shared skill it came from.
 5. Make a ZIP file with code: one folder named exactly the new name, holding SKILL.md and
    any other files the original had. If you cannot make files, Claude's setting that lets
-   it make files for you is off. Walk them through turning it on: **Settings**, then
-   **Capabilities**, then switch on **Code execution and file creation**.
+   it make files for you is off. Walk them through turning it on, one click per step:
+   1. Click "Settings".
+   2. Click "Capabilities".
+   3. Switch on "Code execution and file creation".
 6. Tell them the file's exact name and where it was saved, in words ("in your Downloads
-   folder"), never as a path with slashes. Then walk them through adding
-   it, one step at a time: click **Customize**, then **Skills**, then the plus sign (**+**),
-   then **Create skill**, then **Upload a skill**, then choose the file.
+   folder"), never as a path with slashes. Then walk them through adding it, one click per
+   step:
+   1. Click "Customize".
+   2. Click "Skills".
+   3. Click the plus sign ("+").
+   4. Click "Create skill".
+   5. Click "Upload a skill".
+   6. Click the file.
+   7. Click "Open".
 7. Tell them to call it by its new name.
 
 If they later want everyone to have their improvement, they can say "share this skill."

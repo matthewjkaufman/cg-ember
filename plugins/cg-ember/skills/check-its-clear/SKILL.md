@@ -1,6 +1,6 @@
 ---
 name: check-its-clear
-description: "Check it's clear. Read something as the person receiving it and say whether they will understand it and know what to do, plus an optional pass for what families will ask. Use when someone says 'is this clear', 'will they understand this', 'read this before I send it', 'what will parents ask about this', or 'is this ready to go', and on anything for a parent, a new staff member or a vendor."
+description: "Check it's clear. Read something as the person receiving it and say whether they will understand it and know what to do, plus an optional pass for families. Use when someone says 'check it's clear', 'is this clear', 'will they understand this', 'how will this land', 'does this make sense', or 'read this before I send it', and on anything for a parent, a new staff member or a vendor."
 metadata:
   cg-ember-name: "check-its-clear"
   cg-ember-version: "2"
@@ -76,8 +76,8 @@ check is about confusion. What belongs in the message is the writer's call.
 ## The families pass, when a message goes to families
 
 Run this as well when the message goes to families (a broadcast, a newsletter, an
-announcement, a reply to a parent), or when they ask "what will parents ask about this" or
-"is this ready to go". Skip it otherwise. It looks for the thing that brings forty phone
+announcement, a reply to a parent), or when they ask what families will make of it. Skip it
+otherwise. It looks for the thing that brings forty phone
 calls to the office on Monday morning.
 
 1. **What will a parent do after reading this?** If the honest answer is "call the office
