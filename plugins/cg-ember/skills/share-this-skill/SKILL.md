@@ -1,9 +1,9 @@
 ---
 name: share-this-skill
-description: "Share this skill. Package a skill a camp staff member built and send it to Matt for review, so that if he approves it every camp using this plugin gets it. Use when someone says 'share this skill', 'share my skill', 'send this to Matt', 'can other camps use this', 'everyone should have this', 'submit my skill', or 'I made a new version of a skill'."
+description: "Share this skill. Package a skill a camp staff member built, or write one with them from a job they repeat, and send it to Matt for review, so that if he approves it every camp using this plugin gets it. Use when someone says 'share this skill', 'send this to Matt', 'can other camps use this', 'submit my skill', or 'other camps should have a skill for this'."
 metadata:
   cg-ember-name: "share-this-skill"
-  cg-ember-version: "2"
+  cg-ember-version: "3"
 ---
 
 # Share this skill
@@ -23,6 +23,16 @@ camps in the group share the skills they build.
 ## Step 1: which skill, and get its files
 
 Ask which skill, unless it is obvious ("the one we just made").
+
+**First, check whether one already does the job.** Look at the skills actually loaded here
+and read their descriptions. If one already does this job, say so by what it does, never by
+its hyphenated name, and ask whether it covers what they wanted. If it does, nothing is
+shared; offer to run it. If it does part of the job, carry on, and `note_for_matt` (Step 5)
+says what the existing skill misses.
+
+**If they have a job but no skill yet** ("I do this every week and other camps would want
+it"), write the skill with them first, as "Writing a skill from a job" at the end of this
+page says, then come back here with it.
 
 Get every file in it, by **reading** the files, never by running the skill:
 
@@ -179,3 +189,57 @@ instead:
 Their own copy keeps working while they wait. If Matt approves it, the shared version
 arrives with this plugin, and they can then remove their own copy under **Customize**,
 **Skills**, so there are not two.
+
+## Writing a skill from a job
+
+When there is no skill yet, only a job they do over and over. The questions here do not
+count against the one question a day that several skills share; the person asked for this.
+
+**Open with exactly this, then wait:**
+
+> Explain it to me the way you would to a first-year counselor on day one.
+
+Most people give the whole job in one go. Take it, then walk it back with them, a few
+questions per message, in this order, asking only what they have not already answered.
+Under each question, offer a guess from what they said, marked as a guess, so they can say
+"yes" or correct it.
+
+1. **What starts it**: a day of the week, an email that arrives, somebody asking, a date.
+   Also the words they would say to start it, which become the skill's name.
+2. **Each step, and where it happens**: which program and which screen, which spreadsheet,
+   which piece of paper, which inbox. A step with no place is a step nobody can follow.
+3. **The forks, and how they decide**: anywhere the job splits ("if the family already
+   paid, skip this"). If the answer is "I just know," ask once what they look at.
+4. **What goes wrong**: the thing they redo, the thing they forget, and what they do about
+   it.
+5. **What done looks like**: what is on the screen or the desk when it is finished, and
+   who is told.
+6. **How often.**
+
+Stop when the steps run from start to done with nowhere a first-year counselor would have
+to guess. Never twenty questions for a job that has four steps.
+
+**What never goes into the skill.** No password and no sign-in steps ("signed in to the
+program yourself" is enough). No personal address, phone number or email. No real camper,
+family or staff member: write "the camper", "the parent", "the unit head", even when they
+told the story with names. No real budget figure or price a vendor gave; an example uses a
+made-up round number. The story stays in the conversation.
+
+**Write it** in the shared skill format: a `name` line and a `description` line at the top
+(the description under 400 characters, saying what it does and the words that start it),
+then plain sentences under these headings: what starts it, the steps (numbered, each naming
+its place), where it stops and asks, what goes wrong, what done looks like, and what it never
+does. Anything that would leave camp, a message to a parent, a file to a vendor, a list to a
+bus company, is a step that prepares it, shows it, and waits for a yes. It names the
+camp-background rules about camper and family information as applying, and never restates,
+widens or narrows them. Keep it near 6,000 characters at most.
+
+**Read it back in plain words**, never the raw file and never its top lines, in five or six
+short sentences: what starts it, what it does, where it stops and asks, what done looks
+like. Change what they ask and read it back again.
+
+**Then make it theirs first.** Save it and walk them through adding it as their own skill,
+exactly as steps 3, 5, 6 and 7 of "Making your own copy of a skill" in the set-me-up skill
+say. Ask them to use it once on real work before sharing; a skill that has run once is a
+better skill to send. When they are ready, go back to Step 2 of this page with it.
+
