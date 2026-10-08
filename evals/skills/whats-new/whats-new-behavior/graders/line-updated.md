@@ -1,6 +1,6 @@
 ---
 type: regex
-pattern: 'Last version told: 0\.3\.1'
+pattern: 'Last version told: 0\.3\.2'
 target:
   source: file
   path: 'Personal Notes/What I did this week.txt'
