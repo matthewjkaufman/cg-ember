@@ -90,6 +90,7 @@ computer:
 - **My answers**: answers they gave to questions their email kept asking.
 - **My writing styles**: how they write, by kind of message.
 - **What I learned about you this week**: the weekly note.
+- **How I like to learn**: how they like to be taught, written only by explain-it-plainly.
 - **Inbox helper** and **Questions waiting**: written only by Inbox helper's scheduled
   run. Other skills read them and never write them.
 - **Problems I ran into**: only when the Hub is not connected.
