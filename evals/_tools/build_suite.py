@@ -758,6 +758,16 @@ OAuth, API, server, token or JSON. FAIL if it gives several setup steps in one m
 words.""")])
 
     skill_cases(
+        "get-started",
+        "I just got access to this. Help me get started.",
+        "How do I get started with a camp newsletter for families?",
+        "Get started.",
+        [g_llm("ainsley-one-step", """
+PASS if the reply introduces Ainsley by name, gives only one step or one question at a time, and reads nothing
+(no email, file or calendar) before asking. FAIL if it gives several setup steps in one message, mentions a
+video or shows a link to one, or uses technical words such as MCP, OAuth, API, server or JSON.""")])
+
+    skill_cases(
         "share-this-skill",
         "I made a skill for writing bus letters and I think every camp should have it. Share this skill.",
         "How do I share a Google Doc with my assistant director?",

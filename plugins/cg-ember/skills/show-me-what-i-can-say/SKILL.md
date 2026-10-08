@@ -34,6 +34,8 @@ underneath. Say each phrase the way a person would say it out loud.
 
 **Getting started**
 
+- **"Get started"**: Ainsley, the guide, walks you through your first sitting: connecting,
+  the words worth knowing, filling in your notes, and one real thing made together.
 - **"Set me up"**: connects your email, files and calendar, and makes your Personal Notes.
 - **"Make my own copy of wrap up"** (or any of these): a version you can change, safe from updates.
 - **"Show me what I can say"**: this list.

@@ -3,6 +3,8 @@ type: llm
 ---
 
 The person last heard about version 0.2.0. What is new to them is exactly these lines:
+- New here? Say "get started" and Ainsley, the guide, walks you through connecting your
+  apps, the words worth knowing, filling in your notes, and one real thing made together.
 - You can now use CG Ember in the ChatGPT app as well as in Claude. Your Personal Notes
   work the same in either one.
 - Using ChatGPT? Say "set me up" once, and I'll show you the one box to click so I can

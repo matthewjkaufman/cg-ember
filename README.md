@@ -17,6 +17,7 @@ Say these in your own words. You do not need the exact phrase.
 | Say | What happens |
 |---|---|
 | **Getting started** | |
+| "Get started" | Ainsley, the guide, walks you through everything the first time: connecting your accounts and apps, the words worth knowing, filling in your notes and wikis, and one real thing made together. Stop after any part; say it again to carry on. |
 | "Set me up" | It connects your email, files and calendar, and makes your Personal Notes. It asks first whether your camp is okay with connecting. About twenty minutes, one step at a time. |
 | "Show me what I can say" | It lists what you can ask for and suggests one to try first. |
 | "What's new" | It tells you what changed since the last update. |
@@ -193,7 +194,8 @@ camps can sign in to, your name is shown as the person who made the skill.
   this one. Where both have a skill for the same words, Claude picks one, and either may
   answer. Known overlaps with one camp's own plugin, 2026-10-07: "build a goal" (both have a
   goal builder), "good morning" (pick-up), "wrap up" and "I'm done" (wrap-up), "get me set
-  up" (set-me-up against a first-run skill), and "what can you do" (show-me-what-i-can-say
+  up" (set-me-up against a first-run skill), "get started" (get-started, close to that same
+  first-run skill's words), and "what can you do" (show-me-what-i-can-say
   against the same first-run skill). Settle these with that camp before both are installed.
 - Nothing in this repository may name the company that owns it, a camp, or the person who
   made a skill. Run `grep -rliE "camp[g]roup" .` before every push; it must print nothing.
