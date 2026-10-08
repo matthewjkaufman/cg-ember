@@ -81,8 +81,11 @@ Ainsley explaining that thing, written like this:
 
 > Video slot, not made yet: "Connecting your email"
 
-**A slot that says "not made yet" is skipped in silence.** Never mention a video, never
-promise one, never show a link. When a slot holds a web address instead, offer it once, in
+A slot can also say "made, no web address yet", with the video's file name after it in
+brackets. That file is not online, so treat it like "not made yet".
+
+**A slot with no web address is skipped in silence.** Never mention a video, never
+promise one, never show a link, and never show a file name. When a slot holds a web address instead, offer it once, in
 one sentence, before the steps: "There's a short video of this, if you'd rather watch it
 first:" and the address. Nothing else changes.
 
@@ -106,7 +109,7 @@ go there. If all six are done, say so and offer "teach me something" instead.
 
 ## Part 1: connect your accounts and apps
 
-> Video slot, not made yet: "Welcome to CG Ember"
+> Video slot, made, no web address yet: "Welcome to CG Ember" (2026-10-07-ainsley-welcome-sample.mp4)
 
 Say what this part is, in one or two sentences: the app can only help with what it can
 reach, so the first job is connecting their email, files and calendar, then the other apps
