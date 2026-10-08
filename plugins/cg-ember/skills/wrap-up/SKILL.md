@@ -79,6 +79,9 @@ so never leave one off.
 
 ## Step 4: offer a skill, within the one question a day
 
+If they asked for this ("make this a skill"), skip the offer and its daily-question check
+and go straight to the writing.
+
 If **My jobs** shows a job they have now done with you two or three times the same way,
 offer once, at the end:
 

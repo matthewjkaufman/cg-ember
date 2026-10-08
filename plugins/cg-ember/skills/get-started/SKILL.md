@@ -130,7 +130,8 @@ exist, show the two lines and add them to **My camp** on a yes.
 > Video slot, not made yet: "Connecting another app"
 
 **Then their camp's own plugin: run set-me-up Step 4b**, word for word where it gives
-words.
+words. Someone new has no **My camp** page yet, so keep its "Camp's own plugin" line with
+the two lists above and add it in Part 5 the same way.
 
 > Video slot, not made yet: "Your camp's own plugin"
 

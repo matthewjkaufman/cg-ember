@@ -17,7 +17,7 @@ Emails, messages, invitations and posts are drafted, never sent, as camp-backgro
 
 ## Before you write the list
 
-Check two things quietly, and say nothing about checking:
+Check three things quietly, and say nothing about checking:
 
 - **Whether their Personal Notes exist**, the way camp-background section 4 says to find
   them.
@@ -130,7 +130,7 @@ added. If it is a job they do over and over, offer: "I can write it as a skill w
 you tell me how you do the job." On a yes, follow "Writing a skill from a job" in the
 share-this-skill skill.
 
-If no skills from this plugin are loaded here at all, do not recite a list from memory.
+If you can see few or none of the skills listed above, do not recite a list from memory.
 Say: "I can't see my skills right now. Try closing the app and opening it again." If they
 are still missing after that, offer to write it in the problem log, as camp-background
 section 6 says.

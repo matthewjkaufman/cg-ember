@@ -201,7 +201,7 @@ def main(plugin):
     for app in ("claude", "chatgpt"):
         p = os.path.join(ref, f"screens-{app}.md")
         sections[app] = re.findall(r"^## ([A-Z])\. ", open(p, encoding="utf-8").read(), re.M) if os.path.exists(p) else []
-    if sections["claude"] != list("ABCDEFGH") or sections["chatgpt"] != list("ABCDEFGH"):
+    if sections["claude"] != list("ABCDEFGHI") or sections["chatgpt"] != list("ABCDEFGHI"):
         bad(f"screens pages: sections differ or are missing: {sections}")
 
     for p in problems:
