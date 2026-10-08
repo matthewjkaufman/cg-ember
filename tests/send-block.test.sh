@@ -52,6 +52,12 @@ BLOCK=(
   mcp__x__createScheduledPostNow mcp__x__createScheduledPostAndPublish mcp__x__createPost
   mcp__x__publishScheduledPost mcp__x__create_post mcp__x__publish_post mcp__x__post_now
   mcp__x__schedule_post mcp__slack__schedule_message
+  # other letter cases and spellings of the exceptions still count as sending
+  mcp__x__SEND_FEEDBACK mcp__x__Send_Feedback mcp__x__send_Feedback mcp__x__sendFeedback
+  mcp__x__send-feedback mcp__x__send_feedbacks mcp__x__send_ mcp__x__send
+  mcp__x__create_scheduled_post mcp__x__create_scheduled_post_for_review
+  mcp__x__createScheduledPostForReviewNow
+  mcp__x__createSchedulePost mcp__x__createScheduledPostForRevie
 )
 PASS_NAMES=(
   # measured
@@ -76,9 +82,6 @@ PASS_NAMES=(
   mcp__0917fdf5__send_feedback
   # make a queued post, or one held for review, in the person's own scheduling tool (measured 2026-10-07)
   mcp__bfa060d9__createScheduledPost mcp__bfa060d9__createScheduledPostForReview
-  # the same two exceptions in other spellings (unmeasured)
-  mcp__x__sendFeedback mcp__x__SEND_FEEDBACK mcp__x__send-feedback
-  mcp__x__create_scheduled_post mcp__x__create_scheduled_post_for_review
   # tools that are not connections must never match
   Bash Write Edit Read Task Agent Skill mcp__workspace__bash
   # near misses
@@ -118,15 +121,20 @@ if [ "$broken" = "$SEND_RE" ]; then bad "red control did not change the matcher"
 elif matches "$broken" mcp__c29f0049__reply; then bad "red control: broken matcher still caught reply"
 else ok; fi
 
-# Red control for the exceptions: with the exception removed, the same matcher must refuse
-# send_feedback and createScheduledPost again, so the pass list above can fail.
-no_exc="$(py -c 'import re,sys;print(re.sub(r"^\^\(\?!.*?\)\$\)","^",sys.argv[1],count=1))' "$SEND_RE")"
-if [ "$no_exc" = "$SEND_RE" ]; then bad "exception red control did not change the matcher"
+# The pattern in hooks.json is built by tests/send_matcher.py; it must hold exactly that output.
+built="$(py "$here/tests/send_matcher.py")"
+[ "$built" = "$SEND_RE" ] && ok || bad "hooks.json does not hold the pattern tests/send_matcher.py builds"
+# Red control for the exceptions: the 0.2.0 pattern, before they were carved out, must still
+# refuse each of them, so the pass list above can fail.
+base="$(py "$here/tests/send_matcher.py" --base)"
+if [ "$base" = "$SEND_RE" ]; then bad "exception red control: base pattern is the same as the shipped one"
 else
   for n in mcp__0917fdf5__send_feedback mcp__bfa060d9__createScheduledPost mcp__bfa060d9__createScheduledPostForReview; do
-    matches "$no_exc" "$n" && ok || bad "exception red control: matcher without the exception let $n through"
+    matches "$base" "$n" && ok || bad "exception red control: the 0.2.0 pattern let $n through"
   done
 fi
+# ChatGPT reads these patterns with Rust's regex engine: no lookaround, no backreferences.
+case "$SEND_RE" in *'(?'*) bad "send pattern uses (? which Rust's regex engine may refuse";; *) ok;; esac
 
 echo "$pass passed, $fail wrong"
 [ "$fail" -eq 0 ]

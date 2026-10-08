@@ -120,16 +120,17 @@ camps can sign in to, your name is shown as the person who made the skill.
 - The send block also refuses a few tools that only make drafts (for example a
   `draft_reply` or `createReply` on some email connections), because their names look like
   sending. That is deliberate: those drafts then appear in the conversation instead.
-- Two kinds of tool are let through by exact name, at the front of the send matcher. A
-  `send_feedback` tool (any letter case, with `_`, `-`, `.` or nothing between the words)
-  files a note inside the person's own work system and reaches nobody outside it. A
-  `createScheduledPost` or `createScheduledPostForReview` tool (or `create_scheduled_post`,
-  `create_scheduled_post_for_review`) puts a post in the queue of the person's own
-  scheduling tool, where they can read, change or cancel it before it goes out. Anything
-  longer or prefixed (`send_feedback_email`, `gmail_send_feedback`, `createScheduledPostNow`),
-  any tool that posts or publishes at once, and changing or sending on an already queued post
-  are still refused. Add a name here only when it sends nothing beyond the person's own tool,
-  and add it to both lists in `tests/send-block.test.sh`.
+- Three tool names are let through, exactly as written and nothing else: `send_feedback`,
+  which files a note inside the person's own work system and reaches nobody outside it, and
+  `createScheduledPost` and `createScheduledPostForReview`, which put a post in the queue of
+  the person's own scheduling tool, where they can read, change or cancel it before it goes
+  out. Another letter case, anything longer or with a word in front (`send_feedback_email`,
+  `gmail_send_feedback`, `createScheduledPostNow`), any tool that posts or publishes at once,
+  and changing or sending a post already in the queue are still refused. The pattern is
+  built by `tests/send_matcher.py` (`python tests/send_matcher.py --write`), because ChatGPT
+  reads it with a pattern engine that cannot skip a name, so each exception is spelled out
+  letter by letter. Add a name there only when it sends nothing beyond the person's own
+  tool, and add it to both lists in `tests/send-block.test.sh`.
 - Nothing in this repository may name the company that owns it, a camp, or the person who
   made a skill. Run `grep -rliE "camp[g]roup" .` before every push; it must print nothing.
 - American spelling, no dashes joining two thoughts, "child" or "camper" and never the
