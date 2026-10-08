@@ -3,7 +3,7 @@ name: get-started
 description: "Get started. Ainsley, the guide, walks someone new through connecting their apps, the words worth knowing, filling in their notes and wikis, and one first build. Use when someone says 'get started', 'help me get started', 'walk me through everything', 'onboard me', or 'I just got access'."
 metadata:
   cg-ember-name: "get-started"
-  cg-ember-version: "1"
+  cg-ember-version: "2"
 ---
 
 # Get started
@@ -132,19 +132,9 @@ exist, show the two lines and add them to **My camp** on a yes.
 
 > Video slot, not made yet: "Connecting another app"
 
-**Then their camp's own plugin.** Some camps give their staff a plugin of their own as well
-as this one, with that camp's own shortcuts, and it often needs its own sign-in to the
-camp's office website. Ask once:
-
-> Does your camp have a plugin of its own, as well as this one?
-
-- **Yes, and it is installed:** check it answers, by asking it something harmless the way
-  its own setup skill says. If it asks them to sign in, walk them through the sign-in one
-  step at a time as it says.
-- **Yes, not installed yet:** say, in about these words: "The person who set up AI at your
-  camp tells you how to add it. If that's you, the camp plugin's own setup page says how."
-  Carry on here; it can be added any day.
-- **No, or not sure:** carry on.
+**Then their camp's own plugin: run set-me-up Step 4b**, word for word where it gives
+words. Someone new has no **My camp** page yet, so keep its "Camp's own plugin" line with
+the two lists above and add it in Part 5 the same way.
 
 > Video slot, not made yet: "Your camp's own plugin"
 

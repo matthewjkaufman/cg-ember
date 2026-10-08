@@ -122,3 +122,10 @@ Offer to move their copy's folder out of the skills folder into a folder beside 
 ## H. What to write as "made on"
 
 `chatgpt`.
+
+## I. Signing out
+
+Note: If the menu says "Sign out" instead, click "Sign out".
+
+1. Click your name or picture at the bottom left of the window.
+2. Click "Log out".

@@ -82,3 +82,10 @@ Under **Customize**, then **Skills**.
 ## H. What to write as "made on"
 
 `cowork` in Cowork, `chat` in Claude chat, `claude-code` in Claude Code.
+
+## I. Signing out
+
+Note: If the menu says "Sign out" instead, click "Sign out".
+
+1. Click your name at the bottom left.
+2. Click "Log out".

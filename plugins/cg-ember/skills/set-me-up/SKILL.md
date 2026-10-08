@@ -3,7 +3,7 @@ name: set-me-up
 description: "Set me up. Walk someone, one step at a time, through connecting their email, files, calendar and other apps, and choosing where their Personal Notes live. Use when someone says 'set me up', 'get me set up', 'I just installed this', 'connect my email', 'connect my apps', or 'finish my setup'. Also for 'make my own copy' of a skill."
 metadata:
   cg-ember-name: "set-me-up"
-  cg-ember-version: "3"
+  cg-ember-version: "4"
 ---
 
 # Set me up
@@ -116,6 +116,15 @@ Then the one rule that matters most:
 If they ask where the AI Use Policy is, say it comes from their company, and whoever gave
 them this plugin at their camp will know where it is kept.
 
+Then this, to everyone, because a camp office computer is often shared:
+
+> If you share this computer with anyone, sign out of this app before you walk away.
+> Closing the window is not enough. I can show you where sign out is right now, if you
+> like. Everything is still here when you sign back in, and nobody else can use me to read
+> your email.
+
+On a yes, walk them to sign out one click at a time, as the screens page, section I, says.
+
 Then the safety check, as the screens page, section C, says.
 
 ## Step 3: your Personal Notes
@@ -201,6 +210,29 @@ they are done, add a line to **My camp**: "Connected: ..." and "Not connected ye
 later conversations know what you can reach.
 
 If they would rather do this another day, skip it; "set me up" picks it up later.
+
+## Step 4b: your camp's own plugin
+
+Some camps give their staff a plugin of their own as well as this one, with that camp's
+own shortcuts, and it often needs its own sign-in to the camp's own systems.
+
+If **My camp** already has a line "Camp's own plugin:", this step was done; skip it.
+Otherwise ask once:
+
+> Does your camp have a plugin of its own, as well as this one?
+
+- **Yes, and it is installed:** check it answers, by asking it something harmless the way
+  its own setup skill says. If it asks them to sign in, walk them through the sign-in one
+  step at a time as it says.
+- **Yes, not installed yet:** say, in about these words: "The person who set up AI at your
+  camp can show you how to add it. If that's you, look for the setup instructions that
+  came with your camp's plugin; they walk you through it." Carry on here; it can be added
+  any day.
+- **No, or not sure:** carry on.
+
+Then add a line to **My camp**: "Camp's own plugin: yes" or "Camp's own plugin: no", with
+today's date. Leave "not sure" unwritten, so the question comes up again next time. Its
+own skills then show up when they say "show me what I can say".
 
 ## Step 5: the Hub, in one sentence
 

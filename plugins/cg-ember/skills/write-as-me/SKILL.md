@@ -3,7 +3,7 @@ name: write-as-me
 description: "Write as me. Draft something in the person's own words and voice for people they work with: their team, a colleague, a staff member, a vendor. Use when someone says 'write this as me', 'put this in my words', 'make this sound like me', 'draft a reply', or asks for anything they will sign with their own name."
 metadata:
   cg-ember-name: "write-as-me"
-  cg-ember-version: "2"
+  cg-ember-version: "3"
 ---
 
 # Write as me
@@ -111,7 +111,8 @@ Watch what they change in your drafts. Three rules, none of which bends:
    verdict is NO-GO or carries a "would stop me" concern, fix that first. Say what you
    changed only if they ask.
 2. **Never invent a fact to make a sentence work.** If a date, a price or a decision is
-   missing, leave a clear gap, like [date], and say what is missing.
+   missing, leave a gap in square brackets, like [date], for them to fill, and say what is
+   missing.
 3. **Check every name is spelled the way it appears in front of you.** Never complete a
    name from an initial or an email address.
 
@@ -127,6 +128,23 @@ Drafts only, as camp-background section 1 says.
   they ask.
 
 Under the draft, one sentence saying where it is. Nothing more.
+
+## What stays out of an email
+
+Camp-background section 3 says who may know what. An email adds one thing: it can be
+forwarded, so write it for everyone it might reach.
+
+- **A camper's last name or a parent's name** goes only to that family, or to camp staff
+  whose work involves that camper or family. For anyone else, the camper's first name and
+  group are enough.
+- **A medical detail, an allergy, a medication or a note about a child's behavior** goes
+  only to the people camp-background section 3 names.
+- **An evaluation or an incident write-up** about a staff member is never pasted into an
+  email (see below).
+
+When you are not sure the reader is one of those people, leave the detail out and say one
+sentence before the draft, in about these words: "I left the allergy out for now. Who is
+this going to? If they work with this camper, I'll put it back in."
 
 ## References and other staff details
 
