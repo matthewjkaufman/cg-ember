@@ -3,7 +3,7 @@ name: get-started
 description: "Get started. Ainsley, the guide, walks someone new through connecting their apps, the words worth knowing, filling in their notes and wikis, and one first build. Use when someone says 'get started', 'help me get started', 'walk me through everything', 'onboard me', or 'I just got access'."
 metadata:
   cg-ember-name: "get-started"
-  cg-ember-version: "2"
+  cg-ember-version: "3"
 ---
 
 # Get started
@@ -17,7 +17,8 @@ in this order:
 3. Say what learning this is like.
 4. Teach the eleven words worth knowing.
 5. Explain the three layers, and fill them in.
-6. Make one small first build with them.
+6. Get one quick answer from the CG Knowledge Base, and make one small first build with
+   them.
 
 It does not repeat what other skills already do. It runs them, in Ainsley's voice, and
 picks up after each one:
@@ -237,21 +238,28 @@ themselves, say so in one sentence: their suggestion then comes to them to appro
 
 **Then offer to read, to fill them in faster.** Ask once:
 
-> I can fill a lot of this in faster by reading a few things you already have, like your
-> sent email or a document such as last summer's staff schedule. Want me to?
+> I can fill a lot of this in faster by reading a few things you already have: about
+> twenty emails you've sent, and two or three of your documents, such as last summer's
+> staff schedule. I'd then suggest notes one at a time, and you say yes or skip to each.
+> Want me to?
 
-Anything other than a clear yes is a no. On a yes, one source at a time:
+Anything other than a clear yes is a no. On a yes, one source at a time, emails first:
 
 1. **Name what you would read before reading it**, and wait for a yes for that source:
-   "Can I read the ten emails you sent most recently?" or "Which document should I read?
-   A staff handbook or a summer calendar works well."
+   "Can I read the twenty emails you sent most recently?" Then, for documents: "Which two
+   or three documents should I read? A staff handbook, a summer calendar or a vendor list
+   works well." Read only the documents they name.
 2. Read only that. Skip anything about a camper's health, behavior or safety, or a
    family's private situation.
 3. Pull out facts about their job and their camp, never what was said or to whom: dates,
    deadlines, which vendor does what, the questions people keep asking and the answers they
    give.
-4. Show the exact lines you would save, and where each goes. Save only what they say yes
-   to.
+4. **Suggest one note at a time.** Show the exact line you would save and which page it
+   goes on, then wait. On "yes", save it. On "skip", drop it. If they change the wording,
+   save their wording. Then the next one. Say once, at the first one, that they can type
+   "stop" at any point and everything already saved stays saved.
+5. Stop after about ten suggestions, or sooner when you run out of good ones. Say how many
+   were saved in one sentence.
 
 **Then their writing styles.** Say in one sentence that the same reading can teach the
 app how they write, so drafts sound like them, and offer it. On a yes, **run writing-styles**
@@ -260,10 +268,26 @@ type "build my writing styles" any day.
 
 Then the safe stop.
 
-## Part 6: one small first build
+## Part 6: one quick answer, then one small first build
 
-Say in one sentence why: the fastest way to see what this can do is to make one real thing
-from their own week, now.
+**First, the quick win: one real question to the CG Knowledge Base**, only when the Hub is
+connected here. If it is not, go straight to the build below.
+
+Say in one sentence why: the CG Knowledge Base already holds pages every camp in the group
+can use, so a real question gets a real answer, with the page it came from. Then ask:
+
+> Type a real question you have about your work this month. For example: "What does our
+> AI Use Policy say I can put into an AI app?" or "What insurance papers do I need from a
+> vendor before they come to camp?"
+
+Look for the answer in the CG Knowledge Base first, and answer the way look-it-up's "How to
+answer" says, naming the page and when it was last changed. If the page is not there, say
+so the way look-it-up's "When it is not there" says, and offer once to suggest it as a new
+page, the way one-question-a-day's "After a yes" says. Then go on to the build.
+
+Say in one sentence why the build comes next: the fastest way to see what this can do is
+to make one real thing from their own week, now. If they are short on time, the quick
+answer is enough for today; go to the finish.
 
 **Run set-me-up Step 7** (one real result today), in Ainsley's voice, using what they told
 you in Part 5 for the examples. Do it start to finish, and open what you made to check it

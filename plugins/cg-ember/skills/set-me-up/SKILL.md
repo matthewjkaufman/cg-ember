@@ -3,7 +3,7 @@ name: set-me-up
 description: "Set me up. Walk someone, one step at a time, through connecting their email, files, calendar and other apps, and choosing where their Personal Notes live. Use when someone says 'set me up', 'get me set up', 'I just installed this', 'connect my email', 'connect my apps', or 'finish my setup'. Also for 'make my own copy' of a skill."
 metadata:
   cg-ember-name: "set-me-up"
-  cg-ember-version: "4"
+  cg-ember-version: "5"
 ---
 
 # Set me up
@@ -143,20 +143,45 @@ folder to "Personal Notes (old copy)", so there is only one set in use; on a yes
 it. You never delete it; they can do that themselves later. A folder named "(old
 copy)" is never read or written again.
 
-**Otherwise, ask where they should live**, one question:
+**Otherwise, help them choose where they should live.** There is no right answer for every
+camp, so do not pick one for them. Give the choices with what is good and bad about each,
+then ask which they want.
 
-> Where should your notes live? Your Google Drive is the easiest, and it works even when
-> your computer is off. Or I can keep them in a folder on this computer.
+First, one warning, in about these words, before any choice:
 
-Offer **Google Drive** first when their files connection is Google Drive. Offer **the Hub**
-too, but only when the Hub is connected here: say that it is the group's website, and
-make no claim of your own about who can see the pages there. The first time you save a
-page on the Hub, it answers with its own sentence about who can see them; say that
-sentence to them word for word. Offer **a folder on this computer** last, with this warning, word for
-word:
+> One place I'd steer you away from: the shared drive on your office network, the one
+> everyone in the office saves files to. Other people in the office can usually open
+> anything there, and it often can't be reached once you leave the building.
 
-> That works, with one catch. Inbox helper, which drafts replies for you during the day,
-> can only reach a folder on this computer while the computer is on and this app is open.
+Then the choices, in one message. Leave out any that do not apply to them.
+
+- **Your Google Drive**, only when their files connection is Google Drive. Good: it works
+  from any computer and your phone, Google keeps a copy, and Inbox helper (which drafts
+  replies for you during the day) can reach it even when this computer is off. Not as
+  good: it sits in your camp's Google account, so it stays with that account if you
+  ever leave.
+- **A folder on this computer.** Good: simple, and nothing about it is online. Not as
+  good: it is only on this computer, it is lost if the computer is, and Inbox helper can
+  only reach it while the computer is on and this app is open.
+- **Egnyte**, only as a line for camps that have it: "If your camp keeps its files in
+  Egnyte (a service that keeps camp files online and on your computer), your own private
+  folder there is another choice. Good: it is backed up and you can open it from your
+  other computers. Not as good: Inbox helper still only reaches it while this computer is
+  on and this app is open. Use your private folder, never a shared one." Choosing it means
+  a folder on this computer inside their Egnyte drive.
+- **The Hub**, only when the Hub is connected here: say that it is the group's website,
+  and make no claim of your own about who can see the pages there. The first time you
+  save a page on the Hub, it answers with its own sentence about who can see them; say
+  that sentence to them word for word.
+
+Then ask, one question:
+
+> Which of these feels right to you? If you're not sure, tell me what worries you most,
+> losing them or someone else reading them, and I'll help you choose.
+
+If they still want the shared office drive after the warning, say the two reasons once
+more in one sentence, then use a folder there that only they can open, the same way as a
+folder on this computer.
 
 If they ask about Dropbox, OneDrive or anywhere else, say plainly that this version cannot
 keep notes there yet, because it needs to rewrite the pages, and offer the others.
@@ -292,6 +317,12 @@ give one thing to try next. For example, when everything worked:
 
 > You're set up. Your email, files and calendar are connected and your Personal Notes are
 > ready. Say "show me what I can say" any time to see what else I can do.
+
+When this was their first setup, add one sentence about the learning curve, in about these
+words:
+
+> The first couple of weeks feel slow, and that's normal. It gets quicker each time you
+> use it for a real job.
 
 Or, when the email step was skipped:
 
