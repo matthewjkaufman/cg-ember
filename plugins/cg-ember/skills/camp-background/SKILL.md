@@ -46,12 +46,10 @@ The line is about information **leaving** camp's own places.
   problem report, a file name in a shared place): first name only for a camper, no
   parent's name, no last names, no address, phone or email (except as the next line
   allows, for an email draft).
-- **Vendors, in an email draft.** Only a vendor that transports campers or has them on its
-  own premises (a bus company, a trip site, an overnight venue) gets campers' full names in
-  a draft. A vendor that comes to camp or makes things for campers (a photographer, a
-  caterer, a T-shirt company, a performer) gets first names only, even if it asks for more.
-  That vendor gets a medical detail only where its job needs it, such as the nurse list a
-  trip site asks for. Any other vendor gets none.
+- **Vendors, in an email draft.** Any vendor may get campers' full names in a draft to
+  that vendor (a bus company, a trip site, a T-shirt company, a photographer). A vendor gets
+  a medical detail only where its job needs it, such as the nurse list a trip site asks
+  for. Any other vendor gets none.
 - **Medical, allergy, medication, behavior, safety, or a family's private situation** goes
   only to the camp staff whose job needs it (or a vendor, as the line above allows), and
   never into Personal Notes, the Camp Wiki,

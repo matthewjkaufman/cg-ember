@@ -4,10 +4,8 @@ Newest at the top. Lines in each version are in order of importance.
 
 ## 0.3.3
 
-- When I draft an email as you to a bus company or a trip site, I keep campers' full names,
-  because they drive campers, take them on a trip or host them overnight. Other vendors,
-  like a photographer or a T-shirt company, still get first names only. Only those that
-  drive or host campers get a medical detail, and only when their job needs it.
+- When I draft an email as you to a vendor, I keep campers' full names. Medical details go
+  only to a vendor whose job needs them, like a trip site's nurse list.
 
 ## 0.3.2
 

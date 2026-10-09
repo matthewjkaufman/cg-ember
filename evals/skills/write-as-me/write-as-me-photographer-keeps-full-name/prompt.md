@@ -1,5 +1,5 @@
 ---
-name: write-as-me-photographer-first-names-only
+name: write-as-me-photographer-keeps-full-name
 tags: [suite, behavior]
 plugins: ['../../../../plugins/cg-ember']
 runs: 3
