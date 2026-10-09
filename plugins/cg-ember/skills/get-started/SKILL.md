@@ -236,7 +236,9 @@ offer it up a level the way one-question-a-day's "After a yes" says, step 2 to s
 only when the Hub is connected. If the Hub says they look after their camp's Camp Wiki
 themselves, say so in one sentence: their suggestion then comes to them to approve.
 
-**Then offer to read, to fill them in faster.** Ask once:
+**Then offer to read, to fill them in faster.** Offer only the sources that are connected
+here: their email, their files, or both. If neither is connected, skip this offer and go
+to their writing styles. Ask once, naming only what is connected:
 
 > I can fill a lot of this in faster by reading a few things you already have: about
 > twenty emails you've sent, and two or three of your documents, such as last summer's
@@ -245,12 +247,15 @@ themselves, say so in one sentence: their suggestion then comes to them to appro
 
 Anything other than a clear yes is a no. On a yes, one source at a time, emails first:
 
-1. **Name what you would read before reading it**, and wait for a yes for that source:
-   "Can I read the twenty emails you sent most recently?" Then, for documents: "Which two
-   or three documents should I read? A staff handbook, a summer calendar or a vendor list
-   works well." Read only the documents they name.
-2. Read only that. Skip anything about a camper's health, behavior or safety, or a
-   family's private situation.
+1. **Name what you would read before reading it**, and wait for a yes for that source.
+   For email, in about these words: "Can I read the twenty emails you sent most recently?
+   I only read them. I won't send, change or delete anything, I'll skip anything about a
+   camper's health, a family's private matters, or a staff member's evaluation, references
+   or pay, and nothing gets saved unless you say yes." For documents: "Which two or three
+   documents should I read? A staff handbook, a summer calendar or a vendor list works
+   well. Type each one's name the way you'd search for it in your files, for example:
+   Staff Handbook 2026." Read only the documents they name.
+2. Read only that. Skip anything camp-background section 3 keeps out of Personal Notes.
 3. Pull out facts about their job and their camp, never what was said or to whom: dates,
    deadlines, which vendor does what, the questions people keep asking and the answers they
    give.
@@ -260,6 +265,8 @@ Anything other than a clear yes is a no. On a yes, one source at a time, emails 
    "stop" at any point and everything already saved stays saved.
 5. Stop after about ten suggestions, or sooner when you run out of good ones. Say how many
    were saved in one sentence.
+6. Notes drawn from this reading stay in their Personal Notes. Never offer one up to the
+   Camp Wiki or the CG Knowledge Base, because it came from their own mail and files.
 
 **Then their writing styles.** Say in one sentence that the same reading can teach the
 app how they write, so drafts sound like them, and offer it. On a yes, **run writing-styles**
@@ -276,8 +283,8 @@ connected here. If it is not, go straight to the build below.
 Say in one sentence why: the CG Knowledge Base already holds pages every camp in the group
 can use, so a real question gets a real answer, with the page it came from. Then ask:
 
-> Type a real question you have about your work this month. For example: "What does our
-> AI Use Policy say I can put into an AI app?" or "What insurance papers do I need from a
+> Type a real question you have about your work this month. For example: "What does
+> CampGroup's AI Use Policy say about what I can put into an AI app?" or "What insurance papers do I need from a
 > vendor before they come to camp?"
 
 Look for the answer in the CG Knowledge Base first, and answer the way look-it-up's "How to

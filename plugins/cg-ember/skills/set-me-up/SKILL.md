@@ -113,8 +113,9 @@ Then the one rule that matters most:
 > unless your company's AI Use Policy says that kind of work is allowed. If you're not
 > sure, don't.
 
-If they ask where the AI Use Policy is, say it comes from their company, and whoever gave
-them this plugin at their camp will know where it is kept.
+If they ask where the AI Use Policy is: when the Hub is connected here, look for the AI
+Use Policy page in the CG Knowledge Base and name it. Otherwise, say it comes from their
+company, and whoever gave them this plugin at their camp will know where it is kept.
 
 Then this, to everyone, because a camp office computer is often shared:
 
@@ -149,30 +150,33 @@ then ask which they want.
 
 First, one warning, in about these words, before any choice:
 
-> One place I'd steer you away from: the shared drive on your office network, the one
-> everyone in the office saves files to. Other people in the office can usually open
-> anything there, and it often can't be reached once you leave the building.
+> One place I'd steer you away from: the office drive everyone saves to, the one that
+> shows up as a letter like Z: or S: on your computer. This is not your Google Drive.
+> Other people in the office can usually open anything there, and it often can't be
+> reached once you leave the building.
 
-Then the choices, in one message. Leave out any that do not apply to them.
+Then the choices, in one message. Leave out Google Drive and the Hub when they do not
+apply; always include the Egnyte line.
 
 - **Your Google Drive**, only when their files connection is Google Drive. Good: it works
-  from any computer and your phone, Google keeps a copy, and Inbox helper (which drafts
-  replies for you during the day) can reach it even when this computer is off. Not as
-  good: it sits in your camp's Google account, so it stays with that account if you
-  ever leave.
+  from any computer and your phone, Google keeps a copy, and the part of me that drafts
+  replies during the day can reach it even when this computer is off. Not as good: if
+  you ever leave this camp, the notes stay with the camp, not with you.
 - **A folder on this computer.** Good: simple, and nothing about it is online. Not as
-  good: it is only on this computer, it is lost if the computer is, and Inbox helper can
-  only reach it while the computer is on and this app is open.
-- **Egnyte**, only as a line for camps that have it: "If your camp keeps its files in
-  Egnyte (a service that keeps camp files online and on your computer), your own private
-  folder there is another choice. Good: it is backed up and you can open it from your
-  other computers. Not as good: Inbox helper still only reaches it while this computer is
-  on and this app is open. Use your private folder, never a shared one." Choosing it means
-  a folder on this computer inside their Egnyte drive.
-- **The Hub**, only when the Hub is connected here: say that it is the group's website,
-  and make no claim of your own about who can see the pages there. The first time you
-  save a page on the Hub, it answers with its own sentence about who can see them; say
-  that sentence to them word for word.
+  good: it is only on this computer, it is lost if the computer is, and the part of me
+  that drafts replies during the day can only reach it while the computer is on and this
+  app is open.
+- **Egnyte**, always, as a line for camps that have it: "If your camp keeps its files in
+  Egnyte (a service that keeps camp files online and on your computer), a folder there is
+  another choice. Good: it is backed up and you can open it from your other computers.
+  Not as good: the part of me that drafts replies during the day still only reaches it
+  while this computer is on and this app is open. Use the folder called Private, the one
+  with your name on it, never a folder other people use." Choosing it means a folder on
+  this computer inside their Egnyte drive.
+- **The Hub**, only when the Hub is connected here. Say: "The Hub is the group's website.
+  The Hub keeps these pages so only you can see them." Good: it works from anywhere and
+  even when this computer is off. Not as good: they are pages on the Hub, not files you
+  can open in your own folders.
 
 Then ask, one question:
 
@@ -215,8 +219,8 @@ or a family's details in any of these, even if they mention one.
 
 Then say, in one or two sentences:
 
-> Your Personal Notes are ready, in your Google Drive. Tomorrow, say "good morning" and
-> I'll pick up where you left off. When you finish something, say "wrap up" and I'll
+> Your Personal Notes are ready, in your Google Drive. Tomorrow, type "good morning" and
+> I'll pick up where you left off. When you finish something, type "wrap up" and I'll
 > update them.
 
 (Name the place they actually chose.)
@@ -316,7 +320,7 @@ One or two sentences. Say only what actually happened, name anything still waiti
 give one thing to try next. For example, when everything worked:
 
 > You're set up. Your email, files and calendar are connected and your Personal Notes are
-> ready. Say "show me what I can say" any time to see what else I can do.
+> ready. Type "show me what I can say" any time to see what else I can do.
 
 When this was their first setup, add one sentence about the learning curve, in about these
 words:
@@ -326,8 +330,8 @@ words:
 
 Or, when the email step was skipped:
 
-> That's as far as we can go today. Once your company says it's OK to connect your work
-> accounts, say "set me up" again and we'll finish in five minutes.
+> That's as far as we can go today. Once your camp says it's OK to connect your work
+> accounts, type "set me up" again and we'll finish in five minutes.
 
 Do not give them a list of everything the plugin can do.
 
