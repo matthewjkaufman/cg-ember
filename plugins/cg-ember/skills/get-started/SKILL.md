@@ -83,7 +83,10 @@ Ainsley explaining that thing, written like this:
 > Video slot, not made yet: "Connecting your email"
 
 A slot can also say "made, no web address yet", with the video's file name after it in
-brackets. That file is not online, so treat it like "not made yet".
+brackets. That file is not online, so treat it like "not made yet". A slot that holds a web
+address has it after the name:
+
+> Video slot: "Welcome to CG Ember" https://cg.ramaquois.com/videos/ainsley/welcome.mp4
 
 **A slot with no web address is skipped in silence.** Never mention a video, never
 promise one, never show a link, and never show a file name. When a slot holds a web address instead, offer it once, in
@@ -110,7 +113,7 @@ go there. If all six are done, say so and offer "teach me something" instead.
 
 ## Part 1: connect your accounts and apps
 
-> Video slot, made, no web address yet: "Welcome to CG Ember" (2026-10-07-ainsley-welcome-sample.mp4)
+> Video slot: "Welcome to CG Ember" https://cg.ramaquois.com/videos/ainsley/welcome.mp4
 
 Say what this part is, in one or two sentences: the app can only help with what it can
 reach, so the first job is connecting their email, files and calendar, then the other apps
@@ -145,7 +148,7 @@ from a camp on the Hub's list signs in at once. Try something harmless on the Hu
 answers with a problem, say its answer word for word, and say that everything else here
 works without it. If the Hub is not connected here, say nothing about it in this part.
 
-> Video slot, not made yet: "Signing in to the Hub"
+> Video slot: "Signing in to the Hub" https://cg.ramaquois.com/videos/ainsley/signing-in-to-the-hub.mp4
 
 When everything that can connect is connected, say once: "You did the hard part." Then the
 safe stop.

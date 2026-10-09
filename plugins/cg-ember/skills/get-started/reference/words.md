@@ -9,7 +9,7 @@ that glossary is the one to fix, and this page follows it.
 
 ## 1. Harness
 
-> Video slot, made, no web address yet: "What a harness is" (2026-10-08-ainsley-what-a-harness-is.mp4)
+> Video slot: "What a harness is" https://cg.ramaquois.com/videos/ainsley/what-a-harness-is.mp4
 
 The **harness** is the program built around the AI that gives it hands: it opens your
 files, uses the apps you connected, follows written instructions and runs jobs on a
@@ -20,7 +20,7 @@ answer.
 
 ## 2. Model
 
-> Video slot, made, no web address yet: "What a model is" (2026-10-08-ainsley-what-a-model-is.mp4)
+> Video slot: "What a model is" https://cg.ramaquois.com/videos/ainsley/what-a-model-is.mp4
 
 The **model** is the AI itself, the part that reads what you typed and writes back. Apps
 offer several, from the most careful to the fastest, and the one already picked is fine for
@@ -29,7 +29,7 @@ that changes; their notes and this plugin come with them.
 
 ## 3. Usage
 
-> Video slot, made, no web address yet: "What usage means" (2026-10-08-ainsley-what-usage-means.mp4)
+> Video slot: "What usage means" https://cg.ramaquois.com/videos/ainsley/what-usage-means.mp4
 
 **Usage** is how much of your plan's allowance you have used. Paid plans let you do a lot,
 with a limit that resets after a while. A long job, a big attachment or a very long
@@ -39,7 +39,7 @@ and never describe that screen from memory.
 
 ## 4. Tokens
 
-> Video slot, made, no web address yet: "What tokens are" (2026-10-08-ainsley-what-tokens-are.mp4)
+> Video slot: "What tokens are" https://cg.ramaquois.com/videos/ainsley/what-tokens-are.mp4
 
 **Tokens** are the small pieces of words the model reads and writes in, often a short word
 or part of a longer one. Usage is counted in tokens. A forty-page handbook is a lot of
@@ -48,7 +48,7 @@ huge file uses more of the allowance than a short note.
 
 ## 5. Plugin
 
-> Video slot, made, no web address yet: "What a plugin is" (2026-10-07-ainsley-what-a-plugin-is-sample.mp4)
+> Video slot: "What a plugin is" https://cg.ramaquois.com/videos/ainsley/what-a-plugin-is.mp4
 
 A **plugin** is a bundle of skills and rules you add to the app. This one is made for
 people who run summer camps, and it is why the app here never sends anything and knows to
@@ -56,7 +56,7 @@ look in their notes. When the plugin is updated, the app brings in the new versi
 
 ## 6. Skill
 
-> Video slot, made, no web address yet: "What a skill is" (2026-10-08-ainsley-what-a-skill-is.mp4)
+> Video slot: "What a skill is" https://cg.ramaquois.com/videos/ainsley/what-a-skill-is.mp4
 
 A **skill** is a written page of instructions the AI follows for one job, like the
 laminated instructions taped inside the arts and crafts cabinet. Plain sentences, not code.
@@ -66,7 +66,7 @@ the plugin, they ask for "make my own copy", because updates replace the origina
 
 ## 7. Context
 
-> Video slot, made, no web address yet: "What context is" (2026-10-08-ainsley-what-context-is.mp4)
+> Video slot: "What context is" https://cg.ramaquois.com/videos/ainsley/what-context-is.mp4
 
 **Context** is everything the AI can see right now, in this conversation: what they typed,
 what they attached and what it read. It forgets all of it when the conversation ends, which
@@ -75,7 +75,7 @@ best in a new conversation.
 
 ## 8. Wiki
 
-> Video slot, made, no web address yet: "What a wiki is" (2026-10-08-ainsley-what-a-wiki-is.mp4)
+> Video slot: "What a wiki is" https://cg.ramaquois.com/videos/ainsley/what-a-wiki-is.mp4
 
 A **wiki** is a set of pages a group of people can add to and correct over time. They have
 three layers: their Personal Notes, their Camp Wiki and the CG Knowledge Base (Part 5 of the
@@ -85,7 +85,7 @@ they can check it.
 
 ## 9. Prompt
 
-> Video slot, made, no web address yet: "What a prompt is" (2026-10-08-ainsley-what-a-prompt-is.mp4)
+> Video slot: "What a prompt is" https://cg.ramaquois.com/videos/ainsley/what-a-prompt-is.mp4
 
 A **prompt** is just the thing they type to ask for something. A good one says who it is
 for, what they want and what would make it right. Show this pair:
@@ -97,7 +97,7 @@ for, what they want and what would make it right. Show this pair:
 
 ## 10. Goal
 
-> Video slot, not made yet: "What a goal is"
+> Video slot: "What a goal is" https://cg.ramaquois.com/videos/ainsley/what-a-goal-is.mp4
 
 A **goal** is a whole list of work handed over at once, with what "done" looks like for
 each item, for example "check every one of these forty applications for a missing
@@ -106,7 +106,7 @@ type "build a goal" to make one.
 
 ## 11. Loop
 
-> Video slot, not made yet: "What a loop is"
+> Video slot: "What a loop is" https://cg.ramaquois.com/videos/ainsley/what-a-loop-is.mp4
 
 A **loop** is a job that goes round: do one piece, check it, then the next, until the list
 is done or a stopping point is reached. A goal runs as a loop. Inbox helper is a loop on a
