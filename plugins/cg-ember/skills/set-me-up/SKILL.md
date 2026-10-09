@@ -175,8 +175,8 @@ apply; always include the Egnyte line.
   this computer inside their Egnyte drive.
 - **The Hub**, only when the Hub is connected here. Say: "The Hub is the group's website.
   The Hub keeps these pages so only you can see them." Good: it works from anywhere and
-  even when this computer is off. Not as good: they are pages on the Hub, not files you
-  can open in your own folders.
+  even when this computer is off. Not as good: they live on the Hub, not in your own
+  folders, so to keep a copy of your own you download them from the Hub as a zip file."
 
 Then ask, one question:
 
