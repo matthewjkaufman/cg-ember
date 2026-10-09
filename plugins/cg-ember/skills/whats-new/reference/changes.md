@@ -2,6 +2,15 @@
 
 Newest at the top. Lines in each version are in order of importance.
 
+## 0.3.4
+
+- When you set me up, I explain where you can keep your notes, what is good and not as good
+  about each place, and who can see them there, before you pick. I steer you away from the
+  shared office drive.
+- In "get started", with your permission I read about 20 emails you've sent and 2 or 3
+  documents you name, then suggest notes one at a time. Nothing is saved unless you say yes.
+- Your first quick win: ask the CampGroup Knowledge Base one real question about your job.
+
 ## 0.3.3
 
 - When I draft an email as you to a vendor, I keep campers' full names. Medical details go
