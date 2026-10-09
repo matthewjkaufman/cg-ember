@@ -1,7 +1,7 @@
 {
   "name": "cg-ember",
   "description": "Shortcuts for summer camp staff using Claude or ChatGPT: set me up, pick up and wrap up with Personal Notes, look things up in your notes and wikis, short lessons, goals for long lists, write as me, a brand guide, activity schedules, Inbox helper drafts replies, meeting prep, and sharing skills. It drafts and never sends.",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "author": {
     "name": "Matt Kaufman"
   }

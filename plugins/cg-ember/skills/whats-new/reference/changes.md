@@ -2,6 +2,11 @@
 
 Newest at the top. Lines in each version are in order of importance.
 
+## 0.3.5
+
+- Short videos with Ainsley now play when you get started and when you ask what a word means:
+  the welcome, what a goal and a loop are, signing in to the Hub, and the words worth knowing.
+
 ## 0.3.4
 
 - When you set me up, I explain where you can keep your notes, what is good and not as good
