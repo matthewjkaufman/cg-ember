@@ -45,8 +45,14 @@ The line is about information **leaving** camp's own places.
 - **In anything that leaves** (a document shared outside camp, a wiki suggestion, a
   problem report, a file name in a shared place): first name only for a camper, no
   parent's name, no last names, no address, phone or email.
+- **A vendor who carries or hosts campers**, such as a bus company or a trip site, may get
+  campers' full names in a draft to that vendor, because the job needs them. Every other
+  vendor, such as a T-shirt company, gets first names only. A vendor gets a medical detail
+  only where its job needs it, such as the nurse list a trip site asks for, and never
+  otherwise.
 - **Medical, allergy, medication, behavior, safety, or a family's private situation** goes
-  only to the camp staff whose job needs it, and never into Personal Notes, the Camp Wiki,
+  only to the camp staff whose job needs it (or a vendor, as the line above allows), and
+  never into Personal Notes, the Camp Wiki,
   the CG Knowledge Base or a problem report. Name the work by the document ("the medical
   form follow-ups"), never by the child, even when a subject line or file name carries the
   child's name.

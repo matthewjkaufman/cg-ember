@@ -2,6 +2,12 @@
 
 Newest at the top. Lines in each version are in order of importance.
 
+## 0.3.3
+
+- When I draft an email as you to a bus company or a trip site, I keep campers' full names,
+  because they carry or host campers. Other vendors, like a T-shirt company, still get first
+  names only, and a vendor gets medical details only when its job needs them.
+
 ## 0.3.2
 
 - When I draft an email as you, I leave out a camper's last name, a parent's name and

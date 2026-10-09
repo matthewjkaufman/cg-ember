@@ -135,8 +135,9 @@ Camp-background section 3 says who may know what. An email adds one thing: it ca
 forwarded, so write it for everyone it might reach.
 
 - **A camper's last name or a parent's name** goes only to that family, or to camp staff
-  whose work involves that camper or family. For anyone else, the camper's first name and
-  group are enough.
+  whose work involves that camper or family. A vendor gets a camper's last name only as
+  camp-background section 3 says. For anyone else, the camper's first name and group are
+  enough.
 - **A medical detail, an allergy, a medication or a note about a child's behavior** goes
   only to the people camp-background section 3 names.
 - **An evaluation or an incident write-up** about a staff member is never pasted into an
