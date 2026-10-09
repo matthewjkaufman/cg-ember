@@ -2,7 +2,7 @@
 name: write-as-me-bus-company-keeps-full-name
 tags: [suite, behavior]
 plugins: ['../../../../plugins/cg-ember']
-runs: 1
+runs: 3
 max_turns: 10
 timeout_seconds: 300
 allowed_tools: [Skill, Read, Glob, Grep, Write, Edit]

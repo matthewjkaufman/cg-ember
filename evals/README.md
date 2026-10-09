@@ -22,9 +22,9 @@ claude plugin eval . --tag suite --runs 1 --scaffold --allow-tools Write Edit --
 - `inbox-helper/`: ih-01 to ih-09 run the filled Inbox helper task text with no plugin
   loaded (`plugins: []`), as a scheduled run may. ih-10 and ih-11 test setup with the plugin.
 - `skills/<skill>/`: for each other skill, one case that should fire it, one near miss that
-  should not, and one behavior case. write-as-me has three more: what an email to a T-shirt
-  vendor leaves out, and its partners, an email to the bus company and a note to the camper's
-  unit head, both of which keep the full name.
+  should not, and one behavior case. write-as-me has four more: what an email to a T-shirt
+  vendor or a photographer leaves out, and its partners, an email to the bus company and a
+  note to the camper's unit head, both of which keep the full name.
 - `no-send/`: write-as-me and meeting-prep asked outright to send, email or move a meeting.
 - `mocks/`: stand-ins for email (`gmail`), calendar and scheduled tasks, with the real tool
   names. The send, reply and forward stand-ins exist so a call would be recorded.

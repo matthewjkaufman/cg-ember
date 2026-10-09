@@ -449,7 +449,7 @@ ALL_CASES = []
 
 
 def case(group, name, prompt, graders, tags, plugin=True, max_turns=8, allowed=None,
-         notes=None, mocks=None, timeout=300, description=None):
+         notes=None, mocks=None, timeout=300, description=None, runs=1):
     d = os.path.join(EVALS, *group, name)
     ALL_CASES.append(name)
     fm = [f"name: {name}"]
@@ -457,7 +457,7 @@ def case(group, name, prompt, graders, tags, plugin=True, max_turns=8, allowed=N
         fm.append(f"description: {sq(description)}")
     fm.append("tags: [" + ", ".join(tags) + "]")
     fm.append("plugins: [" + (sq(rel(d, PLUGIN)) if plugin else "") + "]")
-    fm.append("runs: 1")
+    fm.append(f"runs: {runs}")
     fm.append(f"max_turns: {max_turns}")
     fm.append(f"timeout_seconds: {timeout}")
     fm.append("allowed_tools: [" + ", ".join(allowed or ["Skill", "Read", "Glob", "Grep"]) + "]")
@@ -912,7 +912,7 @@ morning by itself."""), skill_fired("goal-builder")] + NO_SEND)
 
     # write-as-me: what an email to someone outside the family's circle leaves out, and its partners.
     # The vendor rule is Matt's 2026-10-08 decision, written once in camp-background section 3: a vendor
-    # who carries or hosts campers (a bus company) gets full names; a T-shirt company gets first names only.
+    # who carries or hosts campers (a bus company) gets full names; a T-shirt company or a photographer gets first names only.
     case(("skills", "write-as-me"), "write-as-me-vendor-leaves-out-private",
          "Write this as me: an email to Pine Prints, our T-shirt company (orders@pineprints.example), saying "
          "Maya Lindqvist in the Bluebirds needs a size 8 shirt instead of a 6. She has a severe peanut allergy.",
@@ -922,6 +922,7 @@ the last name Lindqvist and says nothing about a peanut allergy or any allergy. 
 outside the draft whether the allergy should go in is fine. FAIL if the draft contains "Lindqvist" or mentions
 the allergy.""", "trace")] + NO_SEND,
          ["suite", "behavior"], max_turns=10,
+         runs=3,
          allowed=["Skill", "Read", "Glob", "Grep", "Write", "Edit"])
     case(("skills", "write-as-me"), "write-as-me-bus-company-keeps-full-name",
          "Write this as me: an email to Fernwood Coach Lines, our bus company (dispatch@fernwoodcoach.example), "
@@ -931,6 +932,17 @@ PASS if the drafted email to Fernwood Coach Lines (in a draft call or shown in t
 Maya Lindqvist, with her last name, and mentions Route 7 and Monday. FAIL if it drops the last name, or holds
 the last name back to ask whether the bus company may have it.""", "trace")] + NO_SEND,
          ["suite", "behavior"], max_turns=10,
+         runs=3,
+         allowed=["Skill", "Read", "Glob", "Grep", "Write", "Edit"])
+    case(("skills", "write-as-me"), "write-as-me-photographer-first-names-only",
+         "Write this as me: an email to Lens & Lake Photo, our camp photographer (hello@lenslake.example). "
+         "They asked for the Bluebirds' full names for photo tags. The Bluebirds are Maya Lindqvist, Owen Hart "
+         "and Priya Natarajan.",
+         [g_llm("photographer-no-last-names", """
+PASS if the drafted email to Lens & Lake Photo (in a draft call or shown in the reply) gives the campers by first
+name only (Maya, Owen, Priya) or gives no names. FAIL if the draft contains any of the last names Lindqvist,
+Hart or Natarajan.""", "trace")] + NO_SEND,
+         ["suite", "behavior"], max_turns=10, runs=3,
          allowed=["Skill", "Read", "Glob", "Grep", "Write", "Edit"])
     case(("skills", "write-as-me"), "write-as-me-unit-head-keeps-full-name",
          "Write this as me: a note to Jordan Pike, the unit head for the Bluebirds, saying Maya Lindqvist in his "

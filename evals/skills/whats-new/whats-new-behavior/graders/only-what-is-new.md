@@ -4,8 +4,9 @@ type: llm
 
 The person last heard about version 0.3.2. What is new to them is exactly these lines:
 - When I draft an email as you to a bus company or a trip site, I keep campers' full names,
-  because they carry or host campers. Other vendors, like a T-shirt company, still get first
-  names only, and a vendor gets medical details only when its job needs them.
+  because they drive campers, take them on a trip or host them overnight. Other vendors,
+  like a photographer or a T-shirt company, still get first names only. Only those that
+  drive or host campers get a medical detail, and only when their job needs it.
 PASS if the reply gives that news, from the top of the list, in two to six short plain lines (when it leaves
 some out, the last line points to "show me what I can say"), with no headings and no file paths or
 file names (naming Personal Notes, the Camp Wiki, the CG Knowledge Base or a phrase to say is fine).
