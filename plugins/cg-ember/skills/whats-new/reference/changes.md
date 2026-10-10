@@ -2,6 +2,12 @@
 
 Newest at the top. Lines in each version are in order of importance.
 
+<!-- Unreleased, for the next version's heading (keep the version heading out of this comment):
+- Say "make an explainer video" and I'll write a short script with you. Once you approve it,
+  I draw a captioned video under a minute long in your camp's logo, colors and fonts, with
+  your own opening and closing, shaped for phones and for widescreen. I never post it.
+-->
+
 ## 0.3.5
 
 - Short videos with Ainsley now play when you get started and when you ask what a word means:

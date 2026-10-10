@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Explainer video</title>
+<!--
+  One short explainer video for any camp, drawn entirely in code. make_video.py loads this page,
+  hands it the plan (window.PLAN: the camp's brand and the approved scenes) and window.PART
+  ("full", "intro" or "outro"), then calls window.seek(t) once per frame.
+
+  The traveling element is one dot in the camp's accent color. It draws the line under the
+  camp's name in the opening, draws the line under every scene's words, lands as each step's
+  number or each checklist tick, and draws the line under the camp's name again at the close.
+  Words move only before the dot arrives or after it has settled, so it never crosses them.
+
+  Any size works: lay out from innerWidth and innerHeight with the unit U (shorter side / 1080).
+  make_video.py renders phone (1080x1920) and widescreen (1920x1080).
+-->
+<style>
+html,body{margin:0;overflow:hidden}
+#stage{position:relative;width:100vw;height:100vh;overflow:hidden}
+.abs{position:absolute}
+.head{font-family:CampHead;font-weight:700;text-align:center;letter-spacing:-.01em}
+.body{font-family:CampBody;font-weight:500}
+.ch,.wd{display:inline-block;will-change:transform}
+.line{transform-origin:left center}
+.disc{border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:CampHead;font-weight:700}
+.cap{font-family:CampBody;font-weight:600;text-align:center}
+.capbox{border-radius:18px}
+#dot{border-radius:50%}
+img.logo{object-fit:contain}
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<script src="motion.js"></script>
+<script>
+const W = innerWidth, H = innerHeight, PORTRAIT = H > W, U = Math.min(W, H) / 1080;
+const PLAN = window.PLAN, PART = window.PART || 'full';
+
+// Beats, in seconds. Change timing here, never inside seek().
+const B = {
+  toLine: 0.35, onLine: 0.75, lineDone: 1.25, logoIn: 0.45, name: 0.8, title: 1.3,
+  introOut: 3.05, introEnd: 3.4,           // the opening
+  hop: 0.45,                               // the dot traveling to the next scene
+  draw: 0.5,                               // the dot drawing a scene's line
+  wordsIn: 0.08,                           // words rise this long after the dot arrives
+  exit: 0.3,                               // words sink before the dot leaves
+  itemsFrom: 0.75, itemHop: 0.4,           // steps and checklists
+  outroHold: 2.4,                          // the close holds on the logo
+};
+
+const stage = document.getElementById('stage');
+const el = (cls, parent = stage, tag = 'div') => { const e = document.createElement(tag); e.className = cls; parent.appendChild(e); return e; };
+const put = (e, x, y, w, h) => Object.assign(e.style, { left: x + 'px', top: y + 'px', width: w + 'px', ...(h != null ? { height: h + 'px' } : {}) });
+let C, L = {}, TL;
+
+async function loadFonts(brand) {
+  for (const [face, f] of [['CampHead', brand.heading_font], ['CampBody', brand.body_font]]) {
+    if (!f || !f.name) throw M.plain('The plan has no ' + (face === 'CampHead' ? 'heading' : 'regular text') + ' font.');
+    if (f.url) {
+      const ff = new FontFace(face, `url("${f.url}")`, { weight: '100 900' });
+      try { await ff.load(); } catch (e) { throw M.plain('The font file for ' + f.name + ' could not be opened. Check the file, or pick another font.'); }
+      document.fonts.add(ff);
+    } else {
+      // A font installed on this computer, used by its name.
+      if (!M.hasFont(f.name)) throw M.plain('The font ' + f.name + ' is not on this computer, and no font file was given for it. Give me the font file, or pick another font.');
+      const st = document.createElement('style');
+      st.textContent = `@font-face{font-family:${face};src:local("${f.name}");font-weight:100 900}`;
+      document.head.appendChild(st);
+      await document.fonts.load(`700 40px ${face}`);
+    }
+  }
+}
+
+function colors(b) {
+  const bg = b.background, text = b.text, main = b.main, accent = b.accent;
+  return {
+    bg, text, accent,
+    head: M.contrast(main, bg) >= 3 ? main : text,           // headings in the main color when it reads well
+    capBg: main, capInk: M.bestOn(main, ['#FFFFFF', text, '#000000']),
+    discInk: M.bestOn(accent, ['#FFFFFF', text, '#000000']),
+  };
+}
+
+// The camp's name with its line, and the logo above it: used by the opening and the close.
+function nameBlock(withTitle) {
+  const g = { logo: null };
+  const b = PLAN.brand, nameMax = PORTRAIT ? W - 140 * U : W * 0.72;
+  g.name = el('abs head'); g.name.textContent = PLAN.camp; g.name.style.color = C.head;
+  const nSize = M.fit(g.name, nameMax, PORTRAIT ? 3 : 2, (PORTRAIT ? 104 : 110) * U, 44 * U, 1.08, "The camp's name");
+  g.nameLetters = M.letters(g.name);
+  if (withTitle) {
+    g.title = el('abs head'); g.title.textContent = PLAN.title; g.title.style.color = C.text;
+    M.fit(g.title, nameMax, PORTRAIT ? 3 : 2, nSize * 0.62, 34 * U, 1.12, "The video's title");
+    g.titleWords = M.words(g.title);
+  }
+  let logoW = 0, logoH = 0;
+  if (b.logo_url) {
+    g.logo = el('abs logo', stage, 'img'); g.logo.src = b.logo_url;
+    logoW = PORTRAIT ? W * 0.56 : W * 0.34; logoH = PORTRAIT ? H * 0.17 : H * 0.27;
+  }
+  g.line = el('abs line'); g.line.style.background = C.accent;
+  const lineH = 12 * U, gap = 44 * U;
+  const nH = g.name.getBoundingClientRect().height, tH = withTitle ? g.title.getBoundingClientRect().height : 0;
+  const blockH = (logoH ? logoH + gap : 0) + nH + gap * 0.6 + lineH + (withTitle ? gap + tH : 0);
+  let y = (H - blockH) / 2;
+  if (g.logo) { put(g.logo, (W - logoW) / 2, y, logoW, logoH); y += logoH + gap; }
+  put(g.name, (W - nameMax) / 2, y, nameMax); y += nH + gap * 0.6;
+  const nb = M.box(g.nameLetters);
+  put(g.line, nb.left, y, nb.right - nb.left, lineH); g.line.style.borderRadius = lineH / 2 + 'px';
+  g.A = { x: nb.left, y: y + lineH / 2, r: lineH * 0.95 }; g.B = { x: nb.right, y: y + lineH / 2, r: lineH * 0.95 };
+  y += lineH + gap;
+  if (withTitle) put(g.title, (W - nameMax) / 2, y, nameMax);
+  return g;
+}
+
+// The content area sits above the caption box.
+function contentArea(capTop) {
+  const top = (PORTRAIT ? 190 : 110) * U, bottom = capTop - (PORTRAIT ? 70 : 50) * U;
+  return { top, bottom, h: bottom - top, maxW: PORTRAIT ? W - 140 * U : W * 0.76 };
+}
+
+function buildCaption(s, i) {
+  const box = el('abs capbox'), cap = el('cap', box);
+  cap.textContent = s.caption || '';
+  Object.assign(box.style, { background: C.capBg, padding: `${22 * U}px ${34 * U}px`, borderRadius: 18 * U + 'px' });
+  cap.style.color = C.capInk;
+  const maxW = (PORTRAIT ? W - 120 * U : W * 0.8) - 68 * U;
+  const size = M.fit(cap, maxW, PORTRAIT ? 3 : 2, (PORTRAIT ? 54 : 46) * U, 30 * U, 1.25, `Scene ${i + 1}'s caption`);
+  // shrink the box to the text's real width
+  cap.style.width = 'auto'; cap.style.maxWidth = maxW + 'px';
+  const r = box.getBoundingClientRect(), bottom = (PORTRAIT ? 230 : 64) * U;
+  box.style.left = (W - r.width) / 2 + 'px'; box.style.top = H - bottom - r.height + 'px';
+  return { box, top: H - bottom - (PORTRAIT ? 3 : 2) * size * 1.25 - 44 * U };
+}
+
+// One scene: its words, the line the dot draws under them, and (for lists) the items.
+function buildScene(s, i, area) {
+  const g = { s, root: el('abs'), items: [] };
+  g.root.style.inset = '0';
+  const isList = s.kind === 'steps' || s.kind === 'checklist';
+  const headStart = (s.kind === 'big' ? (PORTRAIT ? 230 : 280) : isList ? (PORTRAIT ? 112 : 92) : (PORTRAIT ? 140 : 124)) * U;
+  g.head = el('abs head', g.root); g.head.textContent = s.words; g.head.style.color = C.head;
+  M.fit(g.head, area.maxW, s.kind === 'big' ? 1 : (PORTRAIT ? 3 : 2), headStart, 40 * U, 1.06, `Scene ${i + 1}'s on-screen line`);
+  g.parts = s.kind === 'big' ? M.letters(g.head) : M.words(g.head);
+  if (s.small) {
+    g.small = el('abs body', g.root); g.small.textContent = s.small; g.small.style.color = C.text; g.small.style.textAlign = 'center';
+    M.fit(g.small, area.maxW, 2, (PORTRAIT ? 58 : 54) * U, 30 * U, 1.2, `Scene ${i + 1}'s small line`);
+    g.smallWords = M.words(g.small);
+  }
+  g.line = el('abs line', g.root); g.line.style.background = C.accent;
+  const lineH = 12 * U, gap = 36 * U;
+  if (isList) {
+    const n = s.items.length;
+    let f = (PORTRAIT ? 70 : 58) * U;
+    const textW = area.maxW - 1.3 * f - 30 * U;
+    for (const [k, txt] of s.items.entries()) {
+      const it = { row: el('abs body', g.root), disc: el('abs disc', g.root) };
+      it.row.textContent = txt; it.row.style.color = C.text; it.row.style.textAlign = 'left';
+      Object.assign(it.disc.style, { background: C.accent, color: C.discInk });
+      if (s.kind === 'steps') it.disc.textContent = String(k + 1);
+      else it.disc.innerHTML = '<svg viewBox="0 0 24 24" width="62%" height="62%"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      g.items.push(it);
+    }
+    // one size for every item: the largest that fits each item in two lines and all of them in the area
+    const fitAll = size => {
+      g.items.forEach(it => { it.row.style.fontSize = size + 'px'; it.row.style.lineHeight = 1.18; it.row.style.width = textW + 'px'; });
+      const hs = g.items.map(it => it.row.getBoundingClientRect().height);
+      return { ok: hs.every(h => h <= size * 1.18 * 2 + 2), hs };
+    };
+    let m = fitAll(f);
+    while (!m.ok && f > 32 * U) { f -= 2 * U; m = fitAll(f); }
+    if (!m.ok) throw M.plain(`One of scene ${i + 1}'s items is too long to fit. Shorten it and try again.`);
+    g.itemWords = g.items.map(it => M.words(it.row));
+    g.itemF = f; g.itemHs = m.hs;
+  }
+  // stack it all and center it in the content area
+  const headH = g.head.getBoundingClientRect().height, smallH = g.small ? g.small.getBoundingClientRect().height : 0;
+  const D = isList ? 1.3 * g.itemF : 0, rowGap = isList ? Math.max(18 * U, g.itemF * 0.42) : 0;
+  const rowsH = isList ? g.itemHs.reduce((a, h) => a + Math.max(D, h) + rowGap, -rowGap) : 0;
+  const fullH = headH + gap * 0.5 + lineH + (g.small ? gap + smallH : 0) + (isList ? gap * 1.4 + rowsH : 0);
+  if (fullH > area.h + 1) {
+    if (isList) throw M.plain(`Scene ${i + 1} has too much on it to fit. Use fewer or shorter items.`);
+    throw M.plain(`Scene ${i + 1}'s words are too long to fit. Shorten them and try again.`);
+  }
+  let y = area.top + (area.h - fullH) / 2;
+  put(g.head, (W - area.maxW) / 2, y, area.maxW); y += headH + gap * 0.5;
+  const hb = M.box(g.parts);
+  put(g.line, hb.left, y, hb.right - hb.left, lineH); g.line.style.borderRadius = lineH / 2 + 'px';
+  g.A = { x: hb.left, y: y + lineH / 2, r: lineH * 0.95 }; g.B = { x: hb.right, y: y + lineH / 2, r: lineH * 0.95 };
+  y += lineH;
+  if (g.small) { y += gap; put(g.small, (W - area.maxW) / 2, y, area.maxW); y += smallH; }
+  if (isList) {
+    y += gap * 1.4;
+    const textW = Math.max(...g.itemWords.map(ws => M.box(ws).right - M.box(ws).left));
+    const blockW = D + 30 * U + textW, left = (W - blockW) / 2;
+    g.items.forEach((it, k) => {
+      const rowH = Math.max(D, g.itemHs[k]);
+      put(it.disc, left, y + (rowH - D) / 2, D, D); it.disc.style.fontSize = g.itemF * 0.78 + 'px';
+      put(it.row, left + D + 30 * U, y + (rowH - g.itemHs[k]) / 2, textW + 2);
+      it.at = { x: left + D / 2, y: y + rowH / 2, r: D / 2 };
+      y += rowH + rowGap;
+    });
+  }
+  g.cap = buildCaption(s, i);
+  return g;
+}
+
+async function setup() {
+  if (!PLAN) throw M.plain('The page was opened without a plan.');
+  C = colors(PLAN.brand);
+  document.body.style.background = stage.style.background = C.bg;
+  await loadFonts(PLAN.brand);
+  const scenes = PART === 'full' ? PLAN.scenes : [];
+  if (PART !== 'outro') L.intro = nameBlock(true);
+  // build the scenes first so the content area can sit above the tallest caption
+  const capTop = H - ((PORTRAIT ? 230 : 64) + (PORTRAIT ? 3 * 54 * 1.25 : 2 * 46 * 1.25) + 44) * U;
+  const area = contentArea(capTop);
+  L.scenes = scenes.map((s, i) => buildScene(s, i, area));
+  if (PART !== 'intro') L.outro = nameBlock(false);
+  L.dot = el('abs'); L.dot.id = 'dot'; L.dot.style.background = C.accent;   // drawn last, so it sits on top
+
+  // The timeline, from the beats and each scene's length.
+  let t = PART === 'outro' ? 0 : B.introEnd;
+  const rows = L.scenes.map(g => {
+    const a = t + B.hop, e = a + g.s.seconds, n = g.items.length;
+    // items land one after another once the line is drawn, at most 1.2 seconds apart,
+    // and all before the scene's exit (make_video.py gives a list scene enough seconds)
+    const span = Math.max(0, e - B.exit - 0.5 - (a + B.itemsFrom + B.itemHop));
+    g.lands = g.items.map((_, k) => a + B.itemsFrom + B.itemHop + (n > 1 ? Math.min(span / (n - 1), 1.2) * k : 0));
+    const row = { t0: t, a, e }; t = e; return row;
+  });
+  L.scenes.forEach((g, i) => Object.assign(g, rows[i]));
+  if (L.outro) { L.outro.t0 = t; L.outro.a = t + (PART === 'outro' ? 0.35 : B.hop); }
+  const end = PART === 'intro' ? B.introEnd : L.outro.a + B.draw + B.outroHold;
+  TL = { duration: +end.toFixed(3), part: PART,
+         scenes: L.scenes.map(g => ({ start: +g.a.toFixed(3), end: +g.e.toFixed(3), caption: g.s.caption || '' })) };
+  window.TIMELINE = TL;
+}
+
+// ---- per-frame ----------------------------------------------------------------------------
+
+function riseIn(els, t, t0, step, dist, outAt) {
+  els.forEach((s, i) => {
+    const k = M.spring(t - t0 - i * step, 2.4, 0.6);
+    const o = outAt == null ? 0 : M.inOutCubic(M.seg(t, outAt + i * 0.012, outAt + B.exit * 0.8 + i * 0.012));
+    s.style.transform = `translateY(${((1 - k) - o * 0.6) * dist}px)`;
+    s.style.opacity = Math.min(M.seg(t, t0 + i * step, t0 + 0.15 + i * step), 1 - o);
+  });
+}
+
+function between(a, b, t0, t1, t, lift) {
+  const k = M.inOutCubic(M.seg(t, t0, t1)), p = M.hop(a, b, k, lift);
+  // the dot keeps its size in flight, then springs to the new size as it lands
+  const r = M.lerp(a.r, b.r, M.spring(t - (t0 + 0.6 * (t1 - t0)), 3, 0.5));
+  return { ...p, r: Math.max(r, 0.6 * Math.min(a.r, b.r)) };
+}
+
+function seekBlock(g, t, tIn, tOut, withTitle) {
+  // the logo grows in; letters of the name rise one after another; the title's words follow
+  const outK = tOut == null ? 0 : M.inOutCubic(M.seg(t, tOut, tOut + B.exit));
+  if (g.logo) {
+    const lk = M.spring(t - tIn - B.logoIn, 2.0, 0.6);
+    g.logo.style.opacity = Math.min(M.seg(t, tIn + B.logoIn, tIn + B.logoIn + 0.2), 1 - outK);
+    g.logo.style.transform = `scale(${0.9 + 0.1 * lk}) translateY(${outK * 30 * U}px)`;
+  }
+  riseIn(g.nameLetters, t, tIn + B.name, 0.022, 46 * U, tOut);
+  if (withTitle) riseIn(g.titleWords, t, tIn + B.title, 0.07, 60 * U, tOut);
+  g.line.style.transform = `scaleX(${M.inOutCubic(M.seg(t, tIn + B.onLine, tIn + B.lineDone))})`;
+  g.line.style.opacity = 1 - outK;
+}
+
+function seekScene(g, t) {
+  const on = t >= g.t0 && t < g.e + 0.05;
+  g.root.style.display = on ? '' : 'none';
+  g.cap.box.style.display = on ? '' : 'none';
+  if (!on) return;
+  const out = g.e - B.exit;
+  riseIn(g.parts, t, g.a + B.wordsIn, g.s.kind === 'big' ? 0.03 : 0.06, (g.s.kind === 'big' ? 90 : 60) * U, out);
+  if (g.smallWords) riseIn(g.smallWords, t, g.a + B.draw, 0.05, 40 * U, out);
+  const outK = M.seg(t, out, g.e);
+  g.line.style.transform = `scaleX(${M.inOutCubic(M.seg(t, g.a, g.a + B.draw))})`;
+  g.line.style.opacity = 1 - outK;
+  g.items.forEach((it, k) => {
+    const L0 = g.lands[k], pk = M.spring(t - L0, 2.6, 0.55);
+    it.disc.style.opacity = t >= L0 ? 1 - outK : 0;
+    it.disc.style.transform = `scale(${t >= L0 ? 0.92 + 0.08 * pk : 0})`;
+    riseIn(g.itemWords[k], t, L0 + 0.05, 0.04, 34 * U, out);
+  });
+  const ck = M.seg(t, g.a, g.a + 0.2) * (1 - M.seg(t, out, g.e));
+  g.cap.box.style.opacity = ck;
+}
+
+// Where the dot is at time t: a chain of landings, each segment starting where the last ended.
+function dotAt(t) {
+  if (L.intro) {
+    const g = L.intro, start = { x: W / 2, y: g.A.y + 60 * U, r: 26 * U };
+    if (t < B.toLine) return { ...start, r: start.r * M.spring(t, 2.0, 0.45) };
+    if (t < B.onLine) return between(start, g.A, B.toLine, B.onLine, t, 120 * U);
+    if (t < B.introEnd || !L.scenes.length && !L.outro) {
+      const p = { ...M.hop(g.A, g.B, M.inOutCubic(M.seg(t, B.onLine, B.lineDone)), 0), r: g.A.r };
+      if (PART === 'intro') p.r *= 1 - M.inOutCubic(M.seg(t, B.introOut, B.introEnd));   // the opening alone ends clean
+      return p;
+    }
+  }
+  let from = L.intro ? L.intro.B : null;
+  for (const g of L.scenes) {
+    if (t < g.e) {
+      if (t < g.a) return between(from, g.A, g.t0, g.a, t, 90 * U);
+      if (!g.items.length || t < g.lands[0] - B.itemHop)
+        return { ...M.hop(g.A, g.B, M.inOutCubic(M.seg(t, g.a, g.a + B.draw)), 0), r: g.A.r };
+      let p = g.B;
+      for (const [k, it] of g.items.entries()) {
+        const L0 = g.lands[k];
+        if (t < L0) return between(p, it.at, L0 - B.itemHop, L0, t, 50 * U);
+        p = it.at;
+      }
+      return { ...p, hidden: t < g.e - B.exit };   // resting as the last tick, until it leaves
+    }
+    from = g.items.length ? g.items[g.items.length - 1].at : g.B;
+  }
+  const o = L.outro;
+  if (!from) return t < o.a ? { ...o.A, r: o.A.r * M.spring(t, 2.0, 0.45) } : { ...M.hop(o.A, o.B, M.inOutCubic(M.seg(t, o.a, o.a + B.draw)), 0), r: o.A.r };
+  if (t < o.a) return between(from, o.A, o.t0, o.a, t, 90 * U);
+  return { ...M.hop(o.A, o.B, M.inOutCubic(M.seg(t, o.a, o.a + B.draw)), 0), r: o.A.r };
+}
+
+window.seek = t => {
+  if (L.intro) {
+    const show = t < B.introEnd + 0.02;
+    for (const e of [L.intro.name, L.intro.title, L.intro.line, L.intro.logo]) if (e) e.style.display = show ? '' : 'none';
+    if (show) seekBlock(L.intro, t, 0, B.introOut, true);
+  }
+  L.scenes.forEach(g => seekScene(g, t));
+  if (L.outro) {
+    const o = L.outro, show = t >= o.t0;
+    for (const e of [o.name, o.line, o.logo]) if (e) e.style.display = show ? '' : 'none';
+    // the close builds as the dot arrives: same beats as the opening, shifted to the dot's landing
+    if (show) seekBlock(o, t, o.a - B.onLine, null, false);
+  }
+  // inside a list the dot hands over to each tick: hidden while it rests in one
+  const p = dotAt(t);
+  let hidden = false;
+  for (const g of L.scenes) if (t >= g.a && t < g.e) g.lands.forEach((L0, k) => {
+    const next = g.lands[k + 1] != null ? g.lands[k + 1] - B.itemHop : g.e - B.exit;
+    if (t >= L0 + 0.08 && t < next) hidden = true;
+  });
+  Object.assign(L.dot.style, { left: p.x - p.r + 'px', top: p.y - p.r + 'px', width: 2 * p.r + 'px', height: 2 * p.r + 'px',
+                               opacity: hidden || p.r <= 0.5 ? 0 : 1 });
+};
+
+M.ready(setup);
+</script>
+</body>
+</html>

@@ -36,6 +36,7 @@ Say these in your own words. You do not need the exact phrase.
 | "Build my writing styles" | It learns how you write, from a few emails you already sent. |
 | "Is this clear?" | It reads your writing as the person receiving it would, and can say what parents will ask. |
 | "Build our brand guide" | It writes down your camp's logo files, colors, fonts, photo rules and words with you, one question at a time, so everything it makes for camp looks and sounds the same. It never guesses a color or a font. |
+| "Make an explainer video" | It writes a short script with you, and once you approve it, draws a video under a minute long in your camp's logo, colors and fonts, with captions and your own opening and closing. You get a phone version and a widescreen version as files. It never posts them. |
 | **Your camp's questions** | |
 | "Look it up" | Ask anything about your camp. It answers from what is written down, says where it came from, and never guesses. |
 | "That answer was wrong" | It fixes it in your Personal Notes and tells whoever looks after that wiki page. |
@@ -137,6 +138,13 @@ camps can sign in to, your name is shown as the person who made the skill.
 - Run `python tests/schedule_test.py` after any change to the build-a-schedule skill's
   `scripts/schedule.py`. It drafts an invented 18-group, five-day cycle, builds the
   workbook, and plants double bookings that must be caught. It needs openpyxl.
+- Run `python tests/explainer_test.py` after any change to the explainer-video skill's
+  `scripts/` or `page/`. It checks the plan, draws an invented camp's video in both shapes,
+  and proves each refusal can fail. Its drawing checks need Playwright and FFmpeg
+  (`scripts/check_tools.py` says whether they are here); without them it prints how many
+  checks it skipped. The skill bundles two fonts under the SIL Open Font License (Jost,
+  Figtree) and two jingles from Kenney's CC0 "Music Jingles" pack, each with its license
+  file beside it.
 - Run `bash tests/chatgpt.test.sh` after any change. It checks both apps can read the
   hooks file, the Windows safety checks, the never-send sentence in every skill, that no
   skill names Claude outside its screens page, and the description limits, and it proves

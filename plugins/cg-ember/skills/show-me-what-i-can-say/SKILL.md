@@ -59,6 +59,8 @@ underneath. Say each phrase the way a person would say it out loud.
   receiving it would.
 - **"Build our brand guide"**: writes down your camp's logo, colors, fonts and words, so
   everything branded matches.
+- **"Make an explainer video"**: a short captioned video in your camp's colors, for phones
+  and widescreen, from a script you approve. It never posts it.
 - **"Explain that"**: anything about AI, or about me, in plain words.
 - **"Teach me something"**: a short lesson, about ten minutes, that remembers how you like
   to learn.
