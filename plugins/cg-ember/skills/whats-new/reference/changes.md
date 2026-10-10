@@ -2,6 +2,11 @@
 
 Newest at the top. Lines in each version are in order of importance.
 
+## 0.3.7
+
+- When I write a video script, I say where each camp fact in it came from, and I show the
+  whole script every time I ask for your OK.
+
 ## 0.3.6
 
 - Say "make an explainer video" and I'll write a short script with you. Once you approve it,
