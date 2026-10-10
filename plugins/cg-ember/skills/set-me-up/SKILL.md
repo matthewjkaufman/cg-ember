@@ -174,9 +174,11 @@ apply; always include the Egnyte line.
   with your name on it, never a folder other people use." Choosing it means a folder on
   this computer inside their Egnyte drive.
 - **The Hub**, only when the Hub is connected here. Say: "The Hub is the group's website.
-  The Hub keeps these pages so only you can see them." Good: it works from anywhere and
-  even when this computer is off. Not as good: they live on the Hub, not in your own
-  folders, so to keep a copy of your own you download them from the Hub as a zip file."
+  It can keep these pages for you." Good: it works from anywhere and even when this
+  computer is off. Not as good: the people who run the Hub website could open them (they
+  won't, but they could), so for a personal wiki one of the other places is better. They
+  also live on the Hub, not in your own folders, so to keep a copy you download them as a
+  zip file."
 
 Then ask, one question:
 
