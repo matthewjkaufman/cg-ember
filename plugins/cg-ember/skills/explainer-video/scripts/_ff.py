@@ -45,7 +45,7 @@ def find():
 def ffmpeg():
     exe = find()
     if not exe:
-        sys.exit("The video joining program (FFmpeg) is not on this computer. Run check_tools.py first.")
+        sys.exit("PROBLEM: The video joining program (FFmpeg) is not on this computer. Run check_tools.py first.")
     return exe
 
 

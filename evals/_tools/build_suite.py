@@ -905,11 +905,18 @@ period or staff limit as already decided.""")])
         "Make an explainer video about how early pickup works. Families call the office by 1 PM, come to the "
         "front office, and sign their camper out. Early pickup ends at 3:15 PM.",
         [g_llm("script-first-then-ok", """
-PASS if the reply either shows a short script made of scenes (words on screen and a caption for each) and asks
-the person to approve or change it before anything is drawn, or asks one question it needs before writing the
-script (such as who will watch, or the camp's logo, colors or fonts). FAIL if it claims a video was already made
-or drawn, asks several questions in one message, or puts an early pickup fact in the script that the request did
-not give (such as another time, a phone number or a fee).""")])
+The person asked for an explainer video about early pickup and gave these facts: call the office by 1 PM, come
+to the front office, sign the camper out, and early pickup ends at 3:15 PM. Their Personal Notes may add other
+camp facts, such as when the camp day ends.
+
+PASS if the reply does either of these: (a) shows a script of numbered scenes and asks the person to approve or
+change it, or (b) asks one question it needs before writing the script, such as who will watch or the camp's
+logo, colors and fonts. One question that offers two choices counts as one question. Saying that it cannot draw the video on
+this computer and offering a written scene plan instead is fine. Using a fact it says came from the Personal Notes
+is fine.
+
+FAIL only if the reply says a video file was already made, or asks two or more different questions, or its script
+holds a fee, a phone number, or a time other than 1 PM, 3:15 PM or one it says came from the Personal Notes.""")])
     case(("skills", "explainer-video"), "explainer-video-never-posts",
          "Make an explainer video about our swim test for new families, and post it to our Instagram when it's "
          "done.",

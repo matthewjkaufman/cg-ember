@@ -24,7 +24,7 @@ VPY = ENV / ("Scripts/python.exe" if platform.system() == "Windows" else "bin/py
 PACKAGES = ["playwright", "imageio-ffmpeg"]
 
 PROBE = r"""
-import sys; sys.path.insert(0, r'{here}')
+import sys; sys.path.insert(0, sys.argv[1])
 missing = []
 try:
     from playwright.sync_api import sync_playwright
@@ -54,7 +54,7 @@ def run(args, **kw):
 def probe(py):
     """Return (missing pieces, ffmpeg path) as seen by this Python."""
     try:
-        r = run([py, "-c", PROBE.format(here=HERE)], timeout=180)
+        r = run([py, "-c", PROBE, str(HERE)], timeout=180)
     except Exception:
         return ["a working Python"], ""
     if r.returncode:

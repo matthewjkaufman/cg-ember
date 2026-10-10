@@ -22,7 +22,8 @@ each scene's `say` line if it has one, otherwise its caption. Then say:
 Send these steps on their own, then wait. Vids changes its screens from time to time; if a
 button is not where a step says, ask them what they see on their screen and work from that.
 
-1. Open docs.google.com/videos in your browser.
+1. Click [Open Google Vids](https://docs.google.com/videos) while you are signed in to your
+   camp account.
 2. Check that the account in the top right corner is your camp account, not a personal one.
 3. Start a new video. Keep it "Landscape".
 4. Choose "AI avatar".

@@ -56,9 +56,9 @@ This skill carries a small program in its `scripts` folder. Run the tool check q
   with that Python, called `<py>` here.
 - If it lists something as missing, say what it is in plain words and ask once:
 
-  > To make the video I need two free programs on this computer: a hidden web browser that
+  > To make the video I need two free programs on this computer: a helper program that
   > draws each picture, and a program that joins the pictures into a video. Setting them up
-  > takes a few minutes, uses a few hundred megabytes, and changes nothing else on your
+  > takes a few minutes, uses some space on your computer, and changes nothing else on your
   > computer. Is it OK to set them up?
 
   Only on a clear yes, run the install command the check printed (the same check with
@@ -91,7 +91,7 @@ The video needs:
 - **The camp's name**, written the way the guide says.
 - **The logo file.** The guide says what it is called and where it lives; the program
   needs the file itself. Ask them to drag it into this chat, or to say where it is on this
-  computer. A PNG or SVG file works best. If the background will be dark, use the version
+  computer. A picture of the logo works. If the background will be dark, use the version
   of the logo made for dark backgrounds, if the camp has one.
 - **Four colors**, as color codes: the **background** (usually white or the camp's
   lightest color), the **text** color, the **main** color (headings and the caption box)
@@ -162,8 +162,9 @@ Captions are always on, whatever they pick.
   let the person pick; the first one is fine if they have no preference. If a word will be read wrong (a camp
   name, for example), write how it sounds in that scene's `say` line, and keep the caption
   spelled correctly.
-- **For 4**, ask first: "Does your camp's Google account have Google Vids? Open
-  docs.google.com/videos while signed in to your camp account. If you see a page for making
+- **For 4**, ask first: "Does your camp's Google account have Google Vids? Click
+  [Open Google Vids](https://docs.google.com/videos) while you are signed in to your camp
+  account. If you see a page for making
   a video, you have it." If they do not, say that the presenter needs Google Vids, and offer
   1, 2 or 3. If they do, finish Steps 5 to 7 first, then follow `reference/google-vids.md`
   in this skill's folder.

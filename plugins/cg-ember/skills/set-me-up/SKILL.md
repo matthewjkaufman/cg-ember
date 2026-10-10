@@ -176,9 +176,9 @@ apply; always include the Egnyte line.
 - **The Hub**, only when the Hub is connected here. Say: "The Hub is the group's website.
   It can keep these pages for you." Good: it works from anywhere and even when this
   computer is off. Not as good: the people who run the Hub website could open them (they
-  won't, but they could), so for a personal wiki one of the other places is better. They
-  also live on the Hub, not in your own folders, so to keep a copy you download them as a
-  zip file."
+  won't, but they could), so for your Personal Notes one of the other places is better. They
+  also live on the Hub, not in your own folders, so to keep a copy you would save them from
+  the Hub."
 
 Then ask, one question:
 

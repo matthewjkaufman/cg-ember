@@ -184,11 +184,17 @@ def frames_to_mp4(page, duration, out, fps, start=0.0):
     ff = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     n = int(round(duration * fps))
     t0 = time.time()
-    for i in range(n):
-        page.evaluate(f"window.seek({start + i / fps:.5f})")
-        ff.stdin.write(page.screenshot(type="png"))
-        if i and i % (fps * 10) == 0:
-            print(f"  {w}x{h}: {i} of {n} frames, {time.time() - t0:.0f} s so far", flush=True)
+    try:
+        for i in range(n):
+            page.evaluate(f"window.seek({start + i / fps:.5f})")
+            ff.stdin.write(page.screenshot(type="png"))
+            if i and i % (fps * 10) == 0:
+                print(f"  {w}x{h}: {i} of {n} frames, {time.time() - t0:.0f} s so far", flush=True)
+    except Exception as e:
+        # the browser or the joining program stopped partway: end both, and say so plainly
+        ff.kill(); ff.wait()
+        problem(f"Drawing the {w}x{h} video stopped partway through ({str(e).splitlines()[0][:200]}). "
+                "Nothing was saved for this shape. Try again; if it happens twice, offer the problem log.", 3)
     ff.stdin.close(); ff.wait()
     if ff.returncode:
         problem("The video joining program stopped before the video was finished.", 3)
