@@ -77,9 +77,12 @@ Ask:
 > What should the video explain, and who will watch it? For example: "how early pickup
 > works, for new families."
 
+If their request already says what the video explains and who it is for, or gives the
+facts, skip this question and go on.
+
 Then find the facts. Look in their Personal Notes and the Camp Wiki first (camp-background
-section 4), and use what is written there, saying where it came from. Ask for anything
-still missing, one question at a time. If the subject would take more than about a minute
+section 4), and note the page and its date for each fact you use. Ask for anything still
+missing, one question at a time. If the subject would take more than about a minute
 to explain, say so and offer to make two short videos instead.
 
 ## Step 2: the camp's look
@@ -97,6 +100,9 @@ The video needs:
   lightest color), the **text** color, the **main** color (headings and the caption box)
   and an **accent** color (the moving dot and the lines it draws).
 - **Two fonts**: one for headings and one for regular text.
+
+These are needed only before Step 5, so when the person has already given the facts, write
+the script first and ask about the look once they approve it.
 
 **When there is no brand guide**, offer once: "Want to build your brand guide first? It's
 a few short questions, and everything I make for camp uses it after that." If they would
@@ -129,7 +135,18 @@ four kinds:
 Every scene also has a **caption**: one or two short sentences, at most about 25 words,
 that say the scene in full. The words on screen are short; the caption carries the message.
 
-Show it in this shape (the times here are only an example), and nothing else around it:
+**Every camp fact says where it came from.** A camp fact is a time, a date, a place, a
+rule, a price, a phone number or a name. Each one in the script comes from what the person
+told you in this conversation, or from a page you read. Under the script, list every fact
+that did not come from the person in this conversation, with the page and its date. A fact
+you cannot trace to either goes in only as "[check: ...]" and you ask about it; better
+still, leave it out.
+
+**Always show the whole script before asking for the OK.** Every message that asks them
+to approve shows every scene, in full, even if an earlier message showed it too. Never ask
+"looks good?" about a script that is not in that same message.
+
+Show it in this shape (the times and the page here are only an example):
 
 > **How early pickup works**, about 35 seconds
 >
@@ -139,11 +156,17 @@ Show it in this shape (the times here are only an example), and nothing else aro
 > 2. On screen: 3:15 PM. The last early pickup.
 >    Caption: Early pickup ends at 3:15 PM. After that, buses and car line run as usual.
 >
+> Where the camp facts came from: 1 PM and the front office, from what you told me. 3:15 PM
+> and the buses, from your My camp page (September 15).
+>
 > The video opens and closes with your logo and your camp's name. Anything to change?
 > Say "looks good" when it's right.
 
-Change what they say, in their words, and show the changed scenes again. Draw nothing until
-they say it is right.
+Put nothing before the script but one short sentence. If Step 0 found that this computer
+cannot draw the video, say so in one sentence after the script, never instead of it.
+
+Change what they say, in their words, and show the whole script again with the change in
+it. Draw nothing until they say it is right.
 
 ## Step 4: how it sounds
 
