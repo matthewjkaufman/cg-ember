@@ -2,11 +2,13 @@
 
 Newest at the top. Lines in each version are in order of importance.
 
-<!-- Unreleased, for the next version's heading (keep the version heading out of this comment):
+## 0.3.6
+
 - Say "make an explainer video" and I'll write a short script with you. Once you approve it,
   I draw a captioned video under a minute long in your camp's logo, colors and fonts, with
   your own opening and closing, shaped for phones and for widescreen. I never post it.
--->
+- When you set me up and choose where your notes live, I say plainly that the people who run
+  the Hub could open notes kept there, and suggest a better place for your Personal Notes.
 
 ## 0.3.5
 
