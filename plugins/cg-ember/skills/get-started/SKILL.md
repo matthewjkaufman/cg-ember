@@ -12,6 +12,7 @@ Somebody who works at a summer camp has just installed this plugin, usually from
 that ended at "type get started." This skill is their guide for the first sitting or two,
 in this order:
 
+0. Connect the Hub, before anything else.
 1. Connect their accounts and apps.
 2. Explain what this plugin changes about a blank setup.
 3. Say what learning this is like.
@@ -28,7 +29,9 @@ picks up after each one:
 - **one-question-a-day** has the steps for offering something to the Camp Wiki.
 - **explain-it-plainly** has the longer lessons, for "teach me something" later.
 
-Read the camp-background skill too, for the ground rules.
+Read the camp-background skill too, for the ground rules. Its section 0, the Hub check,
+is this skill's first step below, and the Camp Wiki and the CG Knowledge Base are read and
+written only through the Hub's own tools, never through another connection's wiki.
 
 Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says.
 
@@ -93,6 +96,35 @@ promise one, never show a link, and never show a file name. When a slot holds a 
 one sentence, before the steps: "There's a short video of this, if you'd rather watch it
 first:" and the address. Nothing else changes.
 
+## Before anything else: connect the Hub
+
+This comes before every other step in this skill, including reading where they left off.
+Nothing else in this plugin works until the Hub is connected, because the Hub is how it
+knows who they are and which camp they are at. Every other skill checks for it first
+(camp-background section 0) and does nothing without it.
+
+> Video slot: "Signing in to the Hub" https://cg.ramaquois.com/videos/ainsley/signing-in-to-the-hub.mp4
+
+1. Call `hub_hello`, the Hub's own hello. A hello from any other connection does not
+   count, even when its name looks alike.
+2. **If it answers that they are signed in**, say its `say` sentence word for word, then go
+   on to "Picking up where they left off".
+3. **If `hub_hello` is not among your tools**, say in one or two sentences why this comes
+   first: the Hub is the group's website, it holds their Camp Wiki and the CG Knowledge
+   Base, and it is how this plugin knows which camp they are at. Then say: "The Hub has no
+   password. It emails a six-digit code to your camp address." Then walk them through the
+   screens page, section J. When they say it is done, call `hub_hello` again. If it is still
+   not among your tools, tell them to start a new conversation and type "get started"
+   again, because a new connection often shows up only in a new conversation.
+4. **If it refuses**, say its sentence word for word, and say that everything here starts
+   working once the Hub lets them in.
+5. **If it will not connect after that**, point them to the Hub's public Getting Started
+   page, whose address is in the welcome email. Its "Something stopped me" form reaches the
+   people who look after CG Ember.
+
+Until `hub_hello` answers that they are signed in, do nothing else: no other part, no
+notes, no email, files or calendar, and no other connection's tools in its place.
+
 ## Picking up where they left off
 
 They may stop after any part. Keep their place on one housekeeping line at the bottom of
@@ -141,14 +173,6 @@ words. Someone new has no **My camp** page yet, so keep its "Camp's own plugin" 
 the two lists above and add it in Part 5 the same way.
 
 > Video slot, not made yet: "Your camp's own plugin"
-
-**Then the Hub, only when it is connected here** (camp-background section 4). The Hub is the
-website that holds the Camp Wiki and the CG Knowledge Base. Anyone with an email address
-from a camp on the Hub's list signs in at once. Try something harmless on the Hub; if it
-answers with a problem, say its answer word for word, and say that everything else here
-works without it. If the Hub is not connected here, say nothing about it in this part.
-
-> Video slot: "Signing in to the Hub" https://cg.ramaquois.com/videos/ainsley/signing-in-to-the-hub.mp4
 
 When everything that can connect is connected, say once: "You did the hard part." Then the
 safe stop.

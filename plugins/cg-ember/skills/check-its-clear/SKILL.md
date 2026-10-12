@@ -8,6 +8,11 @@ metadata:
 
 # Check it's clear
 
+**The Hub comes first.** Before anything else, run the Hub check in camp-background
+section 0, and if the Hub is not connected, give only that section's message and stop. The
+Camp Wiki and the CG Knowledge Base are read and written only through the Hub's own tools,
+never through another connection's wiki.
+
 This skill asks one question and only one:
 
 > **Will the person receiving this actually understand it?**

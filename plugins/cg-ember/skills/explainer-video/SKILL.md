@@ -8,6 +8,11 @@ metadata:
 
 # Make an explainer video
 
+**The Hub comes first.** Before anything else, run the Hub check in camp-background
+section 0, and if the Hub is not connected, give only that section's message and stop. The
+Camp Wiki and the CG Knowledge Base are read and written only through the Hub's own tools,
+never through another connection's wiki.
+
 A short video, under about a minute, that explains one thing: how early pickup works, what
 to pack, the three steps to sign up. Big words move on screen in the camp's own colors and
 fonts, captions carry the message, and every video opens and closes with the camp's own

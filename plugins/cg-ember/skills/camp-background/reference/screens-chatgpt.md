@@ -129,3 +129,22 @@ Note: If the menu says "Sign out" instead, click "Sign out".
 
 1. Click your name or picture at the bottom left of the window.
 2. Click "Log out".
+
+## J. Connecting the Hub
+
+The Hub's connection comes with CG Ember. Walk them through it, one step at a time:
+
+1. Click **Plugins** on the left of the window. (On some accounts it is called **Apps**.)
+2. Find CG Ember, then find the Hub's connection in it. It may be called **cg-hub**.
+3. Click **Connect**.
+4. Sign in to the Hub with your camp email address. Type the six-digit code the Hub emails
+   you.
+
+Note: If the Hub names somebody else, click "No, do not connect" and stop here.
+
+5. Read who the Hub says you are signed in as.
+6. Click "Yes, connect Claude". The Hub's button uses that name whichever app you use.
+7. Come back to this conversation. Your conversation is in the list on the left.
+
+If they do not see the Hub, ask what they see and work from that. Do not guess at other
+screens.

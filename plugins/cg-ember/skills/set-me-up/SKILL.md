@@ -8,6 +8,11 @@ metadata:
 
 # Set me up
 
+**The Hub comes first.** Before anything else, run the Hub check in camp-background
+section 0, and if the Hub is not connected, give only that section's message and stop. The
+Camp Wiki and the CG Knowledge Base are read and written only through the Hub's own tools,
+never through another connection's wiki.
+
 Somebody who works at a summer camp has just installed this plugin, usually from a
 printed checklist that ended at "install the plugin." This skill takes over from there.
 By the end, their email, files and calendar are connected, they know you only ever

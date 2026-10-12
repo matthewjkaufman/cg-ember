@@ -1,12 +1,17 @@
 ---
 name: look-it-up
-description: "Look it up. Answer a question about how camp works from what is written down, never a guess. Use when someone asks what the policy is, who owns something, when something happens, what was done last year, how many of something there are, or what a camp term means, and whenever a request depends on an unstated camp fact."
+description: "Look it up. Answer a question about how camp works from what is written down, never a guess, and suggest wiki pages on the Hub. Use when someone asks what the policy is, who owns something, when something happens, what was done last year, or what a camp term means, when a request depends on an unstated camp fact, or when they ask to add something to a wiki."
 metadata:
   cg-ember-name: "look-it-up"
   cg-ember-version: "2"
 ---
 
 # Look it up
+
+**The Hub comes first.** Before anything else, run the Hub check in camp-background
+section 0, and if the Hub is not connected, give only that section's message and stop. The
+Camp Wiki and the CG Knowledge Base are read and written only through the Hub's own tools,
+never through another connection's wiki.
 
 This skill is where camp facts come from. Somebody asks how camp does something, and it
 goes and looks instead of answering from the top of its head.
@@ -22,8 +27,9 @@ Emails, messages, invitations and posts are drafted, never sent, as camp-backgro
 ## Where to look, in order
 
 1. **Personal Notes**, found the way camp-background section 4 says.
-2. **The Camp Wiki**, only when the Hub is connected.
-3. **The CG Knowledge Base**, only when the Hub is connected.
+2. **The Camp Wiki**, through the Hub's own tools (camp-background section 4).
+3. **The CG Knowledge Base**, through the Hub's own tools too. Another connection's wiki,
+   such as an office website's, is never one of these places.
 4. **Their own files and calendar.** A date on their calendar for a camp event beats a
    date written on a page, and the answer says which one it came from.
 
@@ -99,11 +105,27 @@ does not change that. Say so plainly, give this year's number, and say last year
 on this date is not kept anywhere you can reach. If it is in their files (an export, a
 report from last year), look there.
 
+## When they ask to put something in a wiki
+
+Sometimes nobody offers; they ask outright ("suggest this for the wiki", "add it to the
+knowledge base"). Then there is no once-a-day limit, because they asked.
+
+1. Pick the level the way camp-background section 4 says ("Which level a suggestion goes
+   to"). "The wiki" alone does not say which one; the fact decides. A law, a regulation or
+   anything every camp in the group would do the same way goes to the CG Knowledge Base.
+2. Show the exact words, checked against camp-background section 3, and say where it will
+   go and who decides. If they already gave the exact words and a clear yes, that is the
+   yes; do not ask again.
+3. Suggest it with the Hub's `hub_suggest_page` at that level, and say the Hub's answer
+   word for word. Never use another connection's wiki tool for this, even one whose wiki
+   already has a page on the subject.
+
 ## Offering to share an answer with the whole camp
 
 When an answer came from their Personal Notes and would be true for the whole camp, you
-may offer once to suggest it for the Camp Wiki. When the Hub says this person's camp has
-no Camp Wiki level, offer the CG Knowledge Base instead. Only when the Hub is connected.
+may offer once to suggest it. Which level it goes to, the Camp Wiki or the CG Knowledge
+Base, follows camp-background section 4, "Which level a suggestion goes to". Suggest it only
+through the Hub's `hub_suggest_page`, never through another connection's wiki.
 
 This shares one question a day with the one-question-a-day skill. Before offering, read
 the "Last daily question" line at the bottom of **What I did this week**. If it says
@@ -120,7 +142,8 @@ To offer:
    pages decides whether it goes in, and your name goes with it. This is exactly what I'd
    send: '...'"
 3. Anything other than a clear yes is a no. Never ask twice.
-4. On a yes, suggest it and say the Hub's answer word for word.
+4. On a yes, suggest it with `hub_suggest_page` at that level, and say the Hub's answer
+   word for word.
 
 Either way, write today's date on the "Last daily question" line, reading the page first
 and changing only that line.

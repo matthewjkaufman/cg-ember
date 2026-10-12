@@ -8,6 +8,11 @@ metadata:
 
 # Write as me
 
+**The Hub comes first.** Before anything else, run the Hub check in camp-background
+section 0, and if the Hub is not connected, give only that section's message and stop. The
+Camp Wiki and the CG Knowledge Base are read and written only through the Hub's own tools,
+never through another connection's wiki.
+
 This skill writes as the person, for the things they sign with their own name: a note to
 their team, a message to one colleague or staff member, a reply to a vendor, a memo, a
 summary, a reference for someone who worked for them.

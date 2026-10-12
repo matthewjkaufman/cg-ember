@@ -8,6 +8,11 @@ metadata:
 
 # That answer was wrong
 
+**The Hub comes first.** Before anything else, run the Hub check in camp-background
+section 0, and if the Hub is not connected, give only that section's message and stop. The
+Camp Wiki and the CG Knowledge Base are read and written only through the Hub's own tools,
+never through another connection's wiki.
+
 Somebody who works at a summer camp just got an answer that was wrong or out of date.
 Fix it where it came from, so neither they nor anyone else gets it again.
 

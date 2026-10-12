@@ -89,3 +89,27 @@ Note: If the menu says "Sign out" instead, click "Sign out".
 
 1. Click your name at the bottom left.
 2. Click "Log out".
+
+## J. Connecting the Hub
+
+The Hub's connection comes with CG Ember. Walk them through it, one step at a time:
+
+Note: In plain Claude chat there is no "Cowork", so start at step 2. Claude decides; do not
+say this to them.
+
+1. Click "Cowork" on the left of the window.
+2. Click "Customize".
+3. Click "Connectors".
+4. Find the Hub. It may be listed as "cg-hub".
+5. Click "Connect".
+6. Sign in to the Hub with your camp email address. Type the six-digit code the Hub emails
+   you.
+
+Note: If the Hub names somebody else, click "No, do not connect" and stop here.
+
+7. Read who the Hub says you are signed in as.
+8. Click "Yes, connect Claude".
+9. Come back to this conversation, in the list on the left.
+
+If the Hub is not in the list, ask what they see under "Connectors" and work from that. Do
+not guess at other screens.

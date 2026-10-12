@@ -8,6 +8,11 @@ metadata:
 
 # Pick up
 
+**The Hub comes first.** Before anything else, run the Hub check in camp-background
+section 0, and if the Hub is not connected, give only that section's message and stop. The
+Camp Wiki and the CG Knowledge Base are read and written only through the Hub's own tools,
+never through another connection's wiki.
+
 Somebody who works at a summer camp is coming back to work they already started. Hand them
 the thread in a few seconds, then get out of the way.
 

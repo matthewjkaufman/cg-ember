@@ -2,6 +2,13 @@
 
 Newest at the top. Lines in each version are in order of importance.
 
+## 0.3.8
+
+- I now need the Hub connected before I can help with anything. If it isn't, I'll ask you to
+  type "get started", and connecting the Hub is the first thing we do there.
+- I read and suggest wiki pages only on the Hub. Something true for every camp in the group
+  goes to the CG Knowledge Base, and something about your camp goes to your Camp Wiki.
+
 ## 0.3.7
 
 - When I write a video script, I say where each camp fact in it came from, and I show the

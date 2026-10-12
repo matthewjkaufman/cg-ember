@@ -56,6 +56,16 @@ open(f,"w",encoding="utf-8").write(re.sub(r"^description: \"", "description: \""
 control missing-screens-section '
 import sys,os; f=os.path.join(sys.argv[1],"skills","camp-background","reference","screens-chatgpt.md"); s=open(f,encoding="utf-8").read()
 open(f,"w",encoding="utf-8").write(s.replace("## G. ","## Removing "))'
+control drop-hub-gate '
+import sys,os; f=os.path.join(sys.argv[1],"skills","write-as-me","SKILL.md"); s=open(f,encoding="utf-8").read()
+open(f,"w",encoding="utf-8").write(s.replace("**The Hub comes first.**","**First.**"))'
+control drop-hub-message '
+import sys,os; f=os.path.join(sys.argv[1],"skills","camp-background","SKILL.md"); s=open(f,encoding="utf-8").read()
+open(f,"w",encoding="utf-8").write(s.replace("Type \"get","Type \"set me up\" or \"get"))'
+control hub-step-not-first '
+import sys,os; f=os.path.join(sys.argv[1],"skills","get-started","SKILL.md"); s=open(f,encoding="utf-8").read()
+a=s.index("## Before anything else: connect the Hub"); b=s.index("## Picking up where they left off"); c=s.index("## Part 1:")
+open(f,"w",encoding="utf-8").write(s[:a]+s[b:c]+s[a:b]+s[c:])'
 if [ "${OS:-}" = "Windows_NT" ]; then
   control windows-send-lets-through '
 import sys,os,json; f=os.path.join(sys.argv[1],"hooks","hooks.json"); d=json.load(open(f,encoding="utf-8"))

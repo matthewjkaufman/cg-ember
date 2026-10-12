@@ -8,6 +8,11 @@ metadata:
 
 # Build a goal
 
+**The Hub comes first.** Before anything else, run the Hub check in camp-background
+section 0, and if the Hub is not connected, give only that section's message and stop. The
+Camp Wiki and the CG Knowledge Base are read and written only through the Hub's own tools,
+never through another connection's wiki.
+
 Some jobs are one step done many times: go through forty staff applications and check each
 for a reference, sort every reply to an open house invitation, check every camper on a list
 against a form. Typing `/goal` and then a finish line tells you to keep working, turn

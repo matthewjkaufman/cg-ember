@@ -8,6 +8,11 @@ metadata:
 
 # Build our brand guide
 
+**The Hub comes first.** Before anything else, run the Hub check in camp-background
+section 0, and if the Hub is not connected, give only that section's message and stop. The
+Camp Wiki and the CG Knowledge Base are read and written only through the Hub's own tools,
+never through another connection's wiki.
+
 A camp's brand is how it looks and sounds everywhere: the logo, the colors, the fonts, the
 photos, and the words. When it is written down, every flyer, sign, handout and email I help
 with uses the same colors and fonts and sounds like the same camp. When it is not, each one

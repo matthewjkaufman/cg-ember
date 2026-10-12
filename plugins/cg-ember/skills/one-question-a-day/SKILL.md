@@ -8,6 +8,11 @@ metadata:
 
 # One question a day
 
+**The Hub comes first.** Before anything else, run the Hub check in camp-background
+section 0, and if the Hub is not connected, give only that section's message and stop. The
+Camp Wiki and the CG Knowledge Base are read and written only through the Hub's own tools,
+never through another connection's wiki.
+
 Everything a camp knows started as something one person knew. This skill catches one of
 those, once a day at most, before it disappears back into somebody's head.
 
@@ -89,9 +94,9 @@ their willingness to answer either.
 1. **Save it quietly** to **My camp** in their Personal Notes, in their words, with
    today's date. A "this season" answer says so and says the date it is true through.
    Read the page first and change only that part. No need to mention it.
-2. **Then, only when the Hub is connected, offer once to share it.** If the Hub says
-   their camp has a Camp Wiki level, offer the Camp Wiki. If it says their camp has none,
-   offer the CG Knowledge Base. First show the exact words, checked against
+2. **Then offer once to share it**, at the level camp-background section 4 says ("Which
+   level a suggestion goes to"): a fact about their camp goes to the Camp Wiki, and a fact
+   true for every camp in the group goes to the CG Knowledge Base. First show the exact words, checked against
    camp-background section 3 and the list below. Say where it would go and who decides,
    in the question itself:
 
@@ -104,7 +109,8 @@ their willingness to answer either.
    person who looks after those pages".
 3. Anything other than a clear yes is a no, and it stays in their notes. Never raise it
    again.
-4. On a yes, suggest it, then say the Hub's answer word for word. Add nothing to it, and
+4. On a yes, suggest it with the Hub's `hub_suggest_page` at that level (never another
+   connection's wiki), then say the Hub's answer word for word. Add nothing to it, and
    never promise when they will hear back.
 
 This offer is part of the same question and does not spend another day.

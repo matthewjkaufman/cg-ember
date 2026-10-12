@@ -21,6 +21,10 @@ What it checks:
 6. Both screens pages have the same sections, A to H.
 7. Descriptions: each at most 400 characters, all together at most 6,500 (the readme's
    rule, under Codex's 8,000-character budget for the skill list).
+8. The Hub gate: every skill except camp-background and get-started carries the same gate
+   paragraph; camp-background holds section 0 with its fixed message; get-started connects
+   the Hub before it reads where they left off. Text cannot prove the model obeys it; this
+   proves no skill ships without it.
 """
 import glob
 import json
@@ -30,6 +34,12 @@ import subprocess
 import sys
 
 NEVER_SEND = "Emails, messages, invitations and posts are drafted, never sent, as camp-background section 1 says."
+HUB_GATE = ("**The Hub comes first.** Before anything else, run the Hub check in camp-background "
+            "section 0, and if the Hub is not connected, give only that section's message and stop. "
+            "The Camp Wiki and the CG Knowledge Base are read and written only through the Hub's own "
+            "tools, never through another connection's wiki.")
+HUB_MESSAGE = ("I can't help with that yet, because you're not connected to the Hub. Type \"get "
+               "started\" and I'll walk you through connecting it.")
 CLAUDE_WORDS = re.compile(r"\b(Claude|Cowork|Customize|Capabilities|Anthropic)\b")
 # Lines that may name Claude because they are about both apps.
 ALLOWED = [
@@ -39,6 +49,8 @@ ALLOWED = [
     "- You can now use CG Ember in the ChatGPT app as well as in Claude.",
     # The Hub's own share page labels its upload box with these words, whichever app saved it.
     '3. Click "Choose File" or "Browse..." under "The file Claude saved".',
+    # The Hub's own connect page labels its button this way, whichever app is connecting.
+    "6. Click \"Yes, connect Claude\". The Hub's button uses that name whichever app you use.",
 ]
 HOOK_TOP = {"description", "hooks"}
 HOOK_GROUP = {"matcher", "hooks"}
@@ -180,6 +192,17 @@ def main(plugin):
                 bad("camp-background: section 1's never-send rule is missing")
         elif NEVER_SEND not in text:
             bad(f"{name}: the never-send sentence is missing")
+        flat = " ".join(text.replace(">", " ").split())
+        if name == "camp-background":
+            if "## 0. The Hub comes first" not in text or HUB_MESSAGE not in flat or "`hub_hello`" not in text:
+                bad("camp-background: section 0, the Hub check with its fixed message, is missing")
+        elif name == "get-started":
+            hub = text.find("## Before anything else: connect the Hub")
+            pick = text.find("## Picking up where they left off")
+            if hub < 0 or pick < 0 or hub > pick or "`hub_hello`" not in text:
+                bad("get-started: connecting the Hub is not its first step")
+        elif HUB_GATE not in flat:
+            bad(f"{name}: the Hub gate paragraph is missing")
         m = re.search(r'^description: "(.*)"$', text, re.M)
         if not m:
             bad(f"{name}: no description line")
@@ -201,7 +224,7 @@ def main(plugin):
     for app in ("claude", "chatgpt"):
         p = os.path.join(ref, f"screens-{app}.md")
         sections[app] = re.findall(r"^## ([A-Z])\. ", open(p, encoding="utf-8").read(), re.M) if os.path.exists(p) else []
-    if sections["claude"] != list("ABCDEFGHI") or sections["chatgpt"] != list("ABCDEFGHI"):
+    if sections["claude"] != list("ABCDEFGHIJ") or sections["chatgpt"] != list("ABCDEFGHIJ"):
         bad(f"screens pages: sections differ or are missing: {sections}")
 
     for p in problems:

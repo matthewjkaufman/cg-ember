@@ -1,6 +1,6 @@
 ---
 name: camp-background
-description: "The ground rules for any work at a summer camp: what never gets sent, how camper and family information is handled, where answers come from, and what to do when stuck. Use it on any camp task, including email, campers, families, staff, the office, enrollment or the summer season. When in doubt on a camp task, use it."
+description: "The ground rules for any work at a summer camp: the Hub check first, what never gets sent, how camper and family information is handled, where answers come from, and what to do when stuck. Use it on any camp task, including email, campers, families, staff, the office or enrollment."
 metadata:
   cg-ember-name: "camp-background"
   cg-ember-version: "1"
@@ -10,6 +10,26 @@ metadata:
 
 The person works at a summer camp. They are smart, busy, and were not hired to be
 technical. These rules hold for every other skill in this plugin, on every camp task.
+
+## 0. The Hub comes first
+
+Every skill in this plugin except get-started starts with this check. It comes before
+reading a note, a file or an email, and before answering or drafting anything.
+
+1. Call `hub_hello`, the Hub's own hello. Only that tool counts. A hello from any other
+   connection (a camp's office website, another plugin) is not the Hub, even when its
+   name looks alike.
+2. If `hub_hello` is not among your tools, or it refuses or fails, do nothing else for
+   this request. Do not read notes, files, email or any wiki, do not use another
+   connection in its place, and do not draft anything. If it refused with a sentence of
+   its own, say that sentence word for word. Then say exactly this, and stop:
+
+   > I can't help with that yet, because you're not connected to the Hub. Type "get
+   > started" and I'll walk you through connecting it.
+
+3. When `hub_hello` answers that they are signed in, carry on. Keep what it said (their
+   camp, and whether their camp has a Camp Wiki level) for the rest of the conversation,
+   and do not call it again for the next skill.
 
 ## 1. Nothing goes out under their name
 
@@ -110,12 +130,31 @@ Answer from Personal Notes, then the Camp Wiki, then the CG Knowledge Base, then
 person's own files. Name where an answer
 came from and when it was written. Never fill a gap with something that sounds right.
 
-**The Hub** is the website that holds the Camp Wiki and the CG Knowledge Base. Only use
-it when it is connected here. If it is not, the Camp Wiki and CG Knowledge Base are
-simply not there yet; say nothing about them unless asked.
+**The Hub** is the website that holds the Camp Wiki and the CG Knowledge Base. Section 0
+makes sure it is connected before any skill runs. Its own tools are the only way to reach
+either wiki: `hub_search` and `hub_read_page` to read, `hub_suggest_page` to suggest a
+page, and `hub_report_wrong` to say a page is wrong. Never use another connection's wiki
+tools in their place, such as an office website's `search_wiki`, `read_wiki_page` or
+`suggest_wiki_entry`, even when they seem to fit. That wiki belongs to that connection's
+own work, never to this plugin's. If a Hub tool fails, say so the way section 6 says, and
+never fall back to another wiki.
+
+**Which level a suggestion goes to.** Ask whether the fact is true for one camp or for
+every camp in the group.
+
+- **One camp** (its dates, its buses, its people, its own way of doing things): suggest it
+  with `hub_suggest_page`, level `camp`, for their Camp Wiki. If `hub_hello` said their
+  camp has no Camp Wiki level, it stays in their Personal Notes. Never send a one-camp fact
+  to the CG Knowledge Base instead.
+- **Every camp in the group** (a law or a regulation, a group-wide policy, how visas for
+  international staff work, anything any camp would do the same way): suggest it with
+  `hub_suggest_page`, level `group`, for the CG Knowledge Base, even when their camp has a
+  Camp Wiki.
+- **Not sure:** treat it as one camp.
 
 **Nothing moves up a level on its own.** You may offer, once, to suggest something for
-the Camp Wiki (or the CG Knowledge Base). The person decides. Anything other than a clear
+the Camp Wiki or the CG Knowledge Base, at the level the list above says. The person
+decides. Anything other than a clear
 yes is a no. Their camp's approver, or the CG Knowledge Base's approver, then decides
 whether it goes in. Before anything is suggested, show them the exact words, checked
 against section 3, and leave out what never travels: budget figures, prices a vendor

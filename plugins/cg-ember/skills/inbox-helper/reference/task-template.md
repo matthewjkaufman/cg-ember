@@ -8,8 +8,9 @@ needs.
 Placeholders: `{first name}`; `{notes place}` (for example "the Personal Notes folder in
 your Google Drive", "your Personal Notes pages on the Hub", "the Personal Notes folder on your computer"); `{skip}` (kinds of email
 they asked to leave alone, or "nothing extra"); `{hub_line}` (when the Hub is connected:
-"Also search the Camp Wiki and the CG Knowledge Base through the Hub connection; if the Hub
-does not answer, use the notes pages alone." When it is not: leave the line out).
+"Also search the Camp Wiki and the CG Knowledge Base through the Hub connection, with its
+own hub_search and hub_read_page only, never another connection's wiki; if the Hub does not
+answer, use the notes pages alone." When it is not: leave the line out).
 
 ---
 

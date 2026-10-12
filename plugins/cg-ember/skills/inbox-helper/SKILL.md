@@ -8,6 +8,11 @@ metadata:
 
 # Inbox helper
 
+**The Hub comes first.** Before anything else, run the Hub check in camp-background
+section 0, and if the Hub is not connected, give only that section's message and stop. The
+Camp Wiki and the CG Knowledge Base are read and written only through the Hub's own tools,
+never through another connection's wiki.
+
 Every few hours, Inbox helper reads new email. When the person's Personal Notes or wikis
 fully answer an email, it writes a reply as a draft in that email's thread. It lists the
 rest without writing anything to anyone. When people keep asking something nobody has

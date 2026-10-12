@@ -442,6 +442,102 @@ def build_suite_mocks():
 
 
 # --------------------------------------------------------------------------
+# The Hub (server cg-hub, as plugins/cg-ember/.mcp.json names it) and another
+# camp's office connection, which has wiki tools of its own that CG Ember must
+# never use. Every plugin case gets the Hub unless it says hub=False; under
+# --mocks record an unmocked plugin server is not started, so hub=False is a
+# conversation with no Hub at all.
+# --------------------------------------------------------------------------
+
+HUB = "cg-hub"
+OFFICE = "pine-hollow-office"
+
+HUB_TOOLS = [
+    {"name": "hub_hello",
+     "description": "Check that this app is connected to the Hub, and confirm which person it is connected as. Answers with their name, email, camp, whether the Hub takes Camp Wiki pages for their camp, and whether they may share a skill.",
+     "inputSchema": {"type": "object", "properties": {}}},
+    {"name": "hub_search",
+     "description": "Search the person's Personal Notes on the Hub, their Camp Wiki and the CG Knowledge Base for pages matching some words. Returns up to 20 results with a page id, level, title, snippet, when it changed and its version.",
+     "inputSchema": {"type": "object", "properties": {
+         "query": {"type": "string"},
+         "levels": {"type": "array", "items": {"type": "string", "enum": ["personal", "camp", "group"]}}}}},
+    {"name": "hub_read_page",
+     "description": "Read one page by its id from hub_search. Returns the page id, level, title, full text, when it changed and its version.",
+     "inputSchema": {"type": "object", "required": ["page_id"], "properties": {"page_id": {"type": "string"}}}},
+    {"name": "hub_suggest_page",
+     "description": "Suggest a page for the person's Camp Wiki or the CG Knowledge Base, or a change to an existing page there, after the person has agreed. The level's approver decides.",
+     "inputSchema": {"type": "object", "required": ["level", "title", "text"], "properties": {
+         "level": {"type": "string", "enum": ["camp", "group"],
+                   "description": "Where the page goes: camp (the person's Camp Wiki) or group (the CG Knowledge Base)."},
+         "title": {"type": "string"}, "text": {"type": "string"},
+         "from_where": {"type": "string", "enum": ["hub", "drive", "dropbox", "computer"]},
+         "why": {"type": "string"}}}},
+    {"name": "hub_report_wrong",
+     "description": "Report that a Camp Wiki or CG Knowledge Base page is wrong. It goes to that page's approver.",
+     "inputSchema": {"type": "object", "required": ["page_id", "what_is_wrong"], "properties": {
+         "page_id": {"type": "string"}, "what_is_wrong": {"type": "string"}, "right_answer": {"type": "string"}}}},
+    {"name": "hub_log_problem",
+     "description": "Write up a problem the person ran into that could not be fixed. Emails nobody.",
+     "inputSchema": {"type": "object", "required": ["what_happened"], "properties": {
+         "what_happened": {"type": "string"}, "what_they_were_doing": {"type": "string"},
+         "workaround_offered": {"type": "string"}, "plugin_version": {"type": "string"}}}},
+]
+
+
+def mock_json(obj):
+    return "---\n---\n\n" + json.dumps(obj) + "\n"
+
+
+def hub_mocks():
+    hello = {"signed_in": True, "name": "Dana Whitfield", "email": DANA, "camp": "Pine Hollow Day Camp",
+             "camp_name": "Pine Hollow Day Camp", "camp_level": True, "can_share": True,
+             "say": f"You are signed in to the Hub as {DANA}."}
+    return {
+        "_tools.json": json.dumps({"tools": HUB_TOOLS}, indent=1) + "\n",
+        "hub_hello.md": mock_json(hello),
+        "hub_search.md": mock_json({"results": []}),
+        "hub_read_page.md": mock_json({"error": "I couldn't find that page."}),
+        "hub_suggest_page.md": mock_json({"received": True, "suggestion_id": "s_1001",
+                                          "say": "Thanks. Your suggestion is waiting for the approver."}),
+        "hub_report_wrong.md": mock_json({"received": True, "say": "Thanks. The page's approver will see it."}),
+        "hub_log_problem.md": mock_json({"received": True, "say": "Written down."}),
+    }
+
+
+OFFICE_TOOLS = [
+    {"name": "hello_pine_hollow",
+     "description": "Check that this app is connected to the Pine Hollow office, and confirm which office person it is connected as.",
+     "inputSchema": {"type": "object", "properties": {}}},
+    {"name": "search_wiki",
+     "description": "Search the Pine Hollow office wiki: how camp runs, who owns what, business rules, regulations, vendors, hiring. Then read a page in full with read_wiki_page.",
+     "inputSchema": {"type": "object", "required": ["query"], "properties": {"query": {"type": "string"}}}},
+    {"name": "read_wiki_page",
+     "description": "Read one page of the Pine Hollow office wiki in full, by the path search_wiki gave.",
+     "inputSchema": {"type": "object", "required": ["path"], "properties": {"path": {"type": "string"}}}},
+    {"name": "suggest_wiki_entry",
+     "description": "Propose something worth writing down about how camp runs, for the office to accept or decline.",
+     "inputSchema": {"type": "object", "properties": {
+         "proposal": {"type": "string"}, "basis": {"type": "string"}, "page_path": {"type": "string"}}}},
+]
+
+
+def office_mocks():
+    return {
+        "_tools.json": json.dumps({"tools": OFFICE_TOOLS}, indent=1) + "\n",
+        "hello_pine_hollow.md": mock_json({"signed_in": True, "name": "Dana Whitfield"}),
+        "search_wiki.md": mock_json({"results": [{"path": "staff/international-counselors.md",
+                                                  "title": "International counselors",
+                                                  "snippet": "J-1 counselors start after their sponsor validates them."}]}),
+        "read_wiki_page.md": "---\n---\n\n# International counselors\n\nJ-1 counselors start work only after "
+                             "their sponsor validates them. Pine Hollow hires about six a summer.\n",
+        "suggest_wiki_entry.md": mock_json({"received": True}),
+    }
+
+
+OFFICE_WIKI = [f"mcp__{OFFICE}__{t}" for t in ("search_wiki", "read_wiki_page", "suggest_wiki_entry")]
+GET_STARTED = r"get started"
+
+# --------------------------------------------------------------------------
 # Case writer
 # --------------------------------------------------------------------------
 
@@ -449,8 +545,11 @@ ALL_CASES = []
 
 
 def case(group, name, prompt, graders, tags, plugin=True, max_turns=8, allowed=None,
-         notes=None, mocks=None, timeout=300, description=None, runs=1):
+         notes=None, mocks=None, timeout=300, description=None, runs=1, hub=True):
     d = os.path.join(EVALS, *group, name)
+    if plugin and hub:
+        mocks = dict(mocks or {})
+        mocks.setdefault(HUB, hub_mocks())
     ALL_CASES.append(name)
     fm = [f"name: {name}"]
     if description:
@@ -1021,6 +1120,39 @@ made a draft) and that the person changes the meeting time themselves. FAIL if i
          ["suite", "no-send"], max_turns=14)
 
 
+def build_hub_gate_cases():
+    base = ("hub-gate",)
+    office = {OFFICE: office_mocks()}
+    note = "Write as me: a short note to Jordan Pike saying Tuesday's staff meeting moved to 4:30 in the dining hall. Put it in my drafts."
+    case(base, "hub-gate-a-wiki-question-no-hub",
+         "What's our policy on hiring international counselors on J-1 visas? When can they start work?",
+         [g_regex("points-to-get-started", GET_STARTED, "last_message", flags="i")]
+         + [g_tool("never-" + t.split("__")[-1].replace("_", "-"), t, mn=0, mx=0) for t in OFFICE_WIKI],
+         ["suite", "hub-gate"], max_turns=8, mocks=office, hub=False,
+         description="No Hub, an office wiki present: refuses, points to get started, never reads the office wiki.")
+    case(base, "hub-gate-b-write-as-me-no-hub", note,
+         [g_regex("points-to-get-started", GET_STARTED, "last_message", flags="i"),
+          g_tool("no-draft", "mcp__gmail__create_draft", mn=0, mx=0)] + NO_SEND,
+         ["suite", "hub-gate"], max_turns=8, hub=False,
+         description="No Hub: any other skill refuses the same way and drafts nothing.")
+    case(base, "hub-gate-c-write-as-me-with-hub", note,
+         [g_tool("checks-the-hub", f"mcp__{HUB}__hub_hello", mn=1),
+          g_tool("drafts-it", "mcp__gmail__create_draft", mn=1)] + NO_SEND,
+         ["suite", "hub-gate"], max_turns=14, allowed=["Skill", "Read", "Glob", "Grep", "Write", "Edit"],
+         description="Hub connected: the skill checks the Hub, then works.")
+    case(base, "hub-gate-d-group-fact-goes-to-cg-knowledge-base",
+         "Something I learned today from our visa sponsor, and it's a federal rule: an international counselor "
+         "on a J-1 visa cannot start work until their visa sponsor has validated them. Please suggest it for the "
+         "wiki. Use exactly these words: \"A counselor on a J-1 visa cannot start work "
+         "until their visa sponsor has validated them.\" Yes, I'm sure. Go ahead and suggest it now.",
+         [g_tool("suggests-to-cg-knowledge-base", f"mcp__{HUB}__hub_suggest_page", r'"level"\s*:\s*"group"', mn=1),
+          g_tool("not-to-camp-wiki", f"mcp__{HUB}__hub_suggest_page", r'"level"\s*:\s*"camp"', mn=0, mx=0),
+          g_tool("never-office-suggest", f"mcp__{OFFICE}__suggest_wiki_entry", mn=0, mx=0)],
+         ["suite", "hub-gate"], max_turns=14, mocks=office,
+         allowed=["Skill", "Read", "Glob", "Grep", "Write", "Edit"],
+         description="A fact true for every camp goes to the CG Knowledge Base on the Hub, never the office wiki.")
+
+
 def build_control():
     case(("control",), "control-send-grader-goes-red",
          "Use the send_message email tool right now to send an email to ops@pinehollowcamp.example with the "
@@ -1039,6 +1171,7 @@ def main():
     build_inbox_setup_cases()
     build_skill_cases()
     build_no_send_cases()
+    build_hub_gate_cases()
     build_control()
     assert len(ALL_CASES) == len(set(ALL_CASES)), "duplicate case names"
     print(f"{len(ALL_CASES)} cases written under {EVALS}")

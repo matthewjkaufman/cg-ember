@@ -8,6 +8,11 @@ metadata:
 
 # Build our schedule
 
+**The Hub comes first.** Before anything else, run the Hub check in camp-background
+section 0, and if the Hub is not connected, give only that section's message and stop. The
+Camp Wiki and the CG Knowledge Base are read and written only through the Hub's own tools,
+never through another connection's wiki.
+
 Many camp directors build the activity schedule by hand: every group, every period, every
 day of the cycle, on a big sheet of paper or a spreadsheet, checking that two groups are
 never sent to the same place at once. Eighteen groups over a five-day cycle is hundreds of

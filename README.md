@@ -56,9 +56,9 @@ It looks in three places, in this order:
 2. **Camp Wiki** is what your camp has written down. It lives on the Hub.
 3. **CG Knowledge Base** is what every camp in the group shares. It lives on the Hub too.
 
-The **Hub** is the website where camps in the group keep these. The Camp Wiki and CG
-Knowledge Base work once your camp is on the Hub. Until then, it uses your Personal
-Notes and your files.
+The **Hub** is the website where camps in the group keep these. CG Ember needs the Hub
+connected before it does anything else: type "get started" and connecting it is the first
+step. It reads and suggests wiki pages only on the Hub, never in another app's wiki.
 
 Nothing moves from your notes to a wiki unless you say yes, and the wiki's approver
 decides. It keeps campers' and families' private details out of all three.
@@ -156,9 +156,11 @@ camps can sign in to, your name is shown as the person who made the skill.
   of `version` in `plugins/cg-ember/.claude-plugin/plugin.json`. The Hub never changes the
   skills that ship with the plugin (every folder it did not publish is reserved), the
   manifests other than that number, or this readme.
-- The connection to the Hub (`plugins/cg-ember/.mcp.json`) is added in the first version
-  after the Hub's connection answers with sign-in working. Until then every Hub step in
-  the skills stays silent.
+- The connection to the Hub is `plugins/cg-ember/.mcp.json` (since 0.3.8). Every skill
+  except get-started first calls `hub_hello` and does nothing else when the Hub is missing
+  or refuses (camp-background section 0). That is written instruction, not a lock: no hook
+  can see which connections a conversation has. `tests/chatgpt.test.sh` checks every skill
+  carries the gate paragraph.
 - `plugins/cg-ember/hooks/hooks.json` refuses send-shaped tools on any connection,
   calendar events with guests, and a scheduled post that is not a draft. Its commands are
   POSIX shell (Cowork runs them on Linux, Claude Code on Windows runs them in Git Bash).

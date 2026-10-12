@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "cg-hub": {
+      "type": "http",
+      "url": "https://cg.ramaquois.com/mcp",
+      "oauth": true
+    }
+  }
+}
