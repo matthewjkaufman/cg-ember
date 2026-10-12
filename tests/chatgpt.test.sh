@@ -21,6 +21,21 @@ echo "$base"
 
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
+
+# Claude's own plugin check. 0.3.8 shipped a .mcp.json the loader silently drops
+# ("oauth": true), so nobody could connect the Hub; this fails the run on any error.
+echo "== claude plugin validate"
+validate() { claude plugin validate "$1" 2>&1 | grep -q "Validation passed" && ! claude plugin validate "$1" 2>&1 | grep -q "✘"; }
+if ! command -v claude >/dev/null; then
+  echo "WRONG claude command not found, so the plugin could not be validated"; fail=1
+elif validate "$P"; then
+  echo "ok plugin validates"
+  cp -r "$P" "$tmp/bad-mcp"
+  py -c 'import sys,json,os; f=os.path.join(sys.argv[1],".mcp.json"); d=json.load(open(f)); d["mcpServers"]["cg-hub"]["oauth"]=True; json.dump(d,open(f,"w"))' "$tmp/bad-mcp"
+  if validate "$tmp/bad-mcp"; then echo "WRONG red control did not fail: validate-oauth-true"; fail=1; else echo "ok red control failed as it should: validate-oauth-true"; fi
+else
+  echo "WRONG claude plugin validate fails:"; claude plugin validate "$P" 2>&1 | tail -5; fail=1
+fi
 control() {  # control <label> <python that breaks the copy at sys.argv[1]>
   local c="$tmp/$1"
   cp -r "$P" "$c"
