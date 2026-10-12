@@ -92,7 +92,20 @@ Note: If the menu says "Sign out" instead, click "Sign out".
 
 ## J. Connecting the Hub
 
-The Hub's connection comes with CG Ember. Walk them through it, one step at a time:
+Where the Hub's connection comes from depends on the account. This paragraph is for you; do
+not read it to them.
+
+- **A Claude Team account.** The Hub is the Team's own "cg-hub" connector. An Owner of the
+  Team adds it once, under Organization settings, then Connectors, with authorization set to
+  "individual". Each member then connects it for themselves with the steps below, and signs
+  in with their own camp email code. If "cg-hub" is not in a member's list, the Team's Owner
+  has not added it yet; say that in one sentence.
+- **An individual account (not a Team).** The "cg-hub" connection should come with CG Ember
+  (0.3.9 and later), in the same place, Customize then Connectors, so the steps below are the
+  same. This path has not been checked on a real screen yet, so if it does not match, ask
+  what they see and work from that.
+
+Walk them through it, one step at a time:
 
 Note: In plain Claude chat there is no "Cowork", so start at step 2. Claude decides; do not
 say this to them.
@@ -122,3 +135,16 @@ If the Hub is not in the list, ask what they see under "Connectors" and work fro
 not guess at other screens.
 
 If the Hub still does not answer, start a new chat, then type "get started".
+
+If it still says they're not connected, Claude needs to quit fully and open again, because
+the list of connections only refreshes when Claude starts. These steps are for Windows.
+
+Note: On Windows, closing the Claude window is not enough. Claude keeps running.
+
+1. Right-click the Claude icon near the clock.
+2. Click "Quit".
+3. Open Task Manager.
+4. Click "Claude" in the list. If Claude is not in the list, go to step 6.
+5. Click "End task".
+6. Open Claude again.
+7. Start a new chat, then type "get started".

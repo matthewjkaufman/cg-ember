@@ -114,8 +114,11 @@ knows who they are and which camp they are at. Every other skill checks for it f
    Base, and it is how this plugin knows which camp they are at. Then say: "The Hub has no
    password. It emails a six-digit code to your camp address." Then walk them through the
    screens page, section J. When they say it is done, call `hub_hello` again. If it is still
-   not among your tools, give section J's last line, because a new connection often shows
-   up only in a new chat.
+   not among your tools, give section J's line about starting a new chat, because a new
+   connection often shows up only in a new chat. If they come back and it is still not
+   among your tools, walk them through section J's last steps, quitting the app fully and
+   opening it again: closing the window does not quit it, so the list of connections does
+   not refresh until it starts again.
 4. **If it refuses**, say its sentence word for word, and nothing more.
 5. **If it will not connect after that**, point them to the Hub's public Getting Started
    page, whose address is in the welcome email. Its "Something stopped me" form reaches the

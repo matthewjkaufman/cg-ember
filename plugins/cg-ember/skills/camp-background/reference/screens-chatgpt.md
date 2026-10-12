@@ -157,3 +157,15 @@ If they do not see the Hub, ask what they see and work from that. Do not guess a
 screens.
 
 If the Hub still does not answer, start a new chat, then type "get started".
+
+If it still says they're not connected and they use the ChatGPT app on Windows, the app
+needs to quit fully and open again, because the list of connections only refreshes when the
+app starts.
+
+Note: On Windows, closing the ChatGPT window may not be enough. The app can keep running.
+
+1. Open Task Manager.
+2. Click "ChatGPT" in the list. If ChatGPT is not in the list, go to step 4.
+3. Click "End task".
+4. Open ChatGPT again.
+5. Start a new chat, then type "get started".

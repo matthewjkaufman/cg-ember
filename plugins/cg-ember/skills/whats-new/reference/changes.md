@@ -7,12 +7,17 @@ Newest at the top. Lines in each version are in order of importance.
 - If your camp has its own plugin installed too, its skills answer the requests they were
   made for, such as building your own wiki or "good morning", and I don't ask you to connect
   the Hub first for those.
+- If the Hub still says you're not connected after you connect it, "get started" now walks
+  you through quitting the app fully and opening it again. On Windows, closing the window
+  doesn't quit it.
+- If your camp has a Team account, the Hub is your Team's "cg-hub" connector, and each
+  person connects it for themselves with their own camp email code.
 - The safety check changed. When the Hub accepts ChatGPT, type "set me up" there once to
   approve it again.
 
 ## 0.3.9
 
-- Fixed: the Hub connection now shows up in Claude, so "get started" can connect it. In 0.3.8 it
+- Fixed: the Hub connection now shows up in the app, so "get started" can connect it. In 0.3.8 it
   never appeared, so nobody could connect.
 
 ## 0.3.8
