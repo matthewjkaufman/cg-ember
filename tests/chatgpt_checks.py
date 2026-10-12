@@ -49,6 +49,8 @@ ALLOWED = [
     "`reference/screens-claude.md` in this skill's folder if you are Claude, or",
     "follow written instructions. Claude's Cowork and the Codex part of the ChatGPT app are",
     "- You can now use CG Ember in the ChatGPT app as well as in Claude.",
+    # 0.3.10's safety-check line speaks to users of each app in turn.
+    "  If you use Claude, there's nothing to do.",
     # The Hub's own share page labels its upload box with these words, whichever app saved it.
     '3. Click "Choose File" or "Browse..." under "The file Claude saved".',
     # The Hub's own connect page labels its button this way, whichever app is connecting.

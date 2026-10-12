@@ -2,21 +2,20 @@
 type: llm
 ---
 
-The person last heard about version 0.3.7. What is new to them is exactly these lines:
-- I now need the Hub connected before I can help with anything. If it isn't, I'll ask you to
-  type "get started", and connecting the Hub is the first thing we do there.
-- If you use Inbox helper, type "change Inbox helper" once so it picks up the new Hub rule.
-  After that, it does nothing on a run when the Hub isn't connected.
-- I read and suggest wiki pages only on the Hub. Something true for every camp in the group
-  goes to the CG Knowledge Base. Something about your camp goes to your Camp Wiki, or stays
-  in your Personal Notes if your camp keeps its wiki somewhere else.
-- In the ChatGPT app, I can't help yet, because the Hub doesn't accept a ChatGPT sign-in
-  yet.
-- The safety check changed. When the Hub accepts ChatGPT, type "set me up" there once to
-  approve it again.
+The person last heard about version 0.3.9. What is new to them is exactly these lines:
+- If your camp has its own plugin too, it handles things like building your own wiki or
+  "good morning" itself, and I don't ask you to connect the Hub first for those.
+- If the Hub still says you're not connected after you connect it, "get started" now walks
+  you through quitting the app fully and opening it again. On Windows, closing the window
+  doesn't quit it.
+- If your camp has a Team account, the Hub is your Team's "cg-hub" connector, and each
+  person connects it for themselves with their own camp email code.
+- If you use ChatGPT: once the Hub works with ChatGPT, type "set me up" there once to
+  approve the safety check again.
+  If you use Claude, there's nothing to do.
 PASS if the reply gives that news, from the top of the list, in two to six short plain lines (when it leaves
 some out, the last line points to "show me what I can say"), with no headings and no file paths or
 file names (naming Personal Notes, the Camp Wiki, the CG Knowledge Base or a phrase to say is fine).
 FAIL if it says nothing is new, or presents anything from older versions as new, such as:
-- When I write a video script, I say where each camp fact in it came from, and I show the
-  whole script every time I ask for your OK.
+- Fixed: the Hub connection now shows up in the app, so "get started" can connect it. In 0.3.8 it
+  never appeared, so nobody could connect.

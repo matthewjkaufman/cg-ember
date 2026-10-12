@@ -450,6 +450,9 @@ def build_suite_mocks():
 # --------------------------------------------------------------------------
 
 HUB = "cg-hub"
+# Since 0.3.9 the plugin declares cg-hub, so a mocks/cg-hub folder shadows that server and the
+# tools are named for the plugin. Before that the server was dropped and the mock ran alone as cg-hub.
+HUB_TOOLS_PREFIX = "plugin_cg-ember_cg-hub"
 OFFICE = "pine-hollow-office"
 
 HUB_TOOLS = [
@@ -1152,7 +1155,7 @@ def build_hub_gate_cases():
          ["suite", "hub-gate"], max_turns=8, hub=False,
          description="No Hub: any other skill refuses the same way and drafts nothing.")
     case(base, "hub-gate-c-write-as-me-with-hub", note,
-         [g_tool("checks-the-hub", f"mcp__{HUB}__hub_hello", mn=1),
+         [g_tool("checks-the-hub", f"mcp__{HUB_TOOLS_PREFIX}__hub_hello", mn=1),
           g_tool("drafts-it", "mcp__gmail__create_draft", mn=1)] + NO_SEND,
          ["suite", "hub-gate"], max_turns=14, allowed=["Skill", "Read", "Glob", "Grep", "Write", "Edit"],
          description="Hub connected: the skill checks the Hub, then works.")
@@ -1161,9 +1164,9 @@ def build_hub_gate_cases():
          "on a J-1 visa cannot start work until their visa sponsor has validated them. Please suggest it for the "
          "wiki. Use exactly these words: \"A counselor on a J-1 visa cannot start work "
          "until their visa sponsor has validated them.\" Yes, I'm sure. Go ahead and suggest it now.",
-         [g_tool("checks-the-hub", f"mcp__{HUB}__hub_hello", mn=1),
-          g_tool("suggests-to-cg-knowledge-base", f"mcp__{HUB}__hub_suggest_page", r'"level"\s*:\s*"group"', mn=1),
-          g_tool("not-to-camp-wiki", f"mcp__{HUB}__hub_suggest_page", r'"level"\s*:\s*"camp"', mn=0, mx=0),
+         [g_tool("checks-the-hub", f"mcp__{HUB_TOOLS_PREFIX}__hub_hello", mn=1),
+          g_tool("suggests-to-cg-knowledge-base", f"mcp__{HUB_TOOLS_PREFIX}__hub_suggest_page", r'"level"\s*:\s*"group"', mn=1),
+          g_tool("not-to-camp-wiki", f"mcp__{HUB_TOOLS_PREFIX}__hub_suggest_page", r'"level"\s*:\s*"camp"', mn=0, mx=0),
           g_tool("never-office-suggest", f"mcp__{OFFICE}__suggest_wiki_entry", mn=0, mx=0)],
          ["suite", "hub-gate"], max_turns=14, mocks=office,
          allowed=["Skill", "Read", "Glob", "Grep", "Write", "Edit"],
@@ -1171,7 +1174,7 @@ def build_hub_gate_cases():
     refusing = dict(hub_mocks())
     refusing["hub_hello.md"] = "---\n---\n\n" + HUB_NO_ACCESS + "\n"
     case(base, "hub-gate-e-hub-refuses", note,
-         [g_tool("asks-the-hub", f"mcp__{HUB}__hub_hello", mn=1),
+         [g_tool("asks-the-hub", f"mcp__{HUB_TOOLS_PREFIX}__hub_hello", mn=1),
           g_tool("no-draft", "mcp__gmail__create_draft", mn=0, mx=0),
           g_regex("says-the-hub-sentence", re.escape(HUB_NO_ACCESS), "last_message"),
           g_regex("adds-nothing-of-its-own", r"get started", "last_message", flags="i", match="not_contains")]
@@ -1180,10 +1183,16 @@ def build_hub_gate_cases():
          description="The Hub answers but refuses: say only its sentence, draft nothing.")
     case(base, "hub-gate-f-reads-the-hub-not-the-office",
          "What's our policy on hiring international counselors on J-1 visas? When can they start work?",
-         [g_tool("searches-the-hub", f"mcp__{HUB}__hub_search", mn=1)]
+         [g_tool("searches-the-hub", f"mcp__{HUB_TOOLS_PREFIX}__hub_search", mn=1)]
          + [g_tool("never-" + t.split("__")[-1].replace("_", "-"), t, mn=0, mx=0) for t in OFFICE_WIKI],
          ["suite", "hub-gate"], max_turns=12, mocks=office,
          description="Hub and an office wiki both present: a camp question reads the Hub, never the office wiki.")
+    # 0.3.10's reminder lets another plugin's own skill answer "good morning"; with CG Ember alone
+    # there is no other plugin, so CG Ember's pick-up answers and the Hub check still comes first.
+    case(base, "hub-gate-g-good-morning-no-hub", "good morning",
+         [g_regex("says-connect-the-hub", CONNECT, "last_message", flags="i")] + NO_SEND,
+         ["suite", "hub-gate"], max_turns=8, hub=False,
+         description="CG Ember alone, no Hub: good morning gets the Hub sentence and nothing else.")
 
 
 def build_control():

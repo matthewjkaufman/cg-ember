@@ -162,10 +162,11 @@ If it still says they're not connected and they use the ChatGPT app on Windows, 
 needs to quit fully and open again, because the list of connections only refreshes when the
 app starts.
 
-Note: On Windows, closing the ChatGPT window may not be enough. The app can keep running.
+Note: These steps close this window, and these steps close with it. Write the steps on
+paper before you start.
 
-1. Open Task Manager.
+1. Press the Ctrl, Shift and Esc keys at the same time. A window called "Task Manager" opens.
 2. Click "ChatGPT" in the list. If ChatGPT is not in the list, go to step 4.
-3. Click "End task".
-4. Open ChatGPT again.
+3. Click "End task". This only closes ChatGPT.
+4. Open ChatGPT again, the same way you usually open it.
 5. Start a new chat, then type "get started".

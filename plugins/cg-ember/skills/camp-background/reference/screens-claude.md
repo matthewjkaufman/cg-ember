@@ -137,14 +137,23 @@ not guess at other screens.
 If the Hub still does not answer, start a new chat, then type "get started".
 
 If it still says they're not connected, Claude needs to quit fully and open again, because
-the list of connections only refreshes when Claude starts. These steps are for Windows.
+the list of connections only refreshes when Claude starts.
 
-Note: On Windows, closing the Claude window is not enough. Claude keeps running.
+On a Mac, click "Claude" in the top menu bar, then click "Quit Claude". Then open Claude
+again, start a new chat, and type "get started".
 
-1. Right-click the Claude icon near the clock.
-2. Click "Quit".
-3. Open Task Manager.
-4. Click "Claude" in the list. If Claude is not in the list, go to step 6.
-5. Click "End task".
-6. Open Claude again.
-7. Start a new chat, then type "get started".
+On Windows, closing the Claude window is not enough, because Claude keeps running. Give
+these steps:
+
+Note: These steps close this window, and these steps close with it. Write the steps on
+paper before you start.
+
+1. Find the Claude icon near the clock at the bottom right. If you do not see it, click the
+   small upward arrow next to the clock.
+2. Right-click the Claude icon.
+3. Click "Quit".
+4. Press the Ctrl, Shift and Esc keys at the same time. A window called "Task Manager" opens.
+5. Click "Claude" in the list. If Claude is not in the list, go to step 7.
+6. Click "End task". This only closes Claude.
+7. Open Claude again, the same way you usually open it.
+8. Start a new chat, then type "get started".
