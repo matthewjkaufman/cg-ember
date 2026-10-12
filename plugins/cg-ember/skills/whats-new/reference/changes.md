@@ -2,6 +2,11 @@
 
 Newest at the top. Lines in each version are in order of importance.
 
+## 0.3.9
+
+- Fixed: the Hub connection now shows up in Claude, so "get started" can connect it. In 0.3.8 it
+  never appeared, so nobody could connect.
+
 ## 0.3.8
 
 - I now need the Hub connected before I can help with anything. If it isn't, I'll ask you to
