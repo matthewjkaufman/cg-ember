@@ -220,6 +220,10 @@ camps can sign in to, your name is shown as the person who made the skill.
   comes first the moment any CG Ember skill is used, and anything about the Hub, a Camp Wiki
   on the Hub or the CG Knowledge Base stays here. Before that, the reminder pulled those
   requests here.
+  Since 0.3.11 the reminder also carries a short card on what each Hub level holds (subjects
+  only, never page lists or anything about one camp, because it is the same text for every
+  camp) and the rule to search the Hub and name the page before answering. Re-read it when
+  the CG Knowledge Base gains a new subject; the card carries the date it was last checked.
 - Nothing in this repository may name the company that owns it, a camp, or the person who
   made a skill. Run `grep -rliE "camp[g]roup" .` before every push; it must print nothing.
 - American spelling, no dashes joining two thoughts, "child" or "camper" and never the

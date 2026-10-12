@@ -2,6 +2,14 @@
 
 Newest at the top. Lines in each version are in order of importance.
 
+## 0.3.11
+
+- When you ask how something works at camp, in the group or in CG Ember, I look it up on the
+  Hub first and tell you which page the answer came from. If the Hub has nothing on it, I say so.
+- If you use ChatGPT: once the Hub works with ChatGPT, type "set me up" there once to
+  approve the safety check again.
+  If you use Claude, there's nothing to do.
+
 ## 0.3.10
 
 - If your camp has its own plugin too, it handles things like building your own wiki or

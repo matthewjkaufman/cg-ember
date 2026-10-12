@@ -1193,6 +1193,28 @@ def build_hub_gate_cases():
          [g_regex("says-connect-the-hub", CONNECT, "last_message", flags="i")] + NO_SEND,
          ["suite", "hub-gate"], max_turns=8, hub=False,
          description="CG Ember alone, no Hub: good morning gets the Hub sentence and nothing else.")
+    # 0.3.11's reminder carries a card on what each Hub level holds and the rule to search the Hub
+    # and name the page before answering. 0.3.10 passes this too (measured 2026-10-12, 3 of 3), so it
+    # guards that the card does not break the search; it does not prove the card is needed.
+    kb = dict(hub_mocks())
+    kb["hub_search.md"] = mock_json({"results": [
+        {"page_id": "g_18", "level": "group", "title": "Capital Projects (CapEx)",
+         "snippet": "How a camp asks the group for money for buildings, equipment and other lasting improvements.",
+         "changed": "2026-10-08", "version": 1}]})
+    kb["hub_read_page.md"] = mock_json({
+        "page_id": "g_18", "level": "group", "title": "Capital Projects (CapEx)", "changed": "2026-10-08", "version": 1,
+        "text": "# Capital Projects (CapEx). "
+                "A camp director asks for capital money on the group's CapEx request form, "
+                "with two vendor quotes and a photo of what is being replaced. Requests go to the group's operations "
+                "director by March 1 for the coming summer. The group's finance committee approves anything over $10,000."})
+    case(base, "hub-gate-h-group-question-searches-the-hub",
+         "Our pool heater is dying. What do I need to send to get money for a new one, and who approves it?",
+         [g_tool("searches-the-hub", f"mcp__{HUB_TOOLS_PREFIX}__hub_search", mn=1),
+          g_regex("names-the-page", r"Capital Projects", "last_message", flags="i")]
+         + [g_tool("never-" + t.split("__")[-1].replace("_", "-"), t, mn=0, mx=0) for t in OFFICE_WIKI]
+         + NO_SEND,
+         ["suite", "hub-gate", "wiki-card"], max_turns=12, mocks={HUB: kb},
+         description="CG Ember alone, Hub connected: a group question searches the Hub first and names the page.")
 
 
 def build_control():
