@@ -41,9 +41,9 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo 'CG Ember reminder. Before any CG Ember skill does anything, check the Hub the way camp-background section 0 says, and if the Hub is not connected, give only the message in that section and stop.'",
+            "command": "echo 'CG Ember reminder. Before any CG Ember skill does anything, check the Hub the way camp-background section 0 says, and if the Hub is not connected, give only the message in that section and stop. For a camp question or task, use the CG Ember skill that fits.'",
             "timeout": 10,
-            "commandWindows": "echo CG Ember reminder. Before any CG Ember skill does anything, check the Hub the way camp-background section 0 says, and if the Hub is not connected, give only the message in that section and stop."
+            "commandWindows": "echo CG Ember reminder. Before any CG Ember skill does anything, check the Hub the way camp-background section 0 says, and if the Hub is not connected, give only the message in that section and stop. For a camp question or task, use the CG Ember skill that fits."
           }
         ]
       }
