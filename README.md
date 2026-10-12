@@ -214,6 +214,9 @@ camps can sign in to, your name is shown as the person who made the skill.
   up" (set-me-up against a first-run skill), "get started" (get-started, close to that same
   first-run skill's words), and "what can you do" (show-me-what-i-can-say
   against the same first-run skill). Settle these with that camp before both are installed.
+  Since 0.3.9 the SessionStart reminder says that when a camp plugin installed beside this
+  one has a skill made for a request (a personal wiki, "good morning"), that skill answers
+  and the Hub check is not needed; before that, the reminder pulled those requests here.
 - Nothing in this repository may name the company that owns it, a camp, or the person who
   made a skill. Run `grep -rliE "camp[g]roup" .` before every push; it must print nothing.
 - American spelling, no dashes joining two thoughts, "child" or "camper" and never the

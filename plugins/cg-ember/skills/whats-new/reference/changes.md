@@ -2,6 +2,14 @@
 
 Newest at the top. Lines in each version are in order of importance.
 
+## 0.3.10
+
+- If your camp has its own plugin installed too, its skills answer the requests they were
+  made for, such as building your own wiki or "good morning", and I don't ask you to connect
+  the Hub first for those.
+- The safety check changed. When the Hub accepts ChatGPT, type "set me up" there once to
+  approve it again.
+
 ## 0.3.9
 
 - Fixed: the Hub connection now shows up in Claude, so "get started" can connect it. In 0.3.8 it
