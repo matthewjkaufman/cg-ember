@@ -1,0 +1,136 @@
+{
+ "tools": [
+  {
+   "name": "hub_hello",
+   "description": "Check that this app is connected to the Hub, and confirm which person it is connected as. Answers with their name, email, camp, whether the Hub takes Camp Wiki pages for their camp, and whether they may share a skill.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {}
+   }
+  },
+  {
+   "name": "hub_search",
+   "description": "Search the person's Personal Notes on the Hub, their Camp Wiki and the CG Knowledge Base for pages matching some words. Returns up to 20 results with a page id, level, title, snippet, when it changed and its version.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string"
+     },
+     "levels": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "enum": [
+        "personal",
+        "camp",
+        "group"
+       ]
+      }
+     }
+    }
+   }
+  },
+  {
+   "name": "hub_read_page",
+   "description": "Read one page by its id from hub_search. Returns the page id, level, title, full text, when it changed and its version.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "page_id"
+    ],
+    "properties": {
+     "page_id": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  {
+   "name": "hub_suggest_page",
+   "description": "Suggest a page for the person's Camp Wiki or the CG Knowledge Base, or a change to an existing page there, after the person has agreed. The level's approver decides.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "level",
+     "title",
+     "text"
+    ],
+    "properties": {
+     "level": {
+      "type": "string",
+      "enum": [
+       "camp",
+       "group"
+      ],
+      "description": "Where the page goes: camp (the person's Camp Wiki) or group (the CG Knowledge Base)."
+     },
+     "title": {
+      "type": "string"
+     },
+     "text": {
+      "type": "string"
+     },
+     "from_where": {
+      "type": "string",
+      "enum": [
+       "hub",
+       "drive",
+       "dropbox",
+       "computer"
+      ]
+     },
+     "why": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  {
+   "name": "hub_report_wrong",
+   "description": "Report that a Camp Wiki or CG Knowledge Base page is wrong. It goes to that page's approver.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "page_id",
+     "what_is_wrong"
+    ],
+    "properties": {
+     "page_id": {
+      "type": "string"
+     },
+     "what_is_wrong": {
+      "type": "string"
+     },
+     "right_answer": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  {
+   "name": "hub_log_problem",
+   "description": "Write up a problem the person ran into that could not be fixed. Emails nobody.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "what_happened"
+    ],
+    "properties": {
+     "what_happened": {
+      "type": "string"
+     },
+     "what_they_were_doing": {
+      "type": "string"
+     },
+     "workaround_offered": {
+      "type": "string"
+     },
+     "plugin_version": {
+      "type": "string"
+     }
+    }
+   }
+  }
+ ]
+}

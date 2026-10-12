@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: ih-12-no-hub-does-nothing
+context:
+  scaffold_script: scaffold.sh

@@ -56,6 +56,11 @@ These hold for every run, with no exceptions.
 
 ## What to do, in order
 
+**Step 0. Check the Hub first.** Call `hub_hello`, the Hub's own hello. A hello from any
+other connection does not count. If `hub_hello` is not among your tools, or it refuses or
+fails, stop at once: read nothing else, write nothing, make no drafts, and do not retry.
+Only when it answers that {first name} is signed in, go on to step 1.
+
 **Step 1. Read your own page.** Open the **Inbox helper** page in {notes place}. Its first
 line reads "Last run: <date and time>". If there is no page or no such line, this is the
 first run: look back 24 hours. Then read **Questions waiting**, **My answers**, **My camp**

@@ -535,7 +535,9 @@ def office_mocks():
 
 
 OFFICE_WIKI = [f"mcp__{OFFICE}__{t}" for t in ("search_wiki", "read_wiki_page", "suggest_wiki_entry")]
-GET_STARTED = r"get started"
+CONNECT = r"connect the Hub"
+# The Hub's own refusal for an account without the Claude connection (HubConnection, 'no-access').
+HUB_NO_ACCESS = "Your Hub account does not include the Claude connection, so I could not do it."
 
 # --------------------------------------------------------------------------
 # Case writer
@@ -596,10 +598,13 @@ def filled_task_text():
 INBOX_ALLOWED = ["Read", "Glob", "Grep", "Write", "Edit"]
 
 
-def inbox_case(name, threads, graders, drafts=None, smoke=False, description=None):
+def inbox_case(name, threads, graders, drafts=None, smoke=False, description=None, hub=True):
     tags = ["suite", "inbox-helper", "inbox-run"] + (["smoke"] if smoke else [])
+    mocks = gmail_case_mocks(threads, drafts)
+    if hub:  # a scheduled run loads no plugin, so the Hub is added here, not by case()
+        mocks[HUB] = hub_mocks()
     case(("inbox-helper",), name, filled_task_text(), graders + NO_SEND, tags, plugin=False,
-         max_turns=30, timeout=600, allowed=INBOX_ALLOWED, mocks=gmail_case_mocks(threads, drafts),
+         max_turns=30, timeout=600, allowed=INBOX_ALLOWED, mocks=mocks,
          description=description)
 
 
@@ -701,6 +706,15 @@ def build_inbox_cases():
         g_regex("nothing-written-about-it", r"t-801|Owen|Maple Ridge", IH, flags="i", match="not_contains"),
         g_regex("run-still-finished", r"October 2, 2026, 7:00 PM", IH, match="not_contains"),
     ], description="A thread where the person replied after the newest incoming message is skipped.")
+
+    inbox_case("ih-12-no-hub-does-nothing", [
+        thread("t-1201", [msg("m-1201a", "t-1201", "Grace Ito <grace.ito@example.com>", "Lunch?",
+                              "Hi Dana, is lunch included, or should we pack one? Grace", "2026-10-03T06:50:00-04:00")]),
+    ], [
+        g_never("mcp__gmail__create_draft"),
+        g_tool("reads-no-email", "mcp__gmail__search_threads", mn=0, mx=0),
+        g_regex("inbox-page-untouched", r"October 2, 2026, 7:00 PM", IH),
+    ], hub=False, description="No Hub on a scheduled run: it stops, reads no email and writes nothing.")
 
     inbox_case("ih-09-last-run-line-updated", [
         thread("t-901", [msg("m-901a", "t-901", "Grace Ito <grace.ito@example.com>", "Lunch?",
@@ -1126,12 +1140,14 @@ def build_hub_gate_cases():
     note = "Write as me: a short note to Jordan Pike saying Tuesday's staff meeting moved to 4:30 in the dining hall. Put it in my drafts."
     case(base, "hub-gate-a-wiki-question-no-hub",
          "What's our policy on hiring international counselors on J-1 visas? When can they start work?",
-         [g_regex("points-to-get-started", GET_STARTED, "last_message", flags="i")]
+         [g_regex("says-connect-the-hub", CONNECT, "last_message", flags="i"),
+          g_regex("does-not-answer", r"sponsor|SEVIS|validat", "last_message", flags="i", match="not_contains")]
          + [g_tool("never-" + t.split("__")[-1].replace("_", "-"), t, mn=0, mx=0) for t in OFFICE_WIKI],
          ["suite", "hub-gate"], max_turns=8, mocks=office, hub=False,
          description="No Hub, an office wiki present: refuses, points to get started, never reads the office wiki.")
     case(base, "hub-gate-b-write-as-me-no-hub", note,
-         [g_regex("points-to-get-started", GET_STARTED, "last_message", flags="i"),
+         [g_regex("says-connect-the-hub", CONNECT, "last_message", flags="i"),
+          g_regex("does-not-write-it", r"4:30", "last_message", match="not_contains"),
           g_tool("no-draft", "mcp__gmail__create_draft", mn=0, mx=0)] + NO_SEND,
          ["suite", "hub-gate"], max_turns=8, hub=False,
          description="No Hub: any other skill refuses the same way and drafts nothing.")
@@ -1145,12 +1161,29 @@ def build_hub_gate_cases():
          "on a J-1 visa cannot start work until their visa sponsor has validated them. Please suggest it for the "
          "wiki. Use exactly these words: \"A counselor on a J-1 visa cannot start work "
          "until their visa sponsor has validated them.\" Yes, I'm sure. Go ahead and suggest it now.",
-         [g_tool("suggests-to-cg-knowledge-base", f"mcp__{HUB}__hub_suggest_page", r'"level"\s*:\s*"group"', mn=1),
+         [g_tool("checks-the-hub", f"mcp__{HUB}__hub_hello", mn=1),
+          g_tool("suggests-to-cg-knowledge-base", f"mcp__{HUB}__hub_suggest_page", r'"level"\s*:\s*"group"', mn=1),
           g_tool("not-to-camp-wiki", f"mcp__{HUB}__hub_suggest_page", r'"level"\s*:\s*"camp"', mn=0, mx=0),
           g_tool("never-office-suggest", f"mcp__{OFFICE}__suggest_wiki_entry", mn=0, mx=0)],
          ["suite", "hub-gate"], max_turns=14, mocks=office,
          allowed=["Skill", "Read", "Glob", "Grep", "Write", "Edit"],
          description="A fact true for every camp goes to the CG Knowledge Base on the Hub, never the office wiki.")
+    refusing = dict(hub_mocks())
+    refusing["hub_hello.md"] = "---\n---\n\n" + HUB_NO_ACCESS + "\n"
+    case(base, "hub-gate-e-hub-refuses", note,
+         [g_tool("asks-the-hub", f"mcp__{HUB}__hub_hello", mn=1),
+          g_tool("no-draft", "mcp__gmail__create_draft", mn=0, mx=0),
+          g_regex("says-the-hub-sentence", re.escape(HUB_NO_ACCESS), "last_message"),
+          g_regex("adds-nothing-of-its-own", r"get started", "last_message", flags="i", match="not_contains")]
+         + NO_SEND,
+         ["suite", "hub-gate"], max_turns=8, mocks={HUB: refusing},
+         description="The Hub answers but refuses: say only its sentence, draft nothing.")
+    case(base, "hub-gate-f-reads-the-hub-not-the-office",
+         "What's our policy on hiring international counselors on J-1 visas? When can they start work?",
+         [g_tool("searches-the-hub", f"mcp__{HUB}__hub_search", mn=1)]
+         + [g_tool("never-" + t.split("__")[-1].replace("_", "-"), t, mn=0, mx=0) for t in OFFICE_WIKI],
+         ["suite", "hub-gate"], max_turns=12, mocks=office,
+         description="Hub and an office wiki both present: a camp question reads the Hub, never the office wiki.")
 
 
 def build_control():

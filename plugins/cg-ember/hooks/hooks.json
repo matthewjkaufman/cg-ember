@@ -1,5 +1,5 @@
 {
-  "description": "CG Ember drafts and never sends: refuses send-shaped tools on any connection, calendar events with guests, and a scheduled post that is not a draft. commandWindows is used by ChatGPT on Windows (run through cmd.exe); Claude ignores it. The Windows calendar and draft checks refuse whenever their scripts fail, so they fail closed.",
+  "description": "CG Ember drafts and never sends: refuses send-shaped tools on any connection, calendar events with guests, and a scheduled post that is not a draft. commandWindows is used by ChatGPT on Windows (run through cmd.exe); Claude ignores it. The Windows calendar and draft checks refuse whenever their scripts fail, so they fail closed. SessionStart only reminds Claude of the Hub check; it blocks nothing.",
   "hooks": {
     "PreToolUse": [
       {
@@ -32,6 +32,18 @@
             "command": "for p in python3 python; do if command -v $p >/dev/null 2>&1; then $p -c 'import sys,json\ntry:\n i=json.load(sys.stdin)[\"tool_input\"][\"info\"]\n d=json.loads(i) if isinstance(i,str) else i\n ok=isinstance(d,dict) and d.get(\"draft\") is True\nexcept Exception:\n ok=False\nsys.exit(0 if ok else 1)' && exit 0; break; fi; done; echo 'Nothing is wrong. CG Ember only makes a scheduled post as a draft, so nothing goes out on its own. Make it again with draft set to true, and tell the person in one sentence where the draft is.' >&2; exit 2",
             "timeout": 30,
             "commandWindows": "powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \"%PLUGIN_ROOT%\\hooks\\scheduled-post-draft.ps1\" || (echo Nothing is wrong. CG Ember only makes a scheduled post as a draft, so nothing goes out on its own. Make it again with draft set to true, and tell the person in one sentence where the draft is. 1>&2 & exit /b 2)"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'CG Ember reminder. Before any CG Ember skill does anything, check the Hub the way camp-background section 0 says, and if the Hub is not connected, give only the message in that section and stop.'",
+            "timeout": 10,
+            "commandWindows": "echo CG Ember reminder. Before any CG Ember skill does anything, check the Hub the way camp-background section 0 says, and if the Hub is not connected, give only the message in that section and stop."
           }
         ]
       }

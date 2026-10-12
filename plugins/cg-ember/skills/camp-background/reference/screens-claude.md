@@ -100,16 +100,25 @@ say this to them.
 1. Click "Cowork" on the left of the window.
 2. Click "Customize".
 3. Click "Connectors".
-4. Find the Hub. It may be listed as "cg-hub".
+4. Find "cg-hub" in the list. That is the Hub.
 5. Click "Connect".
-6. Sign in to the Hub with your camp email address. Type the six-digit code the Hub emails
-   you.
 
-Note: If the Hub names somebody else, click "No, do not connect" and stop here.
+Note: The Hub opens in your web browser. Leave it open while you get the code.
 
-7. Read who the Hub says you are signed in as.
-8. Click "Yes, connect Claude".
-9. Come back to this conversation, in the list on the left.
+6. Type your camp email address in the box.
+7. Click "Email me a code".
+8. Open your email. Find the newest email from the Hub.
+9. Go back to the Hub's page in your web browser.
+10. Type the six-digit code from that email.
+
+Note: The next page asks you to check your own name. If it's your name, click "Yes, connect
+Claude". If it names somebody else, click "No, do not connect" and stop here.
+
+11. Read who the Hub says you are signed in as.
+12. Click "Yes, connect Claude".
+13. Come back to this conversation, in the list on the left.
 
 If the Hub is not in the list, ask what they see under "Connectors" and work from that. Do
 not guess at other screens.
+
+If the Hub still does not answer, start a new chat, then type "get started".

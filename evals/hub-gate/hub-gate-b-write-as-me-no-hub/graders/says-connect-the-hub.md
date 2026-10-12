@@ -1,6 +1,6 @@
 ---
 type: regex
-pattern: 'get started'
+pattern: 'connect the Hub'
 flags: i
 target: last_message
 ---

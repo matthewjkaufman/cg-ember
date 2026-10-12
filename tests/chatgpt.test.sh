@@ -62,6 +62,12 @@ open(f,"w",encoding="utf-8").write(s.replace("**The Hub comes first.**","**First
 control drop-hub-message '
 import sys,os; f=os.path.join(sys.argv[1],"skills","camp-background","SKILL.md"); s=open(f,encoding="utf-8").read()
 open(f,"w",encoding="utf-8").write(s.replace("Type \"get","Type \"set me up\" or \"get"))'
+control drop-session-reminder '
+import sys,os,json; f=os.path.join(sys.argv[1],"hooks","hooks.json"); d=json.load(open(f,encoding="utf-8"))
+del d["hooks"]["SessionStart"]; json.dump(d,open(f,"w",encoding="utf-8"))'
+control session-reminder-blocks '
+import sys,os,json; f=os.path.join(sys.argv[1],"hooks","hooks.json"); d=json.load(open(f,encoding="utf-8"))
+h=d["hooks"]["SessionStart"][0]["hooks"][0]; h["command"]=h["command"]+"; exit 2"; json.dump(d,open(f,"w",encoding="utf-8"))'
 control hub-step-not-first '
 import sys,os; f=os.path.join(sys.argv[1],"skills","get-started","SKILL.md"); s=open(f,encoding="utf-8").read()
 a=s.index("## Before anything else: connect the Hub"); b=s.index("## Picking up where they left off"); c=s.index("## Part 1:")

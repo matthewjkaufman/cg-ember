@@ -131,6 +131,10 @@ Ask what to change, then update that same task (its times, or its text refilled 
 template). Never make a second one. If you cannot change tasks from here, give the clicks
 in section D of the screens page.
 
+If they type "change Inbox helper" and name nothing to change, refill the task's text from
+the template as it is now, keeping their times, and say in one sentence that it now
+follows the newest rules.
+
 ## Stop it
 
 Find the same task and switch it off, or delete it if they ask. If you cannot, give the

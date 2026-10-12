@@ -114,10 +114,9 @@ knows who they are and which camp they are at. Every other skill checks for it f
    Base, and it is how this plugin knows which camp they are at. Then say: "The Hub has no
    password. It emails a six-digit code to your camp address." Then walk them through the
    screens page, section J. When they say it is done, call `hub_hello` again. If it is still
-   not among your tools, tell them to start a new conversation and type "get started"
-   again, because a new connection often shows up only in a new conversation.
-4. **If it refuses**, say its sentence word for word, and say that everything here starts
-   working once the Hub lets them in.
+   not among your tools, give section J's last line, because a new connection often shows
+   up only in a new chat.
+4. **If it refuses**, say its sentence word for word, and nothing more.
 5. **If it will not connect after that**, point them to the Hub's public Getting Started
    page, whose address is in the welcome email. Its "Something stopped me" form reaches the
    people who look after CG Ember.

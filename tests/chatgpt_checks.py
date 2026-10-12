@@ -18,13 +18,14 @@ What it checks:
 4. Every skill carries the same never-send sentence (camp-background holds the full rule).
 5. No skill names Claude's screens or Claude itself outside screens-claude.md, apart from
    the lines on the allow list below.
-6. Both screens pages have the same sections, A to H.
+6. Both screens pages have the same sections, A to J.
 7. Descriptions: each at most 400 characters, all together at most 6,500 (the readme's
    rule, under Codex's 8,000-character budget for the skill list).
 8. The Hub gate: every skill except camp-background and get-started carries the same gate
    paragraph; camp-background holds section 0 with its fixed message; get-started connects
    the Hub before it reads where they left off. Text cannot prove the model obeys it; this
    proves no skill ships without it.
+9. The SessionStart reminder points at camp-background section 0 and never blocks.
 """
 import glob
 import json
@@ -38,8 +39,9 @@ HUB_GATE = ("**The Hub comes first.** Before anything else, run the Hub check in
             "section 0, and if the Hub is not connected, give only that section's message and stop. "
             "The Camp Wiki and the CG Knowledge Base are read and written only through the Hub's own "
             "tools, never through another connection's wiki.")
-HUB_MESSAGE = ("I can't help with that yet, because you're not connected to the Hub. Type \"get "
-               "started\" and I'll walk you through connecting it.")
+HUB_MESSAGE = ("I can't help with that yet. First we need to connect the Hub, which is your camp "
+               "group's website. It tells me who you are and which camp you work at. Type \"get "
+               "started\" and I'll walk you through it, one step at a time.")
 CLAUDE_WORDS = re.compile(r"\b(Claude|Cowork|Customize|Capabilities|Anthropic)\b")
 # Lines that may name Claude because they are about both apps.
 ALLOWED = [
@@ -50,7 +52,8 @@ ALLOWED = [
     # The Hub's own share page labels its upload box with these words, whichever app saved it.
     '3. Click "Choose File" or "Browse..." under "The file Claude saved".',
     # The Hub's own connect page labels its button this way, whichever app is connecting.
-    "6. Click \"Yes, connect Claude\". The Hub's button uses that name whichever app you use.",
+    "10. Click \"Yes, connect Claude\". The Hub's button uses that name whichever app you use.",
+    "Claude\". If it names somebody else, click \"No, do not connect\" and stop here.",
 ]
 HOOK_TOP = {"description", "hooks"}
 HOOK_GROUP = {"matcher", "hooks"}
@@ -92,6 +95,38 @@ def main(plugin):
     for key in set(hooks) - HOOK_TOP:
         bad(f"hooks.json: field {key!r} would make ChatGPT ignore the whole file")
     groups = hooks.get("hooks", {}).get("PreToolUse", [])
+    # 9: the SessionStart reminder. It points at camp-background section 0, never blocks
+    # (no exit 2), and has a Windows command like every other check.
+    for ev in set(hooks.get("hooks", {})) - {"PreToolUse", "SessionStart"}:
+        bad(f"hooks.json: event {ev!r} is not one this plugin uses")
+    starts = hooks.get("hooks", {}).get("SessionStart", [])
+    start_handlers = [h for g in starts for h in g.get("hooks", [])]
+    if len(start_handlers) != 1:
+        bad(f"hooks.json: expected one SessionStart reminder, found {len(start_handlers)}")
+    for g in starts:
+        for key in set(g) - HOOK_GROUP:
+            bad(f"hooks.json: SessionStart group field {key!r} is not one ChatGPT reads")
+    for h in start_handlers:
+        for key in set(h) - HOOK_HANDLER:
+            bad(f"hooks.json: SessionStart handler field {key!r} is not one ChatGPT reads")
+        for field in ("command", "commandWindows"):
+            c = h.get(field, "")
+            if "camp-background section 0" not in c:
+                bad(f"hooks.json: the SessionStart {field} does not point to camp-background section 0")
+            if "exit 2" in c or "exit /b 2" in c:
+                bad(f"hooks.json: the SessionStart {field} could block; it must only remind")
+        if os.name == "nt":
+            p = subprocess.run('cmd.exe /C "' + h.get("commandWindows", "") + '"', capture_output=True, timeout=60)
+            if p.returncode != 0 or b"camp-background section 0" not in p.stdout:
+                bad(f"Windows SessionStart reminder: exit {p.returncode}, expected 0 with the reminder")
+        import shutil
+        sh = shutil.which("bash")
+        if sh:
+            p = subprocess.run([sh, "-c", h.get("command", "")], capture_output=True, timeout=60)
+            if p.returncode != 0 or b"camp-background section 0" not in p.stdout:
+                bad(f"SessionStart reminder in a shell: exit {p.returncode}, expected 0 with the reminder")
+        else:
+            skipped.append("the SessionStart reminder in a shell (no bash here)")
     for g in groups:
         for key in set(g) - HOOK_GROUP:
             bad(f"hooks.json: group field {key!r} is not one ChatGPT reads")

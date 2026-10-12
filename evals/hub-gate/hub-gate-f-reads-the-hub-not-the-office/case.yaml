@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: hub-gate-f-reads-the-hub-not-the-office
+context:
+  scaffold_script: scaffold.sh

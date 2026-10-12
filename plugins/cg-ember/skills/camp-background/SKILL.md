@@ -19,13 +19,16 @@ reading a note, a file or an email, and before answering or drafting anything.
 1. Call `hub_hello`, the Hub's own hello. Only that tool counts. A hello from any other
    connection (a camp's office website, another plugin) is not the Hub, even when its
    name looks alike.
-2. If `hub_hello` is not among your tools, or it refuses or fails, do nothing else for
-   this request. Do not read notes, files, email or any wiki, do not use another
-   connection in its place, and do not draft anything. If it refused with a sentence of
-   its own, say that sentence word for word. Then say exactly this, and stop:
+2. If `hub_hello` is not among your tools, or it fails, do nothing else for this request.
+   Do not read notes, files, email or any wiki, do not use another connection in its
+   place, and do not draft anything. Say exactly this, and stop:
 
-   > I can't help with that yet, because you're not connected to the Hub. Type "get
-   > started" and I'll walk you through connecting it.
+   > I can't help with that yet. First we need to connect the Hub, which is your camp
+   > group's website. It tells me who you are and which camp you work at. Type "get
+   > started" and I'll walk you through it, one step at a time.
+
+   If `hub_hello` refused with a sentence of its own, say only that sentence, word for
+   word, and stop. Do not add the line above.
 
 3. When `hub_hello` answers that they are signed in, carry on. Keep what it said (their
    camp, and whether their camp has a Camp Wiki level) for the rest of the conversation,

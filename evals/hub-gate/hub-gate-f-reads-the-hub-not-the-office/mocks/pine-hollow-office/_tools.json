@@ -1,0 +1,60 @@
+{
+ "tools": [
+  {
+   "name": "hello_pine_hollow",
+   "description": "Check that this app is connected to the Pine Hollow office, and confirm which office person it is connected as.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {}
+   }
+  },
+  {
+   "name": "search_wiki",
+   "description": "Search the Pine Hollow office wiki: how camp runs, who owns what, business rules, regulations, vendors, hiring. Then read a page in full with read_wiki_page.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "query"
+    ],
+    "properties": {
+     "query": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  {
+   "name": "read_wiki_page",
+   "description": "Read one page of the Pine Hollow office wiki in full, by the path search_wiki gave.",
+   "inputSchema": {
+    "type": "object",
+    "required": [
+     "path"
+    ],
+    "properties": {
+     "path": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  {
+   "name": "suggest_wiki_entry",
+   "description": "Propose something worth writing down about how camp runs, for the office to accept or decline.",
+   "inputSchema": {
+    "type": "object",
+    "properties": {
+     "proposal": {
+      "type": "string"
+     },
+     "basis": {
+      "type": "string"
+     },
+     "page_path": {
+      "type": "string"
+     }
+    }
+   }
+  }
+ ]
+}

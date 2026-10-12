@@ -160,7 +160,9 @@ camps can sign in to, your name is shown as the person who made the skill.
   except get-started first calls `hub_hello` and does nothing else when the Hub is missing
   or refuses (camp-background section 0). That is written instruction, not a lock: no hook
   can see which connections a conversation has. `tests/chatgpt.test.sh` checks every skill
-  carries the gate paragraph.
+  carries the gate paragraph. A SessionStart hook in `hooks/hooks.json` reminds the model of
+  section 0 at the start of a session and blocks nothing. Inbox helper's scheduled run has
+  the same check as its step 0.
 - `plugins/cg-ember/hooks/hooks.json` refuses send-shaped tools on any connection,
   calendar events with guests, and a scheduled post that is not a draft. Its commands are
   POSIX shell (Cowork runs them on Linux, Claude Code on Windows runs them in Git Bash).
