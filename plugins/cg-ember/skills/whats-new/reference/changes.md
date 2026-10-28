@@ -2,6 +2,11 @@
 
 Newest at the top. Lines in each version are in order of importance.
 
+## 0.3.12
+
+- Great Camp Jobs now lives at apply.greatcampjobs.com. The video links and the
+  share link point there. Old links still work and take you to the new address.
+
 ## 0.3.11
 
 - When you ask how something works at camp, in the group or in CG Ember, I look it up on the
