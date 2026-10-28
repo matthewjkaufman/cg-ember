@@ -89,7 +89,7 @@ A slot can also say "made, no web address yet", with the video's file name after
 brackets. That file is not online, so treat it like "not made yet". A slot that holds a web
 address has it after the name:
 
-> Video slot: "Welcome to CG Ember" https://cg.ramaquois.com/videos/ainsley/welcome.mp4
+> Video slot: "Welcome to CG Ember" https://apply.greatcampjobs.com/videos/ainsley/welcome.mp4
 
 **A slot with no web address is skipped in silence.** Never mention a video, never
 promise one, never show a link, and never show a file name. When a slot holds a web address instead, offer it once, in
@@ -103,7 +103,7 @@ Nothing else in this plugin works until the Hub is connected, because the Hub is
 knows who they are and which camp they are at. Every other skill checks for it first
 (camp-background section 0) and does nothing without it.
 
-> Video slot: "Signing in to the Hub" https://cg.ramaquois.com/videos/ainsley/signing-in-to-the-hub.mp4
+> Video slot: "Signing in to the Hub" https://apply.greatcampjobs.com/videos/ainsley/signing-in-to-the-hub.mp4
 
 1. Call `hub_hello`, the Hub's own hello. A hello from any other connection does not
    count, even when its name looks alike.
@@ -147,7 +147,7 @@ go there. If all six are done, say so and offer "teach me something" instead.
 
 ## Part 1: connect your accounts and apps
 
-> Video slot: "Welcome to CG Ember" https://cg.ramaquois.com/videos/ainsley/welcome.mp4
+> Video slot: "Welcome to CG Ember" https://apply.greatcampjobs.com/videos/ainsley/welcome.mp4
 
 Say what this part is, in one or two sentences: the app can only help with what it can
 reach, so the first job is connecting their email, files and calendar, then the other apps

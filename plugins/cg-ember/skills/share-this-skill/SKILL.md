@@ -171,7 +171,7 @@ write what happened in the problem log, as camp-background section 6 says, and s
 > log, so it gets shared later.
 
 Otherwise, give these steps one at a time. Step 1's link opens
-https://cg.ramaquois.com/skills/share, shown only as the words "Share a skill".
+https://apply.greatcampjobs.com/skills/share, shown only as the words "Share a skill".
 
 1. Click this link: Share a skill.
 2. Sign in with your work Google account. If your camp email is not Google, choose the
